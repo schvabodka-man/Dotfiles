@@ -1,0 +1,40 @@
+"*":
+  "atom-beautify":
+    general:
+      analytics: false
+  "color-picker":
+    preferredFormat: "HEX"
+    uppercaseColorValues: true
+  core:
+    autoHideMenuBar: true
+    disabledPackages: [
+      "metrics"
+      "background-tips"
+      "welcome"
+    ]
+    packagesWithKeymapsDisabled: [
+      "tool-bar"
+      "git-time-machine"
+      "highlight-selected"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "seti-ui"
+      "seti-syntax"
+    ]
+  "exception-reporting":
+    userId: "3bacd1ad-b5ee-c8a9-66a3-a556156e0012"
+  "git-diff":
+    showIconsInEditorGutter: true
+  "highlight-selected": {}
+  "project-manager":
+    includeGitRepositories: true
+  "split-diff":
+    diffWords: true
+    ignoreWhitespace: true
+    syncHorizontalScroll: true
+  "tool-bar":
+    iconSize: "16px"
+    position: "Left"
+  welcome:
+    showOnStartup: false
