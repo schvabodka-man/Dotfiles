@@ -2,6 +2,8 @@
   "atom-beautify":
     general:
       analytics: false
+  "character-table":
+    mnemonicAllowReversed: false
   "color-picker":
     preferredFormat: "HEX"
     uppercaseColorValues: true
@@ -16,6 +18,7 @@
       "tool-bar"
       "git-time-machine"
       "highlight-selected"
+      "character-table"
     ]
     telemetryConsent: "no"
     themes: [
@@ -26,7 +29,6 @@
     userId: "3bacd1ad-b5ee-c8a9-66a3-a556156e0012"
   "git-diff":
     showIconsInEditorGutter: true
-  "highlight-selected": {}
   "project-manager":
     includeGitRepositories: true
   "split-diff":

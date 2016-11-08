@@ -33,12 +33,20 @@
         type: "button"
         callback: "open-on-github:file"
         tooltip: "Open on Githubb"
-        icon: "octoface"
+        icon: "github"
+        iconset: "fa"
     }
     {
         type: "button"
         icon: "terminal"
         callback: "term3:open"
         tooltip: "Open Terminal"
+    }
+    {
+      type: "button"
+      icon: "font"
+      iconset: "fa"
+      callback: "character-table:toggle"
+      tooltip: "Characters Table"
     }
 ]
