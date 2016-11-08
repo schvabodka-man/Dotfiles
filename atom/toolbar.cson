@@ -10,14 +10,15 @@
 
     {
         type: "button"
-        icon: "git-plain"
+        icon: "git"
         callback: "git-control:toggle"
-        iconset: "devicon"
+        iconset: "fa"
         tooltip: "Git"
     }
     {
         type: "button"
-        icon: "circuit-board"
+        icon: "code-fork"
+        iconset: "fa"
         callback: "split-diff:toggle"
         tooltip: "Diff"
     }
