@@ -22,6 +22,10 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec xfce4-terminal
 
+#Rofi
+bindsym $mod+d exec rofi -show run -hide-scrollbar -bw 0 -lines 10
+bindsym $mod+w exec rofi -show window -hide-scrollbar -bw 0 -lines 5
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -60,7 +64,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
