@@ -108,11 +108,11 @@ focus_follows_mouse no
 #Window decorations
 new_window pixel 2
 new_float pixel 2
-client.focused #ffffff #ffffff #ffffff
+client.focused #FFFFFF #FFFFFF #FFFFFF
 
 #gaps
 gaps inner 10
-gaps outer 10
+gaps outer 1
 
 # Autoexec
 #Wallpaper
