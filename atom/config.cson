@@ -2,6 +2,10 @@
   "atom-beautify":
     general:
       analytics: false
+  "atom-diary":
+    baseDir: "~/Dropbox/Notes"
+    filePrefix: "note"
+    markupLanguage: "Markdown"
   "character-table":
     mnemonicAllowReversed: false
   "color-picker":
@@ -40,3 +44,6 @@
     position: "Left"
   welcome:
     showOnStartup: false
+".ini.source":
+  editor:
+    showInvisibles: true
