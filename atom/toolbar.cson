@@ -43,10 +43,17 @@
         tooltip: "Open Terminal"
     }
     {
-      type: "button"
-      icon: "font"
-      iconset: "fa"
-      callback: "character-table:toggle"
-      tooltip: "Characters Table"
+        type: "button"
+        icon: "font"
+        iconset: "fa"
+        callback: "character-table:toggle"
+        tooltip: "Characters Table"
+    }
+    {
+        type: "button"
+        icon: "calendar"
+        iconset: "fa"
+        callback: "atom-diary:toggleCalendar"
+        tooltip: "Calendar"
     }
 ]
