@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=4.5
+Exec=/home/scvh/.config/fish/shortcuts/wolfenstein3d_for_desktop.fish
+Name=Brutal Wolfenstein
+GenericName=Brutal Wolfenstein
+Encoding=UTF-8
+Terminal=true
+Type=Application
+Categories=Game;
+Icon=/home/scvh/Pictures/icons/wolf3d.png
