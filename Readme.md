@@ -6,4 +6,3 @@
 - Fish - fish shell scripts
 - Atom - atom editor configs
 - I3 - i3wm config
-- Desktop - custom .desktop files

@@ -3,7 +3,7 @@
     general:
       analytics: false
   "atom-diary":
-    baseDir: "~/Dropbox/Notes"
+    baseDir: "~/Notes/"
     filePrefix: "note"
     markupLanguage: "Markdown"
   "character-table":

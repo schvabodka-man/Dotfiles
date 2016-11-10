@@ -23,8 +23,8 @@ floating_modifier $mod
 bindsym $mod+Return exec xfce4-terminal
 
 #Rofi
-bindsym $mod+d exec rofi -show run -hide-scrollbar -bw 0 -lines 10
-bindsym $mod+w exec rofi -show window -hide-scrollbar -bw 0 -lines 5
+bindsym $mod+d exec rofi -show run -hide-scrollbar -bw 0 -lines 10 -separator-style none -fullscreen -padding 300 -color-window "#0a0a0a" -line-margin 0
+bindsym $mod+w exec rofi -show window -hide-scrollbar -bw 0 -lines 5 -separator-style none -fullscreen -padding 300 -color-window "#0a0a0a" -line-margin 0
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -110,12 +110,12 @@ bindsym $mod+Shift+r restart
 focus_follows_mouse no
 
 #Window decorations
-new_window pixel 2
+new_window pixel
 new_float pixel 2
 client.focused #FFFFFF #FFFFFF #FFFFFF
 
 #gaps
-gaps inner 10
+gaps inner 7
 gaps outer 1
 
 # Autoexec
@@ -124,3 +124,5 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id synergy
 #Syncthing
 exec --no-startup-id syncthing-gtk
+#Compton compositing
+exec --no-startup-id compton -CGb
