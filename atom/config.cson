@@ -29,6 +29,8 @@
       "seti-ui"
       "seti-syntax"
     ]
+  editor:
+    fontFamily: "Fira Code"
   "exception-reporting":
     userId: "3bacd1ad-b5ee-c8a9-66a3-a556156e0012"
   "git-diff":

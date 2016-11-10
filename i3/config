@@ -1,21 +1,6 @@
 #Modkey
 set $mod Mod4
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-font pango:monospace 8
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -23,31 +8,22 @@ floating_modifier $mod
 bindsym $mod+Return exec xfce4-terminal
 
 #Rofi
-bindsym $mod+d exec rofi -show run -hide-scrollbar -bw 0 -lines 10 -separator-style none -fullscreen -padding 300 -color-window "#0a0a0a" -line-margin 0
-bindsym $mod+w exec rofi -show window -hide-scrollbar -bw 0 -lines 5 -separator-style none -fullscreen -padding 300 -color-window "#0a0a0a" -line-margin 0
+bindsym $mod+d exec rofi -show run -hide-scrollbar -bw 0 -separator-style none -fullscreen -padding 300 -color-window "#0a0a0a" -line-margin 0 -opacity "90"
+bindsym $mod+w exec rofi -show window -hide-scrollbar -bw 0 -separator-style none -fullscreen -padding 300 -color-window "#0a0a0a" -line-margin 0 -opacity "90"
 
-# kill focused window
-bindsym $mod+Shift+q kill
+#Make a screenshot
+bindsym Print exec xfce4-screenshooter
 
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+#Close window
+bindsym $mod+q kill
 
-# alternatively, you can use the cursor keys:
+#Switching between windows
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
+#Moving windows
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -59,7 +35,7 @@ bindsym $mod+h split h
 # split in vertical orientation
 bindsym $mod+v split v
 
-# enter fullscreen mode for the focused container
+#Fullscreen
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
@@ -72,12 +48,6 @@ bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -104,24 +74,23 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # restart i3
-bindsym $mod+Shift+r restart
+bindsym $mod+r restart
 
 #Focus are not following mouse
 focus_follows_mouse no
 
 #Window decorations
-new_window pixel
+new_window pixel 2
 new_float pixel 2
 client.focused #FFFFFF #FFFFFF #FFFFFF
 
 #gaps
 gaps inner 7
-gaps outer 1
+gaps outer 5
 
 # Autoexec
 #Wallpaper
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id synergy
 #Syncthing
 exec --no-startup-id syncthing-gtk
 #Compton compositing
