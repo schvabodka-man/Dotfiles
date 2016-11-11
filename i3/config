@@ -9,7 +9,7 @@ bindsym $mod+Return exec xfce4-terminal
 
 #Rofi
 bindsym $mod+d exec rofi -show run -hide-scrollbar -fullscreen
-bindsym $mod+w exec rofi -show window -hide-scrollbar -fullscreen 
+bindsym $mod+w exec rofi -show window -hide-scrollbar -fullscreen
 
 #Make a screenshot
 bindsym Print exec xfce4-screenshooter
@@ -44,10 +44,7 @@ bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+space floating toggle
 
 # switch to workspace
 bindsym $mod+1 workspace 1
