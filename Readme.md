@@ -6,3 +6,10 @@
 - Fish - fish shell scripts
 - Atom - atom editor configs
 - I3 - i3wm config
+- desktop - custom desktop entries
+- games - configs for game i loved :)
+- graphics - wallpaper and icons i'm using
+- x11 - xorg config files
+
+Empty desktop
+![alt tag](https://transfer.sh/12JLSN/empty.png)

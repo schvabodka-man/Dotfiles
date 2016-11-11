@@ -31,6 +31,7 @@
     ]
   editor:
     fontFamily: "Fira Code"
+    fontSize: 15
   "exception-reporting":
     userId: "3bacd1ad-b5ee-c8a9-66a3-a556156e0012"
   "git-diff":
