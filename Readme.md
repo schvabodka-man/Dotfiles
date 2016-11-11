@@ -12,4 +12,14 @@
 - x11 - xorg config files
 
 Empty desktop
-![alt tag](https://transfer.sh/12JLSN/empty.png)
+![alt tag](https://transfer.sh/15jGib/empty.png)
+
+Atom Editor with terminal
+![alt tag](https://transfer.sh/TMTG6/editor-with-screenfetch.png)
+
+Rofi
+![alt tag](https://transfer.sh/KAJnz/rofi-app-laucnh.png)
+![alt tag](https://transfer.sh/VORNg/rofi-window-switcher.png)
+
+Screenfetch(i'm currently using manjaro linux)
+![alt tag](https://transfer.sh/mLj6a/screenfetch.png)
