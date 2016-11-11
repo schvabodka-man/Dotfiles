@@ -8,8 +8,8 @@ floating_modifier $mod
 bindsym $mod+Return exec xfce4-terminal
 
 #Rofi
-bindsym $mod+d exec rofi -show run -hide-scrollbar -bw 0 -separator-style none -fullscreen -padding 300 -color-window "#0a0a0a" -line-margin 0 -opacity "90"
-bindsym $mod+w exec rofi -show window -hide-scrollbar -bw 0 -separator-style none -fullscreen -padding 300 -color-window "#0a0a0a" -line-margin 0 -opacity "90"
+bindsym $mod+d exec rofi -show run -hide-scrollbar -fullscreen
+bindsym $mod+w exec rofi -show window -hide-scrollbar -fullscreen 
 
 #Make a screenshot
 bindsym Print exec xfce4-screenshooter
