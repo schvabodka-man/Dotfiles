@@ -14,7 +14,7 @@
 Empty desktop
 ![alt tag](https://transfer.sh/15jGib/empty.png)
 
-Atom Editor with terminal
+Atom Editor(in this screenshot used as organizer and tool for taking notes) with terminal
 ![alt tag](https://transfer.sh/TMTG6/editor-with-screenfetch.png)
 
 Rofi
