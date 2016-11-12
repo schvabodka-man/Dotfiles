@@ -2,10 +2,6 @@
   "atom-beautify":
     general:
       analytics: false
-  "atom-diary":
-    baseDir: "~/Notes/"
-    filePrefix: "note"
-    markupLanguage: "Markdown"
   "character-table":
     mnemonicAllowReversed: false
   "color-picker":

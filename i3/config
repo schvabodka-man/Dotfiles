@@ -59,8 +59,9 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 #windows assigning
-assign [class="Chromium"] 1
+assign [class="Vivaldi"] 1
 assign [class="Steam"] 2
+assign [class="Deadbeef"] 3
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1

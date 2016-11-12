@@ -49,11 +49,4 @@
         callback: "character-table:toggle"
         tooltip: "Characters Table"
     }
-    {
-        type: "button"
-        icon: "calendar"
-        iconset: "fa"
-        callback: "atom-diary:toggleCalendar"
-        tooltip: "Calendar"
-    }
 ]
