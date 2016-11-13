@@ -85,7 +85,6 @@ focus_follows_mouse no
 new_window pixel 2
 new_float pixel 2
 client.focused #FFFFFF #FFFFFF #FFFFFF #FFFFFF
-hide_edge_borders both
 
 #gaps
 gaps inner 7
