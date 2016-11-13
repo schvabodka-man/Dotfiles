@@ -2,6 +2,10 @@
   "atom-beautify":
     general:
       analytics: false
+  "atom-diary":
+    baseDir: "Notes"
+    filePrefix: "note"
+    markupLanguage: "Markdown"
   "character-table":
     mnemonicAllowReversed: false
   "color-picker":
@@ -19,6 +23,7 @@
       "git-time-machine"
       "highlight-selected"
       "character-table"
+      "atom-diary"
     ]
     telemetryConsent: "no"
     themes: [

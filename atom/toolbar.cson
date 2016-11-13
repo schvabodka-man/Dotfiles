@@ -49,4 +49,18 @@
         callback: "character-table:toggle"
         tooltip: "Characters Table"
     }
+    {
+        type: "button"
+        icon: "calendar"
+        iconset: "fa"
+        callback: "atom-diary:toggleCalendar"
+        tooltip: "Calendar"
+    }
+    {
+        type: "button"
+        icon: "calendar-plus-o"
+        iconset: "fa"
+        callback: "atom-diary:addEntry"
+        tooltip: "New Calendar Entry"
+    }
 ]
