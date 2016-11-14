@@ -30,9 +30,23 @@
 <action>
 	<icon>syncthing</icon>
 	<name>Sync</name>
-	<unique-id>1479060572580920-2</unique-id>
+	<unique-id>1479104718077371-1</unique-id>
 	<command>cp %F /home/scvh/Sync</command>
 	<description>Sync this files</description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>atom</icon>
+	<name>Sudo Atom</name>
+	<unique-id>1479105446555223-8</unique-id>
+	<command>gksudo atom %f</command>
+	<description>Edit as root</description>
 	<patterns>*</patterns>
 	<directories/>
 	<audio-files/>
