@@ -30,8 +30,8 @@
 <action>
 	<icon>syncthing</icon>
 	<name>Sync</name>
-	<unique-id>1479104718077371-1</unique-id>
-	<command>cp %F /home/scvh/Sync</command>
+	<unique-id>1479106248401883-15</unique-id>
+	<command>cp %F /home/scvh/Sync &amp;&amp; notify-send -i /home/scvh/Pictures/icons/sync.png &quot;Synced!&quot;</command>
 	<description>Sync this files</description>
 	<patterns>*</patterns>
 	<directories/>
