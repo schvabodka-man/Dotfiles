@@ -63,4 +63,11 @@
         callback: "atom-diary:addEntry"
         tooltip: "New Calendar Entry"
     }
+    {
+        type: "button"
+        icon: "play"
+        iconset: "fa"
+        callback: "script:run"
+        tooltip: "Run Script"
+    }
 ]
