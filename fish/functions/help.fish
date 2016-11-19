@@ -1,0 +1,17 @@
+function help
+    echo "Help"
+    echo "File Managing:"
+    echo "browser - run thunar as super user"
+    echo "cdls - run ls after cd"
+    echo "Syncing:"
+    echo "transfersh - upload file(s) to transfer.sh"
+    echo "syncit - sync file with my other devices"
+    echo "Google Drive:"
+    echo "gdrive-add - add new gdrive to pull(first argument - name, second - api token)"
+    echo "gdrive-mount - mount current gdrive's to file system"
+    echo "System:"
+    echo "rofi-cache-clear - clear rofi cache"
+    echo "xresourcesupdate - update .xresources database"
+    echo "Games:"
+    echo "wolfenstein3d - run brutal wolfenstein"
+end
