@@ -52,7 +52,7 @@ bindsym $mod+2 workspace games
 bindsym $mod+3 workspace music
 bindsym $mod+4 workspace dev
 bindsym $mod+5 workspace editor
-bindsym $mod+6 workspace 6
+bindsym $mod+6 workspace torrent
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
@@ -64,6 +64,7 @@ assign [class="Steam"] games
 assign [class="Clementine"] music
 assign [class="jetbrains-studio"] dev
 assign [class="Atom"] editor
+assign [class="Transmission-gtk"] torrent
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
