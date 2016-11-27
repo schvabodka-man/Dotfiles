@@ -59,7 +59,7 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 #windows assigning
-assign [class="Vivaldi"] www
+assign [class="Chromium"] www
 assign [class="Steam"] games
 assign [class="Clementine"] music
 assign [class="jetbrains-studio"] dev
