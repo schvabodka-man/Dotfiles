@@ -53,7 +53,7 @@ bindsym $mod+3 workspace music
 bindsym $mod+4 workspace dev
 bindsym $mod+5 workspace editor
 bindsym $mod+6 workspace torrent
-bindsym $mod+7 workspace 7
+bindsym $mod+7 workspace im
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
@@ -65,6 +65,7 @@ assign [class="Clementine"] music
 assign [class="jetbrains-studio"] dev
 assign [class="Atom"] editor
 assign [class="Transmission-gtk"] torrent
+assign [class="Pidgin"] im
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -96,7 +97,5 @@ gaps outer 5
 # Autoexec
 #Wallpaper
 exec --no-startup-id nitrogen --restore
-#Syncthing
-exec --no-startup-id syncthing-gtk
-#Compton compositing
-exec --no-startup-id compton -CGb
+#Pidgin
+exec --no-startup-id pidgin

@@ -1,0 +1,12 @@
+<TaskerData sr="" dvi="1" tv="4.8u5m">
+	<Task sr="task6">
+		<cdate>1480518411573</cdate>
+		<edate>1480518425350</edate>
+		<id>6</id>
+		<nme>Turn off WiFi</nme>
+		<Action sr="act0" ve="7">
+			<code>425</code>
+			<Int sr="arg0" val="0"/>
+		</Action>
+	</Task>
+</TaskerData>
