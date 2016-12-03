@@ -28,20 +28,6 @@
 	<directories/>
 </action>
 <action>
-	<icon>syncthing</icon>
-	<name>Sync</name>
-	<unique-id>1479106248401883-15</unique-id>
-	<command>cp %F /home/scvh/Sync &amp;&amp; notify-send -i /home/scvh/Pictures/icons/sync.png &quot;Synced!&quot;</command>
-	<description>Sync this files</description>
-	<patterns>*</patterns>
-	<directories/>
-	<audio-files/>
-	<image-files/>
-	<other-files/>
-	<text-files/>
-	<video-files/>
-</action>
-<action>
 	<icon>atom</icon>
 	<name>Sudo Atom</name>
 	<unique-id>1479105446555223-8</unique-id>
