@@ -7,10 +7,13 @@ function help
     echo "browser - run thunar as super user"
     echo "cdls - run ls after cd"
     set_color green
+    echo "Math:"
+    set_color normal
+    echo "calc/calculator/calculate - calc math equation"
+    set_color green
     echo "Syncing:"
     set_color normal
     echo "transfersh - upload file(s) to transfer.sh"
-    echo "syncit - sync file with my other devices"
     set_color green
     echo "Google Drive:"
     set_color normal
