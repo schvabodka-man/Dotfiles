@@ -1,7 +1,8 @@
 #script for simple searching
 function search
-  set firstArg (echo $argv[1])
-  set secondArg (echo $argv[2])
+  set firstArg $argv[1]
+  set secondArg $argv[2]
+  clear
   if count $secondArg > /dev/null
     find $firstArg -iname "$secondArg"
   else

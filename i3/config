@@ -97,5 +97,3 @@ gaps outer 5
 # Autoexec
 #Wallpaper
 exec --no-startup-id nitrogen --restore
-#Pidgin
-exec --no-startup-id pidgin
