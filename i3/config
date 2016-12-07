@@ -65,7 +65,7 @@ assign [class="Clementine"] music
 assign [class="jetbrains-studio"] dev
 assign [class="Atom"] editor
 assign [class="Transmission-gtk"] torrent
-assign [class="Pidgin"] im
+assign [class="Messenger for Desktop"] im
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
