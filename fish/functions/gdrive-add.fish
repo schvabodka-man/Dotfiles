@@ -2,6 +2,6 @@
 function gdrive-add
   cd /home/scvh/gdrive/
   mkdir $argv[1]
-  cd gdrivekeys
+  builtin cd gdrivekeys
   gdfstool auth -a /home/scvh/gdrive/gdrivekeys/$argv[1] "$argv[2]"
 end

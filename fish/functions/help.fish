@@ -5,7 +5,7 @@ function help
     echo "File Managing:"
     set_color normal
     echo "browser - run thunar as super user"
-    echo "cdls - run ls after cd"
+    echo "search - search files"
     set_color green
     echo "Math:"
     set_color normal
@@ -19,6 +19,7 @@ function help
     set_color normal
     echo "gdrive-add - add new gdrive to pull(first argument - name, second - api token)"
     echo "gdrive-mount - mount current gdrive's to file system"
+    echo "gdrive-auth - auth new gdrive acc"
     set_color green
     echo "System:"
     set_color normal
@@ -28,4 +29,5 @@ function help
     echo "Games:"
     set_color normal
     echo "wolfenstein3d - run brutal wolfenstein"
+    echo "gog - cli ui for gog.com"
 end

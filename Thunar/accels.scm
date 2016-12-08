@@ -1,1 +1,1 @@
-    (gtk_accel_path "<Actions>/ThunarStandardView/properties" "<Alt>p")
+  (gtk_accel_path "<Actions>/ThunarStandardView/properties" "<Alt>p")
