@@ -55,7 +55,7 @@ bindsym $mod+5 workspace editor
 bindsym $mod+6 workspace torrent
 bindsym $mod+7 workspace im
 bindsym $mod+8 workspace finances
-bindsym $mod+9 workspace 9
+bindsym $mod+9 workspace books
 bindsym $mod+0 workspace 10
 
 #windows assigning
@@ -67,6 +67,7 @@ assign [class="Atom"] editor
 assign [class="Transmission-gtk"] torrent
 assign [class="Messenger for Desktop"] im
 assign [class="Gnucash"] finances
+assign [class="calibre"] books
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -98,3 +99,5 @@ gaps outer 5
 # Autoexec
 #Wallpaper
 exec --no-startup-id nitrogen --restore
+#Dropbox
+exec --no-startup-id dropbox
