@@ -101,5 +101,7 @@ gaps outer 5
 exec --no-startup-id nitrogen --restore
 #Dropbox
 exec --no-startup-id dropbox
+#IM
+exec --no-startup-id pidgin
 #Chromium
 exec chromium
