@@ -65,7 +65,7 @@ assign [class="Clementine"] music
 assign [class="jetbrains-studio"] dev
 assign [class="Atom"] editor
 assign [class="Transmission-gtk"] torrent
-assign [class="Messenger for Desktop"] im
+assign [class="Pidgin"] im
 assign [class="Gnucash"] finances
 assign [class="calibre"] books
 
@@ -101,3 +101,7 @@ gaps outer 5
 exec --no-startup-id nitrogen --restore
 #Dropbox
 exec --no-startup-id dropbox
+#IM
+exec --no-startup-id pidgin
+#Chromium
+exec chromium

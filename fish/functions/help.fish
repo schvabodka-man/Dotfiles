@@ -7,6 +7,11 @@ function help
     echo "browser - run thunar as super user"
     echo "search - search files"
     set_color green
+    echo "Git:"
+    set_color normal
+    echo "commit - push to master"
+    echo "git-video - gource visualisation"
+    set_color green
     echo "Math:"
     set_color normal
     echo "calc/calculator/calculate - calc math equation"
