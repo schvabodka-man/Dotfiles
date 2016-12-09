@@ -6,6 +6,7 @@ function help
     set_color normal
     echo "browser - run thunar as super user"
     echo "search - search files"
+    echo "make-exec - make file executable"
     set_color green
     echo "Git:"
     set_color normal
