@@ -7,6 +7,7 @@ function help
     echo "browser - run thunar as super user"
     echo "search - search files"
     echo "make-exec - make file executable"
+    echo "make-iso - create iso file from folder. If there is no arg the current dir will be converted"
     set_color green
     echo "Git:"
     set_color normal
@@ -31,9 +32,10 @@ function help
     set_color normal
     echo "rofi-cache-clear - clear rofi cache"
     echo "xresourcesupdate - update .xresources database"
+    echo "vmware-rebuild - rebuild vmware kernel modules"
     set_color green
     echo "Games:"
     set_color normal
     echo "wolfenstein3d - run brutal wolfenstein"
-    echo "gog - cli ui for gog.com"
+    echo "gog - cli for gog.com"
 end
