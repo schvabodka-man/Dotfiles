@@ -66,6 +66,7 @@ assign [class="jetbrains-studio"] dev
 assign [class="Atom"] editor
 assign [class="Transmission-gtk"] torrent
 assign [class="Pidgin"] im
+assign [class="Slack"] im
 assign [class="Gnucash"] finances
 assign [class="calibre"] books
 
@@ -101,3 +102,5 @@ gaps outer 5
 exec --no-startup-id nitrogen --restore
 #Dropbox
 exec --no-startup-id dropbox
+#Slack
+exec --no-startup-id slack
