@@ -1,4 +1,7 @@
 # Summary
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ce768380ab134268a6fdabc02374e513)](https://www.codacy.com/app/scvhapps/Dotfiles?utm_source=github.com&utm_medium=referral&utm_content=schvabodka-man/Dotfiles&utm_campaign=badger)
+
 *   This is repo where i store usefull scripts and configs
 
 **IMAGES IN "GRAPHICS" FOLDER ARE NOT BELONG TO ME. ALL RIGHTS IS RESERVED TO A HONEST PEOPLE WHO MAKE IT AND PUBLISHED ON INTERNET**
