@@ -1,0 +1,16 @@
+[
+  {
+    title: "Fish"
+    group: "configs"
+    paths: [
+      "/home/user/.config/fish"
+    ]
+  }
+  {
+    title: "I3"
+    group: "configs"
+    paths: [
+      "/home/user/.i3"
+    ]
+  }
+]

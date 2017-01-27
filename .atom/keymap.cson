@@ -1,0 +1,7 @@
+# command pallete
+'.platform-linux, .platform-linux .command-palette atom-text-editor':
+  'alt-d': 'command-palette:toggle'
+# open terminal in current folder
+  'alt-enter': 'term3:open'
+# close current tab
+  'alt-q': 'core:close'
