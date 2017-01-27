@@ -34,4 +34,11 @@
       "/home/user/.emacs.d"
     ]
   }
+  {
+    title: "Todo Txt config"
+    group: "configs"
+    paths: [
+      "/home/user/.config/todo.txt"
+    ]
+  }
 ]
