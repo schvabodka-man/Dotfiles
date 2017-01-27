@@ -13,4 +13,25 @@
       "/home/user/.i3"
     ]
   }
+  {
+    title: "Org-Wiki"
+    group: "productivity"
+    paths: [
+      "/home/user/Dropbox/Org/Wiki"
+    ]
+  }
+  {
+    title: "Todo"
+    group: "productivity"
+    paths: [
+      "/home/user/Dropbox/todo"
+    ]
+  }
+  {
+    title: "Emacs"
+    group: "configs"
+    paths: [
+      "/home/user/.emacs.d"
+    ]
+  }
 ]
