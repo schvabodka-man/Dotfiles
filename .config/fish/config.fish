@@ -33,15 +33,6 @@ function make-exec
   chmod +x $argv
 end
 
-#weather forecast
-function weather
-  curl wttr.in/"uzhgorod"
-end
-
-function forecast
-  curl wttr.in/"uzhgorod"
-end
-
 #gpg
 function export-key
   gpg2 --export-secret-key $argv --armor > $argv.asc

@@ -41,7 +41,7 @@
 ;;as much as i love this theme, didnt find on melpa
 (add-to-list 'custom-theme-load-path "~/.emacs.d/moe/")
 (add-to-list 'load-path "~/.emacs.d/moe/")
-    
+
 (require 'moe-theme)
 (setq moe-theme-highlight-buffer-id nil)
 (moe-dark)
@@ -51,13 +51,13 @@
 (set-default-font "Fira Mono 12")
 
 ;;and nice cursor because it's not MS DOS
-(setq-default cursor-type 'bar) 
-(set-cursor-color "#ffffff") 
+(setq-default cursor-type 'bar)
+(set-cursor-color "#ffffff")
 (blink-cursor-mode 0)
 
 ;;disable gui elements
 (menu-bar-mode -1)
-(tool-bar-mode -1) 
+(tool-bar-mode -1)
 (toggle-scroll-bar -1)
 
 ;;highlight two brackets
@@ -77,9 +77,9 @@
 (global-set-key (kbd "<home>") 'beginning-of-buffer)
 (global-set-key (kbd "<end>") 'end-of-buffer)
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-(global-set-key (kbd "M-x") 'helm-M-x)        
+(global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-d") 'helm-M-x)
-(global-set-key (kbd "M-d") 'helm-M-x)  
+(global-set-key (kbd "M-d") 'helm-M-x)
 (global-set-key (kbd "M-w") 'ibuffer)
 (global-set-key (kbd "M-S-q") 'kill-buffer)
 (global-set-key (kbd "C-o") 'helm-find-files)
@@ -102,16 +102,9 @@
 (global-set-key (kbd "M-S-<up>") 'windmove-up)
 (global-set-key (kbd "M-S-<down>") 'windmove-down)
 (global-set-key (kbd "C-q") 'delete-window)
-;; The weird part is that emacs doesn't have this right from the box              
-(defun select-current-line ()
-  "Select the current line"
-  (interactive)
-  (end-of-line) ; move to end of line
-  (set-mark (line-beginning-position)))
-(global-set-key (kbd "C-i") 'select-current-line)
 
 ;;disable greeting
-(setq inhibit-startup-screen t)        
+(setq inhibit-startup-screen t)
 
 ;; cua-mode
 (cua-mode t)
@@ -167,18 +160,11 @@
     (package-install 'yasnippet))
 (require 'yasnippet)
 (yas-global-mode 1)
-;; no tab key
-(define-key yas-minor-mode-map [(tab)]        nil)
-(define-key yas-minor-mode-map (kbd "TAB")    nil)
-(define-key yas-minor-mode-map (kbd "<tab>")  nil)
 
 ;;use tabs instead of spaces
 ;; Turn on tabs
 (setq indent-tabs-mode t)
 (setq-default indent-tabs-mode t)
-;; Bind the TAB key, overrides yasnippet keybind
-(global-set-key (kbd "TAB") 'quoted-insert)
-(global-set-key (kbd "<tab>") 'quoted-insert)
 ;; Set the tab width
 (setq default-tab-width 4)
 (setq tab-width 4)
@@ -202,7 +188,7 @@
 (setq org-wiki-location "~/Dropbox/Org/Wiki")
 
 ;;automatic line folding
-(setq word-wrap t) 
+(setq word-wrap t)
 (global-visual-line-mode t)
 
 ;;maGIT
