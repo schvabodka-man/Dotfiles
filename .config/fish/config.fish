@@ -1,10 +1,5 @@
 #disable greeting
 set fish_greeting ""
-#variables for file manager
-set -g -x fish ~/.config/fish
-set -g -x screenshots ~/Pictures/Screenshots/
-set -g -x vscode ~/.config/VSCode/User/
-set -g -x steam ~/.steam/steam/
 #Powerline theming
 set -g theme_display_date no
 set -g theme_color_scheme dark
@@ -50,4 +45,10 @@ end
 #gpg
 function export-key
   gpg2 --export-secret-key $argv --armor > $argv.asc
+end
+
+#todo
+function todo
+  builtin cd /home/user/bin/otodo/
+  ./otodo /home/user/.config/todo.txt/config.ini
 end

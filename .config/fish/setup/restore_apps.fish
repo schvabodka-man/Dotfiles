@@ -68,3 +68,9 @@ sudo dnf install atom
 echo "yadm"
 sudo dnf copr enable thelocehiliosan/yadm
 sudo dnf install yadm
+echo "todo.txt"
+sudo dnf install php
+sudo dnf install php-mbstring
+builtin cd ~/bin
+git clone https://github.com/onovy/otodo.git
+mkdir /home/user/.config/todo.txt/

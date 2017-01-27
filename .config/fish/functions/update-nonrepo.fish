@@ -9,5 +9,8 @@ function update-nonrepo
     git pull
     echo 'updating tldr'
     sudo pip install tldr --upgrade
+    echo "updating todo.txt"
+    builtin cd /home/user/bin/otodo/
+    git pull 
     echo "Ready!"
 end
