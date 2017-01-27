@@ -9,7 +9,6 @@ set -g -x steam ~/.steam/steam/
 set -g theme_display_date no
 set -g theme_color_scheme dark
 #aliases
-alias update "sudo dnf upgrade"
 alias xrdb-merge 'xrdb -merge ~/.Xresources'
 alias rofi-cache-clear 'rm ~/.cache/rofi-3.runcache'
 alias cd.. 'cd ..' #priceless
@@ -52,4 +51,3 @@ end
 function export-key
   gpg2 --export-secret-key $argv --armor > $argv.asc
 end
-
