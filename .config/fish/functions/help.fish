@@ -26,7 +26,7 @@ function help
     echo "Music:"
     set_color normal
     echo "split-tracks - split flac image + cue into tracks"
-	  echo "convert-to-flac - convert alac to flac"
+	  echo "alac-to-flac - convert alac to flac"
     set_color green
     echo "Syncing:"
     set_color normal

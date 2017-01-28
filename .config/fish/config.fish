@@ -38,7 +38,7 @@ function export-key
   gpg2 --export-secret-key $argv --armor > $argv.asc
 end
 
-#todo
+#todo list
 function todo
   builtin cd /home/user/bin/otodo/
   ./otodo /home/user/.config/todo.txt/config.ini
