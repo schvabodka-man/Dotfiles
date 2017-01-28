@@ -2,7 +2,6 @@ function help
     set_color green
     echo "File Managing:"
     set_color normal
-    echo "search - search files"
     echo "make-exec - make file executable"
     echo "make-iso - create iso file from folder. If there is no arg the current dir will be converted"
     set_color green
@@ -12,9 +11,6 @@ function help
     set_color green
     echo "Packages:"
     set_color normal
-    echo "install - new package"
-    echo "copr - enable copr repo"
-    echo "update - update"
     echo 'search-copr - search in copr repos'
     echo 'search-repo - search in fedora repos'
     echo "update-nonrepo - update soft not from repository"
@@ -23,14 +19,14 @@ function help
     set_color normal
     echo "usd/rur/uah/eur"
     set_color green
-    echo "Forecast and weather:"
+    echo "Diary:"
     set_color normal
-    echo "weather/forecast"
+    echo "now - new entry"
     set_color green
     echo "Music:"
     set_color normal
-    echo "split-tracks - split flac + cue into tracks"
-	echo "convert-to-flac"
+    echo "split-tracks - split flac image + cue into tracks"
+	  echo "convert-to-flac - convert alac to flac"
     set_color green
     echo "Syncing:"
     set_color normal
@@ -40,9 +36,4 @@ function help
     set_color normal
     echo "rofi-cache-clear - clear rofi cache"
     echo "xresourcesupdate - update .xresources database"
-    set_color green
-    echo "Games:"
-    set_color normal
-    echo "wolfenstein3d - run brutal wolfenstein"
-    echo "gog - cli for gog.com"
 end
