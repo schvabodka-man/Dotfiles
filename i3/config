@@ -1,0 +1,105 @@
+#Modkey
+set $mod Mod4
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec xfce4-terminal
+
+#Rofi
+bindsym $mod+d exec rofi -show run -hide-scrollbar -fullscreen
+bindsym $mod+w exec rofi -show window -hide-scrollbar -fullscreen
+
+#Make a screenshot
+bindsym Print exec xfce4-screenshooter
+
+#Close window
+bindsym $mod+q kill
+
+#Switching between windows
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+#Moving windows
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+#Fullscreen
+bindsym $mod+f fullscreen toggle
+
+# change container layout (tabbed, toggle split)
+bindsym $mod+t layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+space floating toggle
+
+# switch to workspace
+bindsym $mod+1 workspace www
+bindsym $mod+2 workspace games
+bindsym $mod+3 workspace music
+bindsym $mod+4 workspace dev
+bindsym $mod+5 workspace editor
+bindsym $mod+6 workspace torrent
+bindsym $mod+7 workspace im
+bindsym $mod+8 workspace finances
+bindsym $mod+9 workspace books
+bindsym $mod+0 workspace 10
+
+#windows assigning
+assign [class="Chromium"] www
+assign [class="Steam"] games
+assign [class="Clementine"] music
+assign [class="jetbrains-studio"] dev
+assign [class="Atom"] editor
+assign [class="Transmission-gtk"] torrent
+assign [class="Pidgin"] im
+assign [class="Slack"] im
+assign [class="Gnucash"] finances
+assign [class="calibre"] books
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# restart i3
+bindsym $mod+r restart
+
+#Focus are not following mouse
+focus_follows_mouse no
+
+#Window decorations
+new_window pixel 2
+new_float pixel 2
+client.focused #FFFFFF #FFFFFF #FFFFFF #FFFFFF
+
+#gaps
+gaps inner 7
+gaps outer 5
+
+# Autoexec
+#Wallpaper
+exec --no-startup-id nitrogen --restore
+#Dropbox
+exec --no-startup-id dropbox
+#Slack
+exec --no-startup-id slack
