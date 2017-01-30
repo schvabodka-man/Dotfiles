@@ -74,4 +74,6 @@ builtin cd ~/bin
 git clone https://github.com/onovy/otodo.git
 mkdir /home/user/.config/todo.txt/
 # IMHO best cli app for weather
-sudo npm install forecast-cli -g  
+sudo npm install forecast-cli -g
+echo "i3status"
+sudo dnf install i3status

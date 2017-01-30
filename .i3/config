@@ -88,6 +88,13 @@ client.focused #FFFFFF #FFFFFF #FFFFFF #FFFFFF
 gaps inner 7
 gaps outer 5
 
+bar {
+    status_command ~/.config/fish/panel/status.fish
+    mode dock
+    position bottom
+    font pango:Fira Mono 10
+}
+
 # Autoexec
 #Wallpaper
 exec --no-startup-id nitrogen --restore
