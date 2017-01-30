@@ -38,14 +38,11 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 
-;;as much as i love this theme, didnt find on melpa
-(add-to-list 'custom-theme-load-path "~/.emacs.d/moe/")
-(add-to-list 'load-path "~/.emacs.d/moe/")
-
-(require 'moe-theme)
-(setq moe-theme-highlight-buffer-id nil)
-(moe-dark)
-(moe-theme-set-color 'red)
+;;theme
+(unless (package-installed-p 'seti-theme)
+    (package-refresh-contents)
+    (package-install 'seti-theme))
+(load-theme 'seti t)
 
 ;;fira font
 (set-default-font "Fira Mono 12")
@@ -222,4 +219,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(elscreen-tab-current-screen-face ((t (:background "firebrick1" :foreground "black")))))
+ '(elscreen-tab-current-screen-face ((t (:background "white" :foreground "black")))))

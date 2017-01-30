@@ -12,7 +12,7 @@ bindsym $mod+d exec rofi -show drun -hide-scrollbar -fullscreen
 
 #Make a screenshot
 bindsym Print exec xfce4-screenshooter
-bindsym $mod+Shift+s exec /home/user/Coding/Dotfiles/fish/keybindings/screenshot.fish
+bindsym $mod+Shift+s exec ~/.config/fish/keybindings/screenshot.fish
 
 #Close window
 bindsym $mod+q kill
