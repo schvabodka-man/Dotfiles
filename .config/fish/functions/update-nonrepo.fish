@@ -1,9 +1,6 @@
 function update-nonrepo
     echo "Updating oh-my-fish"
     omf update
-    echo 'updating emacs moe theme'
-    builtin cd ~/.emacs.d/moe/
-    git pull
     echo 'updating elscreen for emacs'
     builtin cd ~/.emacs.d/elscreen/
     git pull
@@ -11,6 +8,6 @@ function update-nonrepo
     sudo pip install tldr --upgrade
     echo "updating todo.txt"
     builtin cd /home/user/bin/otodo/
-    git pull 
+    git pull
     echo "Ready!"
 end

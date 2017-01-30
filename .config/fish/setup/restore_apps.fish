@@ -27,7 +27,6 @@ echo "unix pass"
 sudo dnf install pass
 echo "Emacs"
 sudo dnf install emacs
-git clone https://github.com/kuanyui/moe-theme.el.git ~/.emacs.d/moe
 echo "fonts"
 sudo dnf install mozilla-fira-mono-fonts
 echo "Development stuff"
