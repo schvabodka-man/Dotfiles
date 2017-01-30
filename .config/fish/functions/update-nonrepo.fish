@@ -9,5 +9,7 @@ function update-nonrepo
     echo "updating todo.txt"
     builtin cd /home/user/bin/otodo/
     git pull
+    echo "updating installed gems"
+    sudo gem update
     echo "Ready!"
 end
