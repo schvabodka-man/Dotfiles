@@ -1,5 +1,5 @@
 # Some little storage for my configs and scripts
-* Okay here is what you got
+*   Okay here is what you got
 
 ** There are configs for software i'm using
 
