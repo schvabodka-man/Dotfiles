@@ -9,14 +9,13 @@ wm-restack = true
 width = 100%
 height = 22
 
-modules-left = i3 battery volume keyboard wireless-network
-modules-center = date
+modules-left = i3 volume keyboard wireless-network date
 modules-right = github weather calendar todo meetup
 
 font-0 = FiraMono:size=12
 font-1 = FontAwesome:size=12;-2
 
-background = #000e1112
+background = #cc0e1112
 foreground = #FFFFFF
 
 underline-size = 2.5
@@ -25,6 +24,8 @@ underline-size = 2.5
 type = internal/i3
 label-focused-foreground = #ffffff
 label-focused-underline = #ff0000
+enable-scroll = false
+strip-wsnumbers = true
 
 [module/date]
 type = internal/date
@@ -69,21 +70,22 @@ type = custom/script
 exec = ~/.config/fish/panel/weather.fish
 format-underline = #ff0000
 
-[module/battery]
-type = internal/battery
-battery = BAT0
-adapter = ADP1
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = #f200ff
-format-charging = <label-charging>
-format-charging-underline = #f200ff
-label-charging = %percentage%
-label-discharging = %percentage%
+# disabled it, instead i'm using stuff in tray
+#[module/battery]
+#type = internal/battery
+#battery = BAT0
+#adapter = ADP1
+#ramp-capacity-0 = 
+#ramp-capacity-1 = 
+#ramp-capacity-2 = 
+#ramp-capacity-3 = 
+#ramp-capacity-4 = 
+#format-discharging = <ramp-capacity> <label-discharging>
+#format-discharging-underline = #f200ff
+#format-charging = <label-charging>
+#format-charging-underline = #f200ff
+#label-charging = %percentage%
+#label-discharging = %percentage%
 
 [module/github]
 type = internal/github
@@ -95,6 +97,15 @@ empty-notifications = true
 [module/wireless-network]
 type = internal/network
 interface = wlo1
-label-connected =  %essid%
-label-connected-underline = #00ffe0
-label-disconnected = —
+label-connected = %essid%
+label-disconnected = 0 —
+format-connected = <ramp-signal> <label-connected>
+format-connected-underline = #00ffe0
+format-disconnected = <label-disconnected>
+format-disconnected-underline = #00ffe0
+ramp-signal-0 = 0
+ramp-signal-1 = 1
+ramp-signal-2 = 2
+ramp-signal-3 = 3
+ramp-signal-4 = 4
+ramp-signal-5 = 5

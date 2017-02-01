@@ -42,4 +42,11 @@
       "/home/user/.config/todo.txt"
     ]
   }
+  {
+    title: "Polybar"
+    group: "configs"
+    paths: [
+      "/home/user/.config/polybar"
+    ]
+  }
 ]
