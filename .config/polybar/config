@@ -10,7 +10,7 @@ width = 100%
 height = 22
 
 modules-left = i3 volume keyboard wireless-network date
-modules-right = github weather calendar todo meetup
+modules-right = github calendar todo meetup
 
 font-0 = FiraMono:size=12
 font-1 = FontAwesome:size=12;-2
