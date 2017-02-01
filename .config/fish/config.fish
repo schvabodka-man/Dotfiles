@@ -28,11 +28,6 @@ function search-repo -d "search in repository"
     dnf search $argv
 end
 
-#simple chmod alias
-function make-exec
-  chmod +x $argv
-end
-
 #gpg
 function export-key
   gpg2 --export-secret-key $argv --armor > $argv.asc
