@@ -1,6 +1,8 @@
 # Some little storage for my configs and scripts
 * Okay here is what you got
+
 ** There are configs for software i'm using
+
 *** Emacs (i'm using it as my personal wiki with diary, notes and nice links, i'm not using it as editor)
 ![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/emacs.png "nice organizer but bad editor ;)")
 
@@ -18,7 +20,9 @@ And there are config for my bar if you want to use it
 *** More screenshots coming soon
 
 ** There are really useful scripts
+
 *** Some nice shell functions
+
 **** now - new entry to my diary(basically just greping and echoing text)
 **** alac-to-flac - converting from alac to flac(basically just "translating" PCM, no lose of quality)
 **** eur/rur/uah/usd - currency conversion. just wget and google api
