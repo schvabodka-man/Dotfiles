@@ -2,24 +2,24 @@
 <RDF:RDF xmlns:NS1="http://clippings.mozdev.org/ns/rdf#"
          xmlns:NC="http://home.netscape.com/NC-rdf#"
          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <NS1:clipping RDF:about="rdf:#$BwNPU3"
+  <NS1:clipping RDF:about="rdf:#$JwNPU3"
                    NS1:name="Asciinema"
                    NS1:text="[![asciicast](png)](cast)"
                    NS1:srcurl=""
                    NS1:label="" />
-  <RDF:Seq RDF:about="rdf:#$AwNPU3">
-    <RDF:li RDF:resource="rdf:#$BwNPU3"/>
-    <RDF:li RDF:resource="rdf:#$CwNPU3"/>
+  <RDF:Seq RDF:about="rdf:#$IwNPU3">
+    <RDF:li RDF:resource="rdf:#$JwNPU3"/>
+    <RDF:li RDF:resource="rdf:#$KwNPU3"/>
   </RDF:Seq>
-  <NS1:folder RDF:about="rdf:#$AwNPU3"
+  <NS1:folder RDF:about="rdf:#$IwNPU3"
                    NS1:name="Markdown"
                    NS1:hassubfolders="false" />
-  <NS1:clipping RDF:about="rdf:#$CwNPU3"
+  <RDF:Seq RDF:about="http://clippings.mozdev.org/rdf/user-clippings-v2">
+    <RDF:li RDF:resource="rdf:#$IwNPU3"/>
+  </RDF:Seq>
+  <NS1:clipping RDF:about="rdf:#$KwNPU3"
                    NS1:name="Image"
                    NS1:text="![alt text](image_link &quot;описание(только_для_гитхаба)&quot;)"
                    NS1:srcurl=""
                    NS1:label="" />
-  <RDF:Seq RDF:about="http://clippings.mozdev.org/rdf/user-clippings-v2">
-    <RDF:li RDF:resource="rdf:#$AwNPU3"/>
-  </RDF:Seq>
 </RDF:RDF>
