@@ -26,6 +26,12 @@ label-focused-foreground = #ffffff
 label-focused-underline = #ff0000
 enable-scroll = false
 strip-wsnumbers = true
+label-focused = %name%
+label-focused-padding = 1
+label-unfocused = %name%
+label-unfocused-padding = 1
+label-visible = %name%
+label-visible-padding = 1
 
 [module/date]
 type = internal/date
