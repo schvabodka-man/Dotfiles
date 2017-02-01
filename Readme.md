@@ -11,6 +11,9 @@
 *   Nice fancy shell(working with git) and todo.txt wrapper(otodo)
 ![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/todo_and_fish.png "i love powerline!")
 
+*   Rofi(with Blank Banshee lol)
+![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/rofi.png "and i love vaporwave")
+
 *   And empty workspace
 ![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/empty.png "that wallpaper")
 
