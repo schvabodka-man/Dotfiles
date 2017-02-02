@@ -10,7 +10,7 @@ width = 100%
 height = 22
 
 modules-left = i3 volume keyboard wireless-network date
-modules-right = github calendar todo meetup
+modules-right = weather github calendar todo meetup
 
 font-0 = FiraMono:size=12
 font-1 = FontAwesome:size=12;-2
@@ -75,6 +75,7 @@ format-underline = #ffd600
 type = custom/script
 exec = ~/.config/fish/panel/weather.fish
 format-underline = #ff0000
+interval = 7200
 
 # disabled it, instead i'm using stuff in tray
 #[module/battery]
