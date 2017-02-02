@@ -77,3 +77,5 @@ mkdir /home/user/.config/todo.txt/
 sudo npm install forecast-cli -g
 echo "xorg apps"
 sudo dnf install xorg-x11-apps
+echo "autojump"
+sudo dnf install autojump-fish 
