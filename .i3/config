@@ -89,7 +89,7 @@ hide_edge_borders smart
 #media keys
 bindsym XF86AudioRaiseVolume exec /home/user/.config/fish/volume/increase_volume.fish
 bindsym XF86AudioLowerVolume exec /home/user/.config/fish/volume/decrease_volume.fish
-bindsym XF86AudioMute exec amixer -q set Master toggle
+bindsym XF86AudioMute exec /home/user/.config/fish/volume/mute.fish
 
 #gaps
 gaps inner 5
