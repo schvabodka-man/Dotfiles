@@ -11,5 +11,7 @@ function update-nonrepo
     git pull
     echo "updating installed gems"
     sudo gem update
+    echo "npm packages(weather)"
+    sudo npm update -g
     echo "Ready!"
 end

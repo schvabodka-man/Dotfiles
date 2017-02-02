@@ -81,7 +81,15 @@ focus_follows_mouse no
 #Window decorations
 new_window pixel 2
 new_float pixel 2
+#no need in coloring, i like white
 client.focused #FFFFFF #FFFFFF #FFFFFF #FFFFFF
+client.focused_inactive #FFFFFF #FFFFFF #FFFFFF #FFFFFF
+hide_edge_borders smart
+
+#media keys
+bindsym XF86AudioRaiseVolume exec /home/user/.config/fish/volume/increase_volume.fish
+bindsym XF86AudioLowerVolume exec /home/user/.config/fish/volume/decrease_volume.fish
+bindsym XF86AudioMute exec amixer -q set Master toggle
 
 #gaps
 gaps inner 5
