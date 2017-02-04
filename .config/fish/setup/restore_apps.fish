@@ -5,11 +5,6 @@ sudo dnf install util-linux-user
 mkdir /home/user/bin/
 sudo dnf install shntool
 sudo dnf install cuetools
-sudo dnf copr enable unrealps/misc
-sudo dnf install nitrogen
-sudo dnf copr enable yaroslav/i3desktop
-sudo dnf install i3-gaps
-sudo dnf install rofi
 sudo dnf install p7zip
 sudo dnf install xdotool
 sudo dnf install docker
