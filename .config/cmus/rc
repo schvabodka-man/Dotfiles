@@ -1,4 +1,7 @@
-set format_statusline= %{position} - %{duration} Bitrate: %{bitrate} kpbs %{codec}
+set format_statusline= %{position} - %{duration} %{bitrate} kpbs %{codec}
 set format_current= %a - %l -%3n. %t%= Disc: %D  %g %y
 set show_current_bitrate= 1
 colorscheme blackwhite
+fset flac=filename="*.flac"
+fset Black_Metal=genre="Black Metal"
+factivate

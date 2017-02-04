@@ -40,7 +40,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+space floating toggle
 
 # switch to workspace
-bindsym $mod+1 workspace 1:
+bindsym $mod+1 workspace 1:
 bindsym $mod+2 workspace 2:
 bindsym $mod+3 workspace 3:
 bindsym $mod+4 workspace 4:
@@ -52,7 +52,7 @@ bindsym $mod+9 workspace 9:
 bindsym $mod+0 workspace 10:
 
 #windows assigning
-assign [class="Firefox"] 1:
+assign [class="qutebrowser"] 1:
 assign [class="Steam"] 2:
 assign [class="Lollypop"] 3:
 assign [class="jetbrains-studio"] 4:
@@ -61,7 +61,7 @@ assign [class="Transmission-gtk"] 6:
 assign [class="calibre"] 5:
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1:
+bindsym $mod+Shift+1 move container to workspace 1:
 bindsym $mod+Shift+2 move container to workspace 2:
 bindsym $mod+Shift+3 move container to workspace 3:
 bindsym $mod+Shift+4 move container to workspace 4:
