@@ -9,7 +9,7 @@ wm-restack = true
 width = 100%
 height = 22
 
-modules-left = i3 volume keyboard wireless-network date
+modules-left = i3 volume keyboard wireless-network date music
 modules-right = weather github calendar todo meetup
 
 font-0 = FiraMono:size=10
@@ -76,6 +76,11 @@ type = custom/script
 exec = ~/.config/fish/panel/weather.fish
 format-underline = #ff0000
 interval = 7200
+
+[module/music]
+type = custom/script
+exec = ~/.config/fish/panel/music.fish
+format-underline = #f200ff
 
 # disabled it, instead i'm using stuff in tray
 #[module/battery]
