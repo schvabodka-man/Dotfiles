@@ -49,4 +49,11 @@
       "/home/user/.config/polybar"
     ]
   }
+  {
+    title: "Cmus"
+    group: "Configs"
+    paths: [
+      "/home/user/.config/cmus"
+    ]
+  }
 ]

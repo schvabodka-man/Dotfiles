@@ -11,5 +11,25 @@ sudo dnf install gdk-pixbuf2-devel
 echo "atom.io"
 sudo dnf copr enable mosquito/atom
 sudo dnf install atom
+apm install atom-material-ui
+apm install color-picker
+apm install file-icons
+apm install git-control
+apm install highlight-selected
+apm install language-emacs-lisp
+apm install language-fish-shell
+apm install language-ini
+apm install linter
+apm install linter-markdown
+apm install minimap
+apm install minimap-highlight-selected
+apm install minimap-pigments
+apm install open-recent
+apm install pigments
+apm install project-manager
+apm install script
+apm install seti-syntax
+apm install term3
+
 echo "saas"
 sudo gem install saas
