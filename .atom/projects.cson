@@ -56,4 +56,11 @@
       "/home/user/.config/cmus"
     ]
   }
+  {
+    title: "Qutebrowser"
+    group: "configs"
+    paths: [
+      "/home/user/.config/qutebrowser"
+    ]
+  }
 ]

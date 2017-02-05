@@ -8,3 +8,4 @@ sudo dnf copr enable kzmd/polybar
 sudo dnf install polybar
 sudo dnf install cmus
 sudo dnf install feh
+sudo dnf install terminator
