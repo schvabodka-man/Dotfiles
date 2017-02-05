@@ -9,3 +9,5 @@ sudo dnf install polybar
 sudo dnf install cmus
 sudo dnf install feh
 sudo dnf install terminator
+sudo dnf install qutebrowser
+sudo dnf install gstreamer1-libav
