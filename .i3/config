@@ -5,7 +5,7 @@ set $mod Mod4
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec terminator
 
 #Rofi
 bindsym $mod+d exec rofi -show drun -hide-scrollbar -fullscreen
@@ -76,7 +76,7 @@ bindsym $mod+Shift+0 move container to workspace 10:
 bindsym $mod+r restart
 
 #Focus are not following mouse
-focus_follows_mouse no
+focus_follows_mouse yes
 
 #Window decorations
 new_window pixel 2
