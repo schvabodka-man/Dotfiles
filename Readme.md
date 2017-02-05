@@ -5,12 +5,15 @@
 *   Emacs (i'm using it as my personal wiki with diary, notes and nice links, i'm not using it as editor)
 ![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/emacs.png "nice organizer but bad editor ;)")
 
-* Qutebrowser - my awesome UNIX-way browser
+*   Qutebrowser - my awesome UNIX-way browser
 ![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/qutebrowser.png "i love this minimalistic ui")
 ![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/qutebrowser_links.png "keyboard surfing!")
 
 *   Atom.io(my editor!)
 ![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/atom.png "nicest editor as for me!")
+
+*   My music player - CMUS. Someway i'm kind of audiophile so i like CLI players more because of bit correct output
+![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/cmus.png "Industrial!")
 
 *   Nice fancy shell(working with git) and todo.txt wrapper(otodo)
 ![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/todo_and_fish.png "i love powerline!")
