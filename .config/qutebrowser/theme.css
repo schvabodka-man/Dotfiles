@@ -1,36 +1,54 @@
-*,div,pre,textarea,body,input,td,tr,p {
-    background-color: #0e1112 !important;
-    color: #FFFFFF !important;
-}
-h1,h2,h3,h4 {
-    background-color: #0e1112 !important;
-    color: #FFFFFF !important;
-}
-a {
-    color: #00ffe0 !important;
-}
-a:hover,a:focus {
-    color: #00ff0a !important;
-}
-a:visited {
-    color: #ff0000 !important;
-}
-img {
-    opacity: 1;
-}
-img:hover {
-    opacity: 1;
-}
-._hintLabel {
-    text-transform: uppercase !important;
-    background-color: #ffd600 !important;
-    font-size: .9em !important;
-    color: #000 !important;
-    opacity: 1;
-}
-._hintElem._hintFocus {
-    color: #00ffe0 !important;
-}
-._hintElem._hintFocus img {
-    opacity: 1;
-}
+  /*WARNING EVERYTHINGHERE IS MADE FROM THIS THEME
+  https://userstyles.org/styles/112107/global-black-for-amoled-displays
+  I JUST CHANGED COLORS*/
+
+  html, body, body>div {
+		background: #0e1112 !important;
+	}
+
+	* {
+		border-color: #000000 !important;
+	}
+
+	body *:not([background]):not(.works-info) {
+     	background-color: #0e1112 !important;
+    }
+
+	body *
+	{
+		text-shadow: none !important;
+		color: rgba(255,255,255,1) !important;
+	}
+
+	body a, body a:link,
+	body a *:not(img), body a:link *:not(img)
+	{
+		background-color: rgba(60,60,60,0) !important;
+		color: #00ffe0 !important;
+	}
+
+	body a:hover, body a:active,
+	body a:hover *:not(img), body a:active *:not(img)
+	{
+		background-color: rgba(60,60,60,0) !important;
+		color: #00ff0a !important;
+	}
+
+	body a:visited,
+	body a:visited *:not(img)
+	{
+		background-color: rgba(60,60,60,0) !important;
+		color: #ff0000 !important;
+	}
+
+	body input, body textarea
+	{
+	   color: #f0f0f0 !important;
+	   background: #0e1112 !important;
+	   border-color: #000000 !important;
+	}
+
+	div[style*="transparent"] *:not(img)
+	{
+		opacity: 0 !important;
+	}
