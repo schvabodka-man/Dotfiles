@@ -1,6 +1,106 @@
 set format_statusline= %{position} - %{duration} %{bitrate} kpbs %{codec}
 set format_current= %a - %l -%3n. %t%= Disc: %D  %g %y
 set show_current_bitrate= 1
+set softvol= 1
+
+unbind common 2
+unbind common 3
+unbind common 4
+unbind common 5
+unbind common 6
+unbind common q
+unbind browser backspace
+unbind browser i
+unbind browser space
+unbind browser u
+unbind common !
+unbind common +
+unbind common ,
+unbind common -
+unbind common .
+unbind common =
+unbind common C
+unbind common D
+unbind common E
+unbind common F
+unbind common G
+unbind common I
+unbind common L
+unbind common M
+unbind common N
+unbind common P
+unbind common U
+unbind common [
+unbind common ]
+unbind common ^B
+unbind common ^C
+unbind common ^E
+unbind common ^F
+unbind common ^L
+unbind common ^R
+unbind common ^Y
+unbind common a
+unbind common b
+unbind common c
+unbind common down
+unbind common e
+unbind common end
+unbind common enter
+unbind common f
+unbind common g
+unbind common h
+unbind common home
+unbind common i
+unbind common j
+unbind common k
+unbind common l
+unbind common left
+unbind common m
+unbind common mlb_click_selected
+unbind common mouse_scroll_down
+unbind common mouse_scroll_up
+unbind common n
+unbind common o
+unbind common p
+unbind common page_down
+unbind common page_up
+unbind common r
+unbind common right
+unbind common s
+unbind common space
+unbind common t
+unbind common tab
+unbind common u
+unbind common up
+unbind common v
+unbind common x
+unbind common y
+unbind common z
+unbind common {
+unbind common }
+
+bind common 2 view sorted
+bind common 3 view queue
+bind common 4 view playlist
+bind common 5 view filters
+bind common 6 view browser
+bind common q win-add-q
+bind common p win-add-p
+bind browser backspace browser-up
+bind browser . toggle show_hidden
+bind browser enter win-activate
+bind browser r win-update
+bind common right seek +5
+bind common left seek -5
+bind common tab win-next
+bind common mouse_scroll_up win-up
+bind common mouse_scroll_down win-down
+bind common up win-up
+bind common down win-down
+bind common enter win-activate
+bind common c player-pause
+bind common r toggle repeat
+
 colorscheme blackwhite
 fset flac=filename="*.flac"
 fset Black_Metal=genre="Black Metal"

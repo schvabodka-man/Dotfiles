@@ -31,5 +31,6 @@ apm install project-manager
 apm install script
 apm install seti-syntax
 apm install term3
+apm install multi-cursor
 echo "saas"
 sudo gem install saas
