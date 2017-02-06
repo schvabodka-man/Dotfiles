@@ -8,6 +8,7 @@ sudo dnf install gcc-c++
 sudo dnf groupinstall 'Development tools'
 sudo dnf install glib2-devel
 sudo dnf install gdk-pixbuf2-devel
+sudo dnf install libcurl-devel
 echo "atom.io"
 sudo dnf copr enable mosquito/atom
 sudo dnf install atom
