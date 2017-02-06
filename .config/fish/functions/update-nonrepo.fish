@@ -13,5 +13,8 @@ function update-nonrepo
     sudo gem update
     echo "npm packages(weather)"
     sudo npm update -g
+    echo "doom rpg"
+    builtin cd ~/Games/Doom/Mods/DoomRPG
+    git pull origin master
     echo "Ready!"
 end
