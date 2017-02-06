@@ -13,20 +13,10 @@ echo "oh-my-fish"
 curl -L http://get.oh-my.fish | fish # oh-my-fish
 sudo dnf install powerline-fonts
 omf install bobthefish
-echo "Emacs"
-sudo dnf install emacs
 echo "Tldr"
 sudo pip install tldr
-echo "meetups and asciinema with videos"
-sudo gem install meetup-cli
-sudo dnf install asciinema
-sudo dnf install mpv
-echo "elscreen"
-git clone https://github.com/rocher/elscreen-fr.git ~/.emacs.d/elscreen-fr
 echo "yadm"
 sudo dnf copr enable thelocehiliosan/yadm
 sudo dnf install yadm
-# IMHO best cli app for weather
-sudo npm install forecast-cli -g
 echo "autojump"
 sudo dnf install autojump-fish

@@ -92,13 +92,13 @@
 (global-set-key (kbd "C-/") 'comment-line)
 (global-set-key (kbd "C-b") 'helm-bookmarks)
 ;; windows controls
-(global-set-key (kbd "C-,") 'split-window-horizontally)
-(global-set-key (kbd "C-.") 'split-window-vertically)
+(global-set-key (kbd "M-,") 'split-window-horizontally)
+(global-set-key (kbd "M-.") 'split-window-vertically)
 (global-set-key (kbd "M-S-<left>") 'windmove-left)
 (global-set-key (kbd "M-S-<right>") 'windmove-right)
 (global-set-key (kbd "M-S-<up>") 'windmove-up)
 (global-set-key (kbd "M-S-<down>") 'windmove-down)
-(global-set-key (kbd "C-q") 'delete-window)
+(global-set-key (kbd "M-q") 'delete-window)
 
 ;;disable greeting
 (setq inhibit-startup-screen t)
@@ -106,15 +106,6 @@
 ;; cua-mode
 (cua-mode t)
 (setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
-
-;;tabs
-(add-to-list 'load-path "~/.emacs.d/elscreen/")
-(require 'elscreen)
-(elscreen-start)
-(global-set-key (kbd "M-<right>") 'elscreen-next)
-(global-set-key (kbd "M-<left>") 'elscreen-previous)
-(global-set-key (kbd "M-RET") 'elscreen-create)
-(global-set-key (kbd "M-q") 'elscreen-kill)
 
 ;;nice scroll bar instead of ugly one
 (unless (package-installed-p 'yascroll)

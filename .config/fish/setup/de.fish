@@ -11,3 +11,9 @@ sudo dnf install feh
 sudo dnf install terminator
 sudo dnf install qutebrowser
 sudo dnf install gstreamer1-libav
+sudo dnf install emacs
+sudo gem install meetup-cli
+sudo dnf install asciinema
+sudo dnf install mpv
+# IMHO best cli app for weather
+sudo npm install forecast-cli -g

@@ -31,6 +31,5 @@ apm install project-manager
 apm install script
 apm install seti-syntax
 apm install term3
-
 echo "saas"
 sudo gem install saas
