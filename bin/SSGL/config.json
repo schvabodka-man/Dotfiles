@@ -1,0 +1,62 @@
+{
+    "active": {
+        "doom64ex": false,
+        "doomretro": false,
+        "doomrpg": true,
+        "doomrpgrl": false,
+        "doomrpgrlmonsters": true,
+        "gzdoom": true,
+        "oblige": false,
+        "prboomp": false,
+        "zandronum": false,
+        "zdoom": false
+    },
+    "dontShowUpdate": "0.0.0",
+    "engines": {
+        "doom64ex": "",
+        "doomretro": "",
+        "doomrpg": "/bin/gzdoom",
+        "doomrpgrl": "",
+        "gzdoom": "/bin/gzdoom",
+        "prboomp": "",
+        "zandronum": "",
+        "zdoom": ""
+    },
+    "freshinstall": false,
+    "initList": false,
+    "iwadpath": "/home/user/Games/Doom/IWAD/",
+    "misc": {
+        "doom64exsound": "",
+        "doomrpg": {
+            "brightmaps": "/home/user/Games/Doom/Mods/DoomRPG/DoomRPG-Brightmaps/",
+            "extras": "/home/user/Games/Doom/Mods/DoomRPG/DoomRPG-Extras/",
+            "rlarsenalpath": "/",
+            "rlarsenalwad": "/home/user/Games/Doom/Mods/Doom RLA/doomrl_arsenal.wad",
+            "rlhudwad": "/home/user/Games/Doom/Mods/Doom RLA/doomrl_arsenal_hud.wad",
+            "rlmonsterspath": "/",
+            "rlmonsterswad": "/home/user/Games/Doom/Mods/Doom RLA/doomrl_monsters.wad",
+            "vanilla": "/home/user/Games/Doom/Mods/DoomRPG/DoomRPG/"
+        },
+        "preselectedengine": "gzdoom"
+    },
+    "modlistpath": "/home/user/Games/Doom/Modlist/",
+    "oblige": {
+        "binary": "",
+        "configs": "",
+        "mappath": ""
+    },
+    "online": {
+        "client": ""
+    },
+    "savepaths": {
+        "doom64ex": "",
+        "doomretro": "",
+        "doomrpg": "/home/user/Games/Doom/Saves/DoomRPG/",
+        "gzdoom": "/home/user/Games/Doom/Saves/",
+        "prboomp": "",
+        "zandronum": "",
+        "zdoom": ""
+    },
+    "screenshotpath": "/home/user/Games/Doom/Screenshots/",
+    "wadpath": "/home/user/Games/Doom/Mods/"
+}

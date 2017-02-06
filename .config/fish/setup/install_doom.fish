@@ -1,4 +1,5 @@
 #!/usr/bin/fish
+mkdir ~/Games/Doom/
 sudo dnf copr enable fszymanski/gzdoom
 sudo dnf install gzdoom
 builtin cd ~/bin/
@@ -19,3 +20,17 @@ Comment=Doom SSGL launcher
 Exec=/home/user/bin/SSGL/SSGL
 Terminal=false
 Categories=Games;" > Doom.desktop
+builtin cd ~/Games/Doom/
+mkdir IWAD
+mkdir Mods
+mkdir Modlist
+mkdir Saves
+builtin cd Saves/
+cd ..
+mkdir Screenshots
+builtin cd IWAD/
+wget http://doomgod.com/wads/iwads/doom2.7z
+7z x doom2.7z
+rm doom2.7z
+builtin cd ~/Games/Doom/Mods/
+git clone https://github.com/Kyle873/DoomRPG
