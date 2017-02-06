@@ -1,0 +1,122 @@
+set aaa_mode=artist
+set altformat_current= %F
+set altformat_playlist= %f%= %d
+set altformat_title=%f
+set altformat_trackwin= %f%= %d
+set auto_expand_albums_follow=true
+set auto_expand_albums_search=true
+set auto_expand_albums_selcur=true
+set auto_reshuffle=true
+set buffer_seconds=10
+set color_cmdline_attr=default
+set color_cmdline_bg=238
+set color_cmdline_fg=white
+set color_cur_sel_attr=default
+set color_error=lightred
+set color_info=lightgreen
+set color_separator=white
+set color_statusline_attr=default
+set color_statusline_bg=238
+set color_statusline_fg=white
+set color_titleline_attr=default
+set color_titleline_bg=238
+set color_titleline_fg=white
+set color_win_attr=default
+set color_win_bg=black
+set color_win_cur=lightred
+set color_win_cur_sel_attr=default
+set color_win_cur_sel_bg=white
+set color_win_cur_sel_fg=lightred
+set color_win_dir=108
+set color_win_fg=white
+set color_win_inactive_cur_sel_attr=default
+set color_win_inactive_cur_sel_bg=238
+set color_win_inactive_cur_sel_fg=lightred
+set color_win_inactive_sel_attr=default
+set color_win_inactive_sel_bg=238
+set color_win_inactive_sel_fg=white
+set color_win_sel_attr=default
+set color_win_sel_bg=white
+set color_win_sel_fg=black
+set color_win_title_attr=default
+set color_win_title_bg=black
+set color_win_title_fg=white
+set confirm_run=true
+set continue=true
+set device=/dev/cdrom
+set display_artist_sort_name=false
+set dsp.alsa.device=
+set dsp.ao.buffer_size=16384
+set dsp.ao.driver=
+set dsp.ao.wav_counter=1
+set dsp.ao.wav_dir=/home/user
+set follow=false
+set format_current= %a - %l -%3n. %t%= Disc: %D  %g %y
+set format_playlist= %-21%a %3n. %t%= %y %d %{?X!=0?%3X ?    }
+set format_playlist_va= %-21%A %3n. %t (%a)%= %y %d %{?X!=0?%3X ?    }
+set format_statusline= %{position} - %{duration} %{bitrate} kpbs %{codec}
+set format_title=%a - %l - %t (%y)
+set format_trackwin=%3n. %t%= %y %d
+set format_trackwin_album= %l
+set format_trackwin_va=%3n. %t (%a)%= %y %d
+set format_treewin=  %l
+set format_treewin_artist=%a
+set icecast_default_charset=ISO-8859-1
+set id3_default_charset=ISO-8859-1
+set lib_sort=albumartist date album discnumber tracknumber title filename play_count
+set mixer.alsa.channel=
+set mixer.alsa.device=
+set mixer.pulse.restore_volume=1
+set mouse=false
+set output_plugin=pulse
+set passwd=
+set pl_sort=
+set play_library=false
+set play_sorted=true
+set repeat=false
+set repeat_current=false
+set replaygain=disabled
+set replaygain_limit=true
+set replaygain_preamp=0.000000
+set resume=false
+set rewind_offset=5
+set scroll_offset=2
+set set_term_title=true
+set show_all_tracks=true
+set show_current_bitrate=true
+set show_hidden=false
+set show_playback_position=true
+set show_remaining_time=false
+set shuffle=true
+set skip_track_info=false
+set smart_artist_sort=true
+set softvol=true
+set softvol_state=100 100
+set status_display_program=
+set wrap_search=true
+bind browser . toggle show_hidden
+bind browser backspace browser-up
+bind browser enter win-activate
+bind browser r win-update
+bind common 1 view tree
+bind common 2 view sorted
+bind common 3 view queue
+bind common 4 view playlist
+bind common 5 view filters
+bind common 6 view browser
+bind common 7 view settings
+bind common c player-pause
+bind common down win-down
+bind common enter win-activate
+bind common left seek -5
+bind common mouse_scroll_down win-down
+bind common mouse_scroll_up win-up
+bind common p win-add-p
+bind common q win-add-q
+bind common r toggle repeat
+bind common right seek +5
+bind common tab win-next
+bind common up win-up
+fset Black_Metal=genre="Black Metal"
+fset flac=filename="*.flac"
+factivate
