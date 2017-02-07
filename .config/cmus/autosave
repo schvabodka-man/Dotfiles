@@ -42,7 +42,7 @@ set color_win_title_attr=default
 set color_win_title_bg=default
 set color_win_title_fg=white
 set confirm_run=true
-set continue=true
+set continue=false
 set device=/dev/cdrom
 set display_artist_sort_name=false
 set dsp.alsa.device=
@@ -54,7 +54,7 @@ set follow=false
 set format_current= %a - %l -%3n. %t%= Disc: %D  %g %y
 set format_playlist= %-21%a %3n. %t%= %y %d %{?X!=0?%3X ?    }
 set format_playlist_va= %-21%A %3n. %t (%a)%= %y %d %{?X!=0?%3X ?    }
-set format_statusline= %{position} - %{duration} %{bitrate} kpbs %{codec}
+set format_statusline= %{position} - %{duration} %{bitrate} kpbs %{codec}%=%1{continue}%1{follow}%1{repeat}%1{shuffle} %{playlist_mode}
 set format_title=%a - %l - %t (%y)
 set format_trackwin=%3n. %t%= %y %d
 set format_trackwin_album= %l
@@ -73,7 +73,7 @@ set passwd=
 set pl_sort=
 set play_library=true
 set play_sorted=true
-set repeat=false
+set repeat=true
 set repeat_current=false
 set replaygain=disabled
 set replaygain_limit=true
@@ -87,7 +87,7 @@ set show_current_bitrate=true
 set show_hidden=false
 set show_playback_position=true
 set show_remaining_time=false
-set shuffle=true
+set shuffle=false
 set skip_track_info=false
 set smart_artist_sort=true
 set softvol=true
@@ -105,11 +105,18 @@ bind common 4 view playlist
 bind common 5 view filters
 bind common 6 view browser
 bind common 7 view settings
-bind common ^R update-cache
-bind common c player-pause
+bind common F toggle follow
+bind common R add ~/Music
+bind common [ player-prev
+bind common \ player-pause
+bind common ] player-next
+bind common ^R add ~/Music
+bind common c toggle continue
 bind common down win-down
+bind common end win-bottom
 bind common enter win-activate
 bind common f push filter
+bind common home win-top
 bind common left seek -5
 bind common mouse_scroll_down win-down
 bind common mouse_scroll_up win-up
@@ -117,8 +124,12 @@ bind common p win-add-p
 bind common q win-add-q
 bind common r toggle repeat
 bind common right seek +5
+bind common s toggle shuffle
 bind common tab win-next
 bind common up win-up
+bind common { win-page-up
+bind common | player-stop
+bind common } win-page-down
 fset ambient=genre="Ambient"
 fset aphex_twin=artist="Aphex Twin"
 fset black=genre="Black Metal"
