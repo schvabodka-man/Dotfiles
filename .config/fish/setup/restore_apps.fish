@@ -9,11 +9,13 @@ sudo dnf install p7zip
 sudo dnf install xdotool
 sudo dnf install docker
 sudo dnf install unrar
+sudo dnf install thefuck
 echo "oh-my-fish"
 curl -L http://get.oh-my.fish | fish # oh-my-fish
 sudo dnf install powerline-fonts
 omf install bobthefish
-echo "Tldr"
+omf install sudope
+omf install thefuck
 sudo pip install tldr
 echo "yadm"
 sudo dnf copr enable thelocehiliosan/yadm

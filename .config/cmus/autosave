@@ -105,6 +105,7 @@ bind common 4 view playlist
 bind common 5 view filters
 bind common 6 view browser
 bind common 7 view settings
+bind common ^R update-cache
 bind common c player-pause
 bind common down win-down
 bind common enter win-activate
@@ -134,7 +135,7 @@ fset hip_hop=genre="Abstract Hip-Hop"
 fset house=genre="House"
 fset idm=genre="IDM"
 fset industrial=genre="Industrial"
-fset metal=genre="Metal"
+fset metal=genre="Progressive Metal"|genre="Black Metal"|genre="Drone Metal"
 fset mp3=filename="*.mp3"
 fset noise=genre="Noise"
 fset ost=comment="OST"

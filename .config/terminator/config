@@ -14,11 +14,23 @@
   move_tab_right = <Shift><Alt>Right
   new_tab = <Alt>Return
   next_tab = <Alt>Right
+  page_down_half = <Primary>Down
+  page_up_half = <Primary>Up
   paste = <Primary>v
   prev_tab = <Alt>Left
   search = <Primary>f
   split_horiz = <Alt>comma
   split_vert = <Alt>period
+  switch_to_tab_1 = <Alt>1
+  switch_to_tab_10 = <Alt>0
+  switch_to_tab_2 = <Alt>2
+  switch_to_tab_3 = <Alt>3
+  switch_to_tab_4 = <Alt>4
+  switch_to_tab_5 = <Alt>5
+  switch_to_tab_6 = <Alt>6
+  switch_to_tab_7 = <Alt>7
+  switch_to_tab_8 = <Alt>8
+  switch_to_tab_9 = <Alt>9
 [layouts]
   [[default]]
     [[[child1]]]
