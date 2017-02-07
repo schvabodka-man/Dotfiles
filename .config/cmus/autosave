@@ -22,7 +22,7 @@ set color_titleline_attr=default
 set color_titleline_bg=238
 set color_titleline_fg=white
 set color_win_attr=default
-set color_win_bg=black
+set color_win_bg=default
 set color_win_cur=lightred
 set color_win_cur_sel_attr=default
 set color_win_cur_sel_bg=white
@@ -39,7 +39,7 @@ set color_win_sel_attr=default
 set color_win_sel_bg=white
 set color_win_sel_fg=black
 set color_win_title_attr=default
-set color_win_title_bg=black
+set color_win_title_bg=default
 set color_win_title_fg=white
 set confirm_run=true
 set continue=true
@@ -120,13 +120,18 @@ bind common right seek +5
 bind common tab win-next
 bind common up win-up
 fset ambient=genre="Ambient"
+fset aphex_twin=artist="Aphex Twin"
 fset black=genre="Black Metal"
+fset blank_banshee=artist="Blank Banshee"
+fset boris=artist="Boris"
+fset carpenter_brut=artist="Carpenter Brut"
 fset chillstep=genre="Chillstep"
 fset chiptune=genre="Chiptune"&comment!="OST"
 fset chiptune_ost=comment="OST"&genre="Chiptune"
 fset dark_ambient=genre="Dark Ambient"
 fset dark_synth=genre="Dark Synth"
 fset drone_metal=genre="Drone Metal"
+fset earth=artist="Earth"
 fset electronic=genre="Electronic"
 fset flac=filename="*.flac"
 fset hard_rock=genre="Hard Rock"
@@ -135,13 +140,20 @@ fset hip_hop=genre="Abstract Hip-Hop"
 fset house=genre="House"
 fset idm=genre="IDM"
 fset industrial=genre="Industrial"
-fset metal=genre="Progressive Metal"|genre="Black Metal"|genre="Drone Metal"
+fset masonna=artist="Masonna"
+fset merzbow=artist="Merzbow"
+fset metal=genre="Progressive Metal"|genre="Black Metal"|genre="Drone Metal"|genre="Doom Metal"
+fset mgla=artist="Mgła"
 fset mp3=filename="*.mp3"
+fset nin=artist="Nine Inch Nails"|artist="Trent Reznor"
+fset nine_inch_nails=artist="Nine Inch Nails"|artist="Trent Reznor"
 fset noise=genre="Noise"
 fset ost=comment="OST"
 fset progressive_metal=genre="Progressive Metal"
+fset saint_pepsi=artist="Saint Pepsi"|artist="Skylar Spence"
 fset space_ambient=genre="Space Ambient"
 fset stoner=genre="Stoner Rock"
+fset sunn_o=artist="Sunn O)))"
 fset synthpop=genre="Synthpop"
 fset synthwave=genre="Synthwave"
 fset vaporwave=genre="Vaporwave"
