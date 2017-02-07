@@ -73,7 +73,7 @@ set passwd=
 set pl_sort=
 set play_library=true
 set play_sorted=true
-set repeat=true
+set repeat=false
 set repeat_current=false
 set replaygain=disabled
 set replaygain_limit=true
@@ -92,7 +92,7 @@ set skip_track_info=false
 set smart_artist_sort=true
 set softvol=true
 set softvol_state=100 100
-set status_display_program=
+set status_display_program=cmusfm
 set wrap_search=true
 bind browser . toggle show_hidden
 bind browser backspace browser-up
@@ -110,8 +110,7 @@ bind common R add ~/Music
 bind common [ player-prev
 bind common \ player-pause
 bind common ] player-next
-bind common ^R add ~/Music
-bind common c toggle continue
+bind common c toggle follow
 bind common down win-down
 bind common end win-bottom
 bind common enter win-activate
@@ -122,14 +121,17 @@ bind common mouse_scroll_down win-down
 bind common mouse_scroll_up win-up
 bind common p win-add-p
 bind common q win-add-q
-bind common r toggle repeat
+bind common r add ~/Music
 bind common right seek +5
-bind common s toggle shuffle
 bind common tab win-next
 bind common up win-up
+bind common v toggle continue
+bind common x toggle shuffle
+bind common z toggle repeat
 bind common { win-page-up
 bind common | player-stop
 bind common } win-page-down
+fset 2814=artist="2814"
 fset ambient=genre="Ambient"
 fset aphex_twin=artist="Aphex Twin"
 fset black=genre="Black Metal"
@@ -167,6 +169,9 @@ fset stoner=genre="Stoner Rock"
 fset sunn_o=artist="Sunn O)))"
 fset synthpop=genre="Synthpop"
 fset synthwave=genre="Synthwave"
+fset telepath=artist="T E L E P A T H テレパシー能力者"
 fset vaporwave=genre="Vaporwave"
+fset vaporwave_ambient=genre="Vaporwave"&comment="Ambientic"
+fset vaporwave_non_ambient=genre="Vaporwave"&comment!="Ambientic"
 fset wallcore=genre="Wallcore"
 factivate

@@ -17,3 +17,14 @@ sudo dnf install asciinema
 sudo dnf install mpv
 # IMHO best cli app for weather
 sudo npm install forecast-cli -g
+#cmusfm
+builtin cd ~/bin/
+git clone https://github.com/Arkq/cmusfm
+builtin cd cmusfm/
+autoreconf --install
+mkdir build
+builtin cd build/
+../configure
+make
+sudo make install
+cmusfm init

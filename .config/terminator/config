@@ -1,5 +1,6 @@
 [global_config]
   focus = mouse
+  handle_size = 0
   inactive_color_offset = 1.0
   suppress_multiple_term_dialog = True
   title_font = Fira Mono Medium 10
