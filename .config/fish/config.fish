@@ -10,22 +10,10 @@ alias cd.. 'cd ..' #priceless
 alias rm 'rm -rf'
 alias lsa 'ls -a'
 
-#more aliases
-
 # Custom alias for listing files when moving to directory
 function cd
   builtin cd $argv
   ls -a
-end
-
-# package manager aliases
-#enable copr repo
-function search-copr -d "search in copr repos"
-    dnf copr search $argv
-end
-
-function search-repo -d "search in repository"
-    dnf search $argv
 end
 
 #gpg

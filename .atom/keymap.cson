@@ -1,9 +1,48 @@
 # command pallete
-'.platform-linux, .platform-linux .command-palette atom-text-editor':
+'.platform-linux, .platform-linux .command-palette ':
   'alt-d': 'command-palette:toggle'
-# open terminal in current folder
-  'alt-enter': 'term3:open'
-# close current tab
   'alt-q': 'core:close'
+
+'atom-text-editor':
+  'alt-left': 'unset!'
+  'alt-right': 'unset!'
+  'alt-shift-right': 'unset!'
+  'alt-shift-left': 'unset!'
+  'home': 'unset!'
+  'end': 'unset!'
+
+'atom-workspace atom-text-editor':
+  'home': 'core:move-to-top'
+  'end': 'core:move-to-bottom'
+  'ctrl-i': 'editor:select-line'
+  'ctrl-shift-i': 'editor:delete-line'
+  'ctrl-shift-right': 'editor:move-to-end-of-screen-line'
+  'ctrl-shift-left': 'editor:move-to-first-character-of-line'
+  'ctrl-shift-alt-right': 'editor:select-to-end-of-line'
+  'ctrl-shift-alt-left': 'editor:select-to-first-character-of-line'
+
+'atom-text-editor:not([mini])':
+  'ctrl-shift-c': 'unset!'
+
+'atom-workspace':
+  'alt-,': 'unset!'
+  'alt-.': 'unset!'
+  'alt-g': 'git-control:toggle'
+
+'body':
+  'alt-right': 'pane:show-next-item'
+  'alt-left': 'pane:show-previous-item'
+  'alt-o': 'application:open-file'
+  'alt-shift-enter': 'pane:reopen-closed-item'
+  'alt-down': 'window:focus-pane-below'
+  'alt-up': 'window:focus-pane-above'
+  'alt-ctrl-left': 'window:focus-pane-on-left'
+  'alt-ctrl-right': 'window:focus-pane-on-right'
+  'alt-,': 'pane:split-down-and-copy-active-item'
+  'alt-.': 'pane:split-right-and-copy-active-item'
+  'alt-shift-q': 'pane:close-other-items'
+  'alt-shift-right': 'pane:move-item-right'
+  'alt-shift-left': 'pane:move-item-left'
+
 '.platform-linux atom-workspace':
   'ctrl-shift-c': 'color-picker:open'
