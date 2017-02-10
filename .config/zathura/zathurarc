@@ -1,0 +1,28 @@
+set font "Fira Mono 13"
+set default-bg "#0e1112"
+set default-fg "#FFFFFF"
+set statusbar-fg "#FFFFFF"
+set statusbar-bg "#0e1112"
+set inputbar-bg "#0e1112"
+set inputbar-fg "#FFFFFF"
+set notification-error-bg "#ff0000"
+set notification-error-fg "#FFFFFF"
+set notification-warning-bg "#e3ff00"
+set notification-warning-fg "#FFFFFF"
+set highlight-color "#000000"
+set highlight-active-color "#ff0000"
+set completion-bg "#000000"
+set completion-fg "#FFFFFF"
+set notification-bg "#00ff30"
+set notification-fg "#000000"
+set recolor "true"
+set recolor-lightcolor "#0e1112"
+set recolor-darkcolor "#FFFFFF"
+set adjust-open "width"
+map - zoom in
+map = zoom out
+map 0 zoom default
+map <C-g> goto
+map <C-f> search
+map <A-d> focus_inputbar :
+set show-v-scrollbar "true"

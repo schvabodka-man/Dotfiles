@@ -4,7 +4,6 @@
     group: "configs"
     paths: [
       "/home/user/.config/fish"
-      "/home/user/notes"
     ]
   }
   {
