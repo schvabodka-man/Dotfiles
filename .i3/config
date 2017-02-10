@@ -9,6 +9,7 @@ bindsym $mod+Return exec terminator
 
 #Rofi
 bindsym $mod+d exec rofi -show drun -hide-scrollbar -fullscreen
+bindsym $mod+w exec rofi -show window -hide-scrollbar -fullscreen
 
 #Make a screenshot
 bindsym Print exec xfce4-screenshooter
@@ -88,6 +89,13 @@ hide_edge_borders smart
 bindsym XF86AudioRaiseVolume exec /home/user/.config/fish/volume/increase_volume.fish
 bindsym XF86AudioLowerVolume exec /home/user/.config/fish/volume/decrease_volume.fish
 bindsym XF86AudioMute exec /home/user/.config/fish/volume/mute.fish
+bindsym $mod+\ exec cmus-remote -u
+bindsym $mod+Shift+\ exec cmus-remote -s
+bindsym $mod+{ exec cmus-remote -r
+bindsym $mod+} exec cmus-remote -n
+bindsym XF86AudioNext exec cmus-remote -n
+bindsym XF86AudioPrev exec cmus-remote -r
+bindsym XF86AudioPlay exec cmus-remote -u
 
 #gaps
 gaps inner 5
@@ -102,3 +110,7 @@ exec --no-startup-id dropbox
 exec --no-startup-id compton -CGb
 #panel
 exec --no-startup-id polybar Bar
+#steam
+exec steam
+#browser
+exec qutebrowser
