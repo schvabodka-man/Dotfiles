@@ -10,16 +10,17 @@
   'alt-shift-left': 'unset!'
   'home': 'unset!'
   'end': 'unset!'
+  'alt-enter': 'term3:open'
 
 'atom-workspace atom-text-editor':
   'home': 'core:move-to-top'
   'end': 'core:move-to-bottom'
   'ctrl-i': 'editor:select-line'
   'ctrl-shift-i': 'editor:delete-line'
-  'ctrl-shift-right': 'editor:move-to-end-of-screen-line'
-  'ctrl-shift-left': 'editor:move-to-first-character-of-line'
-  'ctrl-shift-alt-right': 'editor:select-to-end-of-line'
-  'ctrl-shift-alt-left': 'editor:select-to-first-character-of-line'
+  'ctrl-end': 'editor:move-to-end-of-screen-line'
+  'ctrl-home': 'editor:move-to-first-character-of-line'
+  'ctrl-shift-end': 'editor:select-to-end-of-line'
+  'ctrl-shift-home': 'editor:select-to-first-character-of-line'
 
 'atom-text-editor:not([mini])':
   'ctrl-shift-c': 'unset!'
@@ -28,6 +29,10 @@
   'alt-,': 'unset!'
   'alt-.': 'unset!'
   'alt-g': 'git-control:toggle'
+
+'atom-workspace atom-text-editor:not([mini])':
+  'ctrl-alt-down': 'editor:add-selection-below'
+  'ctrl-alt-up': 'editor:add-selection-above'
 
 'body':
   'alt-right': 'pane:show-next-item'
@@ -46,3 +51,6 @@
 
 '.platform-linux atom-workspace':
   'ctrl-shift-c': 'color-picker:open'
+
+'.platform-win32, .platform-linux':
+  'alt-b': 'tree-view:toggle'

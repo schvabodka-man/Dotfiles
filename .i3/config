@@ -54,11 +54,9 @@ bindsym $mod+0 workspace 10:
 #windows assigning
 assign [class="qutebrowser"] 1:
 assign [class="Steam"] 2:
-assign [class="Lollypop"] 3:
 assign [class="jetbrains-studio"] 4:
 assign [class="Atom"] 4:
 assign [class="Transmission-gtk"] 6:
-assign [class="calibre"] 5:
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1:

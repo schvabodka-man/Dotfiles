@@ -15,7 +15,9 @@
   move_tab_right = <Shift><Alt>Right
   new_tab = <Alt>Return
   next_tab = <Alt>Right
+  page_down = <Primary><Shift>Down
   page_down_half = <Primary>Down
+  page_up = <Primary><Shift>Up
   page_up_half = <Primary>Up
   paste = <Primary>v
   prev_tab = <Alt>Left

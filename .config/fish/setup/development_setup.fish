@@ -9,7 +9,14 @@ sudo dnf groupinstall 'Development tools'
 sudo dnf install glib2-devel
 sudo dnf install gdk-pixbuf2-devel
 sudo dnf install libcurl-devel
-sudo dnf install autoconf automake 
+sudo dnf install autoconf automake
+sudo dnf install cmake
+sudo dnf install ffmpeg-devel
+sudo dnf install SDL2_image-devel
+sudo dnf install SDL2_ttf-devel
+sudo dnf install openal-soft-devel
+sudo dnf install sqlite-devel
+sudo dnf install qt-devel
 echo "atom.io"
 sudo dnf copr enable mosquito/atom
 sudo dnf install atom
