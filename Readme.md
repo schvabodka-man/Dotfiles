@@ -21,6 +21,9 @@
 *   Rofi(with Blank Banshee lol)
 ![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/rofi.png "and i love vaporwave")
 
+*   Well, Steam(nothing special just dark air theme but it's a little bit of customization)
+![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/steam.png "System Shock!")
+
 *   And empty workspace
 ![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/empty.png "that wallpaper")
 

@@ -57,7 +57,7 @@ assign [class="qutebrowser"] 1:
 assign [class="Steam"] 2:
 assign [title="Super Shotgun Launcher *"] 2:
 assign [class="jetbrains-studio"] 4:
-assign [class=".* — ~/.config/fish — Atom"] 4:
+assign [class=" — ~/.config/fish — Atom"] 4:
 assign [class="Transmission-gtk"] 6:
 
 # move focused container to workspace
@@ -77,9 +77,6 @@ bindsym $mod+r restart
 
 #Focus are following mouse
 focus_follows_mouse yes
-
-#i dont like focus on new windows
-no_focus [class=".*"]
 
 #Window decorations
 new_window pixel 2

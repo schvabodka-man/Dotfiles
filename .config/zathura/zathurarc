@@ -25,4 +25,4 @@ map 0 zoom default
 map <C-g> goto
 map <C-f> search
 map <A-d> focus_inputbar :
-set show-v-scrollbar "true"
+set selection-clipboard "clipboard"
