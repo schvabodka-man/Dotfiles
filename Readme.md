@@ -24,6 +24,9 @@
 *   Well, Steam(nothing special just dark air theme but it's a little bit of customization)
 ![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/steam.png "System Shock!")
 
+*   Zathura - lovely PDF reader
+![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/zathura.png "Fonts are shit because of poppler")
+
 *   And empty workspace
 ![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/empty.png "that wallpaper")
 

@@ -22,7 +22,5 @@ set adjust-open "width"
 map - zoom in
 map = zoom out
 map 0 zoom default
-map <C-g> goto
-map <C-f> search
-map <A-d> focus_inputbar :
+map d focus_inputbar :
 set selection-clipboard "clipboard"
