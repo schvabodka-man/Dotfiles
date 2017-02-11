@@ -15,9 +15,9 @@ function update-nonrepo
     echo "Air for Steam"
     builtin cd ~/.steam/steam/skins/Air-for-Steam
     git pull origin master
-    cat config.ini | sed -i '62s,.*,      //include "resource/themes/_light.styles",' config.ini
-    cat config.ini | sed -i '63s,.*,      include "resource/themes/_dark.styles",' config.ini
-    cat config.ini | sed -i '24s,.*,      //include "resource/colors/sky.styles",' config.ini
-    cat config.ini | sed -i '29s,.*,      include "resource/colors/gunmetal.styles",' config.ini
+    sed -i '62s,.*,      //include "resource/themes/_light.styles",' config.ini
+    sed -i '63s,.*,      include "resource/themes/_dark.styles",' config.ini
+    sed -i '24s,.*,      //include "resource/colors/sky.styles",' config.ini
+    sed -i '29s,.*,      include "resource/colors/gunmetal.styles",' config.ini
     echo "Ready!"
 end
