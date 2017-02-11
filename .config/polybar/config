@@ -81,6 +81,7 @@ interval = 7200
 type = custom/script
 exec = ~/.config/fish/panel/music.fish
 format-underline = #f200ff
+tail = true
 
 # disabled it, instead i'm using stuff in tray
 #[module/battery]

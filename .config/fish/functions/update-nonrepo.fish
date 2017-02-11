@@ -9,9 +9,15 @@ function update-nonrepo
     echo "updating installed gems"
     sudo gem update
     echo "npm packages(weather)"
-    sudo npm update -g
     echo "doom rpg"
     builtin cd ~/Games/Doom/Mods/DoomRPG
     git pull origin master
+    echo "Air for Steam"
+    builtin cd ~/.steam/steam/skins/Air-for-Steam
+    git pull origin master
+    cat config.ini | sed -i '62s,.*,      //include "resource/themes/_light.styles",' config.ini
+    cat config.ini | sed -i '63s,.*,      include "resource/themes/_dark.styles",' config.ini
+    cat config.ini | sed -i '24s,.*,      //include "resource/colors/sky.styles",' config.ini
+    cat config.ini | sed -i '29s,.*,      include "resource/colors/gunmetal.styles",' config.ini
     echo "Ready!"
 end

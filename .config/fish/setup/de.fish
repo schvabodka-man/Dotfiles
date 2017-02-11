@@ -30,3 +30,12 @@ builtin cd build/
 make
 sudo make install
 cmusfm init
+sudo dnf install steam
+steam
+builtin cd ~/.steam/steam/skins/
+git clone https://github.com/Outsetini/Air-for-Steam
+builtin cd Air-for-Steam/
+cat config.ini | sed -i '62s,.*,      //include "resource/themes/_light.styles",' config.ini
+cat config.ini | sed -i '63s,.*,      include "resource/themes/_dark.styles",' config.ini
+cat config.ini | sed -i '24s,.*,      //include "resource/colors/sky.styles",' config.ini
+cat config.ini | sed -i '29s,.*,      include "resource/colors/gunmetal.styles",' config.ini
