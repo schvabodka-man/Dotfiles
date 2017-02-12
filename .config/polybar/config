@@ -87,7 +87,7 @@ tail = true
 type = custom/script
 exec = ~/.config/fish/panel/rss.fish
 format-underline = #ff0000
-interval = 90
+interval = 15
 
 # disabled it, instead i'm using stuff in tray
 #[module/battery]

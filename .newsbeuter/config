@@ -48,3 +48,12 @@ bind-key ^R redraw
 bind-key M macro-prefix
 bind-key \ toggle-show-read-feeds
 bind-key R reload-all
+
+define-filter "daggerfall" "feedtitle =~ \"Dagger\""
+define-filter "linux" "feedtitle =~ \"Linux\""
+define-filter "tes" "feedtitle =~ \"Dagger\" or feedtitle =~ \"OpenMW\" or feedtitle =~ \"Tamriel\""
+define-filter "morrowind" "feedtitle =~ \"OpenMW\" or feedtitle =~ \"Tamriel Rebuilt\""
+
+urls-source "oldreader"
+oldreader-login "svhscr@protonmail.com"
+oldreader-passwordfile "/home/user/.newsbeuter/pass" #it's encrypted

@@ -40,5 +40,6 @@ apm install script
 apm install seti-syntax
 apm install term3
 apm install multi-cursor
+apm install linter-coffeelint
 echo "saas"
 sudo gem install saas

@@ -26,7 +26,7 @@
 
 *   Zathura - lovely PDF reader
 ![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/zathura.png "Fonts are shit because of poppler")
-
+  
 *   And empty workspace
 ![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/empty.png "that wallpaper")
 
