@@ -9,17 +9,17 @@ set auto_expand_albums_selcur=true
 set auto_reshuffle=true
 set buffer_seconds=10
 set color_cmdline_attr=default
-set color_cmdline_bg=238
+set color_cmdline_bg=default
 set color_cmdline_fg=white
 set color_cur_sel_attr=default
 set color_error=lightred
 set color_info=lightgreen
 set color_separator=white
 set color_statusline_attr=default
-set color_statusline_bg=238
+set color_statusline_bg=default
 set color_statusline_fg=white
 set color_titleline_attr=default
-set color_titleline_bg=238
+set color_titleline_bg=default
 set color_titleline_fg=white
 set color_win_attr=default
 set color_win_bg=default
@@ -30,10 +30,10 @@ set color_win_cur_sel_fg=lightred
 set color_win_dir=108
 set color_win_fg=white
 set color_win_inactive_cur_sel_attr=default
-set color_win_inactive_cur_sel_bg=238
+set color_win_inactive_cur_sel_bg=default
 set color_win_inactive_cur_sel_fg=lightred
 set color_win_inactive_sel_attr=default
-set color_win_inactive_sel_bg=238
+set color_win_inactive_sel_bg=default
 set color_win_inactive_sel_fg=white
 set color_win_sel_attr=default
 set color_win_sel_bg=white
@@ -105,6 +105,7 @@ bind common 4 view playlist
 bind common 5 view filters
 bind common 6 view browser
 bind common 7 view settings
+bind common ; push  
 bind common F toggle follow
 bind common R update-cache
 bind common [ player-prev

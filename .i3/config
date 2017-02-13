@@ -33,9 +33,10 @@ bindsym $mod+Shift+Right move right
 #Fullscreen
 bindsym $mod+f fullscreen toggle
 
-# change container layout (tabbed, toggle split)
+# change container layout
 bindsym $mod+t layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+v split vertical
+bindsym $mod+h split horizontal
 
 # toggle tiling / floating
 bindsym $mod+space floating toggle
@@ -90,10 +91,6 @@ hide_edge_borders smart
 bindsym XF86AudioRaiseVolume exec /home/user/.config/fish/volume/increase_volume.fish
 bindsym XF86AudioLowerVolume exec /home/user/.config/fish/volume/decrease_volume.fish
 bindsym XF86AudioMute exec /home/user/.config/fish/volume/mute.fish
-bindsym $mod+\ exec cmus-remote -u
-bindsym $mod+Shift+\ exec cmus-remote -s
-bindsym $mod+{ exec cmus-remote -r
-bindsym $mod+} exec cmus-remote -n
 bindsym XF86AudioNext exec cmus-remote -n
 bindsym XF86AudioPrev exec cmus-remote -r
 bindsym XF86AudioPlay exec cmus-remote -u

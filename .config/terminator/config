@@ -22,8 +22,8 @@
   paste = <Primary>v
   prev_tab = <Alt>Left
   search = <Primary>f
-  split_horiz = <Alt>comma
-  split_vert = <Alt>period
+  split_horiz = <Alt>h
+  split_vert = <Alt>v
   switch_to_tab_1 = <Alt>1
   switch_to_tab_10 = <Alt>0
   switch_to_tab_2 = <Alt>2

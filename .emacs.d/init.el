@@ -92,8 +92,8 @@
 (global-set-key (kbd "C-/") 'comment-line)
 (global-set-key (kbd "C-b") 'helm-bookmarks)
 ;; windows controls
-(global-set-key (kbd "M-,") 'split-window-horizontally)
-(global-set-key (kbd "M-.") 'split-window-vertically)
+(global-set-key (kbd "M-h") 'split-window-horizontally)
+(global-set-key (kbd "M-v") 'split-window-vertically)
 (global-set-key (kbd "M-S-<left>") 'windmove-left)
 (global-set-key (kbd "M-S-<right>") 'windmove-right)
 (global-set-key (kbd "M-S-<up>") 'windmove-up)
@@ -189,8 +189,6 @@
 (defalias 'wiki 'org-wiki-index)
 (defalias 'bookmarks 'helm-bookmark)
 (defalias 'commit 'magit-commit)
-
-(org-wiki-index)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

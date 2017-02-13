@@ -40,7 +40,6 @@ unbind-key A
 
 bind-key | mark-feed-read
 bind-key o open-in-browser-and-mark-read
-bind-key d cmdline
 bind-key [ prev-unread
 bind-key ] next-unread
 bind-key s open-search
@@ -48,11 +47,13 @@ bind-key ^R redraw
 bind-key M macro-prefix
 bind-key \ toggle-show-read-feeds
 bind-key R reload-all
+bind-key ; cmdline
 
 define-filter "daggerfall" "feedtitle =~ \"Dagger\""
 define-filter "linux" "feedtitle =~ \"Linux\""
 define-filter "tes" "feedtitle =~ \"Dagger\" or feedtitle =~ \"OpenMW\" or feedtitle =~ \"Tamriel\""
 define-filter "morrowind" "feedtitle =~ \"OpenMW\" or feedtitle =~ \"Tamriel Rebuilt\""
+define-filter "games" "feedtitle =~ \"Dagger\" or feedtitle =~ \"OpenMW\" or feedtitle =~ \"Tamriel\""
 
 urls-source "oldreader"
 oldreader-login "svhscr@protonmail.com"
