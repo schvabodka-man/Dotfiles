@@ -8,7 +8,7 @@ floating_modifier $mod
 bindsym $mod+Return exec terminator
 
 #Rofi
-bindsym $mod+d exec rofi -show drun -hide-scrollbar -fullscreen
+bindcode $mod+47 exec rofi -show drun -hide-scrollbar -fullscreen
 bindsym $mod+w exec rofi -show window -hide-scrollbar -fullscreen
 
 #Make a screenshot
@@ -35,8 +35,8 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout
 bindsym $mod+t layout tabbed
-bindsym $mod+v split vertical
-bindsym $mod+h split horizontal
+bindcode $mod+60 split vertical
+bindcode $mod+59 split horizontal
 
 # toggle tiling / floating
 bindsym $mod+space floating toggle

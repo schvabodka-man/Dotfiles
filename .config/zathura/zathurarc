@@ -22,5 +22,5 @@ set adjust-open "width"
 map - zoom in
 map = zoom out
 map 0 zoom default
-map d focus_inputbar :
+map ; focus_inputbar :
 set selection-clipboard "clipboard"

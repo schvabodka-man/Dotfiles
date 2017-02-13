@@ -105,7 +105,6 @@ bind common 4 view playlist
 bind common 5 view filters
 bind common 6 view browser
 bind common 7 view settings
-bind common ; push  
 bind common F toggle follow
 bind common R update-cache
 bind common [ player-prev
@@ -135,11 +134,13 @@ bind common { win-page-up
 bind common | player-stop
 bind common } win-page-down
 fset 2814=artist="2814"
+fset alac=filename="*.m4a"
 fset ambient=genre="Ambient"
 fset aphex_twin=artist="Aphex Twin"
 fset black=genre="Black Metal"
 fset blank_banshee=artist="Blank Banshee"
 fset boris=artist="Boris"
+fset burzum=artist="Burzum"
 fset carpenter_brut=artist="Carpenter Brut"
 fset chillstep=genre="Chillstep"
 fset chiptune=genre="Chiptune"&comment!="OST"
@@ -157,7 +158,10 @@ fset hip_hop=genre="Abstract Hip-Hop"
 fset house=genre="House"
 fset idm=genre="IDM"
 fset industrial=genre="Industrial"
+fset lossless=filename="*.m4a"|filename="*.flac"
+fset m4a=filename="*.m4a"
 fset masonna=artist="Masonna"
+fset mayhem=artist="Mayhem"
 fset merzbow=artist="Merzbow"
 fset metal=genre="Progressive Metal"|genre="Black Metal"|genre="Drone Metal"|genre="Doom Metal"
 fset mgla=artist="Mgła"

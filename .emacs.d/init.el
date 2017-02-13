@@ -75,29 +75,28 @@
 (global-set-key (kbd "<end>") 'end-of-buffer)
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-d") 'helm-M-x)
-(global-set-key (kbd "M-d") 'helm-M-x)
+(global-set-key (kbd "M-;") 'helm-M-x)
 (global-set-key (kbd "M-w") 'ibuffer)
 (global-set-key (kbd "M-S-q") 'kill-buffer)
-(global-set-key (kbd "C-o") 'helm-find-files)
+(global-set-key (kbd "M-o") 'helm-find-files)
 (global-set-key (kbd "C-s") 'save-buffer)
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
 (global-set-key (kbd "C-g") 'goto-line)
 (global-set-key (kbd "C-f") 'helm-occur)
-(global-set-key (kbd "C-S-<left>") 'beginning-of-line)
-(global-set-key (kbd "C-S-<right>") 'end-of-line)
+(global-set-key (kbd "C-<home>") 'beginning-of-line)
+(global-set-key (kbd "C-<end>") 'end-of-line)
 (global-set-key (kbd "C-<left>") 'left-word)
 (global-set-key (kbd "C-<right>") 'right-word)
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
 (global-set-key (kbd "C-/") 'comment-line)
 (global-set-key (kbd "C-b") 'helm-bookmarks)
 ;; windows controls
-(global-set-key (kbd "M-h") 'split-window-horizontally)
-(global-set-key (kbd "M-v") 'split-window-vertically)
-(global-set-key (kbd "M-S-<left>") 'windmove-left)
-(global-set-key (kbd "M-S-<right>") 'windmove-right)
-(global-set-key (kbd "M-S-<up>") 'windmove-up)
-(global-set-key (kbd "M-S-<down>") 'windmove-down)
+(global-set-key (kbd "M-,") 'split-window-horizontally)
+(global-set-key (kbd "M-.") 'split-window-vertically)
+(global-set-key (kbd "M-<left>") 'windmove-left)
+(global-set-key (kbd "M-<right>") 'windmove-right)
+(global-set-key (kbd "M-<up>") 'windmove-up)
+(global-set-key (kbd "M-<down>") 'windmove-down)
 (global-set-key (kbd "M-q") 'delete-window)
 
 ;;disable greeting
@@ -119,19 +118,8 @@
     (package-refresh-contents)
     (package-install 'neotree))
 (require 'neotree)
-(global-set-key (kbd "C-<tab>") 'neotree-toggle)
-
-;;all-the-icons
-(unless (package-installed-p 'all-the-icons)
-    (package-refresh-contents)
-    (package-install 'all-the-icons))
-(unless (package-installed-p 'octicons)
-    (package-refresh-contents)
-    (package-install 'octicons))
-(unless (package-installed-p 'fontawesome)
-    (package-refresh-contents)
-    (package-install 'fontawesome))
-(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+(global-set-key (kbd "M-b") 'neotree-toggle)
+(setq neo-theme (if (display-graphic-p) 'arrow 'arrow))
 
 ;;autocomplete
 (unless (package-installed-p 'company)
@@ -195,17 +183,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(elscreen-default-buffer-name "Empty")
- '(elscreen-display-screen-number nil)
- '(elscreen-tab-display-control nil)
- '(elscreen-tab-display-kill-screen (quote right))
- '(org-support-shift-select (quote always))
- '(package-selected-packages
-   (quote
-	(emms octicons fontawesome markdown-mode use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(elscreen-tab-current-screen-face ((t (:background "white" :foreground "black")))))
+ ))
