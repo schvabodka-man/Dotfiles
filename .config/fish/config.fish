@@ -6,6 +6,7 @@ set -g theme_color_scheme dark
 #aliases
 alias xrdb-merge 'xrdb -merge ~/.Xresources'
 alias rofi-cache-clear 'rm ~/.cache/rofi-3.runcache'
+alias newsbeuter-cache-clear 'rm ~/.newsbeuter/cache.db'
 alias cd.. 'cd ..' #priceless
 alias rm 'rm -rf'
 alias lsa 'ls -a'

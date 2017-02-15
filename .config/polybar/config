@@ -60,16 +60,19 @@ format-underline = #ffd600
 type = custom/script
 exec = ~/.config/fish/panel/meetup.fish
 format-underline = #f200ff
+tail = true
 
 [module/todo]
 type = custom/script
 exec = ~/.config/fish/panel/todo.fish
 format-underline = #00ff0a
+tail = true
 
 [module/calendar]
 type = custom/script
 exec = ~/.config/fish/panel/calendar.fish
 format-underline = #ffd600
+tail = true
 
 [module/weather]
 type = custom/script

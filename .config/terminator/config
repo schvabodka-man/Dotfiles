@@ -21,9 +21,9 @@
   page_up_half = <Primary>Up
   paste = <Primary>v
   prev_tab = <Alt>Left
-  search = <Primary>f
-  split_horiz = <Alt>h
-  split_vert = <Alt>v
+  search = <Primary>slash
+  split_horiz = <Alt>period
+  split_vert = <Alt>comma
   switch_to_tab_1 = <Alt>1
   switch_to_tab_10 = <Alt>0
   switch_to_tab_2 = <Alt>2
