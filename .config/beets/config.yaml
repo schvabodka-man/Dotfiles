@@ -3,9 +3,12 @@ library: ~/Music/musiclibrary.db
 
 import:
     move: no
-	copy: yes
+    copy: yes
 
-plugins: lyrics lastgenre fetchart
+plugins: lyrics lastgenre fetchart lastimport
+
+lastfm:
+    user: muzyakakachaet
 
 african:
     - african heavy metal

@@ -2,7 +2,27 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("fish"
+(("cmus-rc"
+ (filename . "~/.config/cmus/rc")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("emacs-keybindings"
+ (filename . "~/.emacs.d/init.el")
+ (front-context-string . "s\n(global-set-ke")
+ (rear-context-string . ")\n\n;; keybinding")
+ (position . 1804))
+("emacs-evil"
+ (filename . "~/.emacs.d/init.el")
+ (front-context-string . "s\n(define-key ev")
+ (rear-context-string . "(evil-mode)\n;key")
+ (position . 4904))
+("xresources"
+ (filename . "~/.Xresources")
+ (front-context-string . "Xft.dpi: 96\nXft.")
+ (rear-context-string)
+ (position . 1))
+("fish"
  (filename . "~/.config/fish/")
  (front-context-string . "conf.d\n  -rw-rw-")
  (rear-context-string . "96 Jan  2 10:19 ")

@@ -76,7 +76,7 @@
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-;") 'helm-M-x)
-(global-set-key (kbd "M-w") 'ibuffer)
+(global-set-key (kbd "M-w") 'helm-buffers-list)
 (global-set-key (kbd "M-S-q") 'kill-buffer)
 (global-set-key (kbd "M-o") 'helm-find-files)
 (global-set-key (kbd "C-s") 'save-buffer)
@@ -92,6 +92,8 @@
 (global-set-key (kbd "M-<up>") 'windmove-up)
 (global-set-key (kbd "M-<down>") 'windmove-down)
 (global-set-key (kbd "M-q") 'delete-window)
+;;colors list
+(global-set-key (kbd "C-S-c") 'helm-colors)
 
 ;;disable greeting
 (setq inhibit-startup-screen t)
@@ -188,11 +190,26 @@
 (define-key evil-normal-state-map (kbd "/") 'helm-occur)
 (define-key evil-normal-state-map (kbd "g") 'goto-line)
 
+;;minimap
+(unless (package-installed-p 'minimap)
+    (package-refresh-contents)
+    (package-install 'minimap))
+(require 'minimap)
+(global-set-key (kbd "M-m") 'minimap-mode)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(minimap-buffer-name " MINIMAP")
+ '(minimap-dedicated-window nil)
+ '(minimap-hide-fringes t)
+ '(minimap-hide-scroll-bar t)
+ '(minimap-major-modes (quote (prog-mode)))
+ '(minimap-mode nil)
+ '(minimap-width-fraction 0.13)
+ '(minimap-window-location (quote right))
  '(nil nil t)
  '(package-selected-packages
    (quote
@@ -202,4 +219,5 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(minimap-active-region-background ((t (:background "#0e1112"))))
+ '(minimap-font-face ((t (:height 30 :family "Fira Mono")))))
