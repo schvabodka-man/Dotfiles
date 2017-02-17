@@ -40,3 +40,5 @@ sed -i '62s,.*,      //include "resource/themes/_light.styles",' config.ini
 sed -i '63s,.*,      include "resource/themes/_dark.styles",' config.ini
 sed -i '24s,.*,      //include "resource/colors/sky.styles",' config.ini
 sed -i '29s,.*,      include "resource/colors/gunmetal.styles",' config.ini
+sudo dnf install beets
+sudo dnf install beets-plugins

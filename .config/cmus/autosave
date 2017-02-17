@@ -50,7 +50,7 @@ set dsp.ao.buffer_size=16384
 set dsp.ao.driver=
 set dsp.ao.wav_counter=1
 set dsp.ao.wav_dir=/home/user
-set follow=true
+set follow=false
 set format_current= %a — %l — %n.%t%= Disc: %D  %g %y
 set format_playlist= %-21%a %3n. %t%= %y %d %{?X!=0?%3X ?    }
 set format_playlist_va= %-21%A %3n. %t (%a)%= %y %d %{?X!=0?%3X ?    }
@@ -158,7 +158,7 @@ fset harsh_noise=genre="Harsh Noise"
 fset hip_hop=genre="Abstract Hip-Hop"
 fset house=genre="House"
 fset idm=genre="IDM"
-fset industrial=genre="Industrial"
+fset industrial=genre="Industrial *"
 fset lossless=filename="*.m4a"|filename="*.flac"
 fset lossy=filename="*.mp3"|filename=".aac"|filename=".ogg"
 fset m4a=filename="*.m4a"

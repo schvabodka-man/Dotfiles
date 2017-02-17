@@ -80,16 +80,10 @@
 (global-set-key (kbd "M-S-q") 'kill-buffer)
 (global-set-key (kbd "M-o") 'helm-find-files)
 (global-set-key (kbd "C-s") 'save-buffer)
-(global-set-key (kbd "C-a") 'mark-whole-buffer)
-(global-set-key (kbd "C-g") 'goto-line)
-(global-set-key (kbd "C-f") 'helm-occur)
 (global-set-key (kbd "C-<home>") 'beginning-of-line)
 (global-set-key (kbd "C-<end>") 'end-of-line)
 (global-set-key (kbd "C-<left>") 'left-word)
 (global-set-key (kbd "C-<right>") 'right-word)
-(global-set-key (kbd "C-a") 'mark-whole-buffer)
-(global-set-key (kbd "C-/") 'comment-line)
-(global-set-key (kbd "C-b") 'helm-bookmarks)
 ;; windows controls
 (global-set-key (kbd "M-,") 'split-window-horizontally)
 (global-set-key (kbd "M-.") 'split-window-vertically)
@@ -178,14 +172,34 @@
 (defalias 'bookmarks 'helm-bookmark)
 (defalias 'commit 'magit-commit)
 
+;evil
+(unless (package-installed-p 'evil)
+    (package-refresh-contents)
+    (package-install 'evil))
+(require 'evil)
+(evil-mode)
+;keys
+(define-key evil-normal-state-map (kbd "u") 'evil-visual-char)
+(define-key evil-normal-state-map (kbd "b") 'helm-bookmarks)
+(define-key evil-normal-state-map (kbd "S-/") 'comment-line)
+(define-key evil-normal-state-map (kbd "a") 'mark-whole-buffer)
+(define-key evil-normal-state-map (kbd "S-l") 'evil-delete-whole-line)
+(define-key evil-normal-state-map (kbd "?") 'helm-occur)
+(define-key evil-normal-state-map (kbd "/") 'helm-occur)
+(define-key evil-normal-state-map (kbd "g") 'goto-line)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(nil nil t)
+ '(package-selected-packages
+   (quote
+	(evil yasnippet yascroll use-package tabbar seti-theme powerline octicons neotree monokai-theme material-theme markdown-mode magit helm fontawesome fish-mode elscreen el-get cyberpunk-theme company all-the-icons))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- ))
+ )
