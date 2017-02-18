@@ -5,7 +5,6 @@ refresh-on-startup yes
 show-read-feeds yes
 show-read-articles yes
 goto-first-unread yes
-
 auto-reload yes
 reload-time 120
 reload-threads 4
@@ -53,7 +52,11 @@ define-filter "daggerfall" "feedtitle =~ \"Dagger\""
 define-filter "linux" "feedtitle =~ \"Linux\""
 define-filter "tes" "feedtitle =~ \"Dagger\" or feedtitle =~ \"OpenMW\" or feedtitle =~ \"Tamriel\""
 define-filter "morrowind" "feedtitle =~ \"OpenMW\" or feedtitle =~ \"Tamriel Rebuilt\""
-define-filter "games" "feedtitle =~ \"Dagger\" or feedtitle =~ \"OpenMW\" or feedtitle =~ \"Tamriel\""
+define-filter "games" "feedtitle =~ \"Dagger\" or feedtitle =~ \"OpenMW\" or feedtitle =~ \"Tamriel\" or feedtitle =~ \"Degenerated asdf\""
+define-filter "gothic" "feedtitle =~ \"Degenerated asdf\""
+define-filter "regoth" "feedtitle =~ \"Degenerated asdf\""
+define-filter "open source games engines" "feedtitle =~ \"Degenerated asdf\" or feedtitle =~ \"OpenMW\" or feedtitle =~ \"Daggerfall Workshop\""
+define-filter "youtube" "feedtitle =~ \"Degenerated asdf\""
 
 urls-source "oldreader"
 oldreader-login "svhscr@protonmail.com"

@@ -256,7 +256,7 @@
  '(minimap-window-location (quote right))
  '(package-selected-packages
    (quote
-	(evil yasnippet yascroll use-package tabbar seti-theme powerline octicons neotree monokai-theme material-theme markdown-mode magit helm fontawesome fish-mode elscreen el-get cyberpunk-theme company all-the-icons)))
+	(evil yasnippet yascroll use-package seti-theme neotree markdown-mode magit helm fish-mode el-get company)))
  '(yascroll:delay-to-hide nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
