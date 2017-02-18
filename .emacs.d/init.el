@@ -83,6 +83,23 @@
 (global-set-key (kbd "C-<left>") 'left-word)
 (global-set-key (kbd "C-<right>") 'right-word)
 (global-set-key (kbd "C-/") 'comment-line)
+
+
+;;current buffer path to clipboard
+(defun put-file-name-on-clipboard ()
+  "Put the current file name on the clipboard"
+  (interactive)
+  (let ((filename (if (equal major-mode 'dired-mode)
+                      default-directory
+                    (buffer-file-name))))
+    (when filename
+      (with-temp-buffer
+        (insert filename)
+        (clipboard-kill-region (point-min) (point-max)))
+      (message filename))))
+
+(global-set-key (kbd "C-u") 'put-file-name-on-clipboard)
+
 ;; windows controls
 (global-set-key (kbd "M-,") 'split-window-horizontally)
 (global-set-key (kbd "M-.") 'split-window-vertically)
