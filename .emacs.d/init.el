@@ -1,4 +1,4 @@
-;; packages
+; packages
 (require 'package)
 (add-to-list 'package-archives
     '("melpa" . "http://melpa.org/packages/"))
@@ -74,16 +74,15 @@
 (global-set-key (kbd "<home>") 'beginning-of-buffer)
 (global-set-key (kbd "<end>") 'end-of-buffer)
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-(global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-;") 'helm-M-x)
 (global-set-key (kbd "M-w") 'helm-buffers-list)
-(global-set-key (kbd "M-S-q") 'kill-buffer)
 (global-set-key (kbd "M-o") 'helm-find-files)
 (global-set-key (kbd "C-s") 'save-buffer)
 (global-set-key (kbd "C-<home>") 'beginning-of-line)
 (global-set-key (kbd "C-<end>") 'end-of-line)
 (global-set-key (kbd "C-<left>") 'left-word)
 (global-set-key (kbd "C-<right>") 'right-word)
+(global-set-key (kbd "C-/") 'comment-line)
 ;; windows controls
 (global-set-key (kbd "M-,") 'split-window-horizontally)
 (global-set-key (kbd "M-.") 'split-window-vertically)
@@ -92,6 +91,7 @@
 (global-set-key (kbd "M-<up>") 'windmove-up)
 (global-set-key (kbd "M-<down>") 'windmove-down)
 (global-set-key (kbd "M-q") 'delete-window)
+(global-set-key (kbd "C-S-q") 'kill-this-buffer)
 ;;colors list
 (global-set-key (kbd "C-S-c") 'helm-colors)
 
@@ -173,6 +173,14 @@
 (defalias 'wiki 'org-wiki-index)
 (defalias 'bookmarks 'helm-bookmark)
 (defalias 'commit 'magit-commit)
+(defalias 'push 'magit-push)
+(defalias 'pull 'magit-pull)
+
+;;just copypasted this from net, it's nice line selection like sublime text
+(defvar sublime-text-control-L-active nil)
+(defun sublime-text-control-L-deactivate ()
+(setq sublime-text-control-L-active nil))
+(add-hook 'deactivate-mark-hook #'sublime-text-control-L-deactivate)
 
 ;evil
 (unless (package-installed-p 'evil)
@@ -181,21 +189,40 @@
 (require 'evil)
 (evil-mode)
 ;keys
-(define-key evil-normal-state-map (kbd "u") 'evil-visual-char)
 (define-key evil-normal-state-map (kbd "b") 'helm-bookmarks)
-(define-key evil-normal-state-map (kbd "S-/") 'comment-line)
 (define-key evil-normal-state-map (kbd "a") 'mark-whole-buffer)
-(define-key evil-normal-state-map (kbd "S-l") 'evil-delete-whole-line)
+(define-key evil-normal-state-map (kbd "S-l") 'kill-whole-line)
 (define-key evil-normal-state-map (kbd "?") 'helm-occur)
 (define-key evil-normal-state-map (kbd "/") 'helm-occur)
 (define-key evil-normal-state-map (kbd "g") 'goto-line)
-
+(define-key evil-normal-state-map (kbd "l")
+  (defun sublime-text-control-L ()
+    (interactive)
+    (when (not sublime-text-control-L-active)
+      ;; initializing the mark
+      (setq sublime-text-control-L-active t)
+      (move-beginning-of-line nil)
+      (set-mark (point))
+      (activate-mark)
+    ;; set the point
+    (move-end-of-line nil)
+    (forward-line))))
+  
 ;;minimap
 (unless (package-installed-p 'minimap)
     (package-refresh-contents)
     (package-install 'minimap))
 (require 'minimap)
 (global-set-key (kbd "M-m") 'minimap-mode)
+
+;;scrolling
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) 
+(setq mouse-wheel-progressive-speed nil)
+(setq mouse-wheel-follow-mouse 't)
+(setq scroll-step 1)
+
+;;store session
+(desktop-save-mode 1)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -210,14 +237,21 @@
  '(minimap-mode nil)
  '(minimap-width-fraction 0.13)
  '(minimap-window-location (quote right))
- '(nil nil t)
  '(package-selected-packages
    (quote
-	(evil yasnippet yascroll use-package tabbar seti-theme powerline octicons neotree monokai-theme material-theme markdown-mode magit helm fontawesome fish-mode elscreen el-get cyberpunk-theme company all-the-icons))))
+	(evil yasnippet yascroll use-package tabbar seti-theme powerline octicons neotree monokai-theme material-theme markdown-mode magit helm fontawesome fish-mode elscreen el-get cyberpunk-theme company all-the-icons)))
+ '(yascroll:delay-to-hide nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-scrollbar-bg ((t (:background "#0e1112"))))
+ '(company-scrollbar-fg ((t (:background "#FFFFFF"))))
+ '(company-tooltip ((t (:background "#0e1112" :foreground "#FFFFFF"))))
+ '(company-tooltip-common ((t (:foreground "#Ff0000"))))
+ '(company-tooltip-selection ((t (:background "#FFFFFF" :foreground "#000000"))))
+ '(highlight ((t (:background "#FFFFFF" :foreground "#000000"))))
  '(minimap-active-region-background ((t (:background "#0e1112"))))
- '(minimap-font-face ((t (:height 30 :family "Fira Mono")))))
+ '(minimap-font-face ((t (:height 30 :family "Fira Mono"))))
+ '(yascroll:thumb-face ((t (:background "white")))))
