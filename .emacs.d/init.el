@@ -1,7 +1,8 @@
 ; packages
 (require 'package)
-(add-to-list 'package-archives
-    '("melpa" . "http://melpa.org/packages/"))
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
 
 ;;use-package
@@ -198,22 +199,7 @@
 (defun sublime-text-control-L-deactivate ()
 (setq sublime-text-control-L-active nil))
 (add-hook 'deactivate-mark-hook #'sublime-text-control-L-deactivate)
-
-;evil
-(unless (package-installed-p 'evil)
-    (package-refresh-contents)
-    (package-install 'evil))
-(require 'evil)
-(evil-mode)
-;keys
-(define-key evil-normal-state-map (kbd "b") 'helm-bookmarks)
-(define-key evil-normal-state-map (kbd "a") 'mark-whole-buffer)
-(define-key evil-normal-state-map (kbd "S-l") 'kill-whole-line)
-(define-key evil-normal-state-map (kbd "?") 'helm-occur)
-(define-key evil-normal-state-map (kbd "/") 'helm-occur)
-(define-key evil-normal-state-map (kbd "g") 'goto-line)
-(define-key evil-normal-state-map (kbd "l")
-  (defun sublime-text-control-L ()
+(defun sublime-text-control-L ()
     (interactive)
     (when (not sublime-text-control-L-active)
       ;; initializing the mark
@@ -223,7 +209,22 @@
       (activate-mark)
     ;; set the point
     (move-end-of-line nil)
-    (forward-line))))
+    (forward-line)))
+
+;;evil
+(unless (package-installed-p 'evil)
+    (package-refresh-contents)
+    (package-install 'evil))
+(require 'evil)
+(evil-mode)
+;;keys
+(define-key evil-normal-state-map (kbd "b") 'helm-bookmarks)
+(define-key evil-normal-state-map (kbd "a") 'mark-whole-buffer)
+(define-key evil-normal-state-map (kbd "S-l") 'kill-whole-line)
+(define-key evil-normal-state-map (kbd "?") 'helm-occur)
+(define-key evil-normal-state-map (kbd "/") 'helm-occur)
+(define-key evil-normal-state-map (kbd "g") 'goto-line)
+(define-key evil-normal-state-map (kbd "l")
   
 ;;minimap
 (unless (package-installed-p 'minimap)
@@ -254,9 +255,6 @@
  '(minimap-mode nil)
  '(minimap-width-fraction 0.13)
  '(minimap-window-location (quote right))
- '(package-selected-packages
-   (quote
-	(evil yasnippet yascroll use-package seti-theme neotree markdown-mode magit helm fish-mode el-get company)))
  '(yascroll:delay-to-hide nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

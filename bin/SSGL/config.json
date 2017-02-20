@@ -4,7 +4,7 @@
         "doomretro": false,
         "doomrpg": true,
         "doomrpgrl": false,
-        "doomrpgrlmonsters": true,
+        "doomrpgrlmonsters": false,
         "gzdoom": true,
         "oblige": false,
         "prboomp": false,

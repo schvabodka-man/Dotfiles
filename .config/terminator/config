@@ -11,9 +11,13 @@
   title_use_system_font = False
 [keybindings]
   copy = <Primary>c
+  go_down = <Primary><Shift><Alt>Down
+  go_left = <Primary><Shift><Alt>Left
+  go_right = <Primary><Shift><Alt>Right
+  go_up = <Primary><Shift><Alt>Up
   move_tab_left = <Shift><Alt>Left
   move_tab_right = <Shift><Alt>Right
-  new_tab = <Alt>Return
+  new_tab = <Super>Return
   next_tab = <Alt>Right
   page_down = <Primary><Shift>Down
   page_down_half = <Primary>Down
@@ -37,11 +41,47 @@
 [layouts]
   [[default]]
     [[[child1]]]
+      command = ""
       parent = window0
       type = Terminal
     [[[window0]]]
       parent = ""
       type = Window
+  [[CMUS]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = c422ebe9-d365-42b5-a1f9-5b24f77a9c33
+      last_active_window = False
+      maximised = False
+      order = 0
+      parent = ""
+      position = 9:26
+      size = 785, 861
+      title = Hidden Orchestra - Wingbeats - Wingbeats Source II: Cello (2016)
+      type = Window
+    [[[child2]]]
+      fullscreen = False
+      last_active_term = b0246574-bc21-4bea-8bd5-f2f89149bd35
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 9:26
+      size = 785, 861
+      title = ~
+      type = Window
+    [[[terminal1]]]
+      order = 0
+      parent = child0
+      profile = default
+      type = Terminal
+      uuid = c422ebe9-d365-42b5-a1f9-5b24f77a9c33
+    [[[terminal3]]]
+      order = 0
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = b0246574-bc21-4bea-8bd5-f2f89149bd35
 [plugins]
 [profiles]
   [[default]]

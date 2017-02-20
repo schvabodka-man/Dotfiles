@@ -17,29 +17,9 @@ sudo dnf install SDL2_ttf-devel
 sudo dnf install openal-soft-devel
 sudo dnf install sqlite-devel
 sudo dnf install qt-devel
-echo "atom.io"
-sudo dnf copr enable mosquito/atom
-sudo dnf install atom
-apm install atom-material-ui
-apm install color-picker
-apm install file-icons
-apm install git-control
-apm install highlight-selected
-apm install language-emacs-lisp
-apm install language-fish-shell
-apm install language-ini
-apm install linter
-apm install linter-markdown
-apm install minimap
-apm install minimap-highlight-selected
-apm install minimap-pigments
-apm install open-recent
-apm install pigments
-apm install project-manager
-apm install script
-apm install seti-syntax
-apm install term3
-apm install multi-cursor
-apm install linter-coffeelint
+sudo dnf install neovim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 echo "saas"
 sudo gem install saas

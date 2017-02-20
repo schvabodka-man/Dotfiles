@@ -1,0 +1,30 @@
+[
+    {
+        "name": "bd64gamev2",
+        "dir": "BrutalDoom64",
+        "checked": true,
+        "path": "/home/user/Games/Doom/Mods/BrutalDoom64/bd64gamev2.pk3",
+        "type": "PK3"
+    },
+    {
+        "name": "ZD64MUSIC",
+        "dir": "BrutalDoom64",
+        "checked": true,
+        "path": "/home/user/Games/Doom/Mods/BrutalDoom64/ZD64MUSIC.PK3",
+        "type": "PK3"
+    },
+    {
+        "name": "bd64mapsV2",
+        "dir": "BrutalDoom64",
+        "checked": true,
+        "path": "/home/user/Games/Doom/Mods/BrutalDoom64/bd64mapsV2.pk3",
+        "type": "PK3"
+    },
+    {
+        "name": "STAnnouncerPack",
+        "dir": "BrutalDoom64",
+        "checked": true,
+        "path": "/home/user/Games/Doom/Mods/BrutalDoom64/STAnnouncerPack.pk3",
+        "type": "PK3"
+    }
+]
