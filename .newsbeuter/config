@@ -46,13 +46,12 @@ bind-key \ toggle-show-read-feeds
 bind-key R reload-all
 bind-key ; cmdline
 
-define-filter "Games" "feedtitle =~ \"Dagger\" or feedtitle =~ \"OpenMW\" or feedtitle =~ \"Tamriel\" or feedtitle =~ \"Degenerated asdf\" or feedtitle =~ \"OLD-HARD - игры\" or feedtitle =~ \"PodcastOGRU\""
+define-filter "Games" "feedtitle =~ \"PodcastOGRU\""
 define-filter "Linux" "feedtitle =~ \"Linux\""
 define-filter "Movies" "feedtitle =~ \"[BadComedian]\""
 define-filter "Cars" "feedtitle =~ \"Евгений Кулешов\""
 define-filter "Retro Hardware" "feedtitle =~ \"OLD-HARD - портативное железо\""
 define-filter "Retro Games" "feedtitle =~ \"OLD-HARD - игры\""
-define-filter "TES" "feedtitle =~ \"Dagger\" or feedtitle =~ \"OpenMW\" or feedtitle =~ \"Tamriel\""
 define-filter "Morrowind" "feedtitle =~ \"OpenMW\" or feedtitle =~ \"Tamriel Rebuilt\""
 define-filter "Daggerfall" "feedtitle =~ \"Dagger\""
 define-filter "Gothic" "feedtitle =~ \"Degenerated asdf\""

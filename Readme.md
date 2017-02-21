@@ -2,15 +2,9 @@
 
 ## There are configs for software i'm using
 
-*   Emacs (i'm using it as my personal wiki with diary, notes and nice links, i'm not using it as editor)
-![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/emacs.png "nice organizer but bad editor ;)")
-
 *   Qutebrowser - my awesome UNIX-way browser
 ![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/qutebrowser.png "i love this minimalistic ui")
 ![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/qutebrowser_links.png "keyboard surfing!")
-
-*   Atom.io(my editor!)
-![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/atom.png "nicest editor as for me!")
 
 *   My music player - CMUS. Someway i'm kind of audiophile so i like CLI players more because of bit correct output
 ![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/cmus.png "Industrial!")
@@ -18,7 +12,7 @@
 *   Nice fancy shell(working with git) and todo.txt wrapper(otodo)
 ![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/todo_and_fish.png "i love powerline!")
 
-*   Rofi(with Blank Banshee lol)
+*   Rofi
 ![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/rofi.png "and i love vaporwave")
 
 *   Well, Steam(nothing special just dark air theme but it's a little bit of customization)
@@ -26,7 +20,10 @@
 
 *   Zathura - lovely PDF reader
 ![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/zathura.png "Fonts are shit because of poppler")
-  
+
+* 	Newsbeuter for news and Youtube
+![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/newsbeuter.png "I love daggerfall")
+
 *   And empty workspace
 ![alt text](https://raw.githubusercontent.com/schvabodka-man/Screenshots/master/dotfiles/empty.png "that wallpaper")
 
