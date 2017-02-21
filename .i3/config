@@ -61,6 +61,9 @@ assign [title="cover.*"] 3:
 assign [class="jetbrains-studio"] 4:
 assign [class="Transmission-gtk"] 6:
 
+#no focus for feh with cover art
+no_focus [title="cover.*"]
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1:
 bindsym $mod+Shift+2 move container to workspace 2:

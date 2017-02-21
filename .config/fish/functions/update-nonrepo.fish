@@ -22,5 +22,6 @@ function update-nonrepo
     echo "Cmus album art"
 	builtin cd ~/.config/.config/cmus/cmus-scripts
 	git pull origin master
+	sed -i '32s,.*,		setsid feh -g 900x900+1160+546 -x --zoom fill "$ART" &,' cmus-feh.sh
 	echo "Ready!"
 end

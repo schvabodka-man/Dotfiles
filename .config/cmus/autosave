@@ -92,7 +92,7 @@ set skip_track_info=false
 set smart_artist_sort=true
 set softvol=true
 set softvol_state=100 100
-set status_display_program=cmusfm
+set status_display_program=/home/user/.config/cmus/album-art.sh
 set wrap_search=true
 bind browser . toggle show_hidden
 bind browser backspace browser-up

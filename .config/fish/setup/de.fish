@@ -34,6 +34,8 @@ cmusfm init
 #cmus feh art
 builtin cd ~/.config/cmus
 git clone https://github.com/TiredSounds/cmus-scripts
+builtin cd cmus-scripts/
+sed -i '32s,.*,		setsid feh -g 900x900+1160+546 -x --zoom fill "$ART" &,' cmus-feh.sh
 #steam
 sudo dnf install steam
 steam
@@ -47,3 +49,5 @@ sed -i '29s,.*,      include "resource/colors/gunmetal.styles",' config.ini
 #beats.io
 sudo dnf install beets
 sudo dnf install beets-plugins
+
+
