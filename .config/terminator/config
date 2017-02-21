@@ -47,41 +47,6 @@
     [[[window0]]]
       parent = ""
       type = Window
-  [[CMUS]]
-    [[[child0]]]
-      fullscreen = False
-      last_active_term = c422ebe9-d365-42b5-a1f9-5b24f77a9c33
-      last_active_window = False
-      maximised = False
-      order = 0
-      parent = ""
-      position = 9:26
-      size = 785, 861
-      title = Hidden Orchestra - Wingbeats - Wingbeats Source II: Cello (2016)
-      type = Window
-    [[[child2]]]
-      fullscreen = False
-      last_active_term = b0246574-bc21-4bea-8bd5-f2f89149bd35
-      last_active_window = True
-      maximised = False
-      order = 0
-      parent = ""
-      position = 9:26
-      size = 785, 861
-      title = ~
-      type = Window
-    [[[terminal1]]]
-      order = 0
-      parent = child0
-      profile = default
-      type = Terminal
-      uuid = c422ebe9-d365-42b5-a1f9-5b24f77a9c33
-    [[[terminal3]]]
-      order = 0
-      parent = child2
-      profile = default
-      type = Terminal
-      uuid = b0246574-bc21-4bea-8bd5-f2f89149bd35
 [plugins]
 [profiles]
   [[default]]

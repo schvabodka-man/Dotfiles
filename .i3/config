@@ -55,7 +55,7 @@ bindsym $mod+0 workspace 10:
 
 #windows assigning
 assign [class="qutebrowser"] 1:
-assign [class="Steam"] 2:
+assign [title="Steam"] 2:
 assign [title="Super Shotgun Launcher *"] 2:
 assign [title="cover.*"] 3:
 assign [class="jetbrains-studio"] 4:
@@ -79,7 +79,6 @@ bindsym $mod+Shift+0 move container to workspace 10:
 # restart i3
 bindsym $mod+r restart
 
-#Focus are following mouse
 focus_follows_mouse yes
 
 #Window decorations

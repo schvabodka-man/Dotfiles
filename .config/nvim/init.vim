@@ -64,7 +64,27 @@ noremap <silent> <C-S> :update<CR>
 vnoremap <silent> <C-S> <C-C>:update<CR>
 inoremap <silent> <C-S> <C-O>:update<CR>
 " quit
-noremap <silent> q :quit<CR>
+noremap <silent> q :quit!<CR>
+" line selection
+nmap l V
+nmap L dd
+nmap l[ d0
+nmap l] d$
+" home and end
+nnoremap <C-Home> <Home>
+nnoremap <C-End> <End>
+inoremap <C-Home> <Home>
+inoremap <C-End> <End>
+nnoremap <End> <C-End>
+nnoremap <Home> <C-Home>
+inoremap <Home> <C-Home>
+inoremap <End> <C-End>
+" insert mode by enter
+nmap <Return> i
+" next and prev search result
+nnoremap ] n
+nnoremap [ N
+nnoremap <silent> <Esc> :nohl<CR><C-l>
 
 " poweline
 let g:airline_powerline_fonts = 1
