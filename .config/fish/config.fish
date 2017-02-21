@@ -13,23 +13,27 @@ alias lsa 'ls -a'
 
 # Custom alias for listing files when moving to directory
 function cd
-  builtin cd $argv
-  ls -a
+	builtin cd $argv
+	ls -a
 end
 
 #gpg
 function export-key
-  gpg2 --export-secret-key $argv --armor > $argv.asc
+	gpg2 --export-secret-key $argv --armor > $argv.asc
 end
-
+	
+#neovim
+function vim
+	nvim $argv
+end
 #todo list
 function todo
-  builtin cd /home/user/bin/otodo/
-  ./otodo /home/user/.config/todo.txt/config.ini
+	builtin cd /home/user/bin/otodo/
+	./otodo /home/user/.config/todo.txt/config.ini
 end
 
 #autojump
 set --global AUTOJUMP_PATH /usr/share/autojump/autojump.fish
-  if test -e $AUTOJUMP_PATH
-  source $AUTOJUMP_PATH
+	if test -e $AUTOJUMP_PATH
+	source $AUTOJUMP_PATH
 end

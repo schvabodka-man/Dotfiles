@@ -19,5 +19,8 @@ function update-nonrepo
     sed -i '63s,.*,      include "resource/themes/_dark.styles",' config.ini
     sed -i '24s,.*,      //include "resource/colors/sky.styles",' config.ini
     sed -i '29s,.*,      include "resource/colors/gunmetal.styles",' config.ini
-    echo "Ready!"
+    echo "Cmus album art"
+	builtin cd ~/.config/.config/cmus/cmus-scripts
+	git pull origin master
+	echo "Ready!"
 end

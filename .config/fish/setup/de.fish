@@ -31,6 +31,10 @@ builtin cd build/
 make
 sudo make install
 cmusfm init
+#cmus feh art
+builtin cd ~/.config/cmus
+git clone https://github.com/TiredSounds/cmus-scripts
+#steam
 sudo dnf install steam
 steam
 builtin cd ~/.steam/steam/skins/
@@ -40,5 +44,6 @@ sed -i '62s,.*,      //include "resource/themes/_light.styles",' config.ini
 sed -i '63s,.*,      include "resource/themes/_dark.styles",' config.ini
 sed -i '24s,.*,      //include "resource/colors/sky.styles",' config.ini
 sed -i '29s,.*,      include "resource/colors/gunmetal.styles",' config.ini
+#beats.io
 sudo dnf install beets
 sudo dnf install beets-plugins
