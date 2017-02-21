@@ -1,0 +1,9 @@
+[Desktop Entry]
+
+Type=Application
+Name=Neovim
+Comment=Vim - the editor!
+Exec=terminator -e nvim
+Terminal=false
+Categories=Development;
+
