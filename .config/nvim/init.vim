@@ -8,8 +8,10 @@ set runtimepath+=~/.nvim/bundle/neobundle.vim/
 call neobundle#begin(expand('~/.nvim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
+
 NeoBundle 'trusktr/seti.vim'
 NeoBundle 'scrooloose/nerdtree'
+
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 
@@ -17,6 +19,8 @@ NeoBundle 'jceb/vim-orgmode'
 NeoBundle 'PotatoesMaster/i3-vim-syntax'
 NeoBundle 'rpdelaney/vim-sourcecfg'
 NeoBundle 'dag/vim-fish'
+
+NeoBundle 'chrisbra/Colorizer'
 
 call neobundle#end()
 
@@ -79,13 +83,17 @@ nnoremap <End> <C-End>
 nnoremap <Home> <C-Home>
 inoremap <Home> <C-Home>
 inoremap <End> <C-End>
-" insert mode by enter
-nmap <Return> i
 " next and prev search result
 nnoremap ] n
 nnoremap [ N
 nnoremap <silent> <Esc> :nohl<CR><C-l>
-
+" normie backspace usag
+nnoremap <Backspace> x
+nnoremap <C-Backspace> dw
 " poweline
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'murmur'
+
+" colors
+:let g:colorizer_auto_color = 1
+

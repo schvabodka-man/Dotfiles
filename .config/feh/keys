@@ -1,0 +1,50 @@
+toggle_pause
+save_filelist
+toggle_aliasing
+toggle_filenames
+remove
+delete
+toggle_info 
+toggle_keep_vp
+toggle_pointer
+size_to_image
+jump_random
+close
+zoom_out
+zoom_in
+scroll_left 
+scroll_right 
+scroll_up 
+scroll_down 
+scroll_left_page 
+scroll_right_page
+scroll_up_page 
+scroll_down_page 
+
+flip C-Up
+mirror C-Down
+orient_3 C-Left
+orient_1 C-Right
+
+toggle_fullscreen f
+toggle_menu i 
+
+next_img bracketright
+prev_img bracketleft
+zoom_fit equal
+zoom_in plus 
+zoom_out minus
+
+scroll_left Left
+scroll_right Right
+scroll_up Up
+scroll_down Down
+scroll_left_page S-Left
+scroll_right_page S-Right
+scroll_up_page S-Up pgup
+scroll_down_page S-Down pgdown
+
+jump_first Home
+jump_last End
+
+save_image C-s

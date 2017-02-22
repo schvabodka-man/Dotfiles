@@ -20,7 +20,7 @@ set recolor-lightcolor "#0e1112"
 set recolor-darkcolor "#FFFFFF"
 set adjust-open "width"
 map - zoom in
-map = zoom out
-map 0 zoom default
+map + zoom out
+map = zoom default
 map ; focus_inputbar :
 set selection-clipboard "clipboard"

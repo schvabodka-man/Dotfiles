@@ -10,4 +10,4 @@ plugins: lyrics lastgenre fetchart lastimport
 lastfm:
     user: muzyakakachaet
 
-
+source: track
