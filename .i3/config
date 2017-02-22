@@ -53,6 +53,12 @@ bindsym $mod+8 workspace 8:
 bindsym $mod+9 workspace 9:
 bindsym $mod+0 workspace 10:
 
+#next and prev
+bindcode $mod+34 workspace prev
+bindcode $mod+35 workspace next
+bindcode $mod+Shift+34 move container to workspace prev
+bindcode $mod+Shift+35 move container to workspace next
+
 #windows assigning
 assign [class="qutebrowser"] 1:
 assign [title="Steam"] 2:
