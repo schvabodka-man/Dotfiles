@@ -10,8 +10,6 @@ toggle_pointer
 size_to_image
 jump_random
 close
-zoom_out
-zoom_in
 scroll_left 
 scroll_right 
 scroll_up 
@@ -32,8 +30,8 @@ toggle_menu i
 next_img bracketright
 prev_img bracketleft
 zoom_fit equal
-zoom_in plus 
-zoom_out minus
+zoom_in plus KP_Add
+zoom_out minus KP_Subtract 
 
 scroll_left Left
 scroll_right Right
@@ -41,10 +39,8 @@ scroll_up Up
 scroll_down Down
 scroll_left_page S-Left
 scroll_right_page S-Right
-scroll_up_page S-Up pgup
-scroll_down_page S-Down pgdown
+scroll_up_page S-Up Next
+scroll_down_page S-Down Prior
 
 jump_first Home
 jump_last End
-
-save_image C-s
