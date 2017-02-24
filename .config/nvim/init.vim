@@ -90,6 +90,7 @@ nnoremap <silent> <Esc> :nohl<CR><C-l>
 " normie backspace usag
 nnoremap <Backspace> x
 nnoremap <C-Backspace> dw
+
 " poweline
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'murmur'
@@ -97,3 +98,5 @@ let g:airline_theme = 'murmur'
 " colors
 :let g:colorizer_auto_color = 1
 
+" disable auto comment
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
