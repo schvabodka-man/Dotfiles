@@ -21,6 +21,7 @@ NeoBundle 'rpdelaney/vim-sourcecfg'
 NeoBundle 'dag/vim-fish'
 
 NeoBundle 'chrisbra/Colorizer'
+NeoBundle 'KabbAmine/vCoolor.vim'
 
 call neobundle#end()
 
@@ -100,3 +101,9 @@ let g:airline_theme = 'murmur'
 
 " disable auto comment
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" insert color
+let g:vcoolor_map = '<C-S-c>'
+let g:vcool_ins_rgb_map = '<C-S-c>'       " Insert rgb color.
+let g:vcool_ins_hsl_map = '<C-S-h>'       " Insert hsl color.
+let g:vcool_ins_rgba_map = '<C-S-A-c>'      " Insert rgba color.

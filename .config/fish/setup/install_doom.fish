@@ -32,5 +32,9 @@ builtin cd IWAD/
 wget http://doomgod.com/wads/iwads/doom2.7z
 7z x doom2.7z
 rm doom2.7z
-builtin cd ~/Games/Doom/Mods/
+wget http://doomgod.com/wads/iwads/heretic.7z
+7z x heretic.7z
+rm heretic.7z
+builtin cd ..
+builtin cd Mods/
 git clone https://github.com/Kyle873/DoomRPG
