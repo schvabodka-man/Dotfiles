@@ -2,7 +2,27 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("wiki"
+(("newsbeuter config"
+ (filename . "~/.newsbeuter/config")
+ (front-context-string . "define-filter \"G")
+ (rear-context-string . "-key ; cmdline\n\n")
+ (position . 850))
+("qutebrowser config"
+ (filename . "~/.config/qutebrowser/qutebrowser.conf")
+ (front-context-string . "\nzoom-text-only ")
+ (rear-context-string . "quit = downloads")
+ (position . 10732))
+("qutebrowser bookmarks"
+ (filename . "~/.config/qutebrowser/bookmarks/urls")
+ (front-context-string . "https://github.c")
+ (rear-context-string)
+ (position . 1))
+("zathura"
+ (filename . "~/.config/zathura/zathurarc")
+ (front-context-string . "map - zoom in\nma")
+ (rear-context-string . "st-open \"width\"\n")
+ (position . 620))
+("wiki"
  (filename . "~/Dropbox/Org/Wiki/index.org")
  (front-context-string . "Моя личная Вики ")
  (rear-context-string)

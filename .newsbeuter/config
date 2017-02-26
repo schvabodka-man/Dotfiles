@@ -46,6 +46,7 @@ bind-key \ toggle-show-read-feeds
 bind-key R reload-all
 bind-key ; cmdline
 
+define-filter "IT" "feedtitle =~ \"Ebanoe.IT\""
 define-filter "Games" "feedtitle =~ \"PodcastOGRU\" or feedtitle =~ \"NOVOE OLDOVOE\""
 define-filter "Linux" "feedtitle =~ \"Linux\""
 define-filter "Movies" "feedtitle =~ \"BadComedian\""
