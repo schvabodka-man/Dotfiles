@@ -46,11 +46,12 @@ bind-key \ toggle-show-read-feeds
 bind-key R reload-all
 bind-key ; cmdline
 
-define-filter "Games" "feedtitle =~ \"PodcastOGRU\""
+define-filter "Games" "feedtitle =~ \"PodcastOGRU\" or feedtitle =~ \"NOVOE OLDOVOE\""
 define-filter "Linux" "feedtitle =~ \"Linux\""
-define-filter "Movies" "feedtitle =~ \"[BadComedian]\""
+define-filter "Movies" "feedtitle =~ \"BadComedian\""
 define-filter "Cars" "feedtitle =~ \"Евгений Кулешов\""
-define-filter "Retro Hardware" "feedtitle =~ \"OLD-HARD - портативное железо\""
+define-filter "Life" "feedtitle =~ \"AJAX live\""
+define-filter "Retro Hardware" "feedtitle =~ \"OLD-HARD - портативное железо\" or feedtitle =~ \"Дмитрий Бачило\" or feedtitle =~ \"PhilsComputerLab\""
 define-filter "Retro Games" "feedtitle =~ \"OLD-HARD - игры\""
 define-filter "Morrowind" "feedtitle =~ \"OpenMW\" or feedtitle =~ \"Tamriel Rebuilt\""
 define-filter "Daggerfall" "feedtitle =~ \"Dagger\""
@@ -58,8 +59,6 @@ define-filter "Gothic" "feedtitle =~ \"Degenerated asdf\""
 define-filter "ReGoth" "feedtitle =~ \"Degenerated asdf\""
 define-filter "Open Source Games engines" "feedtitle =~ \"Degenerated asdf\" or feedtitle =~ \"OpenMW\" or feedtitle =~ \"Daggerfall Workshop\""
 define-filter "OpenMW" "feedtitle =~ \"OpenMW\""
-define-filter "Youtube" "feedtitle =~ \"Degenerated asdf\" or feedtitle =~ \"OpenMW\" or feedtitle =~ \"OLD-HARD\" or feedtitle =~ \"PodcastOGRU\" or feedtitle =~ \"Евгений Кулешов\" or feedtitle =~ \"[BadComedian]\""
-
 
 urls-source "oldreader"
 oldreader-login "svhscr@protonmail.com"

@@ -17,9 +17,6 @@ sudo dnf install SDL2_ttf-devel
 sudo dnf install openal-soft-devel
 sudo dnf install sqlite-devel
 sudo dnf install qt-devel
-sudo dnf install neovim
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
+sudo dnf install emacs
 echo "saas"
 sudo gem install saas

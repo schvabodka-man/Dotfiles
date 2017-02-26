@@ -1,0 +1,25 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("wiki"
+ (filename . "~/Dropbox/Org/Wiki/index.org")
+ (front-context-string . "Моя личная Вики ")
+ (rear-context-string)
+ (position . 1))
+("cmus autosave"
+ (filename . "~/.config/cmus/autosave")
+ (front-context-string . "set aaa_mode=art")
+ (rear-context-string)
+ (position . 1))
+("cmus rc"
+ (filename . "~/.config/cmus/rc")
+ (front-context-string . "fset avant-garde")
+ (rear-context-string)
+ (position . 1))
+("emacs init.el"
+ (filename . "~/.emacs.d/init.el")
+ (front-context-string . ";;clean tab not ")
+ (rear-context-string . "basic-indent 4)\n")
+ (position . 973))
+)
