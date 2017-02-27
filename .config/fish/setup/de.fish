@@ -50,5 +50,7 @@ sed -i '29s,.*,      include "resource/colors/gunmetal.styles",' config.ini
 #beats.io
 sudo dnf install beets
 sudo dnf install beets-plugins
-
+#finch
+sudo dnf install finch
+sudo dnf isntall purple-facebook
 

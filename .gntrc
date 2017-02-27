@@ -1,0 +1,36 @@
+[general]
+mouse = 1
+shadow = 0
+remember_position = 1
+small-button = true
+wm = /usr/lib64/gnt/irssi.so
+
+color-available = white; black
+color-away = blue; black
+color-idle = gray; black
+color-offline = red; black
+color-message-sent = white; default
+color-message-received = white; default
+color-message-highlight = black; green
+color-message-action = yellow; default
+color-timestamp = blue; default
+
+[colorpairs]
+normal = white; black
+highlight = black; white
+highlightd = black; white
+shadow = black; darkgray
+title = white; black
+titled = white; black
+text = white; black
+disabled = gray; black
+urgent = green; black
+
+[colors]
+black = 60; 60; 60
+red = 1000; 0; 0
+green = 0; 1000; 0
+blue = 0; 0; 1000  
+white = 1000; 1000; 1000
+gray = 700; 700; 700
+darkgray = 256; 256; 256

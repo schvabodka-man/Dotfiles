@@ -139,7 +139,7 @@ bind common { win-page-up
 bind common | player-stop
 bind common } win-page-down
 fset 2814=artist="2814"
-fset alac=filename="*.m4a"
+fset alac=filename="*.m4fincha"
 fset ambient=genre="* Ambient"
 fset aphex-twin=artist="Aphex Twin"
 fset avant-garde=genre="Avant-Garde"

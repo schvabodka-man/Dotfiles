@@ -178,8 +178,7 @@
 (defalias 'push 'magit-push)
 (defalias 'pull 'magit-pull)
 (defalias 'todo 'todotxt-open-file)
-(defalias 'archive 'todotxt-archive)
-(defalias 'add 'todotxt-add-todo)
+(defalias 'do 'todotxt-add-todo)
 ;;other stuff
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
