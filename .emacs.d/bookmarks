@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("done"
+(("gntrc config - finch"
+ (filename . "~/.gntrc")
+ (front-context-string . "[general]\nmouse ")
+ (rear-context-string)
+ (position . 1))
+("done"
  (filename . "~/Dropbox/todo/done.txt")
  (front-context-string . "x 2017-01-23 201")
  (rear-context-string)
