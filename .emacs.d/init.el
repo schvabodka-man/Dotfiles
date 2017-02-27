@@ -163,11 +163,23 @@
   (package-refresh-contents)
   (package-install 'fish-mode))
 (require 'fish-mode)
+;;beautiful todo
+(el-get-bundle todotxt-mode
+  :url "https://raw.githubusercontent.com/avillafiorita/todotxt-mode/master/todotxt-mode.el"
+  :description "Emacs' todo txt mode"
+  :features todotxt-mode
+  )
+(require 'todotxt-mode)
+(setq todotxt-default-file (expand-file-name "/home/user/Dropbox/todo/todo.txt"))
+(setq todotxt-default-archive-file (expand-file-name "/home/user/Dropbox/todo/done.txt"))
 ;;fast aliases
 (defalias 'wiki 'org-wiki-index)
 (defalias 'commit 'magit-commit)
 (defalias 'push 'magit-push)
 (defalias 'pull 'magit-pull)
+(defalias 'todo 'todotxt-open-file)
+(defalias 'archive 'todotxt-archive)
+(defalias 'add 'todotxt-add-todo)
 ;;other stuff
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

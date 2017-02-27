@@ -3,9 +3,6 @@ function update-nonrepo
     omf update
     echo 'updating tldr'
     sudo pip install tldr --upgrade
-    echo "updating todo.txt"
-    builtin cd /home/user/bin/otodo/
-    git pull
     echo "updating installed gems"
     sudo gem update
     echo "npm packages(weather)"

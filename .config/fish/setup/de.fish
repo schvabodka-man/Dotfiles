@@ -18,6 +18,7 @@ sudo dnf install mpv
 sudo dnf install zathura
 sudo dnf install zathura-plugins-all
 sudo dnf install newsbeuter
+sudo dnf install libreoffice
 # IMHO best cli app for weather
 sudo npm install forecast-cli -g
 #cmusfm
