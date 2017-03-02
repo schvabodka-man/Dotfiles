@@ -26,18 +26,19 @@
   paste = <Primary>v
   prev_tab = <Alt>Left
   search = <Primary>slash
-  split_horiz = <Alt>period
-  split_vert = <Alt>comma
-  switch_to_tab_1 = <Alt>1
-  switch_to_tab_10 = <Alt>0
-  switch_to_tab_2 = <Alt>2
-  switch_to_tab_3 = <Alt>3
-  switch_to_tab_4 = <Alt>4
-  switch_to_tab_5 = <Alt>5
-  switch_to_tab_6 = <Alt>6
-  switch_to_tab_7 = <Alt>7
-  switch_to_tab_8 = <Alt>8
-  switch_to_tab_9 = <Alt>9
+  split_horiz = <Shift><Alt>greater
+  split_vert = <Shift><Alt>less
+  switch_to_tab_1 = <Shift><Alt>exclam
+  switch_to_tab_10 = <Shift><Alt>parenright
+  switch_to_tab_2 = <Shift><Alt>at
+  switch_to_tab_3 = <Shift><Alt>at
+  switch_to_tab_4 = <Shift><Alt>dollar
+  switch_to_tab_5 = <Shift><Alt>percent
+  switch_to_tab_6 = <Shift><Alt>asciicircum
+  switch_to_tab_7 = <Shift><Alt>ampersand
+  switch_to_tab_8 = <Shift><Alt>asterisk
+  switch_to_tab_9 = <Shift><Alt>parenleft
+  toggle_scrollbar = <Shift><Alt>m
 [layouts]
   [[default]]
     [[[child1]]]

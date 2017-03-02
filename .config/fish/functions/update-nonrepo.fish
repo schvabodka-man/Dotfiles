@@ -3,7 +3,9 @@ function update-nonrepo
     omf update
     echo 'updating tldr'
     sudo pip install tldr --upgrade
-    echo "updating installed gems"
+	echo "soundscrape"
+	sudo pip install soundscrape --upgrade
+	echo "updating installed gems"
     sudo gem update
     echo "npm packages(weather)"
     echo "doom rpg"

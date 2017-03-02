@@ -33,7 +33,7 @@
 (setq-default indent-tabs-mode t)
 ;; Set the tab width
 (setq default-tab-width 4)
-(setq tab-width 4)
+(setq tabwidth 4)
 (setq c-basic-indent 4)
 ;;keybindings
 (global-set-key (kbd "<backspace>") 'backward-delete-char)
@@ -179,6 +179,8 @@
 (defalias 'pull 'magit-pull)
 (defalias 'todo 'todotxt-open-file)
 (defalias 'do 'todotxt-add-todo)
+;;org mode select with shift
+(setq org-support-shift-select t)
 ;;other stuff
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

@@ -53,4 +53,5 @@ sudo dnf install beets-plugins
 #finch
 sudo dnf install finch
 sudo dnf isntall purple-facebook
-
+#bandcamp and soundcloud
+sudo pip install soundscrape
