@@ -50,7 +50,7 @@ set dsp.ao.buffer_size=16384
 set dsp.ao.driver=
 set dsp.ao.wav_counter=1
 set dsp.ao.wav_dir=/home/user
-set follow=true
+set follow=false
 set format_current= %a — %l — %n.%t%= Disc: %D  %g %y
 set format_playlist=%3n. %t%= %y %d %{genre} %{bitrate} kbps %{codec}
 set format_playlist_va=%3n. %a — %t%= %y %d %{genre} %{bitrate} kbps %{codec}
@@ -156,6 +156,7 @@ fset chiptune-ost=comment="OST"&genre="Chiptune"
 fset cocaine-jesus=artist="COCAINEJESUS"
 fset cocainejesus=artist="COCAINEJESUS"
 fset culture=artist="CVLTVRΣ"
+fset daft-punk=artist="Daft Punk"
 fset dark-ambient=genre="Dark Ambient"
 fset dark-synth=genre="Dark Synth"
 fset deltron=artist="Deltron 3030"
@@ -185,6 +186,7 @@ fset industrial=genre="Industrial *"
 fset james-ferraro=artist="James Ferraro"
 fset jazz=genre="* Jazz"
 fset laserdisc-visions=artist="Laserdisc Visions"
+fset lindsheaven-virtual-plaza=artist="Lindsheaven Virtual Plaza"
 fset lossless=filename="*.m4a"|filename="*.flac"
 fset lossy=filename="*.mp3"|filename=".aac"|filename=".ogg"
 fset m4a=filename="*.m4a"
@@ -208,7 +210,10 @@ fset pop=genre="* Pop"|genre="*pop"
 fset progressive_metal=genre="Progressive Metal"
 fset rap=genre="* Rap"
 fset saint-pepsi=artist="Saint Pepsi"|artist="Skylar Spence"
+fset school-of-seven-bells=artist="School Of Seven Bells"
 fset skylar-spence=artist="Saint Pepsi"|artist="Skylar Spence"
+fset sound-cpu=artist="骨架的"
+fset soundcpu=artist="骨架的"
 fset space=genre="Space *"
 fset space-ambient=genre="Space Ambient"
 fset stellardrone=artist="Stellardrone"
