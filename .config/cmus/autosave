@@ -50,7 +50,7 @@ set dsp.ao.buffer_size=16384
 set dsp.ao.driver=
 set dsp.ao.wav_counter=1
 set dsp.ao.wav_dir=/home/user
-set follow=false
+set follow=true
 set format_current= %a — %l — %n.%t%= Disc: %D  %g %y
 set format_playlist=%3n. %t%= %y %d %{genre} %{bitrate} kbps %{codec}
 set format_playlist_va=%3n. %a — %t%= %y %d %{genre} %{bitrate} kbps %{codec}
@@ -211,6 +211,7 @@ fset progressive_metal=genre="Progressive Metal"
 fset rap=genre="* Rap"
 fset saint-pepsi=artist="Saint Pepsi"|artist="Skylar Spence"
 fset school-of-seven-bells=artist="School Of Seven Bells"
+fset shpongle=artist="Shpongle"
 fset skylar-spence=artist="Saint Pepsi"|artist="Skylar Spence"
 fset sound-cpu=artist="骨架的"
 fset soundcpu=artist="骨架的"
