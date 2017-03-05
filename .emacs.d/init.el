@@ -91,6 +91,12 @@
 				  (set-mark (point))
 				  (activate-mark)
 				  (move-end-of-line nil)))
+
+(defun kill-other-buffers ()
+      "Kill all other buffers."
+      (interactive)
+      (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
+(global-set-key (kbd "C-S-M-q") 'kill-other-buffers)
 ;;look and feel
 (set-default-font "Fira Mono 12")
 (setq-default cursor-type 'bar) 
@@ -181,6 +187,12 @@
 (defalias 'do 'todotxt-add-todo)
 ;;org mode select with shift
 (setq org-support-shift-select t)
+;;scratch buffer
+(setq initial-scratch-message "")
+(defun remove-scratch-buffer ()
+  (if (get-buffer "*scratch*")
+      (kill-buffer "*scratch*")))
+(add-hook 'after-change-major-mode-hook 'remove-scratch-buffer)
 ;;other stuff
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
