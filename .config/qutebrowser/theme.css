@@ -2,12 +2,12 @@
   https://userstyles.org/styles/112107/global-black-for-amoled-displays
   I JUST CHANGED COLORS*/
 
-  html, body, body>div {
+    html, body , body>div {
 		background: #0e1112 !important;
 	}
 
 	* {
-		border-color: #000000 !important;
+		border-color: #0e1112 !important;
 	}
 
 	body *:not([background]):not(.works-info) {
@@ -45,10 +45,6 @@
 	{
 	   color: #f0f0f0 !important;
 	   background: #0e1112 !important;
-	   border-color: #000000 !important;
+	   border-color: #0e1112 !important;
 	}
 
-	div[style*="transparent"] *:not(img)
-	{
-		opacity: 0 !important;
-	}

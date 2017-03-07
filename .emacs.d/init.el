@@ -193,6 +193,8 @@
   (if (get-buffer "*scratch*")
       (kill-buffer "*scratch*")))
 (add-hook 'after-change-major-mode-hook 'remove-scratch-buffer)
+;;y or n
+(fset 'yes-or-no-p 'y-or-n-p)
 ;;other stuff
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

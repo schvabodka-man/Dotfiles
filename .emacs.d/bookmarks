@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("desktop files"
+(("rtorrent rc"
+ (filename . "~/.rtorrent.rc")
+ (front-context-string . "min_peers = 1\nma")
+ (rear-context-string)
+ (position . 1))
+("desktop files"
  (filename . "~/.local/share/applications/")
  (front-context-string . "Cmus.desktop\n  -")
  (rear-context-string . "27 Feb 21 08:32 ")

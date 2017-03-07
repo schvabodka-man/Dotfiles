@@ -55,3 +55,8 @@ sudo dnf install finch
 sudo dnf isntall purple-facebook
 #bandcamp and soundcloud
 sudo pip install soundscrape
+#rtorrent
+sudo dnf install rtorrent
+cd ~
+mkdir .rtorrent.session
+mkdir Torrents
