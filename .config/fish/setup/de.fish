@@ -60,3 +60,5 @@ sudo dnf install rtorrent
 cd ~
 mkdir .rtorrent.session
 mkdir Torrents
+#mutt
+sudo dnf install mutt

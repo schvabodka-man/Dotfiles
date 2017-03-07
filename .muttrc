@@ -1,0 +1,21 @@
+color attachment brightmagenta default
+color error      brightred    default
+color hdrdefault red          default
+color indicator  brightyellow red
+color markers    brightcyan   default
+color message    brightcyan   default
+color normal     default      default
+color quoted     brightblue   default
+color search     black        white
+color signature  red          default
+color status     default      default
+color tilde      magenta      default
+color tree       magenta      default
+
+set editor = "emacs"
+
+set read_inc = 100
+set mail_check = 90
+set timeout = 15
+
+auto_view text/html

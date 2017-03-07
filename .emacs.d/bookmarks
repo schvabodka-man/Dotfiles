@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("rtorrent rc"
+(("mutt rc"
+ (filename . "~/.muttrc")
+ (front-context-string . "color attachment")
+ (rear-context-string)
+ (position . 1))
+("rtorrent rc"
  (filename . "~/.rtorrent.rc")
  (front-context-string . "min_peers = 1\nma")
  (rear-context-string)

@@ -195,6 +195,11 @@
 (add-hook 'after-change-major-mode-hook 'remove-scratch-buffer)
 ;;y or n
 (fset 'yes-or-no-p 'y-or-n-p)
+;;muttrc mode
+(unless (package-installed-p 'muttrc-mode)
+  (package-refresh-contents)
+  (package-install 'muttrc-mode))
+(require 'muttrc-mode)
 ;;other stuff
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
