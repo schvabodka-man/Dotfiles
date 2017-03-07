@@ -1,13 +1,15 @@
 function now
-    set date (date +"%d")
+    set date (date +"%d-%m-%Y")
+	set formatdate (date +"%Y%m%d")
     set day (date +"%A")
     set time (date +"%H:%M")
-    if grep -Fxq "** $date $day" ~/Dropbox/Org/Wiki/Personal/Diary.org
-	    printf "\n*** $time\n" >> ~/Dropbox/Org/Wiki/Personal/Diary.org
-	    printf "\n$argv\n" >> ~/Dropbox/Org/Wiki/Personal/Diary.org
+    if test -e ~/Dropbox/Org/Wiki/Personal/Diary/$formatdate
+	    printf "\n** $time\n" >> ~/Dropbox/Org/Wiki/Personal/Diary/$formatdate
+	    printf "\n$argv\n" >> ~/Dropbox/Org/Wiki/Personal/Diary/$formatdate
     else
-        printf "** $date $day" >> ~/Dropbox/Org/Wiki/Personal/Diary.org
-		printf "\n*** $time\n" >> ~/Dropbox/Org/Wiki/Personal/Diary.org
-	    printf "\n$argv\n" >> ~/Dropbox/Org/Wiki/Personal/Diary.org
+		touch ~/Dropbox/Org/Wiki/Personal/Diary/$formatdate
+        printf "* $date" >> ~/Dropbox/Org/Wiki/Personal/Diary/$formatdate
+		printf "\n** $time\n" >> ~/Dropbox/Org/Wiki/Personal/Diary/$formatdate
+	    printf "\n$argv\n" >> ~/Dropbox/Org/Wiki/Personal/Diary/$formatdate
     end
 end

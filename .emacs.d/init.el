@@ -200,6 +200,16 @@
   (package-refresh-contents)
   (package-install 'muttrc-mode))
 (require 'muttrc-mode)
+;;diary
+(unless (package-installed-p 'org-journal)
+  (package-refresh-contents)
+  (package-install 'org-journal))
+(require 'org-journal)
+(setq org-journal-dir (expand-file-name "/home/user/Dropbox/Org/Wiki/Personal/Diary"))
+(setq org-journal-date-format '"%d-%m-%Y")
+(setq org-agenda-files 'org-journal-dir)
+(setq org-agenda-file-regexp '"\\`[^.].*\\.org'\\|[0-9]+")
+(defalias 'now 'org-journal-new-entry)
 ;;other stuff
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
