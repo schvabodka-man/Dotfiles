@@ -8,7 +8,7 @@
   <option name="video_mode_height" value="900"/>
   <option name="scale_to_fit" value="1"/>
   <option name="maintain_aspect_ratio" value="0"/>
-  <option name="aspect_ratio" value="1"/>
+  <option name="aspect_ratio" value="0"/>
   <option name="scale_method" value="10"/>
   <option name="overscan" value="0"/>
   <option name="hires_effect" value="1"/>
@@ -65,7 +65,7 @@
   <option name="netplay_last_port" value="6096"/>
   <option name="netplay_last_rom" value=""/>
   <option name="netplay_last_host" value=""/>
-  <option name="mute_sound" value="0"/>
+  <option name="mute_sound" value="1"/>
   <option name="mute_sound_turbo" value="0"/>
   <option name="sound_buffer_size" value="32"/>
   <option name="sound_driver" value="0"/>

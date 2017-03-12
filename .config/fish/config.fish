@@ -22,13 +22,16 @@ function export-key
 	gpg2 --export-secret-key $argv --armor > $argv.asc
 end
 	
-#neovim
-function vim
-	nvim $argv
-end
-
 #autojump
 set --global AUTOJUMP_PATH /usr/share/autojump/autojump.fish
 	if test -e $AUTOJUMP_PATH
 	source $AUTOJUMP_PATH
 end
+
+#keybindings
+function fish_user_keybindings  
+	bind \c\b kill-word
+    bind \c\[1;5F end-of-line
+end
+
+
