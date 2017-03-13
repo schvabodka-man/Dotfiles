@@ -10,6 +10,7 @@ alias newsbeuter-cache-clear 'rm ~/.newsbeuter/cache.db'
 alias cd.. 'cd ..' #priceless
 alias rm 'rm -rf'
 alias lsa 'ls -a'
+alias emacs 'emacs -nw'
 
 # Custom alias for listing files when moving to directory
 function cd
@@ -26,12 +27,6 @@ end
 set --global AUTOJUMP_PATH /usr/share/autojump/autojump.fish
 	if test -e $AUTOJUMP_PATH
 	source $AUTOJUMP_PATH
-end
-
-#keybindings
-function fish_user_keybindings  
-	bind \c\b kill-word
-    bind \c\[1;5F end-of-line
 end
 
 
