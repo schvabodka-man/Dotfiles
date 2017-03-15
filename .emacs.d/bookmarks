@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("i3wm config"
+(("xresources"
+ (filename . "~/.Xresources")
+ (front-context-string . "Xft.dpi: 96\nXft.")
+ (rear-context-string)
+ (position . 1))
+("i3wm config"
  (filename . "~/.i3/config")
  (front-context-string . "#Modkey\nset $mod")
  (rear-context-string)

@@ -10,7 +10,7 @@ alias newsbeuter-cache-clear 'rm ~/.newsbeuter/cache.db'
 alias cd.. 'cd ..' #priceless
 alias rm 'rm -rf'
 alias lsa 'ls -a'
-alias emacs 'emacs -nw'
+alias emacs 'emacsclient -nw'
 
 # Custom alias for listing files when moving to directory
 function cd

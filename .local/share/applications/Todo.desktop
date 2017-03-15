@@ -13,7 +13,7 @@ Name=Todo
 Comment=Emacs todo.txt mode
 
 # The executable of the application, possibly with arguments.
-Exec=emacs -f todotxt-open-file -f todotxt-mode
+Exec=emacsclient -c --eval "(todotxt-open-file)" --eval "(todotxt-mode)"
 
 # Describes whether this application needs to be run in a terminal or not
 Terminal=false
