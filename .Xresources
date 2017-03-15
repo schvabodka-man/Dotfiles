@@ -21,3 +21,6 @@ rofi.bw: 0
 rofi.padding: 300
 rofi.line-margin: 0
 rofi.separator-style: none
+
+Emacs.font: Fira Mono 12
+

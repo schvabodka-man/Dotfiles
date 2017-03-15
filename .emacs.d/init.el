@@ -210,8 +210,6 @@
 (defalias 'now 'org-journal-new-entry)
 ;;double quotes
 (electric-pair-mode)
-;;fonts for daemon mode
-
 ;;other stuff
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
