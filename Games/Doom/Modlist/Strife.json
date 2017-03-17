@@ -1,0 +1,16 @@
+[
+    {
+        "name": "BrutalStrifeBeta1",
+        "dir": "Mods",
+        "checked": true,
+        "path": "/home/user/Games/Doom/Mods/BrutalStrifeBeta1.pk3",
+        "type": "PK3"
+    },
+    {
+        "name": "voices",
+        "dir": "Mods",
+        "checked": true,
+        "path": "/home/user/Games/Doom/Mods/voices.wad",
+        "type": "WAD"
+    }
+]

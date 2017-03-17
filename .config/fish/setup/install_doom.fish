@@ -25,7 +25,13 @@ mkdir IWAD
 mkdir Mods
 mkdir Modlist
 mkdir Saves
-builtin cd Saves/
+builtin cd Mods/
+wget http://download1339.mediafire.com/00p5m866j1zg/qpc0cog5508920p/BrutalStrifeBeta1.zip
+unzip BrutalStrifeBeta1.zip
+rm BrutalStrifeBeta1.zip
+wget http://doomgod.com/wads/iwads/voices.7z
+7z x voices.7z
+rm voices.7z
 cd ..
 mkdir Screenshots
 builtin cd IWAD/
@@ -35,6 +41,9 @@ rm doom2.7z
 wget http://doomgod.com/wads/iwads/heretic.7z
 7z x heretic.7z
 rm heretic.7z
+wget http://doomgod.com/wads/iwads/strife1.7z
+7z x strife1.7z
+rm strife1.7z
 builtin cd ..
 builtin cd Mods/
 git clone https://github.com/Kyle873/DoomRPG

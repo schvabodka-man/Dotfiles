@@ -15,6 +15,8 @@ bindsym $mod+w exec rofi -show window -hide-scrollbar -fullscreen
 #launch apps
 bindsym $mod+e exec emacsclient -c
 bindsym $mod+t exec thunar
+bindsym $mod+n exec terminator -e newsbeuter
+bindsym $mod+m exec terminator -e mutt
 
 #Make a screenshot
 bindsym Print exec xfce4-screenshooter
