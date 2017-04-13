@@ -67,7 +67,7 @@ bindcode $mod+Shift+34 move container to workspace prev
 bindcode $mod+Shift+35 move container to workspace next
 
 #windows assigning
-assign [class="qutebrowser"] 1:
+assign [class="Firefox"] 1:
 assign [title="Steam"] 2:
 assign [title="Super Shotgun Launcher *"] 2:
 assign [title="cover.*"] 3:
@@ -123,6 +123,6 @@ exec --no-startup-id compton -CGb
 #panel
 exec --no-startup-id polybar Bar
 #browser
-exec qutebrowser
+exec firefox
 #emacs
 exec --no-startup-id emacs --daemon 
