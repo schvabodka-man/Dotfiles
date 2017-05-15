@@ -188,11 +188,14 @@
 ;;org mode select with shift
 (setq org-support-shift-select t)
 ;;scratch buffer
-(setq initial-scratch-message "")
-(defun remove-scratch-buffer ()
-  (if (get-buffer "*scratch*")
-      (kill-buffer "*scratch*")))
-(add-hook 'after-change-major-mode-hook 'remove-scratch-buffer)
+;; (setq initial-scratch-message "")
+;; (defun remove-scratch-buffer ()
+;;   (if (get-buffer "*scratch*")
+;;       (kill-buffer "*scratch*")))
+;; (add-hook 'after-change-major-mode-hook 'remove-scratch-buffer)
+;; killing messages buffer
+(setq-default message-log-max nil)
+(kill-buffer "*Messages*")
 ;;y or n
 (fset 'yes-or-no-p 'y-or-n-p)
 ;;muttrc mode

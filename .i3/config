@@ -72,6 +72,7 @@ assign [title="Steam"] 2:
 assign [title="Super Shotgun Launcher *"] 2:
 assign [title="cover.*"] 3:
 assign [class="jetbrains-studio"] 4:
+assign [class="jetbrains-idea"] 4:
 
 #no focus for feh with cover art
 no_focus [title="cover.*"]
