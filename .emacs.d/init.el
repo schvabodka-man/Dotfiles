@@ -251,6 +251,16 @@
 (setq org-journal-dir (expand-file-name "/home/user/Dropbox/Org/Wiki/Personal/Diary"))
 (setq org-journal-date-format '"%d-%m-%Y")
 (defalias 'now 'org-journal-new-entry)
+;;time to play some games!
+;; z machine interpreter
+(unless (package-installed-p 'malyon)
+  (package-refresh-contents)
+  (package-install 'malyon))
+(require 'malyon)
+(defalias 'z-machine 'malyon)
+(defalias 'z-machine-save 'malyon-save-file)
+(defalias 'z-machine-quit 'malyon-quit)
+(defalias 'z-machine-restore 'malyon-restore-file)
 ;;double quotes
 (electric-pair-mode)
 ;;other stuff
