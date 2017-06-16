@@ -191,6 +191,9 @@
 (defun games-completed ()
   (interactive)
   (find-file (expand-file-name "/home/user/Dropbox/Org/Wiki/Tracking/Games.org")))
+(defun games-links ()
+  (interactive)
+  (find-file (expand-file-name "/home/user/Dropbox/Org/Wiki/Links/Games Links.org")))
 (defun game-mods-completed ()
   (interactive)
   (find-file (expand-file-name "/home/user/Dropbox/Org/Wiki/Tracking/Games Mods.org")))
@@ -209,6 +212,9 @@
 (defun creepypasta-completed ()
   (interactive)
   (find-file (expand-file-name "/home/user/Dropbox/Org/Wiki/Tracking/Криппи пасты.org")))
+(defun 2ch-links ()
+  (interactive)
+  (find-file (expand-file-name "/home/user/Dropbox/Org/Wiki/Links/2ch Nice Threads.org")))
 ;;and this is for waitlists
 (defun games-todo ()
   (interactive)
@@ -251,6 +257,9 @@
 (setq org-journal-dir (expand-file-name "/home/user/Dropbox/Org/Wiki/Personal/Diary"))
 (setq org-journal-date-format '"%d-%m-%Y")
 (defalias 'now 'org-journal-new-entry)
+;; open links in firefox
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "firefox")
 ;;time to play some games!
 ;; z machine interpreter
 (unless (package-installed-p 'malyon)
