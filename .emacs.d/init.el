@@ -3,14 +3,10 @@
 ;;; Dirty code(i'm bad at Lisp) but all of this stuff works great.  Some custom functions and nice ricing included.
 ;;; Code:
 (require 'package)
-
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 ;;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-
 (package-initialize)
-
-
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
@@ -98,7 +94,6 @@
 (global-set-key (kbd "C-S-b") 'indent-all)
 
 (defun put-file-name-on-clipboard ()
-  "Put the current file name on the clipboard"
   (interactive)
   (let ((filename (if (equal major-mode 'dired-mode)
 					  default-directory
@@ -119,7 +114,6 @@
 				  (move-end-of-line nil)))
 
 (defun kill-other-buffers ()
-      "Kill all other buffers."
       (interactive)
       (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
 (global-set-key (kbd "C-S-M-q") 'kill-other-buffers)
@@ -291,6 +285,21 @@
 ;;(require 'mode-icons)
 ;;(mode-icons-mode)
 ;;(setq mode-icons-change-mode-name nil)
+;;google services
+;;helm google menu
+(use-package helm-google
+  :ensure t
+  :bind (("C-M-g" . helm-google)))
+;;fast search
+(use-package google-this
+  :ensure t
+  :init (google-this-mode 1)
+  :bind (("M-g" . google-this)))
+;;google translate
+(use-package google-translate
+  :ensure t
+  :init (require 'google-translate-smooth-ui)
+  :bind (("M-t" . google-translate-smooth-translate)))
 ;;time to play some games!
 ;; z machine interpreter
 (unless (package-installed-p 'malyon)
@@ -303,7 +312,20 @@
 (defalias 'z-machine-restore 'malyon-restore-file)
 ;;double quotes
 (electric-pair-mode)
-;;other stuff
+;;spell checking
+(setq flyspell-issue-message-flag nil)
+(setq flyspell-issue-welcome-flag nil)
+(mapcar (lambda (mode-hook) (add-hook mode-hook 'flyspell-prog-mode))
+        '(c-mode-common-hook tcl-mode-hook emacs-lisp-mode-hook 
+							 ruby-mode-hook java-mode-hook))
+(mapcar (lambda (mode-hook) (add-hook mode-hook 'flyspell-mode))
+        '(org-mode-hook))
+(use-package flyspell-correct
+  :ensure t)
+(use-package flyspell-correct-helm
+  :ensure t
+  :config
+  (define-key flyspell-mode-map (kbd "C-'") 'flyspell-correct-previous-word-generic))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
