@@ -260,6 +260,19 @@
 ;; open links in firefox
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "firefox")
+;;nice org mode bullets
+(unless (package-installed-p 'org-bullets)
+  (package-refresh-contents)
+  (package-install 'org-bullets))
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+;;icons instead of mode name
+;;(unless (package-installed-p 'mode-icons)
+;;	(package-refresh-contents)
+;;	(package-install 'mode-icons))
+;;(require 'mode-icons)
+;;(mode-icons-mode)
+;;(setq mode-icons-change-mode-name nil)
 ;;time to play some games!
 ;; z machine interpreter
 (unless (package-installed-p 'malyon)
