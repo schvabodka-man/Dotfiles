@@ -1,13 +1,33 @@
-(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-                         ("melpa" . "https://melpa.org/packages/")))
+;;; init --- My emacs config
+;;; Commentary:
+;;; Dirty code(i'm bad at Lisp) but all of this stuff works great.  Some custom functions and nice ricing included.
+;;; Code:
+(require 'package)
+
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+;;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
 
 (package-initialize)
+
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(eval-when-compile
+  (require 'use-package))
 ;;nice completition
 (unless (package-installed-p 'ivy)
   (package-refresh-contents)
   (package-install 'ivy))
 (require 'ivy)
 (ivy-mode)
+;;this is only for stuff like colors and org wiki
+(unless (package-installed-p 'helm)
+  (package-refresh-contents)
+  (package-install 'helm))
+(require 'helm)
+(require 'helm-config)
 ;;Git
 (unless (package-installed-p 'magit)
   (package-refresh-contents)
@@ -27,6 +47,10 @@
   (package-install 'yasnippet))
 (require 'yasnippet)
 (yas-global-mode 1)
+;;flycheck
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
 ;;use tabs instead of spaces
 ;; Turn on tabs
 (setq indent-tabs-mode t)
@@ -145,12 +169,6 @@
   (package-refresh-contents)
   (package-install 'el-get))
 (require 'el-get)
-;;this is only for stuff like colors and org wiki
-(unless (package-installed-p 'helm)
-  (package-refresh-contents)
-  (package-install 'helm))
-(require 'helm)
-(require 'helm-config)
 ;;it must be by default in emacs
 (unless (package-installed-p 'multiple-cursors)
   (package-refresh-contents)
@@ -318,3 +336,4 @@
  '(minimap-font-face ((t (:height 30 :family "Fira Mono"))))
  '(yascroll:thumb-fringe ((t (:background "white" :foreground "white"))))
  '(yascroll:thumb-text-area ((t (:background "white")))))
+;;; init.el ends here
