@@ -183,6 +183,14 @@
   (package-refresh-contents)
   (package-install 'fish-mode))
 (require 'fish-mode)
+;;for markdown
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
 ;;beautiful todo
 (el-get-bundle todotxt-mode
   :url "https://raw.githubusercontent.com/avillafiorita/todotxt-mode/master/todotxt-mode.el"
@@ -250,12 +258,6 @@
   (todotxt-mode))
 ;;org mode select with shift
 (setq org-support-shift-select t)
-;;scratch buffer
-;; (setq initial-scratch-message "")
-;; (defun remove-scratch-buffer ()
-;;   (if (get-buffer "*scratch*")
-;;       (kill-buffer "*scratch*")))
-;; (add-hook 'after-change-major-mode-hook 'remove-scratch-buffer)
 ;; killing messages buffer
 (setq-default message-log-max nil)
 (kill-buffer "*Messages*")
@@ -317,9 +319,9 @@
 (setq flyspell-issue-welcome-flag nil)
 (mapcar (lambda (mode-hook) (add-hook mode-hook 'flyspell-prog-mode))
         '(c-mode-common-hook tcl-mode-hook emacs-lisp-mode-hook 
-							 ruby-mode-hook java-mode-hook))
+							 ruby-mode-hook java-mode-hook fish-mode-hook shell-mode-hook))
 (mapcar (lambda (mode-hook) (add-hook mode-hook 'flyspell-mode))
-        '(org-mode-hook))
+        '(org-mode-hook markdown-mode-hook))
 (use-package flyspell-correct
   :ensure t)
 (use-package flyspell-correct-helm
