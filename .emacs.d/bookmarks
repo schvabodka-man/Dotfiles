@@ -2,7 +2,82 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("xresources"
+(("nice crt monitors"
+ (filename . "~/Dropbox/Org/Wiki/Things/CRTs.org")
+ (front-context-string . "Good crt monitor")
+ (rear-context-string)
+ (position . 1))
+("cartoons todo"
+ (filename . "~/Dropbox/todo/cartoons.txt")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("anime todo"
+ (filename . "~/Dropbox/todo/anime.txt")
+ (front-context-string . "2017-05-08  @ani")
+ (rear-context-string)
+ (position . 1))
+("books todo"
+ (filename . "~/Dropbox/todo/books.txt")
+ (front-context-string . "2017-06-04  @boo")
+ (rear-context-string)
+ (position . 1))
+("movies todo"
+ (filename . "~/Dropbox/todo/movies.txt")
+ (front-context-string . "2017-02-27  @mov")
+ (rear-context-string)
+ (position . 1))
+("games todo"
+ (filename . "~/Dropbox/todo/games.txt")
+ (front-context-string . "2017-01-22 @game")
+ (rear-context-string)
+ (position . 1))
+("2ch links"
+ (filename . "~/Dropbox/Org/Wiki/Links/2ch Nice Threads.org")
+ (front-context-string . "Хорошие треды с ")
+ (rear-context-string)
+ (position . 1))
+("creepypasta completed"
+ (filename . "~/Dropbox/Org/Wiki/Tracking/Криппи пасты.org")
+ (front-context-string . "* DONE Morrowind")
+ (rear-context-string)
+ (position . 1))
+("cartoons-completed"
+ (filename . "~/Dropbox/Org/Wiki/Tracking/Cartoons.org")
+ (front-context-string . "Просмотренные му")
+ (rear-context-string)
+ (position . 1))
+("anime-completed"
+ (filename . "~/Dropbox/Org/Wiki/Tracking/Anime.org")
+ (front-context-string . "Аниме которые я ")
+ (rear-context-string)
+ (position . 1))
+("movies-completed"
+ (filename . "~/Dropbox/Org/Wiki/Tracking/Movies.org")
+ (front-context-string . "Просмотренное ки")
+ (rear-context-string)
+ (position . 1))
+("books-completed"
+ (filename . "~/Dropbox/Org/Wiki/Tracking/Books.org")
+ (front-context-string . "Прочитанные книг")
+ (rear-context-string)
+ (position . 1))
+("games-mods-completed"
+ (filename . "~/Dropbox/Org/Wiki/Tracking/Games Mods.org")
+ (front-context-string . "Пройденные моды\n")
+ (rear-context-string)
+ (position . 1))
+("games-links"
+ (filename . "~/Dropbox/Org/Wiki/Links/Games Links.org")
+ (front-context-string . "Ссылочки на инте")
+ (rear-context-string)
+ (position . 1))
+("games-completed"
+ (filename . "~/Dropbox/Org/Wiki/Tracking/Games.org")
+ (front-context-string . "Игры которые я п")
+ (rear-context-string)
+ (position . 1))
+("xresources"
  (filename . "~/.Xresources")
  (front-context-string . "Xft.dpi: 96\nXft.")
  (rear-context-string)
@@ -52,16 +127,6 @@
  (front-context-string . "define-filter \"G")
  (rear-context-string . "-key ; cmdline\n\n")
  (position . 850))
-("qutebrowser config"
- (filename . "~/.config/qutebrowser/qutebrowser.conf")
- (front-context-string . "\nzoom-text-only ")
- (rear-context-string . "quit = downloads")
- (position . 10732))
-("qutebrowser bookmarks"
- (filename . "~/.config/qutebrowser/bookmarks/urls")
- (front-context-string . "https://github.c")
- (rear-context-string)
- (position . 1))
 ("zathura"
  (filename . "~/.config/zathura/zathurarc")
  (front-context-string . "map - zoom in\nma")
