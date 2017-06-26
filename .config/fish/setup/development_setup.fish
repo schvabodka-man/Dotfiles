@@ -20,3 +20,6 @@ sudo dnf install qt-devel
 sudo dnf install emacs
 echo "saas"
 sudo gem install saas
+echo "sdkman"
+curl -s https://get.sdkman.io | bash
+##source "$HOME/.sdkman/bin/sdkman-init.sh"
