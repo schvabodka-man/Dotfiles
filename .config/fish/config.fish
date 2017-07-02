@@ -5,6 +5,9 @@ set -g theme_display_date no
 set -g theme_color_scheme dark
 #Homes!
 set -x JAVA_HOME '/usr/lib/jvm/java'
+set -x GRADLE_HOME '/usr/share/gradle'
+set -x EDITOR "emacsclient -c"
+set -x BROWSER "firefox"
 #aliases
 alias xrdb-merge 'xrdb -merge ~/.Xresources'
 alias rofi-cache-clear 'rm ~/.cache/rofi-3.runcache'
