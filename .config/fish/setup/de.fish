@@ -12,15 +12,13 @@ sudo dnf install terminator
 sudo dnf install qutebrowser
 sudo dnf install gstreamer1-libav
 sudo dnf install emacs
-sudo gem install meetup-cli
 sudo dnf install asciinema
 sudo dnf install mpv
+sudo gem install meetup-cli
 sudo dnf install zathura
 sudo dnf install zathura-plugins-all
 sudo dnf install newsbeuter
 sudo dnf install libreoffice
-# IMHO best cli app for weather
-sudo npm install forecast-cli -g
 #cmusfm
 builtin cd ~/bin/
 git clone https://github.com/Arkq/cmusfm

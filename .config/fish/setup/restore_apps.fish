@@ -16,7 +16,6 @@ sudo dnf install powerline-fonts
 omf install bobthefish
 omf install sudope
 omf install thefuck
-sudo pip install tldr
 echo "yadm"
 sudo dnf copr enable thelocehiliosan/yadm
 sudo dnf install yadm

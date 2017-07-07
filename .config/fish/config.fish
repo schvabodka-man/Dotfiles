@@ -32,6 +32,15 @@ end
 function tldr
 	docker exec -i -t tldr tldr $argv
 end
+
+function forecast
+	if count $argv > /dev/null
+		docker exec -i -t weather forecast "$argv"
+	else
+		docker exec -i -t weather forecast "Uzhgorod"
+	end
+end
+alias weather 'forecast'
 #gpg
 function export-key
 	gpg2 --export-secret-key $argv --armor > $argv.asc

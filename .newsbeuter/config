@@ -1,4 +1,4 @@
-browser qutebrowser
+browser firefox
 player mpv
 
 refresh-on-startup yes
