@@ -14,7 +14,6 @@ sudo dnf install gstreamer1-libav
 sudo dnf install emacs
 sudo dnf install asciinema
 sudo dnf install mpv
-sudo gem install meetup-cli
 sudo dnf install zathura
 sudo dnf install zathura-plugins-all
 sudo dnf install newsbeuter

@@ -29,18 +29,29 @@ function docker-build
 	docker build -t scvh.com/$argv $argv
 end
 
+function docker-kill
+	docker stop $argv
+	docker rm $argv
+end
+
 function tldr
 	docker exec -i -t tldr tldr $argv
 end
 
 function forecast
 	if count $argv > /dev/null
-		docker exec -i -t weather forecast "$argv"
+		docker exec -i -t weather-npm forecast "$argv"
 	else
-		docker exec -i -t weather forecast "Uzhgorod"
+		docker exec -i -t weather-npm forecast "Uzhgorod"
 	end
 end
 alias weather 'forecast'
+
+function meetup
+	docker exec -t meetup-cli meetup-cli --color
+end
+alias meetups 'meetup'
+
 #gpg
 function export-key
 	gpg2 --export-secret-key $argv --armor > $argv.asc

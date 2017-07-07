@@ -12,6 +12,7 @@
   (package-install 'use-package))
 (eval-when-compile
   (require 'use-package))
+(package-refresh-contents)
 ;;nice completition
 (unless (package-installed-p 'ivy)
   (package-refresh-contents)
@@ -280,8 +281,8 @@
   :config
   (define-key flyspell-mode-map (kbd "C-'") 'flyspell-correct-previous-word-generic))
 ;;docker
-;; (use-package docker
-;;   :ensure t)
+(use-package docker
+  :ensure t)
 (el-get-bundle dockerfile-mode
   :url "https://raw.githubusercontent.com/spotify/dockerfile-mode/master/dockerfile-mode.el"
   :description "Dockerfile editing"
