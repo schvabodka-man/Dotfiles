@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("nice crt monitors"
+(("fish shell config"
+ (filename . "~/.config/fish/config.fish")
+ (front-context-string . "#disable greetin")
+ (rear-context-string)
+ (position . 1))
+("nice crt monitors"
  (filename . "~/Dropbox/Org/Wiki/Things/CRTs.org")
  (front-context-string . "Good crt monitor")
  (rear-context-string)

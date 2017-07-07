@@ -29,6 +29,9 @@ function docker-build
 	docker build -t scvh.com/$argv $argv
 end
 
+function tldr
+	docker exec -i -t tldr tldr $argv
+end
 #gpg
 function export-key
 	gpg2 --export-secret-key $argv --armor > $argv.asc
