@@ -279,6 +279,15 @@
   :ensure t
   :config
   (define-key flyspell-mode-map (kbd "C-'") 'flyspell-correct-previous-word-generic))
+;;docker
+;; (use-package docker
+;;   :ensure t)
+(el-get-bundle dockerfile-mode
+  :url "https://raw.githubusercontent.com/spotify/dockerfile-mode/master/dockerfile-mode.el"
+  :description "Dockerfile editing"
+  :features dockerfile-mode
+  )
+(require 'dockerfile-mode)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

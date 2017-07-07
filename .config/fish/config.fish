@@ -8,6 +8,7 @@ set -x JAVA_HOME '/usr/lib/jvm/java'
 set -x GRADLE_HOME '/usr/share/gradle'
 set -x EDITOR "emacsclient -c"
 set -x BROWSER "firefox"
+
 #aliases
 alias xrdb-merge 'xrdb -merge ~/.Xresources'
 alias rofi-cache-clear 'rm ~/.cache/rofi-3.runcache'
@@ -21,6 +22,11 @@ alias emacs 'emacsclient -nw'
 function cd
 	builtin cd $argv
 	ls -a
+end
+
+#docker shitty aliases
+function docker-build
+	docker build -t scvh.com/$argv $argv
 end
 
 #gpg
