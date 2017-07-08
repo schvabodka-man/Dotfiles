@@ -35,6 +35,7 @@ unbind-key J
 unbind-key K
 unbind-key C
 unbind-key A
+unbind-key q
 
 bind-key | mark-feed-read
 bind-key o open-in-browser-and-mark-read
@@ -45,6 +46,7 @@ bind-key M macro-prefix
 bind-key \ toggle-show-read-feeds
 bind-key R reload-all
 bind-key ; cmdline
+bind-key C-A-Q quit
 
 define-filter "IT" "feedtitle =~ \"Ebanoe.IT\""
 define-filter "Games" "feedtitle =~ \"PodcastOGRU\" or feedtitle =~ \"NOVOE OLDOVOE\""

@@ -1,0 +1,17 @@
+# -*- mode: conf-unix -*-
+# name: cmusfm
+# key: cmusfm
+user = "$1"
+key = "$2"
+
+# regular expressions for name parsers
+format-localfile = "^(?A.+) - (?T.+)\.[^.]+$"
+format-shoutcast = "^(?A.+) - (?T.+)$"
+
+now-playing-localfile = "yes"
+now-playing-shoutcast = "yes"
+submit-localfile = "yes"
+submit-shoutcast = "
+
+notification = "no"
+format-coverfile = "^(cover|folder)\.jpg$"

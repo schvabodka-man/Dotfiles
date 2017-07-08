@@ -1,0 +1,18 @@
+# -*- mode: snippet -*-
+# name: init
+# key: init
+set from = "$1@gmail.com
+set smtp_url = "smtp://$1@smtp.gmail.com:587/"
+set imap_user = "$1@gmail.com"
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set postponed = "+[Google Mail]/Drafts"
+set trash = "+[Google Mail]/Trash"
+set header_cache =~/.mutt/cache/headers
+set message_cachedir =~/.mutt/cache/bodies
+set certificate_file =~/.mutt/certificates
+set move = no
+set imap_keepalive = 900
+
+# encrypted IMAP/SMTP passwords. Running inside of docker
+source "gpg -d ~/.mutt/password.gpg |"

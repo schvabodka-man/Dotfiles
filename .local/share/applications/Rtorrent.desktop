@@ -13,7 +13,7 @@ Name=Rtorrent
 Comment=Torrent downloader
 
 # The executable of the application, possibly with arguments.
-Exec=terminator -e rtorrent
+Exec=terminator -e "~/.config/fish/dockershortcuts/rtorrent.fish"
 
 # Describes whether this application needs to be run in a terminal or not
 Terminal=false

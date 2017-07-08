@@ -57,12 +57,16 @@ alias weather 'forecast'
 alias meetup 'docker exec -t meetup-cli meetup-cli --color'
 alias meetups 'meetup'
 
-alias rtorrent 'docker attach rtorrent' 
+alias rtorrent '~/.config/fish/dockershortcuts/rtorrent.fish' 
+alias newsbeuter '~/.config/fish/dockershortcuts/news.fish'
+alias news 'newsbeuter'
+alias torrent 'rtorrent'
 #gpg
 function export-key
 	gpg2 --export-secret-key $argv --armor > $argv.asc
 end
-	
+alias gpg-export-key 'export-key'
+
 #autojump
 set --global AUTOJUMP_PATH /usr/share/autojump/autojump.fish
 	if test -e $AUTOJUMP_PATH
