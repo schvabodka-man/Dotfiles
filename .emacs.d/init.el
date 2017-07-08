@@ -274,7 +274,7 @@
         '(c-mode-common-hook tcl-mode-hook emacs-lisp-mode-hook 
 							 ruby-mode-hook java-mode-hook fish-mode-hook shell-mode-hook))
 (mapcar (lambda (mode-hook) (add-hook mode-hook 'flyspell-mode))
-        '(org-mode-hook markdown-mode-hook))
+        '(org-mode-hook markdown-mode-hook gfm-mode-hook))
 (use-package flyspell-correct
   :ensure t)
 (use-package flyspell-correct-helm
@@ -287,9 +287,15 @@
 (el-get-bundle dockerfile-mode
   :url "https://raw.githubusercontent.com/spotify/dockerfile-mode/master/dockerfile-mode.el"
   :description "Dockerfile editing"
-  :features dockerfile-mode
-  )
+  :features dockerfile-mode)
 (require 'dockerfile-mode)
+;;inserting links
+(el-get-bundle markdown-dnd-images
+  :url "https://raw.githubusercontent.com/mooreryan/markdown-dnd-images/master/markdown-dnd-images.el"
+  :description "Dockerfile editing")
+(require 'markdown-dnd-images)
+(use-package org-download
+  :ensure t)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

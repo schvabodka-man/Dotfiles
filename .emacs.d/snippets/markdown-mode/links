@@ -33,3 +33,15 @@
 # key: pic
 # Link to picture
 ![alt text](https://$0 "$1")
+
+# -*- mode: markdown -*-
+# name: video
+# key: video
+# Link to video
+[![alt text](http://img.youtube.com/vi/$0)](http://www.youtube.com/watch?v=$1)
+
+# -*- mode: markdown -*-
+# name: youtube
+# key: youtube
+# Link to video
+[![alt text](http://img.youtube.com/vi/$0)](http://www.youtube.com/watch?v=$1)

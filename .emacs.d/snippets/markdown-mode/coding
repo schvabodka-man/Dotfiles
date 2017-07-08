@@ -1,0 +1,7 @@
+# -*- mode: markdown -*-
+# name: code
+# key: code
+# Insert code and shit
+```$0
+$1
+```
