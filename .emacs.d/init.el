@@ -301,10 +301,15 @@
   :ensure t
   :config
   (add-hook 'restclient-mode-hook
-			(lambda () (local-set-key (kbd "M-r") #'restclient-http-send-current-stay-in-window)))
+			(lambda () (local-set-key (kbd "M-r") #'restclient-http-send-current-stay-in-window)
+			  (local-set-key (kbd "M-n") #'restclient-jump-next)
+			  (local-set-key (kbd "M-p") #'restclient-jump-prev)))
   (defalias 'restclient 'restclient-mode)
   (defalias 'rest 'restclient-mode)
-  (defalias 'restapi 'restclient-mode))
+  (defalias 'restapi 'restclient-mode)
+  (defalias 'restclient-curl 'restclient-copy-curl-command)
+  (defalias 'rest-curl 'restclient-copy-curl-command)
+  (defalias 'restapi-curl 'restclient-copy-curl-command))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
