@@ -34,6 +34,13 @@ function docker-kill
 	docker rm $argv
 end
 
+function docker-run
+	#fish shell don't allow me to set variables with dashes in it
+	docker stop (echo $argv | perl -n -e '/^--name\s(.|\w+)\s-|--/ && print "$1\n"')
+	docker rm (echo $argv | perl -n -e '/^--name\s(.|\w+)\s-|--/ && print "$1\n"')
+	docker run $argv
+end
+
 function tldr
 	docker exec -i -t tldr tldr $argv
 end
@@ -47,11 +54,10 @@ function forecast
 end
 alias weather 'forecast'
 
-function meetup
-	docker exec -t meetup-cli meetup-cli --color
-end
+alias meetup 'docker exec -t meetup-cli meetup-cli --color'
 alias meetups 'meetup'
 
+alias rtorrent 'docker attach rtorrent' 
 #gpg
 function export-key
 	gpg2 --export-secret-key $argv --armor > $argv.asc

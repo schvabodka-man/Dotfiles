@@ -208,6 +208,7 @@
 (defalias 'pull 'magit-pull)
 (defalias 'todo 'todotxt-open-file)
 (defalias 'do 'todotxt-add-todo)
+(defalias 'snippet 'yas-expand)
 ;;org mode select with shift
 (setq org-support-shift-select t)
 ;; killing messages buffer

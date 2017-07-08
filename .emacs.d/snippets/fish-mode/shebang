@@ -1,0 +1,5 @@
+# -*- mode: fish -*-
+# name: shebang
+# key: shebang
+# --
+#!/usr/bin/fish

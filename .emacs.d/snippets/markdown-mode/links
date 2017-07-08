@@ -1,0 +1,35 @@
+# -*- mode: markdown -*-
+# name: link
+# key: link
+# Link to some site or stuff
+[$0](https://$1 "$2")
+
+# -*- mode: markdown -*-
+# name: file
+# key: file
+# Link to file in repo
+[$0](../$1)
+
+# -*- mode: markdown -*-
+# name: picture
+# key: picture
+# Link to picture
+![alt text](https://$0 "$1")
+
+# -*- mode: markdown -*-
+# name: image
+# key: image
+# Link to picture
+![alt text](https://$0 "$1")
+
+# -*- mode: markdown -*-
+# name: img
+# key: img
+# Link to picture
+![alt text](https://$0 "$1")
+
+# -*- mode: markdown -*-
+# name: pic
+# key: pic
+# Link to picture
+![alt text](https://$0 "$1")
