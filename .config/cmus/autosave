@@ -63,12 +63,12 @@ set format_treewin=  %l
 set format_treewin_artist=%a
 set icecast_default_charset=ISO-8859-1
 set id3_default_charset=ISO-8859-1
+set input.cdio.cddb_url=freedb.freedb.org:8880
 set lib_sort=albumartist date album discnumber tracknumber title filename play_count
 set mixer.alsa.channel=
 set mixer.alsa.device=
-set mixer.pulse.restore_volume=1
 set mouse=false
-set output_plugin=pulse
+set output_plugin=
 set passwd=
 set pl_sort=
 set play_library=true
@@ -132,7 +132,7 @@ bind common p win-add-p
 bind common page_down win-page-down
 bind common page_up win-page-up
 bind common q quit
-bind common r add ~/Music
+bind common r add /root/Music
 bind common right seek +5
 bind common tab win-next
 bind common up win-up

@@ -59,8 +59,10 @@ alias meetups 'meetup'
 
 alias rtorrent '~/.config/fish/dockershortcuts/rtorrent.fish' 
 alias newsbeuter '~/.config/fish/dockershortcuts/news.fish'
+alias mutt '~/.config/fish/dockershortcuts/mutt.fish'
 alias news 'newsbeuter'
 alias torrent 'rtorrent'
+alias mail 'mail'
 #gpg
 function export-key
 	gpg2 --export-secret-key $argv --armor > $argv.asc

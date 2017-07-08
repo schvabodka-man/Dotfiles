@@ -1,3 +1,3 @@
 #!/bin/sh
 cmusfm "$@" &
-/home/user/.config/cmus/cmus-scripts/cmus-feh.sh "$@" &
+/root/cmus-feh/cmus-scripts/cmus-feh.sh "$@" &
