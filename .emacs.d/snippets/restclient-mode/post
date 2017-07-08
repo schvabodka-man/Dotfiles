@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: post
+# key: post
+# --
+POST https://www.$1/requst
+Content-Type: application/json
+Header: $2
+{
+        "json": "$3"
+}

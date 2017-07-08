@@ -2,46 +2,46 @@
 # name: link
 # key: link
 # Link to some site or stuff
-[$0](https://$1 "$2")
+[$2](https://$1 "$3")
 
 # -*- mode: markdown -*-
 # name: file
 # key: file
 # Link to file in repo
-[$0](../$1)
+[$2](../$1)
 
 # -*- mode: markdown -*-
 # name: picture
 # key: picture
 # Link to picture
-![alt text](https://$0 "$1")
+![alt text](https://$1 "$2")
 
 # -*- mode: markdown -*-
 # name: image
 # key: image
 # Link to picture
-![alt text](https://$0 "$1")
+![alt text](https://$1 "$2")
 
 # -*- mode: markdown -*-
 # name: img
 # key: img
 # Link to picture
-![alt text](https://$0 "$1")
+![alt text](https://$1 "$2")
 
 # -*- mode: markdown -*-
 # name: pic
 # key: pic
 # Link to picture
-![alt text](https://$0 "$1")
+![alt text](https://$1 "$2")
 
 # -*- mode: markdown -*-
 # name: video
 # key: video
 # Link to video
-[![alt text](http://img.youtube.com/vi/$0)](http://www.youtube.com/watch?v=$1)
+[![alt text](http://img.youtube.com/vi/$2)](http://www.youtube.com/watch?v=$1)
 
 # -*- mode: markdown -*-
 # name: youtube
 # key: youtube
 # Link to video
-[![alt text](http://img.youtube.com/vi/$0)](http://www.youtube.com/watch?v=$1)
+[![alt text](http://img.youtube.com/vi/$2)](http://www.youtube.com/watch?v=$1)

@@ -154,11 +154,11 @@
 (global-set-key (kbd "M-b") 'neotree-toggle)
 (setq neo-theme (if (display-graphic-p) 'arrow 'arrow))
 ;;fancy scrollbar
-(unless (package-installed-p 'yascroll)
-  (package-refresh-contents)
-  (package-install 'yascroll))
-(require 'yascroll)
-(global-yascroll-bar-mode 1)
+;; (unless (package-installed-p 'yascroll)
+;;   (package-refresh-contents)
+;;   (package-install 'yascroll))
+;; (require 'yascroll)
+;; (global-yascroll-bar-mode 1)
 ;;that's only for few packages
 (unless (package-installed-p 'el-get)
   (package-refresh-contents)
@@ -296,6 +296,16 @@
 (require 'markdown-dnd-images)
 (use-package org-download
   :ensure t)
+;;REST client
+(use-package restclient
+  :ensure t
+  :config
+  (add-hook 'restclient-mode-hook
+			(lambda () (local-set-key (kbd "M-r") #'restclient-http-send-current-stay-in-window)))
+  (defalias 'restclient 'restclient-mode)
+  (defalias 'rest 'restclient-mode)
+  (defalias 'restapi 'restclient-mode))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -311,8 +321,7 @@
  '(minimap-window-location (quote right))
  '(package-selected-packages
    (quote
-	(helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
- '(yascroll:delay-to-hide nil))
+	(helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -325,7 +334,5 @@
  '(company-tooltip-selection ((t (:background "#FFFFFF" :foreground "#000000"))))
  '(highlight ((t (:background "#FFFFFF" :foreground "#000000"))))
  '(minimap-active-region-background ((t (:background "#0e1112"))))
- '(minimap-font-face ((t (:height 30 :family "Fira Mono"))))
- '(yascroll:thumb-fringe ((t (:background "white" :foreground "white"))))
- '(yascroll:thumb-text-area ((t (:background "white")))))
+ '(minimap-font-face ((t (:height 30 :family "Fira Mono")))))
 ;;; init.el ends here
