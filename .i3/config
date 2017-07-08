@@ -119,6 +119,8 @@ gaps outer 5
 # Autoexec
 #Wallpaper
 exec --no-startup-id nitrogen --restore
+#docker stuff. instead of --restart
+exec --no-startup-id ~/.config/fish/dockershortcuts/startup-init.fish
 #Dropbox
 exec --no-startup-id dropbox
 #compositing
