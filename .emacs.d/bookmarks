@@ -98,7 +98,7 @@
  (rear-context-string)
  (position . 1))
 ("mutt rc"
- (filename . "~/.muttrc")
+ (filename . "~/.config/mutt/.muttrc")
  (front-context-string . "color attachment")
  (rear-context-string)
  (position . 1))

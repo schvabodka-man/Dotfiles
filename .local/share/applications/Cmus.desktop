@@ -13,7 +13,7 @@ Name=CMUS
 Comment=Music Player
 
 # The executable of the application, possibly with arguments.
-Exec=terminator -e "tmux attach-session -t cmus"
+Exec=terminator -e "~/.config/fish/dockershortcuts/cmus.fish"
 
 # Describes whether this application needs to be run in a terminal or not
 Terminal=false

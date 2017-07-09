@@ -28,12 +28,10 @@ end
 function docker-build
 	docker build -t scvh.com/$argv $argv
 end
-
 function docker-kill
 	docker stop $argv
 	docker rm $argv
 end
-
 function docker-run
 	#fish shell don't allow me to set variables with dashes in it
 	docker stop (echo $argv | perl -n -e '/^--name\s(.|\w+)\s-|--/ && print "$1\n"')
@@ -44,7 +42,6 @@ end
 function tldr
 	docker exec -i -t tldr tldr $argv
 end
-
 function forecast
 	if count $argv > /dev/null
 		docker exec -i -t weather-npm forecast "$argv"
@@ -53,21 +50,37 @@ function forecast
 	end
 end
 alias weather 'forecast'
-
 alias meetup 'docker exec -t meetup-cli meetup-cli --color'
 alias meetups 'meetup'
 
+alias cmus '~/.config/fish/dockershortcuts/cmus.fish' 
 alias rtorrent '~/.config/fish/dockershortcuts/rtorrent.fish' 
 alias newsbeuter '~/.config/fish/dockershortcuts/news.fish'
 alias mutt '~/.config/fish/dockershortcuts/mutt.fish'
 alias news 'newsbeuter'
 alias torrent 'rtorrent'
 alias mail 'mail'
+alias music 'cmus'
+
 #gpg
 function export-key
 	gpg2 --export-secret-key $argv --armor > $argv.asc
 end
 alias gpg-export-key 'export-key'
+
+#tmux
+function tmux-new
+	tmux new -s $argv -d $argv
+end
+function tmux-attach
+	tmux attach-session -t $argv
+end
+alias tmux-ls "tmux ls"
+alias tmux-list "tmux ls"
+alias tmux-sessions "tmux ls"
+alias tmux-connect "tmux-attach"
+alias tmux-config-update "tmux source ~/.config/tmux/tmux.conf"
+alias tmux-update-config "tmux source ~/.config/tmux/tmux.conf"
 
 #autojump
 set --global AUTOJUMP_PATH /usr/share/autojump/autojump.fish

@@ -17,8 +17,8 @@ bindsym $mod+e exec emacsclient -c
 bindsym $mod+y exec thunar
 bindsym $mod+n exec terminator -e "~/.config/fish/dockershortcuts/news.fish"
 bindsym $mod+t exec terminator -e "~/.config/fish/dockershortcuts/rtorrent.fish"
-bindsym $mod+m exec terminator -e "~/.config/fish/dockershortcuts/mutt.fish"
-bindsym $mod+b exec terminator -e "tmux attach-session -t cmus"
+bindsym $mod+b exec terminator -e "~/.config/fish/dockershortcuts/mutt.fish"
+bindsym $mod+m exec terminator -e "~/.config/fish/dockershortcuts/cmus.fish"
 
 #Make a screenshot
 bindsym Print exec xfce4-screenshooter
@@ -119,8 +119,6 @@ gaps outer 5
 # Autoexec
 #Wallpaper
 exec --no-startup-id nitrogen --restore
-#docker stuff. instead of --restart
-exec --no-startup-id ~/.config/fish/dockershortcuts/startup-init.fish
 #Dropbox
 exec --no-startup-id dropbox
 #compositing
@@ -131,3 +129,8 @@ exec --no-startup-id polybar Bar
 exec firefox
 #emacs
 exec --no-startup-id emacs --daemon
+#tmux
+exec --no-startup-id tmux source ~/.config/tmux/tmux.conf
+exec --no-startup-id tmux start-server
+#cmus
+exec --no-startup-id tmux new -s cmus -d /usr/bin/cmus
