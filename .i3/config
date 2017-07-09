@@ -14,11 +14,12 @@ bindsym $mod+w exec rofi -show window -hide-scrollbar -fullscreen
 
 #launch apps
 bindsym $mod+e exec emacsclient -c
-bindsym $mod+y exec thunar
+bindsym $mod+t exec thunar
+bindsym $mod+p exec terminator -e "~/.config/fish/dockershortcuts/profanity.fish"
 bindsym $mod+n exec terminator -e "~/.config/fish/dockershortcuts/news.fish"
-bindsym $mod+t exec terminator -e "~/.config/fish/dockershortcuts/rtorrent.fish"
-bindsym $mod+b exec terminator -e "~/.config/fish/dockershortcuts/mutt.fish"
-bindsym $mod+m exec terminator -e "~/.config/fish/dockershortcuts/cmus.fish"
+bindsym $mod+r exec terminator -e "~/.config/fish/dockershortcuts/rtorrent.fish"
+bindsym $mod+m exec terminator -e "~/.config/fish/dockershortcuts/mutt.fish"
+bindsym $mod+c exec terminator -e "~/.config/fish/dockershortcuts/cmus.fish"
 
 #Make a screenshot
 bindsym Print exec xfce4-screenshooter
@@ -92,7 +93,7 @@ bindsym $mod+Shift+9 move container to workspace 9:9
 bindsym $mod+Shift+0 move container to workspace 10:10
 
 # restart i3
-bindsym $mod+r restart
+bindsym $mod+Shift+r restart
 
 focus_follows_mouse yes
 
@@ -132,5 +133,3 @@ exec --no-startup-id emacs --daemon
 #tmux
 exec --no-startup-id tmux source ~/.config/tmux/tmux.conf
 exec --no-startup-id tmux start-server
-#cmus
-exec --no-startup-id tmux new -s cmus -d /usr/bin/cmus

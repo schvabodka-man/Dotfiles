@@ -53,14 +53,18 @@ alias weather 'forecast'
 alias meetup 'docker exec -t meetup-cli meetup-cli --color'
 alias meetups 'meetup'
 
+alias calibre "~/.config/fish/dockershortcuts/calibre.fish"
 alias cmus '~/.config/fish/dockershortcuts/cmus.fish' 
 alias rtorrent '~/.config/fish/dockershortcuts/rtorrent.fish' 
 alias newsbeuter '~/.config/fish/dockershortcuts/news.fish'
 alias mutt '~/.config/fish/dockershortcuts/mutt.fish'
+alias profanity '~/.config/fish/dockershortcuts/profanity.fish'
 alias news 'newsbeuter'
 alias torrent 'rtorrent'
 alias mail 'mail'
 alias music 'cmus'
+alias books 'calibre'
+alias xmpp 'profanity'
 
 #gpg
 function export-key
@@ -75,6 +79,7 @@ end
 function tmux-attach
 	tmux attach-session -t $argv
 end
+alias tmux-server "tmux start-server"
 alias tmux-ls "tmux ls"
 alias tmux-list "tmux ls"
 alias tmux-sessions "tmux ls"

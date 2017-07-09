@@ -28,3 +28,7 @@ rtorrent
 newsbeuter
 config
 tmux
+conf
+sqlite
+metadata
+calibre

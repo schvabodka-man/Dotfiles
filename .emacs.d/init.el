@@ -310,6 +310,15 @@
   (defalias 'restclient-curl 'restclient-copy-curl-command)
   (defalias 'rest-curl 'restclient-copy-curl-command)
   (defalias 'restapi-curl 'restclient-copy-curl-command))
+;;muh books
+(el-get-bundle calibre-mode
+  :url "https://raw.githubusercontent.com/whacked/calibre-mode/master/calibre-mode.el"
+  :description "Calibre library management"
+  :features calibre-mode)
+(require 'calibre-mode)
+(setq sql-sqlite-program "/usr/bin/sqlite3")
+(setq calibre-root-dir (expand-file-name "~/Dropbox/Books"))
+(setq calibre-db (concat calibre-root-dir "/metadata.db"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
