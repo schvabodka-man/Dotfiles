@@ -1,0 +1,5 @@
+refresh-on-startup yes
+
+urls-source "oldreader"
+oldreader-login "svhscr@protonmail.com"
+oldreader-passwordfile "/root/.newsbeuter/pass" #it's encrypted
