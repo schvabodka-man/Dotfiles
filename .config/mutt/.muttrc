@@ -23,7 +23,6 @@ set sort=threads
 set sort_browser=reverse-date
 set sort_aux=last-date-received
 
-bind index q noop
 bind pager i noop
 
 bind index / search
@@ -37,8 +36,6 @@ bind index z collapse-all
 bind index r reply
 bind index R group-reply
 bind index L list-reply
-
-bind index <C-A-Q> quit
 
 bind pager / search
 bind pager ? search-reverse
@@ -66,3 +63,5 @@ set message_cachedir =~/.mutt/cache/bodies
 set certificate_file =~/.mutt/certificates
 set move = no
 set imap_keepalive = 900
+
+source "gpg2 -d /root/.mutt/key.gpg |"

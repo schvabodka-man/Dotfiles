@@ -69,6 +69,7 @@ alias rtorrent '~/.config/fish/dockershortcuts/rtorrent.fish'
 alias newsbeuter '~/.config/fish/dockershortcuts/news.fish'
 alias mutt '~/.config/fish/dockershortcuts/mutt.fish'
 alias profanity '~/.config/fish/dockershortcuts/profanity.fish'
+
 alias news 'newsbeuter'
 alias torrent 'rtorrent'
 alias mail 'mail'

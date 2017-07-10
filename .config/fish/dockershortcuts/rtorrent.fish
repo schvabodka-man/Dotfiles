@@ -4,5 +4,5 @@ if docker ps | grep rtorrent
 else
 	docker stop rtorrent > /dev/null
 	docker rm rtorrent > /dev/null
-	docker run --name rtorrent -v ~/Downloads:/root/Downloads:z -v ~/Torrents:/root/Torrents:z -v ~/.config/rtorrent:/root/:z -e -it scvh.com/rtorrent 
+	docker run --name rtorrent -v $HOME/Downloads:/root/Downloads -v $HOME/Torrents:/root/Torrents -v ~/.config/rtorrent:/root/ -v $HOME/.rtorrent.session/:/root/.rtorrent.session -it scvh.com/rtorrent 
 end
