@@ -10,7 +10,7 @@ width = 100%
 height = 17
 
 modules-left = i3 volume keyboard wireless-network date music
-modules-right = github calendar todo meetup weather
+modules-right = github news calendar todo meetup weather
 
 font-0 = FiraMono:size=9
 font-1 = FontAwesome:size=9;-2
@@ -87,11 +87,11 @@ exec = ~/.config/fish/panel/music.fish
 format-underline = #f200ff
 tail = true
 
-# [module/news]
-# type = custom/script
-# exec = ~/.config/fish/panel/rss.fish
-# format-underline = #ff0000
-# interval = 15
+[module/news]
+type = custom/script
+exec = ~/.config/fish/panel/rss.fish
+format-underline = #ff0000
+interval = 60
 
 # disabled it, instead i'm using stuff in tray
 #[module/battery]
