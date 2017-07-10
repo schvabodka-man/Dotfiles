@@ -29,28 +29,38 @@ function docker-build
 	docker build -t scvh.com/$argv $argv
 end
 function docker-kill
-	docker stop $argv
-	docker rm $argv
+	docker stop $argv > /dev/null
+	docker rm $argv > /dev/null
 end
 function docker-run
 	#fish shell don't allow me to set variables with dashes in it
-	docker stop (echo $argv | perl -n -e '/^--name\s(.|\w+)\s-|--/ && print "$1\n"')
-	docker rm (echo $argv | perl -n -e '/^--name\s(.|\w+)\s-|--/ && print "$1\n"')
+	docker stop (echo $argv | perl -n -e '/^--name\s(.|\w+)\s-|--/ && print "$1\n"') > /dev/null
+	docker rm (echo $argv | perl -n -e '/^--name\s(.|\w+)\s-|--/ && print "$1\n"') > /dev/null
 	docker run $argv
 end
 
 function tldr
-	docker exec -i -t tldr tldr $argv
+	docker stop tldr > /dev/null
+	docker rm tldr > /dev/null
+	docker run --name tldr -t scvh.com/tldr $argv
 end
+
 function forecast
+	docker stop weather-npm > /dev/null
+	docker rm weather-npm > /dev/null
 	if count $argv > /dev/null
-		docker exec -i -t weather-npm forecast "$argv"
+		docker run --name weather-npm -t scvh.com/weather-npm $argv
 	else
-		docker exec -i -t weather-npm forecast "Uzhgorod"
+		docker run --name weather-npm -t scvh.com/weather-npm "Uzhgorod"
 	end
 end
 alias weather 'forecast'
-alias meetup 'docker exec -t meetup-cli meetup-cli --color'
+
+function meetup
+	docker stop meetup-cli > /dev/null
+	docker rm meetup-cli > /dev/null
+	docker run --name meetup-cli -v $HOME/.config/meetup-cli:/root/ -t scvh.com/meetup-cli
+end
 alias meetups 'meetup'
 
 alias calibre "~/.config/fish/dockershortcuts/calibre.fish"

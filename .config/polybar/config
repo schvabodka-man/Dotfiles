@@ -61,6 +61,7 @@ type = custom/script
 exec = ~/.config/fish/panel/meetup.fish
 format-underline = #f200ff
 tail = true
+interval = 7200
 
 [module/todo]
 type = custom/script
@@ -86,11 +87,11 @@ exec = ~/.config/fish/panel/music.fish
 format-underline = #f200ff
 tail = true
 
-[module/news]
-type = custom/script
-exec = ~/.config/fish/panel/rss.fish
-format-underline = #ff0000
-interval = 15
+# [module/news]
+# type = custom/script
+# exec = ~/.config/fish/panel/rss.fish
+# format-underline = #ff0000
+# interval = 15
 
 # disabled it, instead i'm using stuff in tray
 #[module/battery]
