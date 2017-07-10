@@ -93,7 +93,6 @@ exec = ~/.config/fish/panel/rss.fish
 format-underline = #ff0000
 interval = 60
 
-# disabled it, instead i'm using stuff in tray
 #[module/battery]
 #type = internal/battery
 #battery = BAT0
