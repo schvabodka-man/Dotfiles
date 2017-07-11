@@ -69,6 +69,7 @@ alias rtorrent '~/.config/fish/dockershortcuts/rtorrent.fish'
 alias newsbeuter '~/.config/fish/dockershortcuts/news.fish'
 alias mutt '~/.config/fish/dockershortcuts/mutt.fish'
 alias profanity '~/.config/fish/dockershortcuts/profanity.fish'
+alias itch '~/.config/fish/dockershortcuts/itch.fish'
 
 alias news 'newsbeuter'
 alias torrent 'rtorrent'
@@ -76,6 +77,7 @@ alias mail 'mail'
 alias music 'cmus'
 alias books 'calibre'
 alias xmpp 'profanity'
+alias itch.io 'itch'
 
 #gpg
 function export-key

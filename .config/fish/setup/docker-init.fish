@@ -8,4 +8,5 @@ docker run --name mutt -v $HOME/.config/mutt:/root/:z -it scvh.com/mutt
 docker run --name cmus -v $HOME/.config/cmus:/root/.config/cmus -v $HOME/Music:/root/Music:z --device /dev/snd -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -it scvh.com/cmus 
 docker run --name calibre -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY -v $HOME/Dropbox/Books:/root/Books:z -v $HOME/.config/calibre:/root/config:z -it scvh.com/callibre
 docker run --name profanity -v $HOME/.config/profanity:/root/.config/profanity:z -it scvh.com/profanity
-docker-run -it --name intellij -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.config/idea:/config -v $HOME/Coding:/root/Coding scvh.com/jetbrainsidea
+docker run -it --name intellij -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.config/idea:/config -v $HOME/Coding:/root/Coding scvh.com/jetbrainsidea
+docker run --name itch -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -it scvh.com/itch 

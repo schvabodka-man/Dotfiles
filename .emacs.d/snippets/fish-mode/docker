@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: docker
+# key: docker
+# --
+#!/usr/bin/fish
+if docker ps | grep $1
+	docker attach $1
+else
+	docker stop $1 > /dev/null
+	docker rm $1 > /dev/null
+	docker run --name $1 -v $HOME/.config/$1:/root/:z -it scvh.com/$1 
+end

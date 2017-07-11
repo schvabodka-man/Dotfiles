@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: docker-gui
+# key: docker-gui
+# --
+#!/usr/bin/fish
+docker stop $1 > /dev/null
+docker rm $1 > /dev/null
+docker run --name $1 -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY -v $HOME/stuff/Books:/root/:z -it scvh.com/$1
