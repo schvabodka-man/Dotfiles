@@ -11,3 +11,5 @@ wget http://download.documentfoundation.org/libreoffice/flatpak/LibreOffice.flat
 flatpak install --from LibreOffice.flatpakref
 rm gnome-sdk.gpg
 rm LibreOffice.flatpakref
+#twitch
+flatpak install --user https://dl.tingping.se/flatpak/gnome-twitch.flatpakref

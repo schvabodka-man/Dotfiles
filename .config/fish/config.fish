@@ -84,6 +84,8 @@ alias steam 'flatpak run com.valvesoftware.Steam'
 alias libreoffice 'flatpak run org.libreoffice.LibreOffice'
 alias libre-office 'libreoffice'
 alias office 'libreoffice'
+alias twitch 'flatpak run com.vinszent.GnomeTwitch'
+alias gnome-twitch 'twitch'
 
 #gpg
 function export-key
