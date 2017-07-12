@@ -79,6 +79,7 @@ alias books 'calibre'
 alias xmpp 'profanity'
 alias itch.io 'itch'
 
+alias firefox 'flatpak run org.mozilla.FirefoxNightly --no-remote'
 alias picard 'flatpak run org.musicbrainz.Picard'
 alias steam 'flatpak run com.valvesoftware.Steam'
 alias libreoffice 'flatpak run org.libreoffice.LibreOffice'

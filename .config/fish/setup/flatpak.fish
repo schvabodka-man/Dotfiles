@@ -12,4 +12,8 @@ flatpak install --from LibreOffice.flatpakref
 rm gnome-sdk.gpg
 rm LibreOffice.flatpakref
 #twitch
-flatpak install --user https://dl.tingping.se/flatpak/gnome-twitch.flatpakref
+flatpak install --from https://dl.tingping.se/flatpak/gnome-twitch.flatpakref
+#firefox
+wget https://firefox-flatpak.mojefedora.cz/org.mozilla.FirefoxNightly.flatpak
+flatpak install org.mozilla.FirefoxNightly.flatpak
+rm org.mozilla.FirefoxNightly.flatpak

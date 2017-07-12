@@ -128,7 +128,7 @@ exec --no-startup-id compton -CGb
 #panel
 exec --no-startup-id polybar Bar
 #browser
-exec firefox
+exec flatpak run org.mozilla.FirefoxNightly --no-remote
 #emacs
 exec --no-startup-id emacs --daemon
 #tmux
