@@ -79,6 +79,12 @@ alias books 'calibre'
 alias xmpp 'profanity'
 alias itch.io 'itch'
 
+alias picard 'flatpak run org.musicbrainz.Picard'
+alias steam 'flatpak run com.valvesoftware.Steam'
+alias libreoffice 'flatpak run org.libreoffice.LibreOffice'
+alias libre-office 'libreoffice'
+alias office 'libreoffice'
+
 #gpg
 function export-key
 	gpg2 --export-secret-key $argv --armor > $argv.asc
