@@ -71,6 +71,13 @@ alias mutt '~/.config/fish/dockershortcuts/mutt.fish'
 alias profanity '~/.config/fish/dockershortcuts/profanity.fish'
 alias itch '~/.config/fish/dockershortcuts/itch.fish'
 
+alias firefox 'flatpak run org.mozilla.FirefoxNightly --no-remote'
+alias picard 'flatpak run org.musicbrainz.Picard'
+alias steam 'flatpak run com.valvesoftware.Steam'
+alias libreoffice 'flatpak run org.libreoffice.LibreOffice'
+alias skype 'flatpak run com.skype.Client'
+alias twitch 'flatpak run com.vinszent.GnomeTwitch'
+
 alias news 'newsbeuter'
 alias torrent 'rtorrent'
 alias mail 'mail'
@@ -78,14 +85,8 @@ alias music 'cmus'
 alias books 'calibre'
 alias xmpp 'profanity'
 alias itch.io 'itch'
-
-alias firefox 'flatpak run org.mozilla.FirefoxNightly --no-remote'
-alias picard 'flatpak run org.musicbrainz.Picard'
-alias steam 'flatpak run com.valvesoftware.Steam'
-alias libreoffice 'flatpak run org.libreoffice.LibreOffice'
 alias libre-office 'libreoffice'
 alias office 'libreoffice'
-alias twitch 'flatpak run com.vinszent.GnomeTwitch'
 alias gnome-twitch 'twitch'
 
 #gpg
