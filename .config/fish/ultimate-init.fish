@@ -95,3 +95,6 @@ rm LibreOffice.flatpakref
 flatpak install --from https://dl.tingping.se/flatpak/gnome-twitch.flatpakref
 #skype
 flatpak install --from https://s3.amazonaws.com/alexlarsson/skype-repo/skype.flatpakref
+#emulators for meme games
+flatpak install flathub org.ppsspp.PPSSPP
+flatpak install flathub org.libretro.RetroArch

@@ -69,6 +69,8 @@ bindcode $mod+Shift+35 move container to workspace next
 assign [class="Firefox"] 1:
 assign [title="Steam"] 2:
 assign [class="itch"] 2:
+assign [class="PPSSPPSDL"] 2:
+assign [class="retroarch"] 2:
 assign [title="Super Shotgun Launcher *"] 2:
 assign [title="cover.*"] 3:
 assign [class="jetbrains-studio"] 4:

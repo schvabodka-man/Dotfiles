@@ -23,11 +23,13 @@ function update-nonrepo
 	builtin cd ~/bin/pass-git-helper
 	git pull origin master
 	python3 setup.py install --user
-	echo "flatpaks"
+	#flatpaks
 	flatpak update com.skype.Client
 	flatpak update com.vinszent.GnomeTwitch
 	flatpak update org.gnome.FeedReader
 	flatpak update org.libreoffice.LibreOffice
 	flatpak update org.musicbrainz.Picard
 	flatpak update io.github.GnomeMpv
+    flatpak update org.ppsspp.PPSSPP
+	flatpak update org.libretro.RetroArch
 end
