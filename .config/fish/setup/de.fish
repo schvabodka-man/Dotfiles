@@ -34,10 +34,4 @@ sed -i '32s,.*,		setsid feh -g 900x900+1160+546 -x --zoom fill "$ART" &,' cmus-f
 #beats.io
 sudo dnf install beets
 sudo dnf install beets-plugins
-#rtorrent
-sudo dnf install rtorrent
-cd ~
-mkdir .rtorrent.session
-mkdir Torrents
-#mutt
-sudo dnf install mutt
+
