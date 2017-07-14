@@ -1,6 +1,6 @@
 ;;; init --- My emacs config
 ;;; Commentary:
-;;; Dirty code(i'm bad at Lisp) but all of this stuff works great.  Some custom functions and nice ricing included.
+;;; MUH EMACS
 ;;; Code:
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
@@ -13,49 +13,33 @@
 (eval-when-compile
   (require 'use-package))
 (package-refresh-contents)
-;;nice completition
-(unless (package-installed-p 'ivy)
-  (package-refresh-contents)
-  (package-install 'ivy))
-(require 'ivy)
-(ivy-mode)
+;;usable with some packages that don't use helm stuff
+(use-package ivy
+  :ensure t
+  :init (ivy-mode))
 ;;this is only for stuff like colors and org wiki
-(unless (package-installed-p 'helm)
-  (package-refresh-contents)
-  (package-install 'helm))
-(require 'helm)
-(require 'helm-config)
+(use-package helm
+  :ensure t
+  :init (require 'helm-config))
 ;;Git
-(unless (package-installed-p 'magit)
-  (package-refresh-contents)
-  (package-install 'magit))
-(require 'magit)
+(use-package magit
+  :ensure t)
 ;;autocomplete
-(unless (package-installed-p 'company)
-  (package-refresh-contents)
-  (package-install 'company))
-(require 'company)
-(add-hook 'after-init-hook 'global-company-mode)
-(setq company-dabbrev-downcase 0)
-(setq company-idle-delay 0)
+(use-package company
+  :ensure t
+  :init (add-hook 'after-init-hook 'global-company-mode)
+  :config
+  	(setq company-dabbrev-downcase 0)
+  	(setq company-idle-delay 0))
 ;;snippets
-(unless (package-installed-p 'yasnippet)
-  (package-refresh-contents)
-  (package-install 'yasnippet))
-(require 'yasnippet)
-(yas-global-mode 1)
+(use-package yasnippet
+  :ensure t
+  :init (yas-global-mode 1))
 ;;flycheck
 (use-package flycheck
   :ensure t
   :init (global-flycheck-mode))
-;;use tabs instead of spaces
-;; Turn on tabs
-(setq indent-tabs-mode t)
-(setq-default indent-tabs-mode t)
-;; Set the tab width
-(setq default-tab-width 4)
-(setq tabwidth 4)
-(setq c-basic-indent 4)
+
 ;;keybindings
 (global-set-key (kbd "<backspace>") 'backward-delete-char)
 (global-set-key (kbd "<home>") 'beginning-of-buffer)
@@ -88,7 +72,9 @@
 (global-set-key (kbd "C-S-q") 'kill-this-buffer)
 (define-key dired-mode-map "n" 'find-file)
 (define-key dired-mode-map "N" 'dired-create-directory)
-;;custom bindings
+
+
+;;custom funcs and aliases
 (defun indent-all ()
   (interactive)
   (indent-region (point-min) (point-max)))
@@ -118,6 +104,14 @@
   (interactive)
   (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
 (global-set-key (kbd "C-S-M-q") 'kill-other-buffers)
+;;fast aliases
+(defalias 'commit 'magit-commit)
+(defalias 'push 'magit-push)
+(defalias 'pull 'magit-pull)
+(defalias 'snippet 'yas-expand)
+
+
+
 ;;look and feel
 (set-default-font "Fira Mono 12")
 (setq-default cursor-type 'bar) 
@@ -132,58 +126,54 @@
 (desktop-save-mode 1)
 (setq word-wrap t)
 (global-visual-line-mode t)
+(electric-pair-mode)
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "firefox")
+;;org mode select with shift
+(setq org-support-shift-select t)
+;; killing messages buffer
+(setq-default message-log-max nil)
+(kill-buffer "*Messages*")
+;;y or n
+(fset 'yes-or-no-p 'y-or-n-p)
+;;use tabs instead of spaces
+;; Turn on tabs
+(setq indent-tabs-mode t)
+(setq-default indent-tabs-mode t)
+;; Set the tab width
+(setq default-tab-width 4)
+(setq tabwidth 4)
+(setq c-basic-indent 4)
 ;;cua mode
 (cua-mode t)
 (setq cua-auto-tabify-rectangles nil)
+
 ;;theming
-(unless (package-installed-p 'seti-theme)
-  (package-refresh-contents)
-  (package-install 'seti-theme))
-(load-theme 'seti t)
+(use-package seti-theme
+  :ensure t
+  :init (load-theme 'seti t))
+
+
 ;;minimap
-(unless (package-installed-p 'minimap)
-  (package-refresh-contents)
-  (package-install 'minimap))
-(require 'minimap)
-(global-set-key (kbd "M-m") 'minimap-mode)
+(use-package minimap
+  :ensure t
+  :config
+  (global-set-key (kbd "M-m") 'minimap-mode))
 ;;file tree
-(unless (package-installed-p 'neotree)
-  (package-refresh-contents)
-  (package-install 'neotree))
-(require 'neotree)
-(global-set-key (kbd "M-b") 'neotree-toggle)
-(setq neo-theme (if (display-graphic-p) 'arrow 'arrow))
-;;fancy scrollbar
-;; (unless (package-installed-p 'yascroll)
-;;   (package-refresh-contents)
-;;   (package-install 'yascroll))
-;; (require 'yascroll)
-;; (global-yascroll-bar-mode 1)
-;;that's only for few packages
-(unless (package-installed-p 'el-get)
-  (package-refresh-contents)
-  (package-install 'el-get))
-(require 'el-get)
+(use-package neotree
+  :ensure t
+  :config
+  (setq neo-theme (if (display-graphic-p) 'arrow 'arrow))
+  (global-set-key (kbd "M-b") 'neotree-toggle))
 ;;it must be by default in emacs
-(unless (package-installed-p 'multiple-cursors)
-  (package-refresh-contents)
-  (package-install 'multiple-cursors))
-(require 'multiple-cursors)
-(global-set-key (kbd "C-S-<down>") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-S-<up>") 'mc/mark-previous-like-this)
-;;wiki!
-(el-get-bundle org-wiki
-  :url "https://raw.githubusercontent.com/caiorss/org-wiki/master/org-wiki.el"
-  :description "Emacs' desktop wiki built with org-mode"
-  :features org-wiki
-  )
-(require 'org-wiki)
-(setq org-wiki-location "~/Dropbox/Org/Wiki")
+(use-package multiple-cursors
+  :ensure t
+  :config
+  (global-set-key (kbd "C-S-<down>") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C-S-<up>") 'mc/mark-previous-like-this))
 ;;for editing fish scripts
-(unless (package-installed-p 'fish-mode)
-  (package-refresh-contents)
-  (package-install 'fish-mode))
-(require 'fish-mode)
+(use-package fish-mode
+  :ensure t)
 ;;for markdown
 (use-package markdown-mode
   :ensure t
@@ -192,47 +182,18 @@
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
-;;beautiful todo
-(el-get-bundle todotxt-mode
-  :url "https://raw.githubusercontent.com/avillafiorita/todotxt-mode/master/todotxt-mode.el"
-  :description "Emacs' todo txt mode"
-  :features todotxt-mode
-  )
-(require 'todotxt-mode)
-(setq todotxt-default-file (expand-file-name "/home/user/Dropbox/todo/todo.txt"))
-(setq todotxt-default-archive-file (expand-file-name "/home/user/Dropbox/todo/done.txt"))
-;;fast aliases
-(defalias 'wiki 'org-wiki-index)
-(defalias 'commit 'magit-commit)
-(defalias 'push 'magit-push)
-(defalias 'pull 'magit-pull)
-(defalias 'todo 'todotxt-open-file)
-(defalias 'do 'todotxt-add-todo)
-(defalias 'snippet 'yas-expand)
-;;org mode select with shift
-(setq org-support-shift-select t)
-;; killing messages buffer
-(setq-default message-log-max nil)
-(kill-buffer "*Messages*")
-;;y or n
-(fset 'yes-or-no-p 'y-or-n-p)
+
 ;;diary
-(unless (package-installed-p 'org-journal)
-  (package-refresh-contents)
-  (package-install 'org-journal))
-(require 'org-journal)
-(setq org-journal-dir (expand-file-name "/home/user/Dropbox/Org/Wiki/Personal/Diary"))
-(setq org-journal-date-format '"%d-%m-%Y")
-(defalias 'now 'org-journal-new-entry)
-;; open links in firefox
-(setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "firefox")
+(use-package org-journal
+  :ensure t
+  :config
+  	(setq org-journal-dir (expand-file-name "/home/user/Dropbox/Org/Wiki/Personal/Diary"))
+	(setq org-journal-date-format '"%d-%m-%Y")
+	(defalias 'now 'org-journal-new-entry))
 ;;nice org mode bullets
-(unless (package-installed-p 'org-bullets)
-  (package-refresh-contents)
-  (package-install 'org-bullets))
-(require 'org-bullets)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(use-package org-bullets
+  :ensure t
+  :init (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 ;;icons instead of mode name
 ;;(unless (package-installed-p 'mode-icons)
 ;;	(package-refresh-contents)
@@ -265,22 +226,45 @@
 	(defalias 'z-machine-save 'malyon-save-file)
 	(defalias 'z-machine-quit 'malyon-quit)
 	(defalias 'z-machine-restore 'malyon-restore-file))
-;;double quotes
-(electric-pair-mode)
-;;spell checking
-(setq flyspell-issue-message-flag nil)
-(setq flyspell-issue-welcome-flag nil)
-(mapcar (lambda (mode-hook) (add-hook mode-hook 'flyspell-prog-mode))
-        '(c-mode-common-hook tcl-mode-hook emacs-lisp-mode-hook 
-							 ruby-mode-hook java-mode-hook fish-mode-hook shell-mode-hook))
-(mapcar (lambda (mode-hook) (add-hook mode-hook 'flyspell-mode))
-        '(org-mode-hook markdown-mode-hook gfm-mode-hook))
+;;flyspell
 (use-package flyspell-correct
   :ensure t)
 (use-package flyspell-correct-helm
   :ensure t
   :config
   (define-key flyspell-mode-map (kbd "C-'") 'flyspell-correct-previous-word-generic))
+;;REST client
+(use-package restclient
+  :ensure t
+  :config
+  (add-hook 'restclient-mode-hook
+			(lambda () (local-set-key (kbd "M-r") #'restclient-http-send-current-stay-in-window)
+			  (local-set-key (kbd "M-n") #'restclient-jump-next)
+			  (local-set-key (kbd "M-p") #'restclient-jump-prev)))
+  (defalias 'restclient 'restclient-mode)
+  (defalias 'rest 'restclient-mode)
+  (defalias 'restapi 'restclient-mode)
+  (defalias 'restclient-curl 'restclient-copy-curl-command)
+  (defalias 'rest-curl 'restclient-copy-curl-command)
+  (defalias 'restapi-curl 'restclient-copy-curl-command))
+;;documents
+(use-package emmet-mode
+  :ensure t
+  :config
+  (defalias 'emmet 'emmet-expand-yas))
+
+;;shit from GitHub
+(use-package el-get
+  :ensure t)
+;;muh books
+(el-get-bundle calibre-mode
+  :url "https://raw.githubusercontent.com/whacked/calibre-mode/master/calibre-mode.el"
+  :description "Calibre library management"
+  :features calibre-mode)
+(require 'calibre-mode)
+(setq sql-sqlite-program "/usr/bin/sqlite3")
+(setq calibre-root-dir (expand-file-name "~/Dropbox/Books"))
+(setq calibre-db (concat calibre-root-dir "/metadata.db"))
 ;;docker
 (use-package docker
   :ensure t)
@@ -296,34 +280,34 @@
 (require 'markdown-dnd-images)
 (use-package org-download
   :ensure t)
-;;REST client
-(use-package restclient
-  :ensure t
-  :config
-  (add-hook 'restclient-mode-hook
-			(lambda () (local-set-key (kbd "M-r") #'restclient-http-send-current-stay-in-window)
-			  (local-set-key (kbd "M-n") #'restclient-jump-next)
-			  (local-set-key (kbd "M-p") #'restclient-jump-prev)))
-  (defalias 'restclient 'restclient-mode)
-  (defalias 'rest 'restclient-mode)
-  (defalias 'restapi 'restclient-mode)
-  (defalias 'restclient-curl 'restclient-copy-curl-command)
-  (defalias 'rest-curl 'restclient-copy-curl-command)
-  (defalias 'restapi-curl 'restclient-copy-curl-command))
-;;muh books
-(el-get-bundle calibre-mode
-  :url "https://raw.githubusercontent.com/whacked/calibre-mode/master/calibre-mode.el"
-  :description "Calibre library management"
-  :features calibre-mode)
-(require 'calibre-mode)
-(setq sql-sqlite-program "/usr/bin/sqlite3")
-(setq calibre-root-dir (expand-file-name "~/Dropbox/Books"))
-(setq calibre-db (concat calibre-root-dir "/metadata.db"))
-;;documents
-(use-package emmet-mode
-  :ensure t
-  :config
-  (defalias 'emmet 'emmet-expand-yas))
+;;wiki!
+(el-get-bundle org-wiki
+  :url "https://raw.githubusercontent.com/caiorss/org-wiki/master/org-wiki.el"
+  :description "Emacs' desktop wiki built with org-mode"
+  :features org-wiki)
+(require 'org-wiki)
+(setq org-wiki-location "~/Dropbox/Org/Wiki")
+(defalias 'wiki 'org-wiki-index)
+;;beautiful todo
+(el-get-bundle todotxt-mode
+  :url "https://raw.githubusercontent.com/avillafiorita/todotxt-mode/master/todotxt-mode.el"
+  :description "Emacs' todo txt mode"
+  :features todotxt-mode)
+(require 'todotxt-mode)
+(setq todotxt-default-file (expand-file-name "/home/user/Dropbox/todo/todo.txt"))
+(setq todotxt-default-archive-file (expand-file-name "/home/user/Dropbox/todo/done.txt"))
+(defalias 'todo 'todotxt-open-file)
+(defalias 'do 'todotxt-add-todo)
+
+;;spell checking
+(setq flyspell-issue-message-flag nil)
+(setq flyspell-issue-welcome-flag nil)
+(mapcar (lambda (mode-hook) (add-hook mode-hook 'flyspell-prog-mode))
+        '(c-mode-common-hook tcl-mode-hook emacs-lisp-mode-hook 
+							 ruby-mode-hook java-mode-hook fish-mode-hook shell-mode-hook))
+(mapcar (lambda (mode-hook) (add-hook mode-hook 'flyspell-mode))
+        '(org-mode-hook markdown-mode-hook gfm-mode-hook))
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
