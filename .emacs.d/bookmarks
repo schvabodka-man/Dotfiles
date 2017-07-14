@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("fish shell config"
+(("polybar config"
+ (filename . "~/.config/polybar/config")
+ (front-context-string . "[global/wm]\nmarg")
+ (rear-context-string)
+ (position . 1))
+("fish shell config"
  (filename . "~/.config/fish/config.fish")
  (front-context-string . "#disable greetin")
  (rear-context-string)

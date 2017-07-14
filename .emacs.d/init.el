@@ -257,14 +257,14 @@
   :bind (("M-t" . google-translate-smooth-translate)))
 ;;time to play some games!
 ;; z machine interpreter
-(unless (package-installed-p 'malyon)
-  (package-refresh-contents)
-  (package-install 'malyon))
-(require 'malyon)
-(defalias 'z-machine 'malyon)
-(defalias 'z-machine-save 'malyon-save-file)
-(defalias 'z-machine-quit 'malyon-quit)
-(defalias 'z-machine-restore 'malyon-restore-file)
+(use-package malyon
+  :ensure t
+  :init
+  :config
+  	(defalias 'z-machine 'malyon)
+	(defalias 'z-machine-save 'malyon-save-file)
+	(defalias 'z-machine-quit 'malyon-quit)
+	(defalias 'z-machine-restore 'malyon-restore-file))
 ;;double quotes
 (electric-pair-mode)
 ;;spell checking
@@ -319,16 +319,11 @@
 (setq sql-sqlite-program "/usr/bin/sqlite3")
 (setq calibre-root-dir (expand-file-name "~/Dropbox/Books"))
 (setq calibre-db (concat calibre-root-dir "/metadata.db"))
-;;LaTeX
-(use-package auctex
+;;documents
+(use-package emmet-mode
   :ensure t
   :config
-  (setq TeX-auto-save t)
-  (setq TeX-parse-self t)
-  (setq-default TeX-master nil)
-  (add-hook 'LaTeX-mode-hook 'flyspell-mode)
-  (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
-  (setq TeX-PDF-mode t))
+  (defalias 'emmet 'emmet-expand-yas))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

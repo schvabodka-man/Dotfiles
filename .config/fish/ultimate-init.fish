@@ -35,6 +35,7 @@ if cat /proc/version | grep fedora
 	sudo dnf install cmake
 
 	sudo dnf install texlive-scheme-full
+	sudo dnf install pandoc
 end
 
 #fish shell 

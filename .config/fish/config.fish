@@ -17,6 +17,7 @@ alias cd.. 'cd ..' #priceless
 alias rm 'rm -rf'
 alias lsa 'ls -a'
 alias emacs 'emacsclient -nw'
+alias emacs-daemon '/usr/bin/emacs --daemon'
 
 # Custom alias for listing files when moving to directory
 function cd
