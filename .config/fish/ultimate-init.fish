@@ -3,6 +3,19 @@
 sudo dnf install pass
 sudo dnf install git
 sudo dnf install feh
+sudo dnf install shntool
+sudo dnf install cuetools
+sudo dnf install p7zip
+sudo dnf install docker
+sudo dnf install unrar
+#fish shell
+curl -L http://get.oh-my.fish | fish # oh-my-fish
+sudo dnf install powerline-fonts
+omf install bobthefish
+omf install sudope
+sudo dnf install thefuck
+omf install thefuck
+sudo dnf install autojump-fish
 
 builtin cd ~/bin/
 git clone https://github.com/languitar/pass-git-helper.git

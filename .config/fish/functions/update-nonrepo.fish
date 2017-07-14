@@ -28,6 +28,6 @@ function update-nonrepo
 	flatpak update com.vinszent.GnomeTwitch
 	flatpak update org.gnome.FeedReader
 	flatpak update org.libreoffice.LibreOffice
-	flatpak update org.musicbrainz.
+	flatpak update org.musicbrainz.Picard
 	flatpak update io.github.GnomeMpv
 end
