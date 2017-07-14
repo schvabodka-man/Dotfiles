@@ -1,6 +1,9 @@
 #!/usr/bin/fish
 
 sudo dnf install pass
+sudo dnf install git
+sudo dnf install feh
+
 builtin cd ~/bin/
 git clone https://github.com/languitar/pass-git-helper.git
 cd ~/bin/pass-git-helper
@@ -13,6 +16,10 @@ echo "[github.com*]
 target=development/github/keys/schvabodka-man
 skip_username=0" > git-pass-mapping.ini
 
+sudo dnf isntall python3
+sudo dnf isntall python
+sudo dnf isntall rubygems
+
 sudo pip install tldr
 sudo gem install meetup-cli
 sudo npm install forecast-cli -g
@@ -22,8 +29,10 @@ sudo dnf install transmission
 sudo dnf install firefox
 sudo dnf install emacs
 sudo dnf install calibre
+sudo dnf install geary
 
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+#flatpaks
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flatflatpak --user remote-add gnome-nightly gnome-nightly.flatpakrepohub.flatpakrepo
 flatpak install flathub org.musicbrainz.Picard
 flatpak install flathub com.valvesoftware.Steam
 flatpak install flathub org.gnome.FeedReader 

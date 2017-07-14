@@ -39,19 +39,24 @@ function docker-run
 	docker run $argv
 end
 
+function forecast
+	if count $argv > /dev/null
+		/usr/bin/forecast --hourly $argv
+	else
+		/usr/bin/forecast --hourly "Uzhgorod"
+	end
+end
+alias weather 'forecast'
 
 alias itch '~/.config/fish/dockershortcuts/itch.fish'
 
+alias firefox 'flatpak run org.mozilla.FirefoxNightly --no-remote'
 alias picard 'flatpak run org.musicbrainz.Picard'
 alias steam 'flatpak run com.valvesoftware.Steam'
 alias libreoffice 'flatpak run org.libreoffice.LibreOffice'
 alias skype 'flatpak run com.skype.Client'
 alias twitch 'flatpak run com.vinszent.GnomeTwitch'
 
-alias weather 'forecast-cli'
-alias news 'newsbeuter'
-alias torrent 'rtorrent'
-alias mail 'mail'
 alias books 'calibre'
 alias itch.io 'itch'
 alias libre-office 'libreoffice'

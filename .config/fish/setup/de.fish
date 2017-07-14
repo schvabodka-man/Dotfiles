@@ -9,15 +9,10 @@ sudo dnf install polybar
 sudo dnf install cmus
 sudo dnf install feh
 sudo dnf install terminator
-sudo dnf install qutebrowser
 sudo dnf install gstreamer1-libav
 sudo dnf install emacs
 sudo dnf install asciinema
 sudo dnf install mpv
-sudo dnf install zathura
-sudo dnf install zathura-plugins-all
-sudo dnf install newsbeuter
-sudo dnf install libreoffice
 #cmusfm
 builtin cd ~/bin/
 git clone https://github.com/Arkq/cmusfm
