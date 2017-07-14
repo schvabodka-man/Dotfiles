@@ -15,11 +15,7 @@ bindsym $mod+w exec rofi -show window -hide-scrollbar -fullscreen
 #launch apps
 bindsym $mod+e exec emacsclient -c
 bindsym $mod+t exec thunar
-bindsym $mod+p exec terminator -e "~/.config/fish/dockershortcuts/profanity.fish"
 bindsym $mod+n exec flatpak run org.gnome.FeedReader
-bindsym $mod+r exec terminator -e "~/.config/fish/dockershortcuts/rtorrent.fish"
-bindsym $mod+m exec terminator -e "~/.config/fish/dockershortcuts/mutt.fish"
-bindsym $mod+c exec terminator -e "~/.config/fish/dockershortcuts/cmus.fish"
 
 #Make a screenshot
 bindsym Print exec xfce4-screenshooter

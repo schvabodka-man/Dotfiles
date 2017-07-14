@@ -7,8 +7,8 @@ set -g theme_color_scheme dark
 set -x JAVA_HOME '/usr/lib/jvm/java'
 set -x GRADLE_HOME '/usr/share/gradle'
 set -x EDITOR "emacsclient -c"
-set -x BROWSER "firefox"
-
+set -x BROWSER "flatpak run org.mozilla.FirefoxNightly --no-remote"
+set -x FLATPACK_GNOME "3.24"
 #aliases
 alias xrdb-merge 'xrdb -merge ~/.Xresources'
 alias rofi-cache-clear 'rm ~/.cache/rofi-3.runcache'
@@ -39,51 +39,20 @@ function docker-run
 	docker run $argv
 end
 
-function tldr
-	docker stop tldr > /dev/null
-	docker rm tldr > /dev/null
-	docker run --name tldr -t scvh.com/tldr $argv
-end
 
-function forecast
-	docker stop weather-npm > /dev/null
-	docker rm weather-npm > /dev/null
-	if count $argv > /dev/null
-		docker run --name weather-npm -t scvh.com/weather-npm $argv
-	else
-		docker run --name weather-npm -t scvh.com/weather-npm "Uzhgorod"
-	end
-end
-alias weather 'forecast'
-
-function meetup
-	docker stop meetup-cli > /dev/null
-	docker rm meetup-cli > /dev/null
-	docker run --name meetup-cli -v $HOME/.config/meetup-cli:/root/ -t scvh.com/meetup-cli
-end
-alias meetups 'meetup'
-
-alias calibre "~/.config/fish/dockershortcuts/calibre.fish"
-alias cmus '~/.config/fish/dockershortcuts/cmus.fish' 
-alias rtorrent '~/.config/fish/dockershortcuts/rtorrent.fish' 
-alias newsbeuter '~/.config/fish/dockershortcuts/news.fish'
-alias mutt '~/.config/fish/dockershortcuts/mutt.fish'
-alias profanity '~/.config/fish/dockershortcuts/profanity.fish'
 alias itch '~/.config/fish/dockershortcuts/itch.fish'
 
-alias firefox 'flatpak run org.mozilla.FirefoxNightly --no-remote'
 alias picard 'flatpak run org.musicbrainz.Picard'
 alias steam 'flatpak run com.valvesoftware.Steam'
 alias libreoffice 'flatpak run org.libreoffice.LibreOffice'
 alias skype 'flatpak run com.skype.Client'
 alias twitch 'flatpak run com.vinszent.GnomeTwitch'
 
+alias weather 'forecast-cli'
 alias news 'newsbeuter'
 alias torrent 'rtorrent'
 alias mail 'mail'
-alias music 'cmus'
 alias books 'calibre'
-alias xmpp 'profanity'
 alias itch.io 'itch'
 alias libre-office 'libreoffice'
 alias office 'libreoffice'

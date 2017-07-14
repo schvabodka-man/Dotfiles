@@ -34,24 +34,9 @@ builtin cd ~/.config/cmus
 git clone https://github.com/TiredSounds/cmus-scripts
 builtin cd cmus-scripts/
 sed -i '32s,.*,		setsid feh -g 900x900+1160+546 -x --zoom fill "$ART" &,' cmus-feh.sh
-#steam
-sudo dnf install steam
-steam
-builtin cd ~/.steam/steam/skins/
-git clone https://github.com/Outsetini/Air-for-Steam
-builtin cd Air-for-Steam/
-sed -i '62s,.*,      //include "resource/themes/_light.styles",' config.ini
-sed -i '63s,.*,      include "resource/themes/_dark.styles",' config.ini
-sed -i '24s,.*,      //include "resource/colors/sky.styles",' config.ini
-sed -i '29s,.*,      include "resource/colors/gunmetal.styles",' config.ini
 #beats.io
 sudo dnf install beets
 sudo dnf install beets-plugins
-#finch
-sudo dnf install finch
-sudo dnf isntall purple-facebook
-#bandcamp and soundcloud
-sudo pip install soundscrape
 #rtorrent
 sudo dnf install rtorrent
 cd ~
