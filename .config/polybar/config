@@ -61,7 +61,6 @@ type = custom/script
 exec = ~/.config/fish/panel/meetup.fish
 format-underline = #f200ff
 tail = true
-interval = 7200
 
 [module/todo]
 type = custom/script
