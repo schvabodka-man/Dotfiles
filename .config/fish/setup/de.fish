@@ -24,6 +24,8 @@ builtin cd build/
 make
 sudo make install
 cmusfm init
+cd ..
+rm build
 #cmus feh art
 builtin cd ~/.config/cmus
 git clone https://github.com/TiredSounds/cmus-scripts
