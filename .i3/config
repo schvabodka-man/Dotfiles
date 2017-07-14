@@ -129,7 +129,7 @@ exec --no-startup-id compton -CGb
 #panel
 exec --no-startup-id polybar Bar
 #browser
-exec flatpak run org.mozilla.FirefoxNightly --no-remote
+exec firefox
 #emacs
 exec --no-startup-id emacs --daemon
 #tmux

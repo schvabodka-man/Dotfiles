@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: latex
+# key: latex
+# --
+\documentclass[12pt]{article}
+
+\usepackage{hyperref}
+
+\title{$1}
+
+\begin{document} 
+
+\maketitle
+
+\section{$2}
+
+\subsection{$3}
+
+\end{document}

@@ -319,6 +319,16 @@
 (setq sql-sqlite-program "/usr/bin/sqlite3")
 (setq calibre-root-dir (expand-file-name "~/Dropbox/Books"))
 (setq calibre-db (concat calibre-root-dir "/metadata.db"))
+;;LaTeX
+(use-package auctex
+  :ensure t
+  :config
+  (setq TeX-auto-save t)
+  (setq TeX-parse-self t)
+  (setq-default TeX-master nil)
+  (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+  (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+  (setq TeX-PDF-mode t))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

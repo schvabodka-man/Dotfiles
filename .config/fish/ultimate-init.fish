@@ -33,6 +33,8 @@ if cat /proc/version | grep fedora
 	sudo dnf install libcurl-devel
 	sudo dnf install autoconf automake
 	sudo dnf install cmake
+
+	sudo dnf install texlive-scheme-full
 end
 
 #fish shell 
