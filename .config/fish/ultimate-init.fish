@@ -1,4 +1,5 @@
 #!/usr/bin/fish
+mkdir ~/bin
 if cat /proc/version | grep fedora
 	sudo dnf install pass
 	sudo dnf install git
