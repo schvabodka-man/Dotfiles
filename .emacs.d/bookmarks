@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("polybar config"
+(("quake 1 config"
+ (filename . "~/.darkplaces/id1/config.cfg")
+ (front-context-string . "bind TAB \"+shows")
+ (rear-context-string)
+ (position . 1))
+("polybar config"
  (filename . "~/.config/polybar/config")
  (front-context-string . "[global/wm]\nmarg")
  (rear-context-string)

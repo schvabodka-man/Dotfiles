@@ -72,7 +72,8 @@
 (global-set-key (kbd "C-S-q") 'kill-this-buffer)
 (define-key dired-mode-map "n" 'find-file)
 (define-key dired-mode-map "N" 'dired-create-directory)
-
+;;redone backspace and del
+(global-set-key (kbd "C-<backspace>") 'ivy-backward-kill-word)
 
 ;;custom funcs and aliases
 (defun indent-all ()
@@ -252,47 +253,71 @@
   :ensure t
   :config
   (defalias 'emmet 'emmet-expand-yas))
+;;docker
+(use-package docker
+  :ensure t)
+;;org mode ench
+(use-package org-download
+  :ensure t)
+;;using package without installing it
+(use-package try
+  :ensure t
+  :config
+  (defalias 'temporary-package 'try)
+  (defalias 'try-temporary 'try)
+  (defalias 'try-package 'try)
+  (defalias 'package-temporary 'try)
+  (defalias 'package-try 'try))
 
 ;;shit from GitHub
-(use-package el-get
-  :ensure t)
+(if (require 'quelpa nil t)
+    (quelpa-self-upgrade)
+  (with-temp-buffer
+    (url-insert-file-contents
+     "https://raw.github.com/quelpa/quelpa/master/bootstrap.el")
+    (eval-buffer)))
+(quelpa
+ '(quelpa-use-package
+   :fetcher github
+   :repo "quelpa/quelpa-use-package"))
+(require 'quelpa-use-package)
 ;;muh books
-(el-get-bundle calibre-mode
-  :url "https://raw.githubusercontent.com/whacked/calibre-mode/master/calibre-mode.el"
-  :description "Calibre library management"
-  :features calibre-mode)
+;; (el-get-bundle calibre-mode
+;;   :url "https://raw.githubusercontent.com/whacked/calibre-mode/master/calibre-mode.el"
+;;   :description "Calibre library management"
+;;   :features calibre-mode)
+(quelpa '(calibre-mode :url "https://raw.githubusercontent.com/whacked/calibre-mode/master/calibre-mode.el" :fetcher url))
 (require 'calibre-mode)
 (setq sql-sqlite-program "/usr/bin/sqlite3")
 (setq calibre-root-dir (expand-file-name "~/Dropbox/Books"))
 (setq calibre-db (concat calibre-root-dir "/metadata.db"))
-;;docker
-(use-package docker
-  :ensure t)
-(el-get-bundle dockerfile-mode
-  :url "https://raw.githubusercontent.com/spotify/dockerfile-mode/master/dockerfile-mode.el"
-  :description "Dockerfile editing"
-  :features dockerfile-mode)
+;; (el-get-bundle dockerfile-mode
+;;   :url "https://raw.githubusercontent.com/spotify/dockerfile-mode/master/dockerfile-mode.el"
+;;   :description "Dockerfile editing"
+;;   :features dockerfile-mode)
+(quelpa '(dockerfile-mode :url "https://raw.githubusercontent.com/spotify/dockerfile-mode/master/dockerfile-mode.el" :fetcher url))
 (require 'dockerfile-mode)
 ;;inserting links
-(el-get-bundle markdown-dnd-images
-  :url "https://raw.githubusercontent.com/mooreryan/markdown-dnd-images/master/markdown-dnd-images.el"
-  :description "Dockerfile editing")
+;; (el-get-bundle markdown-dnd-images
+;;   :url "https://raw.githubusercontent.com/mooreryan/markdown-dnd-images/master/markdown-dnd-images.el"
+;;   :description "Dockerfile editing")
+(quelpa '(markdown-dnd-images :url "https://raw.githubusercontent.com/mooreryan/markdown-dnd-images/master/markdown-dnd-images.el" :fetcher url))
 (require 'markdown-dnd-images)
-(use-package org-download
-  :ensure t)
 ;;wiki!
-(el-get-bundle org-wiki
-  :url "https://raw.githubusercontent.com/caiorss/org-wiki/master/org-wiki.el"
-  :description "Emacs' desktop wiki built with org-mode"
-  :features org-wiki)
+;; (el-get-bundle org-wiki
+;;   :url "https://raw.githubusercontent.com/caiorss/org-wiki/master/org-wiki.el"
+;;   :description "Emacs' desktop wiki built with org-mode"
+;;   :features org-wiki)
+(quelpa '(org-wiki :url "https://raw.githubusercontent.com/caiorss/org-wiki/master/org-wiki.el" :fetcher url))
 (require 'org-wiki)
 (setq org-wiki-location "~/Dropbox/Org/Wiki")
 (defalias 'wiki 'org-wiki-index)
 ;;beautiful todo
-(el-get-bundle todotxt-mode
-  :url "https://raw.githubusercontent.com/avillafiorita/todotxt-mode/master/todotxt-mode.el"
-  :description "Emacs' todo txt mode"
-  :features todotxt-mode)
+;; (el-get-bundle todotxt-mode
+;;   :url "https://raw.githubusercontent.com/avillafiorita/todotxt-mode/master/todotxt-mode.el"
+;;   :description "Emacs' todo txt mode"
+;;   :features todotxt-mode)
+(quelpa '(todotxt-mode :url "https://raw.githubusercontent.com/avillafiorita/todotxt-mode/master/todotxt-mode.el" :fetcher url))
 (require 'todotxt-mode)
 (setq todotxt-default-file (expand-file-name "/home/user/Dropbox/todo/todo.txt"))
 (setq todotxt-default-archive-file (expand-file-name "/home/user/Dropbox/todo/done.txt"))

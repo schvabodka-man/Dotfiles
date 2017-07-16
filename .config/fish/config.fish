@@ -51,7 +51,6 @@ alias weather 'forecast'
 
 alias itch '~/.config/fish/dockershortcuts/itch.fish'
 
-alias firefox 'flatpak run org.mozilla.FirefoxNightly --no-remote'
 alias picard 'flatpak run org.musicbrainz.Picard'
 alias steam 'flatpak run com.valvesoftware.Steam'
 alias libreoffice 'flatpak run org.libreoffice.LibreOffice'
@@ -59,7 +58,10 @@ alias skype 'flatpak run com.skype.Client'
 alias twitch 'flatpak run com.vinszent.GnomeTwitch'
 alias ppsspp 'flatpak run org.ppsspp.PPSSPP'
 alias retroarch 'flatpak run org.libretro.RetroArch'
+alias geary 'flatpak run org.gnome.Geary'
 
+alias email 'geary'
+alias mail 'geary'
 alias books 'calibre'
 alias itch.io 'itch'
 alias libre-office 'libreoffice'

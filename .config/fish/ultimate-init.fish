@@ -102,3 +102,6 @@ flatpak install --from https://s3.amazonaws.com/alexlarsson/skype-repo/skype.fla
 #emulators for meme games
 flatpak install flathub org.ppsspp.PPSSPP
 flatpak install flathub org.libretro.RetroArch
+#meme gnome apps
+flatpak remote-add --gpg-import=nightly.gpg gnome-nightly-apps https://sdk.gnome.org/nightly/repo-apps/
+flatpak install gnome-nightly-apps org.gnome.Geary

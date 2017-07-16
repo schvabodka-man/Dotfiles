@@ -32,4 +32,5 @@ function update-nonrepo
 	flatpak update io.github.GnomeMpv
     flatpak update org.ppsspp.PPSSPP
 	flatpak update org.libretro.RetroArch
+	flatpak update org.gnome.Geary
 end
