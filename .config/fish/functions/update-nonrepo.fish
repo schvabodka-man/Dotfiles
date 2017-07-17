@@ -33,4 +33,5 @@ function update-nonrepo
     flatpak update org.ppsspp.PPSSPP
 	flatpak update org.libretro.RetroArch
 	flatpak update org.gnome.Geary
+	flatpak update org.gnucash.GnuCash
 end

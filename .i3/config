@@ -121,7 +121,7 @@ gaps outer 5
 
 # Autoexec
 #Wallpaper
-exec --no-startup-id nitrogen --restore
+exec --no-startup-id feh --bg-scale ~/.wallpaper/mac.png 
 #Dropbox
 exec --no-startup-id dropbox
 #compositing

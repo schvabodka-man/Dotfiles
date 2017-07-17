@@ -105,3 +105,5 @@ flatpak install flathub org.libretro.RetroArch
 #meme gnome apps
 flatpak remote-add --gpg-import=nightly.gpg gnome-nightly-apps https://sdk.gnome.org/nightly/repo-apps/
 flatpak install gnome-nightly-apps org.gnome.Geary
+#gnu cash
+flatpak install flathub org.gnucash.GnuCash
