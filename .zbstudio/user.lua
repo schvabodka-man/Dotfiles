@@ -5,5 +5,14 @@
 editor.fontsize = 12 -- this is mapped to ide.config.editor.fontsize
 editor.fontname = "Fira Mono"
 
-styles = loadfile('cfg/tomorrow.lua')('Tomorrow')
-styles.text = {bg = {158,158,158}}
+editor.autoactivate = true
+editor.tabwidth = 4
+editor.usetabs = true
+
+styles = loadfile('cfg/tomorrow.lua')('Molokai')
+stylesoutshell = styles
+
+excludelist = {".svn/", ".git/", ".hg/", "CVS/", "*.pyc", "*.pyo", "*.exe", "*.dll", "*.obj","*.o", "*.a", "*.lib", "*.so", "*.dylib", "*.ncb", "*.sdf", "*.suo", "*.pdb", "*.idb", ".DS_Store", "*.class", "*.psd", "*.db", "*.meta",}
+
+keymap[ID.REDO] = "Ctrl-Shift-Z"
+
