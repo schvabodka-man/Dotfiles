@@ -73,6 +73,25 @@ alias office 'libreoffice'
 alias gnome-twitch 'twitch'
 alias retro-arch 'retroarch'
 
+#pandoc macro
+function html-to-pdf
+	pandoc -S (echo $argv | perl -n -e '/(.+)\./ && print "$1\n"').html -o (echo $argv | perl -n -e '/(.+)\./ && print "$1\n"').pdf
+end
+function html-to-docx
+	pandoc -S (echo $argv | perl -n -e '/(.+)\./ && print "$1\n"').html -o (echo $argv | perl -n -e '/(.+)\./ && print "$1\n"').docx
+end
+function markdown-to-pdf
+	pandoc -S (echo $argv | perl -n -e '/(.+)\./ && print "$1\n"').md -o (echo $argv | perl -n -e '/(.+)\./ && print "$1\n"').pdf
+end
+function markdown-to-docx
+	pandoc -S (echo $argv | perl -n -e '/(.+)\./ && print "$1\n"').md -o (echo $argv | perl -n -e '/(.+)\./ && print "$1\n"').docx
+end
+alias html-to-doc 'html-to-docx'
+alias markdown-to-doc 'markdown-to-docx'
+alias md-to-doc 'markdown-to-docx'
+alias md-to-docx 'markdown-to-docx'
+alias md-to-pdf 'markdown-to-pdf'
+
 #gpg
 function export-key
 	gpg2 --export-secret-key $argv --armor > $argv.asc
@@ -99,5 +118,3 @@ set --global AUTOJUMP_PATH /usr/share/autojump/autojump.fish
 	if test -e $AUTOJUMP_PATH
 	source $AUTOJUMP_PATH
 end
-
-

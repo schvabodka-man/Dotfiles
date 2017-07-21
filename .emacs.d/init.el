@@ -17,6 +17,7 @@
 (use-package ivy
   :ensure t
   :init (ivy-mode))
+;;el-get
 (use-package el-get
   :ensure t)
 ;;this is only for stuff like colors and org wiki
@@ -185,7 +186,6 @@
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
-
 ;;diary
 (use-package org-journal
   :ensure t
