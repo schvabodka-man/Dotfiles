@@ -58,7 +58,7 @@
 (global-set-key (kbd "C-<end>") 'end-of-line)
 (global-set-key (kbd "C-<left>") 'left-word)
 (global-set-key (kbd "C-<right>") 'right-word)
-(global-set-key (kbd "C-/") 'comment-line)
+;; (global-set-key (kbd "C-/") 'comment-line)
 (global-set-key (kbd "C-b") 'helm-bookmarks)
 (global-set-key (kbd "C-g") 'goto-line)
 (global-set-key (kbd "C-f") 'helm-occur)
@@ -110,7 +110,7 @@
 (global-set-key (kbd "C-S-M-q") 'kill-other-buffers)
 ;;fast aliases
 (defalias 'commit 'magit-commit)
-(defalias 'push 'magit-push)
+(defalias 'git-push 'magit-push)
 (defalias 'pull 'magit-pull)
 (defalias 'snippet 'yas-expand)
 
@@ -156,7 +156,6 @@
 (use-package seti-theme
   :ensure t
   :init (load-theme 'seti t))
-
 
 ;;minimap
 (use-package minimap
@@ -270,11 +269,18 @@
   (defalias 'try-package 'try)
   (defalias 'package-temporary 'try)
   (defalias 'package-try 'try))
+;;for deps mostly
+(use-package hydra
+  :ensure t)
+;;pandoc
+(use-package pandoc-mode
+  :ensure t
+  :config
+  (add-hook 'pandoc-mode-hook 'pandoc-load-default-settings)
+  (add-hook 'markdown-mode-hook 'pandoc-mode)
+  (add-hook 'html-mode-hook 'pandoc-mode))
 
 ;;shit from GitHub
-(use-package el-get
-  :ensure t)
-
 ;;muh books
 (el-get-bundle calibre-mode
   :url "https://raw.githubusercontent.com/whacked/calibre-mode/master/calibre-mode.el"
