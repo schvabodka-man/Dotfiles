@@ -1,10 +1,11 @@
 function update-nonrepo
     #fish shell
     omf update
-	#python/ruby/js stuff
+	#python/ruby/js/lua stuff
 	sudo pip install tldr --upgrade
 	sudo gem update meetup-cli
-	sudo npm update -g 
+	sudo npm update -g
+	sudo luarocks install --server=http://luarocks.org/dev luash
 	#cmus n shit
 	builtin cd ~/.config/.config/cmus/cmus-scripts
 	git pull origin master

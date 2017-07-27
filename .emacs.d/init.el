@@ -26,7 +26,11 @@
   :init (require 'helm-config))
 ;;Git
 (use-package magit
-  :ensure t)
+  :ensure t
+  :config
+  (defalias 'commit 'magit-commit)
+  (defalias 'git-push 'magit-push)
+  (defalias 'pull 'magit-pull))
 ;;autocomplete
 (use-package company
   :ensure t
@@ -37,7 +41,9 @@
 ;;snippets
 (use-package yasnippet
   :ensure t
-  :init (yas-global-mode 1))
+  :init (yas-global-mode 1)
+  :config
+  (defalias 'snippet 'yas-expand))
 ;;flycheck
 (use-package flycheck
   :ensure t
@@ -109,11 +115,8 @@
   (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
 (global-set-key (kbd "C-S-M-q") 'kill-other-buffers)
 ;;fast aliases
-(defalias 'commit 'magit-commit)
-(defalias 'git-push 'magit-push)
-(defalias 'pull 'magit-pull)
-(defalias 'snippet 'yas-expand)
-
+(defalias 'open-in-browser 'browse-url-of-file)
+(defalias 'browser-preview 'browse-url-of-file)
 
 
 ;;look and feel
@@ -318,6 +321,19 @@
 (setq todotxt-default-archive-file (expand-file-name "/home/user/Dropbox/todo/done.txt"))
 (defalias 'todo 'todotxt-open-file)
 (defalias 'do 'todotxt-add-todo)
+;;html-preview
+;;(el-get-bundle html-preview
+;;:url "https://raw.githubusercontent.com/punchagan/html-preview/master/html-preview.el"
+;;:description "HTML emacs-webkit preview"
+;;:features html-preview)
+;;(require 'html-preview)
+;;(setq html-preview-after-change-idle-delay 0.4)
+;;(el-get-bundle ox-reveal
+;;:url "https://raw.githubusercontent.com/yjwen/org-reveal/master/ox-reveal.el"
+;;:description "org reveal from github"
+;;:features ox-reveal)
+;;(require 'ox-reveal)
+
 
 ;;spell checking
 (setq flyspell-issue-message-flag nil)

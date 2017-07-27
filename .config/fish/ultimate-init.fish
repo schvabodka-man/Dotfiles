@@ -34,9 +34,13 @@ if cat /proc/version | grep fedora
 	sudo dnf install libcurl-devel
 	sudo dnf install autoconf automake
 	sudo dnf install cmake
+	sudo dnf install scala
 
-	sudo dnf install texlive-scheme-full
+	sudo dnf install luarocks
+	sudo dnf install lua-devel
+	
 	sudo dnf install pandoc
+	
 end
 
 #fish shell 
@@ -60,6 +64,9 @@ skip_username=0" > git-pass-mapping.ini
 sudo pip install tldr
 sudo gem install meetup-cli
 sudo npm install forecast-cli -g
+sudo npm install reveal -g
+
+sudo luarocks install --server=http://luarocks.org/dev luash
 
 #cmus
 builtin cd ~/bin/
