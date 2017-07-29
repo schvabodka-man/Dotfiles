@@ -27,15 +27,16 @@ if cat /proc/version | grep fedora
 	sudo dnf install beets-plugins
 
 	sudo dnf install python-devel
-	sudo dnf install openssl-devel
 	sudo dnf install ruby-devel
 	sudo dnf install gcc-c++
 	sudo dnf install autoconf automake
 	sudo dnf install cmake
 	sudo dnf install scala
 	sudo dnf install go
+	sudo dnf install brainfuck
 
 	sudo dnf install libcurl-devel
+	sudo dnf install openssl-devel
 
 	sudo dnf install luarocks
 	sudo dnf install lua-devel
@@ -113,6 +114,9 @@ builtin cd ~/.config/cmus
 git clone https://github.com/TiredSounds/cmus-scripts
 builtin cd cmus-scripts/
 sed -i '32s,.*,		setsid feh -g 900x900+1160+546 -x --zoom fill "$ART" &,' cmus-feh.sh
+
+#fish bookmarks
+git clone http://github.com/techwizrd/fishmarks.git ~/.fishmarks
 
 #flatpaks
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flatflatpak --user remote-add gnome-nightly gnome-nightly.flatpakrepohub.flatpakrepo

@@ -37,6 +37,9 @@ function update-nonrepo
 	builtin cd ~/bin/pass-git-helper
 	git pull origin master
 	python3 setup.py install --user
+	#fishmarks
+	builtin cd ~/.fishmarks
+	git pull origin master
 	#flatpaks
 	flatpak update com.skype.Client
 	flatpak update com.vinszent.GnomeTwitch

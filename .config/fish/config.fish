@@ -155,6 +155,8 @@ alias tmux-connect "tmux-attach"
 alias tmux-config-update "tmux source ~/.config/tmux/tmux.conf"
 alias tmux-update-config "tmux source ~/.config/tmux/tmux.conf"
 
+. ~/.fishmarks/marks.fish
+
 #autojump
 set --global AUTOJUMP_PATH /usr/share/autojump/autojump.fish
 	if test -e $AUTOJUMP_PATH

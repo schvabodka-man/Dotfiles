@@ -255,7 +255,7 @@
 ;;docker
 (use-package docker
   :ensure t)
-;;org mode ench
+;;org mode downloader
 (use-package org-download
   :ensure t)
 ;;using package without installing it
@@ -291,6 +291,9 @@
 (use-package mode-icons
   :ensure t
   :init (mode-icons-mode))
+;;aesthetic
+(use-package fireplace
+  :ensure t)
 
 ;;shit from GitHub
 ;;muh books
