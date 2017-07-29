@@ -22,7 +22,6 @@ if cat /proc/version | grep fedora
 	sudo dnf install firefox
 	sudo dnf install emacs
 	sudo dnf install calibre
-	sudo dnf install geary
 
 	sudo dnf install beets
 	sudo dnf install beets-plugins
@@ -31,10 +30,12 @@ if cat /proc/version | grep fedora
 	sudo dnf install openssl-devel
 	sudo dnf install ruby-devel
 	sudo dnf install gcc-c++
-	sudo dnf install libcurl-devel
 	sudo dnf install autoconf automake
 	sudo dnf install cmake
 	sudo dnf install scala
+	sudo dnf install go
+
+	sudo dnf install libcurl-devel
 
 	sudo dnf install luarocks
 	sudo dnf install lua-devel
@@ -61,12 +62,28 @@ echo "[github.com*]
 target=development/github/keys/schvabodka-man
 skip_username=0" > git-pass-mapping.ini
 
+go get -u github.com/gpmgo/gopm
+builtin cd /home/user/Go/bin/
+./gopm bin github.com/jingweno/ccat
+./gopm bin github.com/nishanths/license
+
+#fzf
+builtin cd "~/bin"
+git clone https://github.com/junegunn/fzf.git
+builtin cd fzf
+./install
+mkdir ~/.config/fzf
+builtin ~/.config/fzf
+touch history
+
 sudo pip install tldr
 sudo pip install mycli
 sudo pip install pgcli
 sudo gem install meetup-cli
 sudo npm install forecast-cli -g
+sudo npm install -g @aweary/alder
 sudo npm install cloc -g
+
 sudo npm install -g movie-cli
 
 sudo luarocks install --server=http://luarocks.org/dev luash

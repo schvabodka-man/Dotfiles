@@ -75,6 +75,7 @@ assign [title="Super Shotgun Launcher *"] 2:
 assign [title="cover.*"] 3:
 assign [class="jetbrains-studio"] 4:
 assign [class="jetbrains-idea"] 4:
+assign [class="jetbrains-datagrip"] 4:
 assign [title="ZeroBrane Studio *"] 4:
 assign [class="libreoffice-startcenter"] 5:
 assign [class="libreoffice-writer"] 5:

@@ -8,6 +8,7 @@ function update-nonrepo
 	sudo gem update meetup-cli
 	sudo npm update -g
 	sudo luarocks install --server=http://luarocks.org/dev luash
+	/home/user/Go/bin/gopm update
 	#cmus n shit
 	builtin cd ~/.config/.config/cmus/cmus-scripts
 	git pull origin master
@@ -22,6 +23,10 @@ function update-nonrepo
 	sudo make install
 	cd ..
 	rm build
+	#fzf
+	builtin cd ~/bin/fzf
+	git pull origin master
+	./install
 	#git helper
 	builtin cd ~/bin/pass-git-helper
 	git pull origin master

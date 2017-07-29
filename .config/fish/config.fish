@@ -6,18 +6,19 @@ set -g theme_color_scheme dark
 #Homes!
 set -x JAVA_HOME '/usr/lib/jvm/java'
 set -x GRADLE_HOME '/usr/share/gradle'
+set -x GOPATH '/home/user/Go'
 set -x EDITOR "emacsclient -c"
 set -x BROWSER "flatpak run org.mozilla.FirefoxNightly --no-remote"
 set -x FLATPACK_GNOME "3.24"
-#aliases
-alias xrdb-merge 'xrdb -merge ~/.Xresources'
-alias rofi-cache-clear 'rm ~/.cache/rofi-3.runcache'
-alias newsbeuter-cache-clear 'rm ~/.newsbeuter/cache.db'
-alias cd.. 'cd ..' #priceless
-alias rm 'rm -rf'
-alias lsa 'ls -a'
-alias emacs 'emacsclient -nw'
-alias emacs-daemon '/usr/bin/emacs --daemon'
+
+set -x TLDR_COLOR_BLANK "white"
+set -x TLDR_COLOR_NAME "cyan"
+set -x TLDR_COLOR_DESCRIPTION "white"
+set -x TLDR_COLOR_EXAMPLE "green"
+set -x TLDR_COLOR_COMMAND "red"
+set -x TLDR_COLOR_PARAMETER "white"
+set -x TLDR_CACHE_ENABLED "1"
+set -x TLDR_CACHE_MAX_AGE "720"
 
 # Custom alias for listing files when moving to directory
 function cd
@@ -37,7 +38,7 @@ function docker-run
 	#fish shell don't allow me to set variables with dashes in it
 	docker stop (echo $argv | perl -n -e '/^--name\s(.|\w+)\s-|--/ && print "$1\n"') > /dev/null
 	docker rm (echo $argv | perl -n -e '/^--name\s(.|\w+)\s-|--/ && print "$1\n"') > /dev/null
-	docker run $argv
+t	docker run $argv
 end
 
 function forecast
@@ -80,6 +81,23 @@ alias postgres 'pgcli'
 alias postgresql 'pgcli'
 alias pgsql 'pgcli'
 alias psql 'pgcli'
+alias gopm '/home/user/Go/bin/gopm'
+alias license '/home/user/Go/bin/license'
+alias search 'fzf --ansi --inline-info --multi --history=/home/user/.config/fzf/history --preview="cat {}"'
+
+alias xrdb-merge 'xrdb -merge ~/.Xresources'
+alias rofi-cache-clear 'rm ~/.cache/rofi-3.runcache'
+alias newsbeuter-cache-clear 'rm ~/.newsbeuter/cache.db'
+alias move 'mv'
+alias rename 'mv' #hehe. i don't like standart rename utility
+alias copy 'cp'
+alias cd.. 'cd ..' #priceless
+alias rm 'rm -rf'
+alias lsa 'ls -a'
+alias emacs 'emacsclient -nw'
+alias emacs-daemon '/usr/bin/emacs --daemon'
+alias cat '/home/user/Go/bin/ccat'
+alias tree 'alder'
 
 #pandoc macro
 function html-to-pdf
