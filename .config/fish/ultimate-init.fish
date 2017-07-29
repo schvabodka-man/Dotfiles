@@ -68,13 +68,16 @@ builtin cd /home/user/Go/bin/
 ./gopm bin github.com/nishanths/license
 
 #fzf
-builtin cd "~/bin"
+builtin cd ~/bin
 git clone https://github.com/junegunn/fzf.git
 builtin cd fzf
 ./install
 mkdir ~/.config/fzf
 builtin ~/.config/fzf
 touch history
+# path picker
+builtin cd ~/bin
+git clone https://github.com/facebook/PathPicker.git
 
 sudo pip install tldr
 sudo pip install mycli

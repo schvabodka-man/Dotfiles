@@ -27,6 +27,9 @@ function update-nonrepo
 	builtin cd ~/bin/fzf
 	git pull origin master
 	./install
+	#path picket
+	builtin cd ~/bin/PathPicker
+	git pull origin master
 	#git helper
 	builtin cd ~/bin/pass-git-helper
 	git pull origin master

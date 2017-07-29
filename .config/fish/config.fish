@@ -83,7 +83,20 @@ alias pgsql 'pgcli'
 alias psql 'pgcli'
 alias gopm '/home/user/Go/bin/gopm'
 alias license '/home/user/Go/bin/license'
-alias search 'fzf --ansi --inline-info --multi --history=/home/user/.config/fzf/history --preview="cat {}"'
+alias fpp '/home/user/bin/PathPicker/fpp'
+
+function search #for some reason i cant just pipe my shit
+	fzf --ansi --inline-info --multi --history=/home/user/.config/fzf/history --preview="cat {}" > found
+	cat found | fpp
+	rm found
+end
+
+function search-password #deleting gpg
+	builtin cd ~/.password-store
+	fzf --ansi --inline-info --multi --history=/home/user/.config/fzf/history --preview="cat {}" > found
+	set passfile (cat found | perl -n -e '/(.+).gpg/ && print "$1\n"')
+	pass $passfile
+end
 
 alias xrdb-merge 'xrdb -merge ~/.Xresources'
 alias rofi-cache-clear 'rm ~/.cache/rofi-3.runcache'
