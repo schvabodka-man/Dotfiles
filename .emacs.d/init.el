@@ -26,11 +26,10 @@
   :init (require 'helm-config))
 ;;Git
 (use-package magit
-  :ensure t
-  :config
-  (defalias 'commit 'magit-commit)
-  (defalias 'git-push 'magit-push)
-  (defalias 'pull 'magit-pull))
+  :ensure t)
+;;(use-package magithub
+;;  :after magit
+;;  :config (magithub-feature-autoinject t))
 ;;autocomplete
 (use-package company
   :ensure t
@@ -64,7 +63,7 @@
 (global-set-key (kbd "C-<end>") 'end-of-line)
 (global-set-key (kbd "C-<left>") 'left-word)
 (global-set-key (kbd "C-<right>") 'right-word)
-;; (global-set-key (kbd "C-/") 'comment-line)
+(global-set-key (kbd "C-/") 'comment-line)
 (global-set-key (kbd "C-b") 'helm-bookmarks)
 (global-set-key (kbd "C-g") 'goto-line)
 (global-set-key (kbd "C-f") 'helm-occur)
@@ -169,7 +168,6 @@
 (use-package neotree
   :ensure t
   :config
-  (setq neo-theme (if (display-graphic-p) 'arrow 'arrow))
   (global-set-key (kbd "M-b") 'neotree-toggle))
 ;;it must be by default in emacs
 (use-package multiple-cursors
@@ -273,15 +271,25 @@
   (defalias 'package-temporary 'try)
   (defalias 'package-try 'try))
 ;;for deps mostly
-(use-package hydra
-  :ensure t)
+;;(use-package hydra
+;;  :ensure t)
 ;;pandoc
-(use-package pandoc-mode
+;;(use-package pandoc-mode
+;;  :ensure t
+;;  :config
+;;  (add-hook 'pandoc-mode-hook 'pandoc-load-default-settings)
+;;  (add-hook 'markdown-mode-hook 'pandoc-mode)
+;;  (add-hook 'html-mode-hook 'pandoc-mode))
+;;colorizing
+(use-package rainbow-mode
   :ensure t
-  :config
-  (add-hook 'pandoc-mode-hook 'pandoc-load-default-settings)
-  (add-hook 'markdown-mode-hook 'pandoc-mode)
-  (add-hook 'html-mode-hook 'pandoc-mode))
+  :init (add-hook 'prog-mode-hook 'rainbow-mode)
+  (add-hook 'text-mode-hook 'rainbow-mode))
+(use-package rainbow-delimiters
+  :ensure t
+  :after rainbow-mode
+  :init (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+  (add-hook 'text-mode-hook 'rainbow-delimiters-mode))
 
 ;;shit from GitHub
 ;;muh books
@@ -373,5 +381,14 @@
  '(company-tooltip-selection ((t (:background "#FFFFFF" :foreground "#000000"))))
  '(highlight ((t (:background "#FFFFFF" :foreground "#000000"))))
  '(minimap-active-region-background ((t (:background "#0e1112"))))
- '(minimap-font-face ((t (:height 30 :family "Fira Mono")))))
+ '(minimap-font-face ((t (:height 30 :family "Fira Mono"))))
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "green"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "spring green"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "deep sky blue"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "blue"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "dark magenta"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "dark red"))))
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "yellow"))))
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "orange red"))))
+ '(rainbow-delimiters-depth-9-face ((t (:foreground "deep pink")))))
 ;;; init.el ends here
