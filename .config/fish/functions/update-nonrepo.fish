@@ -30,6 +30,9 @@ function update-nonrepo
 	#path picket
 	builtin cd ~/bin/PathPicker
 	git pull origin master
+	#googler
+	builtin cd ~/bin/googler
+	git pull origin master
 	#git helper
 	builtin cd ~/bin/pass-git-helper
 	git pull origin master

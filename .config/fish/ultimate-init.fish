@@ -86,10 +86,14 @@ sudo gem install meetup-cli
 sudo npm install forecast-cli -g
 sudo npm install -g @aweary/alder
 sudo npm install cloc -g
-
+sudo npm install -g trino
 sudo npm install -g movie-cli
 
 sudo luarocks install --server=http://luarocks.org/dev luash
+
+#googler
+builtin cd ~/bin/
+git clone https://github.com/jarun/googler/
 
 #cmus
 builtin cd ~/bin/
