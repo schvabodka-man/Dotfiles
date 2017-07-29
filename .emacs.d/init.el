@@ -34,9 +34,9 @@
 (use-package company
   :ensure t
   :init (add-hook 'after-init-hook 'global-company-mode)
-  :config
-  	(setq company-dabbrev-downcase 0)
-  	(setq company-idle-delay 0))
+  :config 
+  (setq company-dabbrev-downcase 0)
+  (setq company-idle-delay 0))
 ;;snippets
 (use-package yasnippet
   :ensure t
@@ -165,11 +165,11 @@
   :config
   (global-set-key (kbd "M-m") 'minimap-mode))
 ;;file tree
-(use-package neotree
-  :ensure t
-  :config
-  (global-set-key (kbd "M-b") 'neotree-toggle))
-;;it must be by default in emacs
+;; (use-package neotree
+;;   :ensure t
+;;   :config
+;;   (global-set-key (kbd "M-b") 'neotree-toggle))
+;; ;;it must be by default in emacs
 (use-package multiple-cursors
   :ensure t
   :config
@@ -294,6 +294,35 @@
 ;;aesthetic
 (use-package fireplace
   :ensure t)
+;; (use-package ace-popup-menu
+;;   :ensure t
+;;   :init (ace-popup-menu-mode 1))
+(use-package web-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode)
+			   (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))))
+;;indent
+(use-package indent-guide
+  :ensure t
+  :init (indent-guide-global-mode))
+(electric-indent-mode)
+;;brainfuck unironically. i like brainfuck because of its simplicity
+(use-package bfbuilder
+  :ensure t
+  :config
+  (defalias 'brainfuck-mode 'bfbuilder-mode)
+  (defalias 'brainfuck-debug 'bfbuilder-debug)
+  (add-to-list 'auto-mode-alist '("\\.bf$" . bfbuilder-mode))
+  (add-to-list 'auto-mode-alist '("\\.brainfuck$" . bfbuilder-mode))
+  (define-key bfbuilder-mode-map (kbd "<M-f4>") 'bfbuilder-debug))
 
 ;;shit from GitHub
 ;;muh books
@@ -333,19 +362,6 @@
 (setq todotxt-default-archive-file (expand-file-name "/home/user/Dropbox/todo/done.txt"))
 (defalias 'todo 'todotxt-open-file)
 (defalias 'do 'todotxt-add-todo)
-;;html-preview
-;;(el-get-bundle html-preview
-;;:url "https://raw.githubusercontent.com/punchagan/html-preview/master/html-preview.el"
-;;:description "HTML emacs-webkit preview"
-;;:features html-preview)
-;;(require 'html-preview)
-;;(setq html-preview-after-change-idle-delay 0.4)
-;;(el-get-bundle ox-reveal
-;;:url "https://raw.githubusercontent.com/yjwen/org-reveal/master/ox-reveal.el"
-;;:description "org reveal from github"
-;;:features ox-reveal)
-;;(require 'ox-reveal)
-
 
 ;;spell checking
 (setq flyspell-issue-message-flag nil)

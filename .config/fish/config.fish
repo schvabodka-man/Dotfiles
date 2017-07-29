@@ -105,7 +105,6 @@ alias xrdb-merge 'xrdb -merge ~/.Xresources'
 alias rofi-cache-clear 'rm ~/.cache/rofi-3.runcache'
 alias newsbeuter-cache-clear 'rm ~/.newsbeuter/cache.db'
 alias move 'mv'
-alias rename 'mv' #hehe. i don't like standart rename utility
 alias copy 'cp'
 alias cd.. 'cd ..' #priceless
 alias rm 'rm -rf'

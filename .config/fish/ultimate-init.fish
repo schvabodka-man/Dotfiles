@@ -25,6 +25,7 @@ if cat /proc/version | grep fedora
 
 	sudo dnf install beets
 	sudo dnf install beets-plugins
+	sudo dnf install progress
 
 	sudo dnf install python-devel
 	sudo dnf install ruby-devel
