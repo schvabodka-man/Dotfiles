@@ -62,9 +62,12 @@ target=development/github/keys/schvabodka-man
 skip_username=0" > git-pass-mapping.ini
 
 sudo pip install tldr
+sudo pip install mycli
+sudo pip install pgcli
 sudo gem install meetup-cli
 sudo npm install forecast-cli -g
-sudo npm install reveal -g
+sudo npm install cloc -g
+sudo npm install -g movie-cli
 
 sudo luarocks install --server=http://luarocks.org/dev luash
 

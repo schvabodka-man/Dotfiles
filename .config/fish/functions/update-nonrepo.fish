@@ -3,6 +3,8 @@ function update-nonrepo
     omf update
 	#python/ruby/js/lua stuff
 	sudo pip install tldr --upgrade
+	sudo pip install mycli --upgrade
+	sudo pip install pgcli --upgrade
 	sudo gem update meetup-cli
 	sudo npm update -g
 	sudo luarocks install --server=http://luarocks.org/dev luash

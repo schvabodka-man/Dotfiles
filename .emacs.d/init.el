@@ -198,17 +198,12 @@
   :ensure t
   :init (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 ;;icons instead of mode name
-;;(unless (package-installed-p 'mode-icons)
-;;	(package-refresh-contents)
-;;	(package-install 'mode-icons))
-;;(require 'mode-icons)
-;;(mode-icons-mode)
-;;(setq mode-icons-change-mode-name nil)
 ;;google services
 ;;helm google menu
 (use-package helm-google
   :ensure t
-  :bind (("C-M-g" . helm-google)))
+  :bind (("C-M-g" . helm-google))
+  :config (defalias 'google 'helm-google))
 ;;fast search
 (use-package google-this
   :ensure t
@@ -218,7 +213,9 @@
 (use-package google-translate
   :ensure t
   :init (require 'google-translate-smooth-ui)
-  :bind (("M-t" . google-translate-smooth-translate)))
+  :bind (("M-t" . google-translate-smooth-translate))
+  :config (defalias 'google-translate 'google-translate-smooth-translate)
+  (defalias 'translate 'google-translate-smooth-translate))
 ;;time to play some games!
 ;; z machine interpreter
 (use-package malyon
@@ -290,6 +287,10 @@
   :after rainbow-mode
   :init (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
   (add-hook 'text-mode-hook 'rainbow-delimiters-mode))
+;;icons
+(use-package mode-icons
+  :ensure t
+  :init (mode-icons-mode))
 
 ;;shit from GitHub
 ;;muh books

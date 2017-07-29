@@ -73,6 +73,14 @@ alias office 'libreoffice'
 alias gnome-twitch 'twitch'
 alias retro-arch 'retroarch'
 
+alias sloc 'cloc'
+alias cinema 'movie'
+alias mysql 'mycli'
+alias postgres 'pgcli'
+alias postgresql 'pgcli'
+alias pgsql 'pgcli'
+alias psql 'pgcli'
+
 #pandoc macro
 function html-to-pdf
 	pandoc -S (echo $argv | perl -n -e '/(.+)\./ && print "$1\n"').html -o (echo $argv | perl -n -e '/(.+)\./ && print "$1\n"').pdf
