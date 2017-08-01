@@ -22,9 +22,9 @@
 (use-package el-get
   :ensure t)
 ;;this is only for stuff like colors and org wiki
-(use-package helm
-  :ensure t
-  :init (require 'helm-config))
+ (use-package helm
+   :ensure t
+   :init (require 'helm-config))
 ;;Git
 (use-package magit
   :ensure t)
@@ -35,8 +35,7 @@
 (use-package company
   :ensure t
   :init (add-hook 'after-init-hook 'global-company-mode)
-  :config 
-  (setq company-dabbrev-downcase 0)
+  :config (setq company-dabbrev-downcase 0)
   (setq company-idle-delay 0))
 ;;snippets
 (use-package yasnippet
@@ -357,10 +356,6 @@
   :after simple-httpd
   :config (add-hook 'web-mode-hook 'impatient-mode)
   (add-hook 'html-mode-hook 'impatient-mode))
-;;Scala development
-;; (use-package ensime
-;;   :ensure t
-;;   :pin melpa-stable)
 ;;js development 
 (use-package company-tern
   :ensure t
@@ -380,9 +375,15 @@
 		(if (string-match ".css" (buffer-file-name))
 		(progn
         	(web-beautify-css))))
-  (define-key web-mode-map (kbd "C-M-b") '(lambda () (interactive) (web-beautify-based-on-mode))))
-(use-package json-reformat
-  :ensure t)
+  (define-key web-mode-map (kbd "C-M-b") '(lambda () (interactive) (web-beautify-based-on-mode)))
+  (define-key json-mode-map (kbd "C-M-b") 'web-beautify-js))
+;;scala
+(use-package ensime
+  :ensure t
+  :pin melpa-stable)
+(use-package sr-speedbar
+  :ensure t
+  :config (global-set-key (kbd "M-b") 'sr-speedbar-toggle))
 
 ;;shit from GitHub
 ;;muh books
