@@ -20,6 +20,7 @@ if cat /proc/version | grep fedora
 	sudo dnf install transmission
 
 	sudo dnf install firefox
+	sudo dnf install chromium
 	sudo dnf install emacs
 	sudo dnf install calibre
 
@@ -92,6 +93,10 @@ sudo npm install -g trino
 sudo npm install -g movie-cli
 
 sudo luarocks install --server=http://luarocks.org/dev luash
+
+sudo npm install -g tern
+sudo npm -g install js-beautify
+sudo npm -g install jsonlint
 
 #googler
 builtin cd ~/bin/

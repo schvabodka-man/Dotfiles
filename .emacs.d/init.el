@@ -187,6 +187,31 @@
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
+(use-package js2-mode
+  :ensure t
+  :config (add-to-list 'auto-mode-alist (cons (rx ".js" eos) 'js2-mode)))
+(use-package js2-refactor
+  :ensure t
+  :after js2-mode
+  :config (add-hook 'js2-mode-hook #'js2-refactor-mode)
+  (define-key js2-refactor-mode-map (kbd "<S-<f1>") 'js2r-rename-var)
+  (define-key js2-refactor-mode-map (kbd "C-k") 'js2r-kill)  
+  (defalias 'js-rename 'js2r-rename-var)
+  (defalias 'js-log 'js2r-log-this)
+  (defalias 'js-extract-function 'js2r-extract-function)
+  (defalias 'js-extract-var 'js2r-extract-var)
+  (defalias 'js-extract-method 'js2r-extract-method)
+  (defalias 'js-expand 'js2r-expand-node-at-point)
+  (defalias 'js-arguments-object 'js2r-arguments-to-object)
+
+  (defalias 'javascript-rename 'js2r-rename-var)
+  (defalias 'javascript-log 'js2r-log-this)
+  (defalias 'javascript-extract-function 'js2r-extract-function)
+  (defalias 'javascript-extract-var 'js2r-extract-var)
+  (defalias 'javascript-extract-method 'js2r-extract-method)
+  (defalias 'javascript-expand 'js2r-expand-node-at-point)
+  (defalias 'javascript-arguments-object 'js2r-arguments-to-object))
+
 ;;diary
 (use-package org-journal
   :ensure t
@@ -308,8 +333,8 @@
   (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode)
-			   (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))))
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode)))
 ;;indent
 (use-package indent-guide
   :ensure t
@@ -327,15 +352,37 @@
 ;;live preview for web
 (use-package  simple-httpd
   :ensure t)
-(use-package  impatient-mode
+(use-package impatient-mode
   :ensure t
   :after simple-httpd
   :config (add-hook 'web-mode-hook 'impatient-mode)
   (add-hook 'html-mode-hook 'impatient-mode))
 ;;Scala development
-(use-package ensime
+;; (use-package ensime
+;;   :ensure t
+;;   :pin melpa-stable)
+;;js development 
+(use-package company-tern
   :ensure t
-  :pin melpa-stable)
+  :config (add-to-list 'company-backends 'company-tern)
+  (add-hook 'js2-mode-hook 'tern-mode)
+  (define-key tern-mode-keymap (kbd "M-.") nil)
+  (define-key tern-mode-keymap (kbd "M-,") nil))
+(use-package  json-mode
+  :ensure t)
+(use-package web-beautify
+  :ensure t
+  :config (define-key js2-mode-map (kbd "C-M-b") 'web-beautify-js)
+  (defun web-beautify-based-on-mode ()
+  	  (if (string-match ".html" (buffer-file-name))
+    	(progn
+		  (web-beautify-html)))
+		(if (string-match ".css" (buffer-file-name))
+		(progn
+        	(web-beautify-css))))
+  (define-key web-mode-map (kbd "C-M-b") '(lambda () (interactive) (web-beautify-based-on-mode))))
+(use-package json-reformat
+  :ensure t)
 
 ;;shit from GitHub
 ;;muh books
@@ -385,6 +432,7 @@
 (mapcar (lambda (mode-hook) (add-hook mode-hook 'flyspell-mode))
         '(org-mode-hook markdown-mode-hook gfm-mode-hook))
 
+(httpd-start)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
