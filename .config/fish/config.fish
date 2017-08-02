@@ -87,6 +87,14 @@ alias gopm '/home/user/Go/bin/gopm'
 alias license '/home/user/Go/bin/license'
 alias fpp '/home/user/bin/PathPicker/fpp'
 
+alias project 'touch .projectile'
+function project-js
+	touch .indium
+	touch .projectile
+	touch .tern-project
+end
+alias project-javascript 'project-js'
+
 function search #for some reason i cant just pipe my shit
 	fzf --ansi --inline-info --multi --history=/home/user/.config/fzf/history --preview="cat {}" > .found
 	cat .found | fpp

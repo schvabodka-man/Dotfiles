@@ -22,9 +22,10 @@
 (use-package el-get
   :ensure t)
 ;;this is only for stuff like colors and org wiki
- (use-package helm
-   :ensure t
-   :init (require 'helm-config))
+(use-package helm
+  :ensure t
+  :init (require 'helm-config)
+  :config (defalias 'color 'helm-colors))
 ;;Git
 (use-package magit
   :ensure t)
@@ -57,17 +58,18 @@
 (global-set-key (kbd "M-w") 'helm-buffers-list)
 (global-set-key (kbd "M-S-q") 'kill-buffer)
 (global-set-key (kbd "M-o") 'helm-find-files)
-(global-set-key (kbd "C-S-c") 'helm-colors)
+(global-set-key (kbd "M-c") 'helm-colors)
 (global-set-key (kbd "C-s") 'save-buffer)
 (global-set-key (kbd "C-<home>") 'beginning-of-line)
 (global-set-key (kbd "C-<end>") 'end-of-line)
 (global-set-key (kbd "C-<left>") 'left-word)
 (global-set-key (kbd "C-<right>") 'right-word)
 (global-set-key (kbd "C-/") 'comment-line)
-(global-set-key (kbd "C-b") 'helm-bookmarks)
+(global-set-key (kbd "M-b") 'helm-bookmarks)
 (global-set-key (kbd "C-g") 'goto-line)
 (global-set-key (kbd "C-f") 'helm-occur)
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
+(global-set-key (kbd "C-r") 'query-replace-regexp)
 (global-set-key (kbd "TAB") 'self-insert-command)
 ;; windows controls
 (global-set-key (kbd "M-,") 'split-window-horizontally)
@@ -87,7 +89,8 @@
 (defun indent-all ()
   (interactive)
   (indent-region (point-min) (point-max)))
-(global-set-key (kbd "C-S-b") 'indent-all)
+(global-set-key (kbd "C-b") 'indent-all)
+(defalias 'beautify 'indent-all)
 
 (defun put-file-name-on-clipboard ()
   (interactive)
@@ -215,9 +218,9 @@
 (use-package org-journal
   :ensure t
   :config
-  	(setq org-journal-dir (expand-file-name "/home/user/Dropbox/Org/Wiki/Personal/Diary"))
-	(setq org-journal-date-format '"%d-%m-%Y")
-	(defalias 'now 'org-journal-new-entry))
+  (setq org-journal-dir (expand-file-name "/home/user/Dropbox/Org/Wiki/Personal/Diary"))
+  (setq org-journal-date-format '"%d-%m-%Y")
+  (defalias 'now 'org-journal-new-entry))
 ;;nice org mode bullets
 (use-package org-bullets
   :ensure t
@@ -247,10 +250,10 @@
   :ensure t
   :init
   :config
-  	(defalias 'z-machine 'malyon)
-	(defalias 'z-machine-save 'malyon-save-file)
-	(defalias 'z-machine-quit 'malyon-quit)
-	(defalias 'z-machine-restore 'malyon-restore-file))
+  (defalias 'z-machine 'malyon)
+  (defalias 'z-machine-save 'malyon-save-file)
+  (defalias 'z-machine-quit 'malyon-quit)
+  (defalias 'z-machine-restore 'malyon-restore-file))
 ;;flyspell
 (use-package flyspell-correct
   :ensure t)
@@ -367,23 +370,64 @@
   :ensure t)
 (use-package web-beautify
   :ensure t
-  :config (define-key js2-mode-map (kbd "C-M-b") 'web-beautify-js)
+  :config (define-key js2-mode-map (kbd "C-b") 'web-beautify-js)
   (defun web-beautify-based-on-mode ()
-  	  (if (string-match ".html" (buffer-file-name))
+	(if (string-match ".html" (buffer-file-name))
     	(progn
 		  (web-beautify-html)))
-		(if (string-match ".css" (buffer-file-name))
+	(if (string-match ".css" (buffer-file-name))
 		(progn
-        	(web-beautify-css))))
-  (define-key web-mode-map (kbd "C-M-b") '(lambda () (interactive) (web-beautify-based-on-mode)))
-  (define-key json-mode-map (kbd "C-M-b") 'web-beautify-js))
-;;scala
-(use-package ensime
+		  (web-beautify-css))))
+  (define-key web-mode-map (kbd "C-b") '(lambda () (interactive) (web-beautify-based-on-mode)))
+  (define-key json-mode-map (kbd "C-b") 'web-beautify-js))
+(use-package indium
   :ensure t
-  :pin melpa-stable)
+  :config (add-hook 'js2-mode-hook #'indium-interaction-mode)
+  (setq indium-update-script-on-save t)
+  (define-key indium-interaction-mode-map (kbd "<M-f4>") 'indium-connect-to-chrome)
+  (define-key indium-interaction-mode-map (kbd "<M-f1>") 'indium-add-breakpoint)
+  (define-key indium-interaction-mode-map (kbd "<M-f2>") 'indium-remove-breakpoint)
+  (define-key indium-interaction-mode-map (kbd "<M-S-f2>") 'indium-remove-all-breakpoints-from-buffer)
+  (defalias 'js-chrome 'indium-connect-to-chrome)
+  (defalias 'js-connect-chrome 'indium-connect-to-chrome)
+  (defalias 'javascript-chrome 'indium-connect-to-chrome)
+  (defalias 'javascript-connect-chrome 'indium-connect-to-chrome)
+  (defalias 'js-add-breakpoint 'indium-add-breakpoint)
+  (defalias 'js-remove-breakpoint 'indium-remove-breakpoint)
+  (defalias 'js-delete-breakpoint 'indium-remove-breakpoint)
+  (defalias 'javascript-add-breakpoint 'indium-add-breakpoint)
+  (defalias 'javascript-remove-breakpoint 'indium-remove-breakpoint)
+  (defalias 'javascript-delete-breakpoint 'indium-remove-breakpoint)
+  (defalias 'js-remove-all-breakpoints 'indium-remove-all-breakpoints-from-buffer)
+  (defalias 'javascript-remove-all-breakpoints 'indium-remove-all-breakpoints-from-buffer)
+  (defalias 'js-breakpoints 'indium-list-breakpoints)
+  (defalias 'javascript-breakpoints 'indium-list-breakpoints)
+  (defalias 'javascript-scratch 'indium-scratch)
+  (defalias 'js-scratch 'indium-scratch)
+  (defalias 'js-repl 'indium-switch-to-repl-buffer)
+  (defalias 'javascript-repl 'indium-switch-to-repl-buffer))
+;;speedbar
 (use-package sr-speedbar
   :ensure t
-  :config (global-set-key (kbd "M-b") 'sr-speedbar-toggle))
+  :config (global-set-key (kbd "M-s") 'sr-speedbar-toggle)
+  (defalias 'bar 'sr-speedbar-toggle))
+;;project management
+(use-package projectile
+  :ensure t
+  :config (projectile-global-mode)
+  (setq projectile-indexing-method 'native)
+  (setq projectile-enable-caching t)
+  (global-set-key (kbd "C-S-r") 'projectile-replace-regexp)
+  (defalias 'project-add 'projectile-add-known-project))
+(use-package helm-projectile
+  :ensure t
+  :after projectile
+  :config (helm-projectile-on)
+  (setq projectile-completion-system 'helm)
+  (global-set-key (kbd "M-p") 'helm-projectile-switch-project)
+  (global-set-key (kbd "M-f") 'helm-projectile-find-file)
+  (global-set-key (kbd "M-S-f") 'helm-projectile-find-dir)
+  (global-set-key (kbd "C-S-f") 'helm-projectile-grep))
 
 ;;shit from GitHub
 ;;muh books
@@ -432,8 +476,6 @@
 							 ruby-mode-hook java-mode-hook fish-mode-hook shell-mode-hook))
 (mapcar (lambda (mode-hook) (add-hook mode-hook 'flyspell-mode))
         '(org-mode-hook markdown-mode-hook gfm-mode-hook))
-
-(httpd-start)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
