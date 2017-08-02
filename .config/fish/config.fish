@@ -122,6 +122,7 @@ alias emacs 'emacsclient -nw'
 alias emacs-daemon '/usr/bin/emacs --daemon'
 alias cat '/home/user/Go/bin/ccat'
 alias tree 'alder'
+alias ls '~/bin/els --els-icons=fontawesome'
 
 #pandoc macro
 function html-to-pdf

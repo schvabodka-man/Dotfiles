@@ -102,6 +102,11 @@ sudo npm -g install jsonlint
 builtin cd ~/bin/
 git clone https://github.com/jarun/googler/
 
+#ls with icons
+cd ~/bin
+wget https://raw.githubusercontent.com/AnthonyDiGirolamo/els/master/els
+chmod +x els
+
 #cmus
 builtin cd ~/bin/
 git clone https://github.com/Arkq/cmusfm
