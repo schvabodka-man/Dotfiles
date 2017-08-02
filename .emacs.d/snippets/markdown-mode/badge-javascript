@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: badge-javascript
+# key: badge-javascript
+# --
+<a href="url"><img src="http://forthebadge.com/images/badges/uses-js.svg" width="300" height="50"></a>

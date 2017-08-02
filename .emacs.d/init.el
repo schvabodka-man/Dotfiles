@@ -483,6 +483,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(httpd-port 8088)
+ '(js2-highlight-level 3)
+ '(js2-idle-timer-delay 0.1)
+ '(js2-include-node-externs t)
+ '(js2-include-rhino-externs t)
+ '(js2-instanceof-has-side-effects t)
  '(minimap-buffer-name " MINIMAP")
  '(minimap-dedicated-window nil)
  '(minimap-hide-fringes t)
@@ -493,7 +498,8 @@
  '(minimap-window-location (quote right))
  '(package-selected-packages
    (quote
-	(helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company))))
+	(helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
+ '(sr-speedbar-right-side nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -511,9 +517,9 @@
  '(rainbow-delimiters-depth-2-face ((t (:foreground "spring green"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "deep sky blue"))))
  '(rainbow-delimiters-depth-4-face ((t (:foreground "blue"))))
- '(rainbow-delimiters-depth-5-face ((t (:foreground "dark magenta"))))
- '(rainbow-delimiters-depth-6-face ((t (:foreground "dark red"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "magenta"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "dark magenta"))))
  '(rainbow-delimiters-depth-7-face ((t (:foreground "yellow"))))
- '(rainbow-delimiters-depth-8-face ((t (:foreground "orange red"))))
- '(rainbow-delimiters-depth-9-face ((t (:foreground "deep pink")))))
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "violet red"))))
+ '(rainbow-delimiters-depth-9-face ((t (:foreground "dark violet")))))
 ;;; init.el ends here

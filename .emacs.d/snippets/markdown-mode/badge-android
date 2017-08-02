@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: badge-android
+# key: badge-android
+# --
+<a href="url"><img src="http://forthebadge.com/images/badges/built-for-android.svg" width="300" height="50"></a>
