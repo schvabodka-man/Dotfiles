@@ -108,6 +108,7 @@ function search-password #deleting gpg
 	rm .found
 	pass $passfile
 end
+alias passwords 'search-password'
 
 alias xrdb-merge 'xrdb -merge ~/.Xresources'
 alias rofi-cache-clear 'rm ~/.cache/rofi-3.runcache'
@@ -163,6 +164,13 @@ alias tmux-config-update "tmux source ~/.config/tmux/tmux.conf"
 alias tmux-update-config "tmux source ~/.config/tmux/tmux.conf"
 
 alias chromium-debug "chromium-browser --disable-gpu --remote-debugging-port=9222 https://localhost:3000"
+
+alias git-gui "tig"
+alias git-history "tig"
+
+function _history
+	tig
+end
 
 . ~/.fishmarks/marks.fish
 

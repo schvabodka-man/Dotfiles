@@ -39,12 +39,12 @@ if cat /proc/version | grep fedora
 
 	sudo dnf install libcurl-devel
 	sudo dnf install openssl-devel
-
+	
 	sudo dnf install luarocks
 	sudo dnf install lua-devel
 	
 	sudo dnf install pandoc
-	
+	sudo dnf install tig	
 end
 
 #fish shell 
