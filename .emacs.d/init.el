@@ -25,8 +25,12 @@
 (use-package helm
   :ensure t
   :init (require 'helm-config)
-  :config (defalias 'color 'helm-colors))
-;;Git
+  :config (defalias 'color 'helm-colors)
+  (global-set-key (kbd "M-o") 'helm-find-files)
+  (global-set-key (kbd "M-c") 'helm-colors)
+  (global-set-key (kbd "M-w") 'helm-buffers-list)
+  (global-set-key (kbd "M-b") 'helm-bookmarks)
+  (global-set-key (kbd "C-f") 'helm-occur))
 (use-package magit
   :ensure t)
 ;;(use-package magithub
@@ -43,7 +47,8 @@
   :ensure t
   :init (yas-global-mode 1)
   :config
-  (defalias 'snippet 'yas-expand))
+  (defalias 'snippet 'yas-expand)
+  (add-to-list 'company-backends 'company-yasnippet t))
 ;;flycheck
 (use-package flycheck
   :ensure t
@@ -55,19 +60,15 @@
 (global-set-key (kbd "<end>") 'end-of-buffer)
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-set-key (kbd "M-;") 'execute-extended-command)
-(global-set-key (kbd "M-w") 'helm-buffers-list)
 (global-set-key (kbd "M-S-q") 'kill-buffer)
-(global-set-key (kbd "M-o") 'helm-find-files)
-(global-set-key (kbd "M-c") 'helm-colors)
 (global-set-key (kbd "C-s") 'save-buffer)
+(global-set-key (kbd "C-M-f") 'list-matching-lines)
 (global-set-key (kbd "C-<home>") 'beginning-of-line)
 (global-set-key (kbd "C-<end>") 'end-of-line)
 (global-set-key (kbd "C-<left>") 'left-word)
 (global-set-key (kbd "C-<right>") 'right-word)
 (global-set-key (kbd "C-/") 'comment-line)
-(global-set-key (kbd "M-b") 'helm-bookmarks)
 (global-set-key (kbd "C-g") 'goto-line)
-(global-set-key (kbd "C-f") 'helm-occur)
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
 (global-set-key (kbd "C-r") 'query-replace-regexp)
 (global-set-key (kbd "TAB") 'self-insert-command)
@@ -428,6 +429,10 @@
   (global-set-key (kbd "M-f") 'helm-projectile-find-file)
   (global-set-key (kbd "M-S-f") 'helm-projectile-find-dir)
   (global-set-key (kbd "C-S-f") 'helm-projectile-grep))
+;;highlight word
+(use-package highlight-thing
+  :ensure t
+  :init (global-highlight-thing-mode))
 
 ;;shit from GitHub
 ;;muh books
@@ -482,6 +487,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(highlight-thing-case-sensitive-p t)
+ '(highlight-thing-delay-seconds 0.1)
+ '(highlight-thing-exclude-thing-under-point t)
+ '(highlight-thing-excluded-major-modes (quote (special-mode)))
+ '(highlight-thing-what-thing (quote sexp))
  '(httpd-port 8088)
  '(js2-highlight-level 3)
  '(js2-idle-timer-delay 0.1)
@@ -511,6 +521,7 @@
  '(company-tooltip-common ((t (:foreground "#Ff0000"))))
  '(company-tooltip-selection ((t (:background "#FFFFFF" :foreground "#000000"))))
  '(highlight ((t (:background "#FFFFFF" :foreground "#000000"))))
+ '(highlight-thing ((t (:inherit (quote hi-green)))))
  '(minimap-active-region-background ((t (:background "#0e1112"))))
  '(minimap-font-face ((t (:height 30 :family "Fira Mono"))))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "green"))))

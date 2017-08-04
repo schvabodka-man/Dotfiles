@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: thymeleaf-script
+# key: thymeleaf-script
+# --
+th:src="@{//$1}"

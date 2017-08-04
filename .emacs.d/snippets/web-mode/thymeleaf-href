@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: thymeleaf-href
+# key: thymeleaf-href
+# --
+th:href="@{$1}
