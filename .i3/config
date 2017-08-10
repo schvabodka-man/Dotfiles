@@ -80,6 +80,7 @@ assign [title="ZeroBrane Studio *"] 4:
 assign [class="libreoffice-startcenter"] 5:
 assign [class="libreoffice-writer"] 5:
 assign [class="skypeforlinux"] 6:
+assign [class="Geary"] 6:
 
 #no focus for feh with cover art
 no_focus [title="cover.*"]

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: link
+# key: link
+# --
+<a href="$1">$2</a>

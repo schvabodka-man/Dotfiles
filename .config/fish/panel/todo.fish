@@ -1,4 +1,4 @@
 #!/usr/bin/fish
-builtin cd ~/Dropbox/todo
-set todo (cat todo.txt | grep -v due | grep "^[^x;]" | wc -l)
+builtin cd ~/Dropbox/Org/Wiki/Todo
+set todo (cat Todo.org | grep TODO | wc -l)
 echo  $todo

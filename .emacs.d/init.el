@@ -4,7 +4,6 @@
 ;;; Code:
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-;;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (package-initialize)
@@ -117,11 +116,11 @@
   (interactive)
   (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
 (global-set-key (kbd "C-S-M-q") 'kill-other-buffers)
+;;todo
+(setq org-agenda-files '("~/Dropbox/Org/Wiki/Todo"))
 ;;fast aliases
 (defalias 'open-in-browser 'browse-url-of-file)
 (defalias 'browser-preview 'browse-url-of-file)
-
-
 ;;look and feel
 (set-default-font "Fira Mono 12")
 (setq-default cursor-type 'bar) 
@@ -144,6 +143,9 @@
 ;; killing messages buffer
 (setq-default message-log-max nil)
 (kill-buffer "*Messages*")
+(setq initial-scratch-message nil)
+(if (get-buffer "*scratch*")
+	(kill-buffer "*scratch*"))
 ;;y or n
 (fset 'yes-or-no-p 'y-or-n-p)
 ;;use tabs instead of spaces
@@ -433,6 +435,45 @@
 (use-package highlight-thing
   :ensure t
   :init (global-highlight-thing-mode))
+;;pass integration
+(use-package helm-pass
+  :ensure t
+  :commands (helm-pass)
+  :config (defalias 'pass 'helm-pass)
+  (defalias 'passwords 'helm-pass))
+;;yaml mode
+(use-package yaml-mode
+  :ensure t
+  :init (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+  (add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode))
+  :config (add-hook 'yaml-mode-hook 'whitespace-mode))
+;;beautiful dashboard on startup
+(use-package page-break-lines
+  :ensure t)
+(use-package dashboard
+  :ensure t
+  :after page-break-lines
+  :init (dashboard-setup-startup-hook)
+  :config (setq dashboard-banner-logo-title "Welcome back!")
+  (setq dashboard-items '((recents  . 8)
+                        (bookmarks . 8)
+                        (projects . 8)
+                        (agenda . 8))))
+;;services
+(use-package prodigy
+  :ensure t
+  :config
+  (defalias 'service 'prodigy)
+  (defalias 'services 'prodigy)
+  (defalias 'service-start 'prodigy-start)
+  (defalias 'service-stop 'prodigy-stop)
+  (prodigy-define-service
+	:name "Chromium debug mode"
+	:command "chromium-browser"
+	:args '("--remote-debugging-port=9222" "https://localhost:3000")
+	:tags '(web)
+	:stop-signal 'sigkill
+	:kill-process-buffer-on-stop t))
 
 ;;shit from GitHub
 ;;muh books
@@ -462,16 +503,6 @@
 (require 'org-wiki)
 (setq org-wiki-location "~/Dropbox/Org/Wiki")
 (defalias 'wiki 'org-wiki-index)
-;;beautiful todo
-(el-get-bundle todotxt-mode
-  :url "https://raw.githubusercontent.com/avillafiorita/todotxt-mode/master/todotxt-mode.el"
-  :description "Emacs' todo txt mode"
-  :features todotxt-mode)
-(require 'todotxt-mode)
-(setq todotxt-default-file (expand-file-name "/home/user/Dropbox/todo/todo.txt"))
-(setq todotxt-default-archive-file (expand-file-name "/home/user/Dropbox/todo/done.txt"))
-(defalias 'todo 'todotxt-open-file)
-(defalias 'do 'todotxt-add-todo)
 
 ;;spell checking
 (setq flyspell-issue-message-flag nil)
@@ -531,6 +562,6 @@
  '(rainbow-delimiters-depth-5-face ((t (:foreground "magenta"))))
  '(rainbow-delimiters-depth-6-face ((t (:foreground "dark magenta"))))
  '(rainbow-delimiters-depth-7-face ((t (:foreground "yellow"))))
- '(rainbow-delimiters-depth-8-face ((t (:foreground "violet red"))))
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "violet"))))
  '(rainbow-delimiters-depth-9-face ((t (:foreground "dark violet")))))
 ;;; init.el ends here

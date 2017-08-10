@@ -64,14 +64,14 @@ tail = true
 
 [module/todo]
 type = custom/script
-exec = ~/.config/fish/panel/todo.fish
+exec = ~/.config/fish/panel/calendar.fish
 format-underline = #00ff0a
 tail = true
 
-[module/calendar]
+[module/todo]
 type = custom/script
-exec = ~/.config/fish/panel/calendar.fish
-format-underline = #ffd600
+exec = ~/.config/fish/panel/todo.fish
+format-underline = #00ff0a
 tail = true
 
 [module/weather]
