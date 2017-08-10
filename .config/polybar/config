@@ -62,7 +62,7 @@ exec = ~/.config/fish/panel/meetup.fish
 format-underline = #f200ff
 tail = true
 
-[module/todo]
+[module/calendar]
 type = custom/script
 exec = ~/.config/fish/panel/calendar.fish
 format-underline = #00ff0a

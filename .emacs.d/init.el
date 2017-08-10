@@ -282,7 +282,8 @@
 (use-package emmet-mode
   :ensure t
   :config
-  (defalias 'emmet 'emmet-expand-yas))
+  (defalias 'emmet 'emmet-expand-yas)
+  (global-set-key (kbd "M-e") 'emmet-expand-yas))
 ;;docker
 (use-package docker
   :ensure t)

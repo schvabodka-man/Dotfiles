@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: icon
+# key: icon
+# --
+<link rel="icon" type="image/png" href="$1" sizes="16x16"/>
