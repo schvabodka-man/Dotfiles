@@ -47,7 +47,8 @@
   :init (yas-global-mode 1)
   :config
   (defalias 'snippet 'yas-expand)
-  (add-to-list 'company-backends 'company-yasnippet t))
+  (add-to-list 'company-backends 'company-yasnippet t)
+  (global-set-key (kbd "M-TAB") 'yas-expand))
 ;;flycheck
 (use-package flycheck
   :ensure t
@@ -136,6 +137,7 @@
 (setq word-wrap t)
 (global-visual-line-mode t)
 (electric-pair-mode)
+(setq suggest-key-bindings nil)
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "firefox")
 ;;org mode select with shift
