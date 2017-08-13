@@ -4,10 +4,10 @@
 Type=Application
 
 # The name of the application
-Name=FeedReader
+Name=News
 
 # A comment which can/will be used as a tooltip
-Comment=News
+Comment=Feed Reader
 
 # The executable of the application, possibly with arguments.
 Exec=flatpak run org.gnome.FeedReader 

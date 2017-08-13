@@ -477,6 +477,17 @@
 	:tags '(web)
 	:stop-signal 'sigkill
 	:kill-process-buffer-on-stop t))
+;;jvm shit for memelords
+(use-package kotlin-mode
+  :ensure t)
+(use-package ensime
+  :ensure t
+  :pin melpa-stable
+  :config
+  (setq
+  ensime-sbt-command "/usr/bin/sbt"
+  sbt:program-name "/usr/bin/sbt"))
+
 
 ;;shit from GitHub
 ;;muh books
@@ -496,7 +507,7 @@
 ;;inserting links
 (el-get-bundle markdown-dnd-images
   :url "https://raw.githubusercontent.com/mooreryan/markdown-dnd-images/master/markdown-dnd-images.el"
-  :description "Dockerfile editing")
+  :description "markdown drag and drop")
 (require 'markdown-dnd-images)
 ;;wiki!
 (el-get-bundle org-wiki
@@ -515,6 +526,13 @@
 							 ruby-mode-hook java-mode-hook fish-mode-hook shell-mode-hook))
 (mapcar (lambda (mode-hook) (add-hook mode-hook 'flyspell-mode))
         '(org-mode-hook markdown-mode-hook gfm-mode-hook))
+
+
+(defface hi-white
+  '((((background dark)) (:background "#696969" :foreground "white"))
+    (t (:background "#696969")))
+  "Face for hi-lock mode."
+  :group 'hi-lock-faces)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -555,7 +573,7 @@
  '(company-tooltip-common ((t (:foreground "#Ff0000"))))
  '(company-tooltip-selection ((t (:background "#FFFFFF" :foreground "#000000"))))
  '(highlight ((t (:background "#FFFFFF" :foreground "#000000"))))
- '(highlight-thing ((t (:inherit (quote hi-green)))))
+ '(highlight-thing ((t (:inherit (quote hi-white)))))
  '(minimap-active-region-background ((t (:background "#0e1112"))))
  '(minimap-font-face ((t (:height 30 :family "Fira Mono"))))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "green"))))
