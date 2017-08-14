@@ -524,7 +524,11 @@
 (use-package helm-org-rifle
   :ensure t
   :config (define-key org-mode-map (kbd "C-f") 'helm-org-rifle-current-buffer)
-  (define-key org-mode-map (kbd "C-S-f") 'helm-org-rifle))
+  (define-key org-mode-map (kbd "C-S-f") 'helm-org-rifle)
+  (defalias 'org-mode-search-current-buffer 'helm-org-rifle-current-buffer)
+  (defalias 'org-mode-search 'helm-org-rifle)
+  (defalias 'mode-search-current-buffer 'helm-org-rifle-current-buffer)
+  (defalias 'mode-search 'helm-org-rifle))
 
 ;;shit from GitHub
 ;;muh books
