@@ -487,7 +487,24 @@
   (setq
   ensime-sbt-command "/usr/bin/sbt"
   sbt:program-name "/usr/bin/sbt"))
-
+;;links hinting
+(use-package link-hint
+  :ensure t
+  :config (defalias 'link-open 'link-hint-open-link)
+  (defalias 'link-copy 'link-hint-copy-link)
+  :bind
+  ("M-l" . link-hint-open-link)
+  ("M-S-l" . link-hint-copy-link))
+;;like pinboard 
+(use-package org-board
+  :ensure t
+  :config (defalias 'board-new 'org-board-new)
+  (defalias 'board-save 'org-board-new)
+  (defalias 'link-new 'org-board-new)
+  (defalias 'link-save 'org-board-new)
+  (defalias 'board-open 'org-board-open)
+  (defalias 'board-diff 'org-board-diff)
+  (defalias 'board-archive 'org-board-archive))
 
 ;;shit from GitHub
 ;;muh books
