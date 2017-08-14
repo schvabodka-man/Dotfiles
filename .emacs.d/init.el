@@ -30,6 +30,7 @@
   (global-set-key (kbd "M-w") 'helm-buffers-list)
   (global-set-key (kbd "M-b") 'helm-bookmarks)
   (global-set-key (kbd "C-f") 'helm-occur))
+;;git
 (use-package magit
   :ensure t)
 ;;(use-package magithub
@@ -459,9 +460,9 @@
   :init (dashboard-setup-startup-hook)
   :config (setq dashboard-banner-logo-title "Welcome back!")
   (setq dashboard-items '((recents  . 8)
-                        (bookmarks . 8)
-                        (projects . 8)
-                        (agenda . 8))))
+						  (bookmarks . 8)
+						  (projects . 8)
+						  (agenda . 8))))
 ;;services
 (use-package prodigy
   :ensure t
@@ -485,8 +486,8 @@
   :pin melpa-stable
   :config
   (setq
-  ensime-sbt-command "/usr/bin/sbt"
-  sbt:program-name "/usr/bin/sbt"))
+   ensime-sbt-command "/usr/bin/sbt"
+   sbt:program-name "/usr/bin/sbt"))
 ;;links hinting
 (use-package link-hint
   :ensure t
@@ -505,6 +506,25 @@
   (defalias 'board-open 'org-board-open)
   (defalias 'board-diff 'org-board-diff)
   (defalias 'board-archive 'org-board-archive))
+;;some search improvements for org mode
+(use-package deft
+  :ensure t
+  :config (setq deft-extensions '("txt" "org" "md"))
+  (setq deft-directory "~/Dropbox/Org/Wiki")
+  (setq deft-recursive t)
+  (defalias 'org-wiki-find 'deft)
+  (defalias 'org-wiki-find-file 'deft-find-file)
+  (defalias 'wiki-find 'deft)
+  (defalias 'wiki-find-file 'deft-find-file)
+  (defalias 'org-wiki-search-file 'deft-find-file)
+  (defalias 'wiki-search 'deft)
+  (defalias 'wiki-search-file 'deft-find-file)
+  (global-set-key (kbd "C-w") 'deft)
+  (global-set-key (kbd "C-S-w") 'deft-find-file))
+(use-package helm-org-rifle
+  :ensure t
+  :config (define-key org-mode-map (kbd "C-f") 'helm-org-rifle-current-buffer)
+  (define-key org-mode-map (kbd "C-S-f") 'helm-org-rifle))
 
 ;;shit from GitHub
 ;;muh books
@@ -543,7 +563,6 @@
 							 ruby-mode-hook java-mode-hook fish-mode-hook shell-mode-hook))
 (mapcar (lambda (mode-hook) (add-hook mode-hook 'flyspell-mode))
         '(org-mode-hook markdown-mode-hook gfm-mode-hook))
-
 
 (defface hi-white
   '((((background dark)) (:background "#696969" :foreground "white"))

@@ -44,7 +44,10 @@ if cat /proc/version | grep fedora
 	sudo dnf install lua-devel
 	
 	sudo dnf install pandoc
-	sudo dnf install tig	
+	sudo dnf install tig
+
+	#вменяемая раскладка в имаксе
+	sudo dnf install scim scim-tables scim-m17n
 end
 
 #fish shell 
