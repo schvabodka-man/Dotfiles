@@ -46,6 +46,9 @@ if cat /proc/version | grep fedora
 	sudo dnf install pandoc
 	sudo dnf install tig
 
+	sudo dnf install libpng12
+	sudo dnf install libpng15
+	
 	#вменяемая раскладка в имаксе
 	sudo dnf install scim scim-tables scim-m17n
 end

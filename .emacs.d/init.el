@@ -118,8 +118,6 @@
   (interactive)
   (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
 (global-set-key (kbd "C-S-M-q") 'kill-other-buffers)
-;;todo
-(setq org-agenda-files '("~/Dropbox/Org/Wiki/Todo"))
 ;;fast aliases
 (defalias 'open-in-browser 'browse-url-of-file)
 (defalias 'browser-preview 'browse-url-of-file)
