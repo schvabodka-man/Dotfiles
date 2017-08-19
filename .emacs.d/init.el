@@ -25,11 +25,12 @@
   :ensure t
   :init (require 'helm-config)
   :config (defalias 'color 'helm-colors)
-  (global-set-key (kbd "M-o") 'helm-find-files)
-  (global-set-key (kbd "M-c") 'helm-colors)
-  (global-set-key (kbd "M-w") 'helm-buffers-list)
-  (global-set-key (kbd "M-b") 'helm-bookmarks)
-  (global-set-key (kbd "C-f") 'helm-occur))
+  :bind (("M-x" . helm-M-x)
+		 ("M-o" . helm-find-files)
+		 ("M-c" . helm-colors)
+		 ("M-w" . helm-buffers-list)
+		 ("M-b" . helm-bookmarks)
+		 ("C-f" . helm-occur)))
 ;;git
 (use-package magit
   :ensure t)
@@ -100,9 +101,9 @@
 					  default-directory
 					(buffer-file-name))))
 	(when filename
-      (with-temp-buffer
-        (insert filename)
-        (clipboard-kill-region (point-min) (point-max)))
+	  (with-temp-buffer
+		(insert filename)
+		(clipboard-kill-region (point-min) (point-max)))
 	  (message filename))))
 (global-set-key (kbd "C-u") 'put-file-name-on-clipboard)
 
@@ -138,7 +139,7 @@
 (electric-pair-mode)
 (setq suggest-key-bindings nil)
 (setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "firefox")
+	  browse-url-generic-program "firefox")
 ;;org mode select with shift
 (setq org-support-shift-select t)
 ;; killing messages buffer
@@ -171,12 +172,7 @@
   :ensure t
   :config
   (global-set-key (kbd "M-m") 'minimap-mode))
-;;file tree
-;; (use-package neotree
-;;   :ensure t
-;;   :config
-;;   (global-set-key (kbd "M-b") 'neotree-toggle))
-;; ;;it must be by default in emacs
+;;it must be by default in emacs
 (use-package multiple-cursors
   :ensure t
   :config
@@ -190,8 +186,8 @@
   :ensure t
   :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'" . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode))
+		 ("\\.md\\'" . markdown-mode)
+		 ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 (use-package js2-mode
   :ensure t
@@ -321,9 +317,16 @@
   :init (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
   (add-hook 'text-mode-hook 'rainbow-delimiters-mode))
 ;;icons
+(use-package all-the-icons
+  :ensure t)
 (use-package mode-icons
   :ensure t
+  :after all-the-icons
   :init (mode-icons-mode))
+(use-package all-the-icons-dired
+  :ensure t
+  :after all-the-icons
+  :init (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
 ;;aesthetic
 (use-package fireplace
   :ensure t)
@@ -378,7 +381,7 @@
   :config (define-key js2-mode-map (kbd "C-b") 'web-beautify-js)
   (defun web-beautify-based-on-mode ()
 	(if (string-match ".html" (buffer-file-name))
-    	(progn
+		(progn
 		  (web-beautify-html)))
 	(if (string-match ".css" (buffer-file-name))
 		(progn
@@ -414,8 +417,12 @@
 ;;speedbar
 (use-package sr-speedbar
   :ensure t
-  :config (global-set-key (kbd "M-s") 'sr-speedbar-toggle)
-  (defalias 'bar 'sr-speedbar-toggle))
+  :config 
+  (defalias 'bar 'sr-speedbar-toggle)
+  (defalias 'panel 'sr-speedbar-toggle)
+  (defalias 'bar-toggle 'sr-speedbar-toggle)
+  (defalias 'panel-toggle 'sr-speedbar-toggle)
+  :bind (("M-s" . sr-speedbar-toggle)))
 ;;project management
 (use-package projectile
   :ensure t
@@ -527,6 +534,17 @@
   (defalias 'org-mode-search 'helm-org-rifle)
   (defalias 'mode-search-current-buffer 'helm-org-rifle-current-buffer)
   (defalias 'mode-search 'helm-org-rifle))
+;;beacon for not losing cursor
+(use-package beacon
+  :ensure t
+  :config (defalias 'cursor-blink 'beacon-blink)
+  :bind (("<s-f1>" . beacon-blink)))
+;;lua mode
+(use-package lua-mode
+  :ensure t)
+(use-package company-lua
+  :ensure t
+  :config (add-to-list 'company-backends 'company-lua))
 
 ;;shit from GitHub
 ;;muh books
@@ -561,14 +579,14 @@
 (setq flyspell-issue-message-flag nil)
 (setq flyspell-issue-welcome-flag nil)
 (mapcar (lambda (mode-hook) (add-hook mode-hook 'flyspell-prog-mode))
-        '(c-mode-common-hook tcl-mode-hook emacs-lisp-mode-hook 
+		'(c-mode-common-hook tcl-mode-hook emacs-lisp-mode-hook 
 							 ruby-mode-hook java-mode-hook fish-mode-hook shell-mode-hook))
 (mapcar (lambda (mode-hook) (add-hook mode-hook 'flyspell-mode))
-        '(org-mode-hook markdown-mode-hook gfm-mode-hook))
+		'(org-mode-hook markdown-mode-hook gfm-mode-hook))
 
 (defface hi-white
   '((((background dark)) (:background "#696969" :foreground "white"))
-    (t (:background "#696969")))
+	(t (:background "#696969")))
   "Face for hi-lock mode."
   :group 'hi-lock-faces)
 
