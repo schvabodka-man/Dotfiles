@@ -38,7 +38,7 @@ function docker-run
 	#fish shell don't allow me to set variables with dashes in it
 	docker stop (echo $argv | perl -n -e '/^--name\s(.|\w+)\s-|--/ && print "$1\n"') > /dev/null
 	docker rm (echo $argv | perl -n -e '/^--name\s(.|\w+)\s-|--/ && print "$1\n"') > /dev/null
-t	docker run $argv
+	t	docker run $argv
 end
 
 function forecast
@@ -92,8 +92,21 @@ function project-js
 	touch .indium
 	touch .projectile
 	touch .tern-project
+	echo "{
+	\"libs\": [
+	\"browser\",
+	\"jquery\",
+	\"express\",
+	\"prism\"
+	],
+	\"plugins\": {
+	\"node\": {}
+	}
+	}" >> .tern-project
 end
 alias project-javascript 'project-js'
+alias javascript-project 'project-js'
+alias js-project 'project-js'
 
 function search #for some reason i cant just pipe my shit
 	fzf --ansi --inline-info --multi --history=/home/user/.config/fzf/history --preview="cat {}" > .found
@@ -177,6 +190,6 @@ end
 
 #autojump
 set --global AUTOJUMP_PATH /usr/share/autojump/autojump.fish
-	if test -e $AUTOJUMP_PATH
+if test -e $AUTOJUMP_PATH
 	source $AUTOJUMP_PATH
 end
