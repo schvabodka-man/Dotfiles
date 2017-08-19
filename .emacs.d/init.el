@@ -83,8 +83,8 @@
 (global-set-key (kbd "M-<right>") 'windmove-right)
 (global-set-key (kbd "M-q") 'delete-window)
 (global-set-key (kbd "C-S-q") 'kill-this-buffer)
+;;dired
 (define-key dired-mode-map "n" 'find-file)
-(define-key dired-mode-map "N" 'dired-create-directory)
 ;;redone backspace and del
 (global-set-key (kbd "C-<backspace>") 'ivy-backward-kill-word)
 
@@ -161,7 +161,6 @@
 ;;cua mode
 (cua-mode t)
 (setq cua-auto-tabify-rectangles nil)
-
 ;;theming
 (use-package seti-theme
   :ensure t
@@ -538,6 +537,7 @@
 (use-package beacon
   :ensure t
   :config (defalias 'cursor-blink 'beacon-blink)
+  (defalias 'caret-blink 'beacon-blink)
   :bind (("<s-f1>" . beacon-blink)))
 ;;lua mode
 (use-package lua-mode
@@ -545,6 +545,10 @@
 (use-package company-lua
   :ensure t
   :config (add-to-list 'company-backends 'company-lua))
+;;dired additions
+(use-package dired+
+  :ensure t
+  :config  (diredp-make-find-file-keys-reuse-dirs))
 
 ;;shit from GitHub
 ;;muh books
@@ -642,3 +646,4 @@
  '(rainbow-delimiters-depth-8-face ((t (:foreground "violet"))))
  '(rainbow-delimiters-depth-9-face ((t (:foreground "dark violet")))))
 ;;; init.el ends here
+(put 'dired-find-alternate-file 'disabled nil)
