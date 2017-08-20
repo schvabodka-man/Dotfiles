@@ -209,7 +209,6 @@ add_binds("normal", {
 			 { "^PT$", function (w) end},
 			 { "^PW$", function (w) end},
 			 { "<Control-d>", "nil", function (w) end },
-			 { "<Control-u>", "nil", function (w) end },
 			 { "<Control-f>", function (w) end },
 			 { "<Control-b>", function (w) end  },
 			 { "<space>", function (w) end },
@@ -263,8 +262,24 @@ add_binds("normal", {
 			 { "^,tr$", function (w) end },
 			 { "<F1>", "nil", function (w) end },
 			 { "<F12>", "nil", function (w) end },
+			 { "/", function (w) end },
+			 { "?", function (w) end },
+			 { "n", function (w) end },
+			 { "N", function (w) end},
+			 { "^;$", function (w) end },
+			 { "^g;$", function (w) end },
+})
+add_binds("search", {
+			 { "<Control-j>", function (w) end },
+			 { "<Control-k>", function (w) end },
+})
+add_binds("follow", {
+			 { "<Tab>", function (w) end },
+			 { "<Shift-Tab>", function (w) end },
 })
 
+
+--mpv vids
 add_binds("all", {
 			 { "<Control-v>", "Open video in mpv.", mpv },
 })
@@ -287,7 +302,8 @@ add_binds("all", {
 			 { "<Mod1-Shift-Return>", "Open one or more URLs in a new tab.", function (w) w:enter_cmd(":tabopen ") end },
 			 { "<Mod1-Control-Return>", "Open one or more URLs based on current location in a new tab.", function (w) w:enter_cmd(":tabopen " .. (w.view.uri or "")) end },
 })
-add_binds("normal", {			 { "<Mod1-Return>", "Open a new tab.", function (w) w:new_tab("luakit://newtab/") end }})
+add_binds("normal", {{ "<Mod1-Return>", "Open a new tab.", function (w) w:new_tab("luakit://newtab/") end }})
+add_binds("normal", {{ "<Control-Z>", "Reopen tab.", function (w) w:new_tab("luakit://newtab/") end }})
 --history
 add_binds("all", {
 			 { "<Control-Left>", "Go back in the browser history.", function (w, m) w:back(m.count) end },
@@ -311,7 +327,110 @@ add_binds("all", {
 })
 --devel
 add_binds("normal", { { "<F1>", "Toggle web inspector.", function (w) w:run_cmd(":inspect!") end }})
---navigation(following)
+--search
+add_binds("normal", {
+			 { "<Control-f>", "Search for string on current page.",
+			   function (w) w:start_search("/") end },
+			 { "<Control-Shift-f>", "Reverse search for string on current page.",
+			   function (w) w:start_search("?") end },
+})
+add_binds("search", {
+			 { "<Control->>", "Select next search result.", function (w)
+				  w:search(w.search_state.last_search, true)
+			 end },
+			 { "<Control-<>", "Select previous result.", function (w)
+				  w:search(w.search_state.last_search, false)
+			 end },
+			 { "<Control-]>", "Select next search result.", function (w)
+				  w:search(w.search_state.last_search, true)
+			 end },
+			 { "<Control-[>", "Select previous result.", function (w)
+				  w:search(w.search_state.last_search, false)
+			 end },
+			 { "<Control-Right>", "Select next search result.", function (w)
+				  w:search(w.search_state.last_search, true)
+			 end },
+			 { "<Control-Left>", "Select previous result.", function (w)
+				  w:search(w.search_state.last_search, false)
+			 end },
+			 { "<Mod1->>", "Select next search result.", function (w)
+				  w:search(w.search_state.last_search, true)
+			 end },
+			 { "<Mod1-<>", "Select previous result.", function (w)
+				  w:search(w.search_state.last_search, false)
+			 end },
+			 { "<Mod1-]>", "Select next search result.", function (w)
+				  w:search(w.search_state.last_search, true)
+			 end },
+			 { "<Mod1-[>", "Select previous result.", function (w)
+				  w:search(w.search_state.last_search, false)
+			 end },
+			 { "<Mod1-Right>", "Select next search result.", function (w)
+				  w:search(w.search_state.last_search, true)
+			 end },
+			 { "<Mod1-Left>", "Select previous result.", function (w)
+				  w:search(w.search_state.last_search, false)
+			 end },
+			 { "<Mod1-Down>", "Select next search result.", function (w)
+				  w:search(w.search_state.last_search, true)
+			 end },
+			 { "<Mod1-Up>", "Select previous result.", function (w)
+				  w:search(w.search_state.last_search, false)
+			 end },
+			 { "<Control-Down>", "Select next search result.", function (w)
+				  w:search(w.search_state.last_search, true)
+			 end },
+			 { "<Control-Up>", "Select previous result.", function (w)
+				  w:search(w.search_state.last_search, false)
+			 end },
+})
+--follow mode
+local function focus(w, step) --can't access shit
+    local follow_wm = require_web_module("follow_wm")
+    follow_wm:emit_signal(w.view, "focus", step)
+end
+add_binds("normal", {
+    { "<Control-g>", [[Start `follow` mode. Hint all clickable elements
+        (as defined by the `follow.selectors.clickable`
+            selector) and open links in the current tab.]],
+        function (w)
+            w:set_mode("follow", {
+                selector = "clickable", evaluator = "click",
+                func = function (s) w:emit_form_root_active_signal(s) end,
+            })
+        end },
+
+    -- Open new tab
+    { "<Control-Shift-g>", [[Start follow mode. Hint all links (as defined by the
+            `follow.selectors.uri` selector) and open links in a new tab.]],
+        function (w)
+            w:set_mode("follow", {
+                prompt = "background tab", selector = "uri", evaluator = "uri",
+                func = function (uri)
+                    assert(type(uri) == "string")
+                    w:new_tab(uri, { switch = false, private = w.view.private })
+                end
+            })
+        end },
+})
+add_binds("follow", {
+			 { "<Control->>", "Focus the next element hint.", function (w) focus(w, 1) end },
+			 { "<Control-<>", "Focus the previous element hint.", function (w) focus(w, -1) end },
+			 { "<Control-]>", "Focus the next element hint.", function (w) focus(w, 1) end },
+			 { "<Control-[>", "Focus the previous element hint.", function (w) focus(w, -1) end },
+			 { "<Control-Right>", "Focus the next element hint.", function (w) focus(w, 1) end },
+			 { "<Control-Left>", "Focus the previous element hint.", function (w) focus(w, -1) end },
+			 { "<Mod1->>", "Focus the next element hint.", function (w) focus(w, 1) end },
+			 { "<Mod1-<>", "Focus the previous element hint.", function (w) focus(w, -1) end },
+			 { "<Mod1-]>", "Focus the next element hint.", function (w) focus(w, 1) end },
+			 { "<Mod1-[>", "Focus the previous element hint.", function (w) focus(w, -1) end },
+			 { "<Mod1-Right>", "Focus the next element hint.", function (w) focus(w, 1) end },
+			 { "<Mod1-Left>", "Focus the previous element hint.", function (w) focus(w, -1) end },
+			 { "<Mod1-Down>", "Focus the next element hint.", function (w) focus(w, 1) end },
+			 { "<Mod1-Up>", "Focus the previous element hint.", function (w) focus(w, -1) end },
+			 { "<Control-Down>", "Focus the next element hint.", function (w) focus(w, 1) end },
+			 { "<Control-Up>", "Focus the previous element hint.", function (w) focus(w, -1) end },
+})
 -----------------------------
 -------- Commands -----------
 -----------------------------
