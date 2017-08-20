@@ -170,7 +170,7 @@ local function mpv (w)
    local view = w.view
    local uri = view.hovered_uri or view.uri
    if uri then
-	  msg.info("Opening video in mpv")
+	  w:notify("Opening video in mpv")
 	  luakit.spawn(string.format("mpv --geometry=1280x720 %s", uri))
    end
 end
@@ -186,6 +186,15 @@ local function pass()
    luakit.spawn('terminator -e "~/.config/fish/shortcuts/search-password.fish"')
 end
 
+local function scriptSwitcher(w)
+   if (noscript.enable_scripts == true) then
+	  noscript.enable_scripts = false
+	  w:notify("JavaScript disabled globally")
+   else
+	  noscript.enable_scripts = true
+	  w:notify("JavaScript enabled globally")
+   end
+end
 -----------------------------
 ---------- Values -----------
 -----------------------------
@@ -317,8 +326,9 @@ add_binds("all", {
 add_binds("normal", {{ "<Mod1-Return>", "Open a new tab.", function (w) w:new_tab("luakit://newtab/") end }})
 add_binds("normal", {{ "<Control-z>", "Reopen tab.", function (w) w:run_cmd(":undolist!") end }})
 --scripts and plugins
-add_binds("normal", {{ "<Mod1-s>", "Open a new tab.", function (w) w:toggle_scripts() end }})
-add_binds("normal", {{ "<Mod1-p>", "Reopen tab.", function (w) w:toggle_plugins() end }})
+add_binds("normal", {{ "<Mod1-s>", "Toggle scripts.", function (w) w:toggle_scripts() end },
+			 { "<Mod1-Shift-s>", "Toggle scripts globally.", function (w) scriptSwitcher(w) end}})
+add_binds("normal", {{ "<Mod1-p>", "Toggle plugins.", function (w) w:toggle_plugins() end }})
 --downloads tabhistory
 add_binds("normal", {{ "<Mod1-d>", "Downloads.", function (w) w:new_tab("luakit://downloads/") end }})
 --history
