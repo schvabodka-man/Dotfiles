@@ -261,6 +261,8 @@ add_binds("normal", {
 			 { "^,ts$", function (w) end },
 			 { "^,tp$", function (w) end },
 			 { "^,tr$", function (w) end },
+			 { "<F1>", "nil", function (w) end },
+			 { "<F12>", "nil", function (w) end },
 })
 
 add_binds("all", {
@@ -281,11 +283,11 @@ add_binds("all", {
 				  w.tabs:reorder(w.view,
 								 (w.tabs:current() + m.count) % w.tabs:count())
 			   end, {count=1} },
-			 { "<Mod1-Return>", "Open a new tab.", function (w) w:new_tab() end },
 			 { "<Mod1-q>", "Close current tab.", function (w) w:close_tab() end },
 			 { "<Mod1-Shift-Return>", "Open one or more URLs in a new tab.", function (w) w:enter_cmd(":tabopen ") end },
 			 { "<Mod1-Control-Return>", "Open one or more URLs based on current location in a new tab.", function (w) w:enter_cmd(":tabopen " .. (w.view.uri or "")) end },
 })
+add_binds("normal", {			 { "<Mod1-Return>", "Open a new tab.", function (w) w:new_tab("luakit://newtab/") end }})
 --history
 add_binds("all", {
 			 { "<Control-Left>", "Go back in the browser history.", function (w, m) w:back(m.count) end },
@@ -294,7 +296,7 @@ add_binds("all", {
 --m-x like emacs
 add_binds("all", {{ "<Mod1-x>", "Enter `command` mode.", function (w) w:set_mode("command") end, {} }})
 --yanking
-add_binds("all", {{ "<Control-u>", "Yank current URI to clipboard.", function (w) yank(w) end}})
+add_binds("normal", {{ "<Control-u>", "Yank current URI to clipboard.", function (w) yank(w) end}})
 --opening
 add_binds("all", {
 			 { "<Mod1-o>", "Open one or more URLs.", function (w) w:enter_cmd(":open ") end },
@@ -307,6 +309,8 @@ add_binds("all", {
 			 { "<Control-r>", "Reload current tab.", function (w) w:reload() end },
 			 { "<Control-Shift-r>", "Reload current tab (skipping cache).", function (w) w:reload(true) end },
 })
+--devel
+add_binds("normal", { { "<F1>", "Toggle web inspector.", function (w) w:run_cmd(":inspect!") end }})
 --navigation(following)
 -----------------------------
 -------- Commands -----------
