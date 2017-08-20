@@ -114,13 +114,6 @@ function search #for some reason i cant just pipe my shit
 	rm .found
 end
 
-function search-password #deleting gpg
-	builtin cd ~/.password-store
-	fzf --ansi --inline-info --multi --history=/home/user/.config/fzf/history --preview="cat {}" > .found
-	set passfile (cat .found | perl -n -e '/(.+).gpg/ && print "$1\n"')
-	rm .found
-	pass $passfile
-end
 alias passwords 'search-password'
 
 alias xrdb-merge 'xrdb -merge ~/.Xresources'

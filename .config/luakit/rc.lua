@@ -162,11 +162,14 @@ local tab_favicons = require "tab_favicons"
 -- Add :view-source command
 local view_source = require "view_source"
 
+
+
+
 -----------------------------
 ------- Custom funcs --------
 -----------------------------
 --open video in mpv
-function mpv (w) 
+local function mpv (w) 
    local view = w.view
    local uri = view.hovered_uri or view.uri
    if uri then
@@ -175,11 +178,17 @@ function mpv (w)
    end
 end
 
-function yank(w)
+local function yank(w)
    local uri = string.gsub(w.view.uri or "", " ", "%%20")
    luakit.selection.clipboard = uri
    w:notify("Copied: " .. uri)
 end
+
+--pass integration
+local function pass()
+   luakit.spawn('terminator -e "~/.config/fish/shortcuts/search-password.fish"')
+end
+
 -----------------------------
 -------- Keybindings --------
 -----------------------------
@@ -386,32 +395,32 @@ add_binds("search", {
 })
 --follow mode
 local function focus(w, step) --can't access shit
-    local follow_wm = require_web_module("follow_wm")
-    follow_wm:emit_signal(w.view, "focus", step)
+   local follow_wm = require_web_module("follow_wm")
+   follow_wm:emit_signal(w.view, "focus", step)
 end
 add_binds("normal", {
-    { "<Control-g>", [[Start `follow` mode. Hint all clickable elements
+			 { "<Control-g>", [[Start `follow` mode. Hint all clickable elements
         (as defined by the `follow.selectors.clickable`
             selector) and open links in the current tab.]],
-        function (w)
-            w:set_mode("follow", {
-                selector = "clickable", evaluator = "click",
-                func = function (s) w:emit_form_root_active_signal(s) end,
-            })
-        end },
+			   function (w)
+				  w:set_mode("follow", {
+								selector = "clickable", evaluator = "click",
+								func = function (s) w:emit_form_root_active_signal(s) end,
+				  })
+			 end },
 
-    -- Open new tab
-    { "<Control-Shift-g>", [[Start follow mode. Hint all links (as defined by the
+			 -- Open new tab
+			 { "<Control-Shift-g>", [[Start follow mode. Hint all links (as defined by the
             `follow.selectors.uri` selector) and open links in a new tab.]],
-        function (w)
-            w:set_mode("follow", {
-                prompt = "background tab", selector = "uri", evaluator = "uri",
-                func = function (uri)
-                    assert(type(uri) == "string")
-                    w:new_tab(uri, { switch = false, private = w.view.private })
-                end
-            })
-        end },
+			   function (w)
+				  w:set_mode("follow", {
+								prompt = "background tab", selector = "uri", evaluator = "uri",
+								func = function (uri)
+								   assert(type(uri) == "string")
+								   w:new_tab(uri, { switch = false, private = w.view.private })
+								end
+				  })
+			 end },
 })
 add_binds("follow", {
 			 { "<Control->>", "Focus the next element hint.", function (w) focus(w, 1) end },
@@ -431,6 +440,8 @@ add_binds("follow", {
 			 { "<Control-Down>", "Focus the next element hint.", function (w) focus(w, 1) end },
 			 { "<Control-Up>", "Focus the previous element hint.", function (w) focus(w, -1) end },
 })
+
+
 -----------------------------
 -------- Commands -----------
 -----------------------------
@@ -440,6 +451,11 @@ add_cmds({
 	  { ":mpv", [[Play in MPV player]], function (w) mpv(w) end },
 	  { ":video", [[Play in MPV player]], function (w) mpv(w) end },
 })
+--pass integration
+add_cmds({
+	  { ":pass", [[Unix pass]], function () pass()  end },
+	  { ":passwords", [[Unix pass]], function () pass()  end },
+})
 --yanking
 add_cmds({
 	  { ":yank", [[Copy url]], function (w) yank(w) end },
@@ -448,39 +464,15 @@ add_cmds({
 })
 --noscript
 add_cmds({
-	  { ":script", [[Toggle scripts]], function (w) w:toggle_scripts()  end },
-	  { ":script-toggle", [[Toggle scripts]], function (w) w:toggle_scripts()  end },
-	  { ":toggle-script", [[Toggle scripts]], function (w) w:toggle_scripts()  end },
 	  { ":scripts-toggle", [[Toggle scripts]], function (w) w:toggle_scripts()  end },
-	  { ":toggle-scripts", [[Toggle scripts]], function (w) w:toggle_scripts()  end },
-	  { ":scripts", [[Toggle scripts]], function (w) w:toggle_scripts()  end },
-	  { ":noscript", [[Toggle scripts]], function (w) w:toggle_scripts()  end },
 	  { ":noscript-toggle", [[Toggle scripts]], function (w) w:toggle_scripts()  end },
-	  { ":toggle-noscript", [[Toggle scripts]], function (w) w:toggle_scripts()  end },
-	  { ":js", [[Toggle scripts]], function (w) w:toggle_scripts()  end },
-	  { ":javascript", [[Toggle scripts]], function (w) w:toggle_scripts()  end },
 	  { ":javascript-toggle", [[Toggle scripts]], function (w) w:toggle_scripts()  end },
 	  { ":js-toggle", [[Toggle scripts]], function (w) w:toggle_scripts()  end },
-	  { ":toggle-js", [[Toggle scripts]], function (w) w:toggle_scripts()  end },
-	  { ":toggle-javascript", [[Toggle scripts]], function (w) w:toggle_scripts()  end },
-})
-add_cmds({
-	  { ":plugin", [[Toggle plugins]], function (w) w:toggle_plugins()  end },
-	  { ":toggle-plugin", [[Toggle plugins]], function (w) w:toggle_plugins()  end },
-	  { ":plugin-toggle", [[Toggle plugins]], function (w) w:toggle_plugins()  end },
-	  { ":plugins", [[Toggle plugins]], function (w) w:toggle_plugins()  end },
-	  { ":plugins-toggle", [[Toggle plugins]], function (w) w:toggle_plugins()  end },
-	  { ":toggle-plugins", [[Toggle plugins]], function (w) w:toggle_plugins()  end },
-	  --implying any plugins i'll use is not flash/java applets
-	  { ":flash", [[Toggle plugins]], function (w) w:toggle_plugins()  end },
-	  { ":flash-toggle", [[Toggle plugins]], function (w) w:toggle_plugins()  end },
-	  { ":toggle-flash", [[Toggle plugins]], function (w) w:toggle_plugins()  end },
-	  { ":java", [[Toggle plugins]], function (w) w:toggle_plugins()  end },
-	  { ":java-toggle", [[Toggle plugins]], function (w) w:toggle_plugins()  end },
-	  { ":toggle-java", [[Toggle plugins]], function (w) w:toggle_plugins()  end },
 })
 --plugins
-
+add_cmds({
+	  { ":plugins-toggle", [[Toggle plugins]], function (w) w:toggle_plugins()  end },
+})
 -----------------------------
 -- End user script loading --
 -----------------------------
