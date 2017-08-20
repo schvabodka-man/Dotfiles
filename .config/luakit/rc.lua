@@ -54,6 +54,7 @@ local binds = require "binds"
 ----------------------------------
 -- Optional user script loading --
 ----------------------------------
+require "plugins.tabmenu"
 
 -- Add adblock
 local adblock = require "adblock"
@@ -323,6 +324,7 @@ add_binds("all", {
 			   end, {count=1} },
 			 { "<Mod1-q>", "Close current tab.", function (w) w:close_tab() end },
 			 { "<Mod1-Shift-Return>", "Open one or more URLs in a new tab.", function (w) w:enter_cmd(":tabopen ") end },
+			 { "<Mod1-w>", "Tab menu", function (w) w:run_cmd(":tabmenu") end },
 			 { "<Mod1-Control-Return>", "Open one or more URLs based on current location in a new tab.", function (w) w:enter_cmd(":tabopen " .. (w.view.uri or "")) end },
 })
 add_binds("normal", {{ "<Mod1-Return>", "Open a new tab.", function (w) w:new_tab("luakit://newtab/") end }})
@@ -360,6 +362,14 @@ add_binds("all", {
 add_binds("all", {
 			 { "<Control-r>", "Reload current tab.", function (w) w:reload() end },
 			 { "<Control-Shift-r>", "Reload current tab (skipping cache).", function (w) w:reload(true) end },
+})
+
+--menu
+add_binds("all", {
+			 { "<Down>",      "Move the menu row focus downwards.", function (w) w.menu:move_down() end },
+			 { "<Up>",        "Move the menu row focus upwards.",   function (w) w.menu:move_up()   end },
+			 { "<KP_Down>",   "Move the menu row focus downwards.", function (w) w.menu:move_down() end },
+			 { "<KP_Up>", "Move the menu row focus upwards.", function (w) w.menu:move_up() end },
 })
 
 --devel
