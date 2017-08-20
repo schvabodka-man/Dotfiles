@@ -59,89 +59,89 @@ globals.search_engines.default = globals.search_engines.startpage
 -- https://webkitgtk.org/reference/webkit2gtk/stable/WebKitSettings.html
 globals.domain_props = {
    ["all"] = {
-	  enable_webgl            = false,
-	  enable_scripts          = false,
-	  enable_plugins          = false,
+	  -- enable_webgl            = false,
+	  -- enable_scripts          = false,
+	  -- enable_plugins          = false,
 	  zoom_text_only          = false,
    }, 
-   ["youtube.com"] = {
-	  enable_scripts = true,
-   },
-   ["gog.com"] = {
-	  enable_scripts = true,
-   },
-   ["gog.com"] = {
-	  enable_scripts = true,
-   },
-   ["store.steampowered.com"] = {
-	  enable_scripts = true,
-   },
-   ["steamcommunity.com"] = {
-	  enable_scripts = true,
-   },
-   ["help.steampowered.com"] = {
-	  enable_scripts = true,
-   },
-   ["facebook.com"] = {
-	  enable_scripts = true,
-   },
-   ["bitbucket.org"] = {
-	  enable_scripts = true,
-   },
-   ["userstyles.org"] = {
-	  enable_scripts = true,
-   },
-   ["twitch.tv"] = {
-	  enable_scripts = true,
-   },
-   ["ttvnw.net"] = {
-	  enable_scripts = true,
-   },
-   ["amazon.com"] = {
-	  enable_scripts = true,
-   },
-   ["amazon.de"] = {
-	  enable_scripts = true,
-   },
-   ["amazon.co.jp"] = {
-	  enable_scripts = true,
-   },
-   ["amazon.jp"] = {
-	  enable_scripts = true,
-   },
-   ["amazon.fr"] = {
-	  enable_scripts = true,
-   },
-   ["ebay.com"] = {
-	  enable_scripts = true,
-   },
-   ["ebay.co.jp"] = {
-	  enable_scripts = true,
-   },
-   ["ebay.de"] = {
-	  enable_scripts = true,
-   },
-   ["ebay.fr"] = {
-	  enable_scripts = true,
-   },
-   ["bandcamp.com"] = {
-	  enable_scripts = true,
-   },
-   ["bcbits.com"] = {
-	  enable_scripts = true,
-   },
-   ["soundcloud.com"] = {
-	  enable_scripts = true,
-   },
-   ["sndcdn.com"] = {
-	  enable_scripts = true,
-   },
-   ["boards.4chan.org"] = {
-	  enable_scripts = true,
-   },
-   ["github.com"] = {
-	  enable_scripts = true,
-   },
+   -- ["youtube.com"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["gog.com"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["gog.com"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["store.steampowered.com"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["steamcommunity.com"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["help.steampowered.com"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["facebook.com"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["bitbucket.org"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["userstyles.org"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["twitch.tv"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["ttvnw.net"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["amazon.com"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["amazon.de"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["amazon.co.jp"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["amazon.jp"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["amazon.fr"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["ebay.com"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["ebay.co.jp"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["ebay.de"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["ebay.fr"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["bandcamp.com"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["bcbits.com"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["soundcloud.com"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["sndcdn.com"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["boards.4chan.org"] = {
+   -- 	  enable_scripts = true,
+   -- },
+   -- ["github.com"] = {
+   -- 	  enable_scripts = true,
+   -- },
 }
 
 -- Cookie acceptance policy

@@ -7,7 +7,7 @@ require "lfs"
 require "unique_instance"
 
 -- Set the number of web processes to use. A value of 0 means 'no limit'.
-luakit.process_limit = 4
+luakit.process_limit = 0
 
 -- Load library of useful functions for luakit
 local lousy = require "lousy"
@@ -129,7 +129,7 @@ local open_editor = require "open_editor"
 -- `,ts` to toggle scripts, `,tp` to toggle plugins, `,tr` to reset.
 -- Remove all "enable_scripts" & "enable_plugins" lines from your
 -- domain_props table (in config/globals.lua) as this module will conflict.
---require "noscript"
+local noscript = require "noscript"
 
 local follow_selected = require "follow_selected"
 local go_input = require "go_input"
@@ -162,9 +162,6 @@ local tab_favicons = require "tab_favicons"
 -- Add :view-source command
 local view_source = require "view_source"
 
-
-
-
 -----------------------------
 ------- Custom funcs --------
 -----------------------------
@@ -188,6 +185,12 @@ end
 local function pass()
    luakit.spawn('terminator -e "~/.config/fish/shortcuts/search-password.fish"')
 end
+
+-----------------------------
+---------- Values -----------
+-----------------------------
+noscript.enable_scripts = false
+noscript.enable_plugins = false
 
 -----------------------------
 -------- Keybindings --------
@@ -312,7 +315,12 @@ add_binds("all", {
 			 { "<Mod1-Control-Return>", "Open one or more URLs based on current location in a new tab.", function (w) w:enter_cmd(":tabopen " .. (w.view.uri or "")) end },
 })
 add_binds("normal", {{ "<Mod1-Return>", "Open a new tab.", function (w) w:new_tab("luakit://newtab/") end }})
-add_binds("normal", {{ "<Control-Z>", "Reopen tab.", function (w) w:new_tab("luakit://newtab/") end }})
+add_binds("normal", {{ "<Control-z>", "Reopen tab.", function (w) w:run_cmd(":undolist!") end }})
+--scripts and plugins
+add_binds("normal", {{ "<Mod1-s>", "Open a new tab.", function (w) w:toggle_scripts() end }})
+add_binds("normal", {{ "<Mod1-p>", "Reopen tab.", function (w) w:toggle_plugins() end }})
+--downloads tabhistory
+add_binds("normal", {{ "<Mod1-d>", "Downloads.", function (w) w:new_tab("luakit://downloads/") end }})
 --history
 add_binds("all", {
 			 { "<Control-Left>", "Go back in the browser history.", function (w, m) w:back(m.count) end },
@@ -335,7 +343,8 @@ add_binds("all", {
 			 { "<Control-Shift-r>", "Reload current tab (skipping cache).", function (w) w:reload(true) end },
 })
 --devel
-add_binds("normal", { { "<F1>", "Toggle web inspector.", function (w) w:run_cmd(":inspect!") end }})
+add_binds("normal", { { "<F1>", "Toggle web inspector.", function (w) w:run_cmd(":inspect") end }})
+add_binds("normal", { { "<F2>", "View source code of page", function (w) w:run_cmd(":view-source") end }})
 --search
 add_binds("normal", {
 			 { "<Control-f>", "Search for string on current page.",
@@ -343,6 +352,7 @@ add_binds("normal", {
 			 { "<Control-Shift-f>", "Reverse search for string on current page.",
 			   function (w) w:start_search("?") end },
 })
+add_binds("normal", { { "<Escape>", "Remove search results", function (w) w:run_cmd(":nohlsearch") end }})
 add_binds("search", {
 			 { "<Control->>", "Select next search result.", function (w)
 				  w:search(w.search_state.last_search, true)
@@ -440,8 +450,6 @@ add_binds("follow", {
 			 { "<Control-Down>", "Focus the next element hint.", function (w) focus(w, 1) end },
 			 { "<Control-Up>", "Focus the previous element hint.", function (w) focus(w, -1) end },
 })
-
-
 -----------------------------
 -------- Commands -----------
 -----------------------------
@@ -467,7 +475,7 @@ add_cmds({
 	  { ":scripts-toggle", [[Toggle scripts]], function (w) w:toggle_scripts()  end },
 	  { ":noscript-toggle", [[Toggle scripts]], function (w) w:toggle_scripts()  end },
 	  { ":javascript-toggle", [[Toggle scripts]], function (w) w:toggle_scripts()  end },
-	  { ":js-toggle", [[Toggle scripts]], function (w) w:toggle_scripts()  end },
+	  { ":js-toggle", [[Toggle scripts]], function (w) w:toggle_scripts() end },
 })
 --plugins
 add_cmds({
