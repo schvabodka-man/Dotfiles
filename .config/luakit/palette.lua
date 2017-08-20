@@ -22,18 +22,18 @@ theme.notif_bg = "#0e1112"
 -- Menu colours
 theme.menu_fg                   = "#FFFFFF"
 theme.menu_bg                   = "#0e1112"
-theme.menu_selected_fg          = "#FFFFFF"
+theme.menu_selected_fg          = "#000000"
 theme.menu_selected_bg          = "#757575"
-theme.menu_title_bg             = "#fff"
+theme.menu_title_bg             = "#000000"
 theme.menu_primary_title_fg     = "#00c853"
 theme.menu_secondary_title_fg   = "#ffea00"
 
-theme.menu_disabled_fg = "#ff1744"
-theme.menu_disabled_bg = theme.menu_bg
+theme.menu_disabled_fg = "#000000"
+theme.menu_disabled_bg = "#ff1744"
 theme.menu_enabled_fg = theme.menu_fg
 theme.menu_enabled_bg = theme.menu_bg
-theme.menu_active_fg = "#76ff03"
-theme.menu_active_bg = theme.menu_bg
+theme.menu_active_fg = "#000000"
+theme.menu_active_bg = "#76ff03"
 
 -- Proxy manager
 theme.proxy_active_menu_fg      = '#FFFFFF'

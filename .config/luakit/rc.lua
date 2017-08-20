@@ -195,6 +195,7 @@ local function scriptSwitcher(w)
 	  w:notify("JavaScript enabled globally")
    end
 end
+
 -----------------------------
 ---------- Values -----------
 -----------------------------
@@ -304,6 +305,7 @@ add_binds("follow", {
 add_binds("all", {
 			 { "<Control-v>", "Open video in mpv.", mpv },
 })
+
 --tabs
 add_binds("all", {
 			 { "<Mod1-Left>", "Go to previous tab.", function (w) w:prev_tab() end },
@@ -325,21 +327,27 @@ add_binds("all", {
 })
 add_binds("normal", {{ "<Mod1-Return>", "Open a new tab.", function (w) w:new_tab("luakit://newtab/") end }})
 add_binds("normal", {{ "<Control-z>", "Reopen tab.", function (w) w:run_cmd(":undolist!") end }})
+
 --scripts and plugins
 add_binds("normal", {{ "<Mod1-s>", "Toggle scripts.", function (w) w:toggle_scripts() end },
 			 { "<Mod1-Shift-s>", "Toggle scripts globally.", function (w) scriptSwitcher(w) end}})
 add_binds("normal", {{ "<Mod1-p>", "Toggle plugins.", function (w) w:toggle_plugins() end }})
---downloads tabhistory
+
+--downloads
 add_binds("normal", {{ "<Mod1-d>", "Downloads.", function (w) w:new_tab("luakit://downloads/") end }})
+
 --history
 add_binds("all", {
 			 { "<Control-Left>", "Go back in the browser history.", function (w, m) w:back(m.count) end },
 			 { "<Control-Right>", "Go forward in the browser history.", function (w, m) w:forward(m.count) end },
 })
+
 --m-x like emacs
 add_binds("all", {{ "<Mod1-x>", "Enter `command` mode.", function (w) w:set_mode("command") end, {} }})
+
 --yanking
 add_binds("normal", {{ "<Control-u>", "Yank current URI to clipboard.", function (w) yank(w) end}})
+
 --opening
 add_binds("all", {
 			 { "<Mod1-o>", "Open one or more URLs.", function (w) w:enter_cmd(":open ") end },
@@ -347,14 +355,17 @@ add_binds("all", {
 			 { "<Mod1-Shift-o>", "Open one or more URLs.", function (w) w:enter_cmd(":tabopen ") end },
 			 { "<Mod1-Control-Shift-o>", "Open one or more URLs based on current location in a new window.",function (w) w:enter_cmd(":tabopen " .. (w.view.uri or "")) end},
 })
+
 --reloading
 add_binds("all", {
 			 { "<Control-r>", "Reload current tab.", function (w) w:reload() end },
 			 { "<Control-Shift-r>", "Reload current tab (skipping cache).", function (w) w:reload(true) end },
 })
+
 --devel
 add_binds("normal", { { "<F1>", "Toggle web inspector.", function (w) w:run_cmd(":inspect") end }})
 add_binds("normal", { { "<F2>", "View source code of page", function (w) w:run_cmd(":view-source") end }})
+
 --search
 add_binds("normal", {
 			 { "<Control-f>", "Search for string on current page.",
@@ -413,6 +424,7 @@ add_binds("search", {
 				  w:search(w.search_state.last_search, false)
 			 end },
 })
+
 --follow mode
 local function focus(w, step) --can't access shit
    local follow_wm = require_web_module("follow_wm")
