@@ -549,6 +549,12 @@
 (use-package dired+
   :ensure t
   :config  (diredp-make-find-file-keys-reuse-dirs))
+;;rtorrent frontend
+(use-package mentor
+  :ensure t
+  :config (defalias 'mentor 'rtorrent)
+  (defalias 'mentor 'torrent)
+  (setq mentor-rtorrent-external-rpc "~/.rtorrent-rpc.socket"))
 
 ;;shit from GitHub
 ;;muh books
