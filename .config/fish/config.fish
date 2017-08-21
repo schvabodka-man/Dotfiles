@@ -171,6 +171,7 @@ alias tmux-config-update "tmux source ~/.config/tmux/tmux.conf"
 alias tmux-update-config "tmux source ~/.config/tmux/tmux.conf"
 
 alias cmus "~/.config/fish/shortcuts/cmus.fish"
+alias rtorrent "~/.config/fish/shortcuts/rtorrent.fish"
 
 alias chromium-debug "chromium-browser --disable-gpu --remote-debugging-port=9222 https://localhost:3000"
 

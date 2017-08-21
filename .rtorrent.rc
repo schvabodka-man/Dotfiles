@@ -1,0 +1,58 @@
+min_peers = 1
+max_peers = 100
+min_peers_seed = 1
+max_peers_seed = 50
+max_uploads = 10
+max_downloads_global = 10
+max_uploads_global = 20
+
+download_rate = 0
+upload_rate = 100
+
+directory = ~/Downloads/Torrents
+schedule = watch_directory,5,5,load_start=~/Torrent
+
+session = ~/Downloads/Torrents/.rtorrent.session
+
+encryption = allow_incoming,try_outgoing,enable_retry
+
+use_udp_trackers = yes
+peer_exchange = yes
+dht = auto
+
+encoding_list = UTF-8
+
+# ui.color.alarm.set="bright red"
+# ui.color.focus.set="bright reverse"
+# ui.color.footer.set="bright white"
+# ui.color.incomplete.set="bright yellow"
+# ui.color.info.set="bright white"
+# ui.color.label.set="bright white"
+# #ui.color.leeching.set="bright yellow"
+# ui.color.queued.set="bright magenta"
+# ui.color.seeding.set="bright green"
+# ui.color.title.set="bright white"
+# 
+# ui.color.complete.set="bright bold green"
+# ui.color.stopped.set="bright bold red"
+# 
+# ui.color.progress0.set="bright red"
+# ui.color.progress20.set="bright red"
+# ui.color.progress40.set="bright magenta"
+# ui.color.progress60.set="bright yellow"
+# ui.color.progress80.set="bright yellow"
+# ui.color.progress100.set="bright green"
+# ui.color.progress120.set="bright green"
+# 
+# schedule = bind_collapse,0,0,"ui.bind_key=download_list,c,view.collapsed.toggle="
+# view.collapsed.toggle=main
+# view.collapsed.toggle=name
+# view.collapsed.toggle=active
+# view.collapsed.toggle=started
+# view.collapsed.toggle=stopped
+# view.collapsed.toggle=complete
+# view.collapsed.toggle=incomplete
+# view.collapsed.toggle=hashing
+# view.collapsed.toggle=seeding
+# view.collapsed.toggle=leeching
+# view.collapsed.toggle=rtcontrol
