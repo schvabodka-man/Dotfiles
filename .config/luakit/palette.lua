@@ -1,7 +1,7 @@
 local theme = {}
 
 -- Default settings
-theme.font = "14px monospace"
+theme.font = "14px Fira Sans Mono"
 theme.fg   = "#FFFFFF"
 theme.bg   = "#0e1112"
 

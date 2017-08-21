@@ -55,6 +55,7 @@ local binds = require "binds"
 -- Optional user script loading --
 ----------------------------------
 require "plugins.tabmenu"
+require "plugins.yanksel"
 
 -- Add adblock
 local adblock = require "adblock"
@@ -291,6 +292,7 @@ add_binds("normal", {
 			 { "N", function (w) end},
 			 { "^;$", function (w) end },
 			 { "^g;$", function (w) end },
+			 { "^ys$", function (w) end },
 })
 add_binds("search", {
 			 { "<Control-j>", function (w) end },
@@ -304,7 +306,7 @@ add_binds("follow", {
 
 --mpv vids
 add_binds("all", {
-			 { "<Control-v>", "Open video in mpv.", mpv },
+			 { "<Mod1-v>", "Open video in mpv.", mpv },
 })
 
 --tabs
@@ -339,7 +341,7 @@ add_binds("normal", {{ "<Mod1-p>", "Toggle plugins.", function (w) w:toggle_plug
 add_binds("normal", {{ "<Mod1-d>", "Downloads.", function (w) w:new_tab("luakit://downloads/") end }})
 
 --history
-add_binds("all", {
+add_binds("normal", {
 			 { "<Control-Left>", "Go back in the browser history.", function (w, m) w:back(m.count) end },
 			 { "<Control-Right>", "Go forward in the browser history.", function (w, m) w:forward(m.count) end },
 })
@@ -349,7 +351,8 @@ add_binds("all", {{ "<Mod1-x>", "Enter `command` mode.", function (w) w:set_mode
 
 --yanking
 add_binds("normal", {{ "<Control-u>", "Yank current URI to clipboard.", function (w) yank(w) end}})
-
+add_binds("all", {{ "<Control-c>", "Yank current text selection.", function (w) w:run_cmd(":yanksel") end}})
+add_binds("normal", {{ "<Control-c>", "Yank current text selection.", function (w) w:run_cmd(":yanksel") end}}) --for some reason
 --opening
 add_binds("all", {
 			 { "<Mod1-o>", "Open one or more URLs.", function (w) w:enter_cmd(":open ") end },

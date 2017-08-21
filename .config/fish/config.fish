@@ -7,7 +7,7 @@ set -g theme_color_scheme dark
 set -x JAVA_HOME '/usr/lib/jvm/java'
 set -x GRADLE_HOME '/usr/share/gradle'
 set -x GOPATH '/home/user/Go'
-set -x EDITOR "emacsclient -c"
+set -x EDITOR "emacsclient -nw"
 set -x BROWSER "flatpak run org.mozilla.FirefoxNightly --no-remote"
 set -x FLATPACK_GNOME "3.24"
 
@@ -169,6 +169,8 @@ alias tmux-sessions "tmux ls"
 alias tmux-connect "tmux-attach"
 alias tmux-config-update "tmux source ~/.config/tmux/tmux.conf"
 alias tmux-update-config "tmux source ~/.config/tmux/tmux.conf"
+
+alias cmus "~/.config/fish/shortcuts/cmus.fish"
 
 alias chromium-debug "chromium-browser --disable-gpu --remote-debugging-port=9222 https://localhost:3000"
 
