@@ -127,4 +127,14 @@
 (defalias 'cancel-mail 'message-dont-send)
 (defalias 'cancel-message 'message-dont-send)
 
+(defalias 'mail-mark-read 'gnus-summary-put-mark-as-read)
+(defalias 'email-mark-read 'gnus-summary-put-mark-as-read)
+(defalias 'gnus-mark-read 'gnus-summary-put-mark-as-read)
+(defalias 'mail-mark-read 'gnus-summary-put-mark-as-unread)
+(defalias 'email-mark-read 'gnus-summary-put-mark-as-unread)
+(defalias 'gnus-mark-unread 'gnus-summary-put-mark-as-unread)
+(defalias 'email-mark-all-read 'gnus-summary-catchup)
+(defalias 'mail-mark-all-read 'gnus-summary-catchup)
+(defalias 'gnus-mark-all-read 'gnus-summary-catchup)
+
 ;;; gnus.el ends here
