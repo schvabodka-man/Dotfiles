@@ -14,9 +14,9 @@ schedule = watch_directory,5,5,load_start=~/Torrent
 
 session = ~/Downloads/Torrents/.rtorrent.session
 
-scgi_local = ~/.rtorrent-rpc.socket
-xmlrpc_dialect = i8
-encoding_list = UTF-8
+# scgi_local = ~/.rtorrent-rpc.socket
+# xmlrpc_dialect = i8
+# encoding_list = UTF-8
 
 encryption = allow_incoming,try_outgoing,enable_retry
 

@@ -244,7 +244,7 @@
   :config (defalias 'google-translate 'google-translate-smooth-translate)
   (defalias 'translate 'google-translate-smooth-translate))
 ;;time to play some games!
-;; z machine interpreter
+;; z machine interpreter 
 (use-package malyon
   :ensure t
   :init
@@ -291,10 +291,14 @@
   :ensure t
   :config
   (defalias 'temporary-package 'try)
+  (defalias 'temporary-install 'try)
   (defalias 'try-temporary 'try)
+  (defalias 'try-install 'try)
   (defalias 'try-package 'try)
   (defalias 'package-temporary 'try)
-  (defalias 'package-try 'try))
+  (defalias 'package-try 'try)
+  (defalias 'install-temporary 'try)
+  (defalias 'install-try 'try))
 ;;for deps mostly
 ;;(use-package hydra
 ;;  :ensure t)
@@ -552,9 +556,32 @@
 ;;rtorrent frontend
 (use-package mentor
   :ensure t
-  :config (defalias 'mentor 'rtorrent)
-  (defalias 'mentor 'torrent)
-  (setq mentor-rtorrent-external-rpc "~/.rtorrent-rpc.socket"))
+  :config (defalias 'rtorrent 'mentor)
+  (defalias 'torrent 'mentor)
+  (setq mentor-rtorrent-buffer-name "*mentor*")
+  ;;(setq mentor-rtorrent-external-rpc "~/.rtorrent-rpc.socket")
+  )
+;;language guessing
+;; (use-package guess-language
+;;   :ensure t
+;;   :config (setq guess-language-languages '(en ru))
+;;   (setq guess-language-langcodes
+;;   '((en . ("en_US" "English"))
+;;     (ru . ("ru_RU" "Russian"))))
+;;   (setq guess-language-min-paragraph-length 10)
+;;   (add-hook 'text-mode-hook (lambda () (guess-language-mode 1)))
+;;   (add-hook 'prog-mode-hook (lambda () (guess-language-mode 1))))
+
+;;for HUUUGE files
+(use-package vlf
+  :ensure t
+  :init (require 'vlf-setup)
+  :config (add-hook 'vlf-mode-hook
+			(lambda () (local-set-key (kbd "C-f") #'vlf-occur)
+			  (local-set-key (kbd "C-g") #'vlf-goto-line)
+			  (local-set-key (kbd "C-r") #'vlf-query-replace)
+			  (local-set-key (kbd "<Home>") #'vlf-beginning-of-file)
+			  (local-set-key (kbd "<End>") #'vlf-end-of-file))))
 
 ;;shit from GitHub
 ;;muh books
@@ -594,11 +621,25 @@
 (mapcar (lambda (mode-hook) (add-hook mode-hook 'flyspell-mode))
 		'(org-mode-hook markdown-mode-hook gfm-mode-hook))
 
+(global-set-key (kbd "<C-f2>") (lambda ()
+								 (interactive)
+								 (ispell-change-dictionary "russian")))
+(global-set-key (kbd "<C-f1>") (lambda ()
+								 (interactive)
+								 (ispell-change-dictionary "english")))
+(global-set-key (kbd "<C-f3>") 'ispell-change-dictionary)
+(defalias 'dictionary 'ispell-change-dictionary)
+(defalias 'language 'ispell-change-dictionary)
+
 (defface hi-white
   '((((background dark)) (:background "#696969" :foreground "white"))
 	(t (:background "#696969")))
   "Face for hi-lock mode."
   :group 'hi-lock-faces)
+
+;;gnus shit not in .gnusrc
+(gnus-demon-add-handler 'gnus-demon-scan-news 2 5)
+(gnus-demon-init)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -627,7 +668,8 @@
  '(package-selected-packages
    (quote
 	(helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
- '(sr-speedbar-right-side nil))
+ '(sr-speedbar-right-side nil)
+ '(vlf-application 'dont-ask))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -651,5 +693,6 @@
  '(rainbow-delimiters-depth-7-face ((t (:foreground "yellow"))))
  '(rainbow-delimiters-depth-8-face ((t (:foreground "violet"))))
  '(rainbow-delimiters-depth-9-face ((t (:foreground "dark violet")))))
-;;; init.el ends here
 (put 'dired-find-alternate-file 'disabled nil)
+;;; init.el ends here
+
