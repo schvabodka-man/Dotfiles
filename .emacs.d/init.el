@@ -577,11 +577,11 @@
   :ensure t
   :init (require 'vlf-setup)
   :config (add-hook 'vlf-mode-hook
-			(lambda () (local-set-key (kbd "C-f") #'vlf-occur)
-			  (local-set-key (kbd "C-g") #'vlf-goto-line)
-			  (local-set-key (kbd "C-r") #'vlf-query-replace)
-			  (local-set-key (kbd "<Home>") #'vlf-beginning-of-file)
-			  (local-set-key (kbd "<End>") #'vlf-end-of-file))))
+					(lambda () (local-set-key (kbd "C-f") #'vlf-occur)
+					  (local-set-key (kbd "C-g") #'vlf-goto-line)
+					  (local-set-key (kbd "C-r") #'vlf-query-replace)
+					  (local-set-key (kbd "<Home>") #'vlf-beginning-of-file)
+					  (local-set-key (kbd "<End>") #'vlf-end-of-file))))
 
 ;;shit from GitHub
 ;;muh books
@@ -641,6 +641,9 @@
 (gnus-demon-add-handler 'gnus-demon-scan-news 2 5)
 (gnus-demon-init)
 
+(defalias 'email 'gnus)
+(defalias 'mail 'gnus)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -668,8 +671,9 @@
  '(package-selected-packages
    (quote
 	(helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
+ '(send-mail-function (quote smtpmail-send-it))
  '(sr-speedbar-right-side nil)
- '(vlf-application 'dont-ask))
+ '(vlf-application (quote dont-ask)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -7,13 +7,13 @@ Type=Application
 Version=1.0
 
 # The name of the application
-Name=Geary
+Name=Gnus
 
 # A comment which can/will be used as a tooltip
-Comment=Email client
+Comment=Emacs email client
 
 # The executable of the application, possibly with arguments.
-Exec=flatpak run org.gnome.Geary
+Exec=emacsclient -c --eval "(gnus)"
 
 # Describes whether this application needs to be run in a terminal or not
 Terminal=false

@@ -59,13 +59,12 @@ alias skype 'flatpak run com.skype.Client'
 alias twitch 'flatpak run com.vinszent.GnomeTwitch'
 alias ppsspp 'flatpak run org.ppsspp.PPSSPP'
 alias retroarch 'flatpak run org.libretro.RetroArch'
-alias geary 'flatpak run org.gnome.Geary'
 alias gnucash 'flatpak run org.gnucash.GnuCash'
 
 alias gnu-cash 'gnucash'
 alias cash 'gnucash'
 alias money 'gnucash'
-alias email 'geary'
+alias email 'emacsclient -c --eval "(gnus)"'
 alias mail 'geary'
 alias books 'calibre'
 alias itch.io 'itch'
@@ -154,6 +153,18 @@ function export-key
 	gpg2 --export-secret-key $argv --armor > $argv.asc
 end
 alias gpg-export-key 'export-key'
+
+function encrypt
+	gpg2 -e -r $argv[1] $argv[2]
+end
+alias gpg-encrypt 'encrypt'
+alias gpg2-encrypt 'encrypt'
+
+function decrypt
+	gpg2 -d $argv
+end
+alias gpg-decrypt 'decrypt'
+alias gpg2-decrypt 'decrypt'
 
 #tmux
 function tmux-new
