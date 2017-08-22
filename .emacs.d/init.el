@@ -5,7 +5,8 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packa(defalias 'gnus-mark-all-read 'gnus-summary-catchup)
+ges/"))
 (package-initialize)
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -139,7 +140,7 @@
 (electric-pair-mode)
 (setq suggest-key-bindings nil)
 (setq browse-url-browser-function 'browse-url-generic
-	  browse-url-generic-program "firefox")
+	  browse-url-generic-program "luakit")
 ;;org mode select with shift
 (setq org-support-shift-select t)
 ;; killing messages buffer
@@ -161,11 +162,6 @@
 ;;cua mode
 (cua-mode t)
 (setq cua-auto-tabify-rectangles nil)
-;;theming
-(use-package seti-theme
-  :ensure t
-  :init (load-theme 'seti t))
-
 ;;minimap
 (use-package minimap
   :ensure t
@@ -322,10 +318,10 @@
 ;;icons
 (use-package all-the-icons
   :ensure t)
-(use-package mode-icons
-  :ensure t
-  :after all-the-icons
-  :init (mode-icons-mode))
+;; (use-package mode-icons
+;;   :ensure t
+;;   :after all-the-icons
+;;   :init (mode-icons-mode))
 (use-package all-the-icons-dired
   :ensure t
   :after all-the-icons
@@ -611,6 +607,13 @@
 (require 'org-wiki)
 (setq org-wiki-location "~/Dropbox/Org/Wiki")
 (defalias 'wiki 'org-wiki-index)
+;;my seti fork
+(el-get-bundle seti-theme
+  :url "https://raw.githubusercontent.com/schvabodka-man/seti-theme/master/seti-theme.el"
+  :description "Port of Atom theme"
+  :features org-wiki)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/el-get/seti-theme")
+(load-theme 'seti t)
 
 ;;spell checking
 (setq flyspell-issue-message-flag nil)
@@ -644,6 +647,17 @@
 (defalias 'email 'gnus)
 (defalias 'mail 'gnus)
 
+;;finally spaceline
+(use-package spaceline
+  :init (require 'spaceline-config)
+  (spaceline-emacs-theme)
+  :ensure t)
+;; (use-package spaceline-all-the-icons 
+;;   :after spaceline
+;;   :config (spaceline-all-the-icons-theme)
+;;   (spaceline-all-the-icons--setup-package-updates)
+;;   (spaceline-all-the-icons--setup-git-ahead))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -672,6 +686,7 @@
    (quote
 	(helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
  '(send-mail-function (quote smtpmail-send-it))
+ '(spaceline-all-the-icons-highlight-file-name t)
  '(sr-speedbar-right-side nil)
  '(vlf-application (quote dont-ask)))
 (custom-set-faces
@@ -696,7 +711,12 @@
  '(rainbow-delimiters-depth-6-face ((t (:foreground "dark magenta"))))
  '(rainbow-delimiters-depth-7-face ((t (:foreground "yellow"))))
  '(rainbow-delimiters-depth-8-face ((t (:foreground "violet"))))
- '(rainbow-delimiters-depth-9-face ((t (:foreground "dark violet")))))
+ '(rainbow-delimiters-depth-9-face ((t (:foreground "dark violet"))))
+ '(spaceline-flycheck-error ((t (:distant-foreground "orange red" :foreground "red"))))
+ '(spaceline-highlight-face ((t (:background "DarkGoldenrod2" :foreground "black" :inherit (quote mode-line)))))
+ '(spaceline-modified ((t (:background "SkyBlue2" :foreground "black" :inherit (quote mode-line)))))
+ '(spaceline-read-only ((t (:background "plum3" :foreground "black" :inherit (quote mode-line)))))
+ '(spaceline-unmodified ((t (:background "DarkGoldenrod2" :foreground "black" :inherit (quote mode-line))))))
 (put 'dired-find-alternate-file 'disabled nil)
 ;;; init.el ends here
 
