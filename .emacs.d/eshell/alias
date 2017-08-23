@@ -22,6 +22,7 @@ alias d delete-bmk $*
 alias s add-bmk $*
 alias g cd-bmk $*
 alias j z $*
+alias p projectile-switch-project $*
 
 alias xrdb-merge xrdb -merge ~/.Xresources
 alias rofi-cache-clear rm ~/.cache/rofi-3.runcache

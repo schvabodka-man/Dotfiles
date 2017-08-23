@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("fish"
+(("eshell aliases"
+ (filename . "~/.emacs.d/eshell/alias")
+ (front-context-string . "alias cd.. cd ..")
+ (rear-context-string)
+ (position . 1))
+("fish"
  (filename . "/home/user/.config/fish")
  (front-context-string)
  (rear-context-string . "/fish $ s fish\n")

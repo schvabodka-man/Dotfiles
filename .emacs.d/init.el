@@ -91,6 +91,8 @@
 (global-set-key (kbd "C-S-q") 'kill-this-buffer)
 ;;redone backspace and del
 (global-set-key (kbd "C-<backspace>") 'ivy-backward-kill-word)
+;;bookmark set
+(global-set-key (kbd "C-S-b") 'bookmark-set)
 
 ;;custom funcs and aliases
 (defun indent-all ()
