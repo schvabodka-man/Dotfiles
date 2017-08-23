@@ -2,6 +2,9 @@
 ;;; Commentary:
 ;;; MUH EMACS
 ;;; Code:
+;;gc tweaks
+(setq gc-cons-threshold 100000000)
+;;stuff
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
@@ -591,7 +594,6 @@
   :after visual-regexp
   :config (defalias 'multiple-cursors-mark 'vc/mc-mark)
   :bind (("C-r" . vr/query-replace)
-		 ("C-m" . vr/mc-mark)
 		 ("C-S-r" . vr/replace)))
 
 ;;shit from GitHub
@@ -659,7 +661,7 @@
 ;;gnus shit not in .gnusrc
 (gnus-demon-add-handler 'gnus-demon-scan-news 2 5)
 (gnus-demon-init)
-
+(setq gnus-init-file "~/.emacs.d/gnus.el")
 (defalias 'email 'gnus)
 (defalias 'mail 'gnus)
 
@@ -869,6 +871,15 @@
 (use-package dired+
   :ensure t
   :config  (diredp-toggle-find-file-reuse-dir))
+
+;;byte compile everything
+(defun byte-compile-init-dir ()
+  "Byte-compile all your dotfiles."
+  (interactive)
+  (byte-recompile-directory user-emacs-directory 0))
+(byte-compile-init-dir)
+;;gc on emacs idle
+(run-with-idle-timer 2 t (lambda () (garbage-collect)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
