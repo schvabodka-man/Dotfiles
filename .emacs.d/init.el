@@ -4,12 +4,6 @@
 ;;; Code:
 ;;gc tweaks
 (setq gc-cons-threshold 100000000)
-;;byte compile everything
-(defun byte-compile-init-dir ()
-  "Byte-compile all your dotfiles."
-  (interactive)
-  (byte-recompile-directory user-emacs-directory 0))
-(byte-compile-init-dir)
 ;;stuff
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
@@ -894,6 +888,12 @@
   :ensure t
   :config  (diredp-toggle-find-file-reuse-dir))
 
+;;byte compile everything
+(defun byte-compile-init-dir ()
+  "Byte-compile all your dotfiles."
+  (interactive)
+  (byte-recompile-directory user-emacs-directory 0))
+(byte-compile-init-dir)
 ;;gc on emacs idle
 (run-with-idle-timer 2 t (lambda () (garbage-collect)))
 
