@@ -35,6 +35,11 @@ ges/"))
 ;;git
 (use-package magit
   :ensure t)
+;;some libs
+(use-package dash
+  :ensure t)
+(use-package cl-lib
+  :ensure t)
 ;;(use-package magithub
 ;;  :after magit
 ;;  :config (magithub-feature-autoinject t))
@@ -176,6 +181,9 @@ ges/"))
 ;;for editing fish scripts
 (use-package fish-mode
   :ensure t)
+(use-package company-shell
+  :ensure t
+  :init (add-to-list 'company-backends '(company-shell company-shell-env company-fish-shell)))
 ;;for markdown
 (use-package markdown-mode
   :ensure t
@@ -578,6 +586,17 @@ ges/"))
 					  (local-set-key (kbd "C-r") #'vlf-query-replace)
 					  (local-set-key (kbd "<Home>") #'vlf-beginning-of-file)
 					  (local-set-key (kbd "<End>") #'vlf-end-of-file))))
+;;powerline from spacemacs
+;;finally spaceline
+(use-package spaceline
+  :init (require 'spaceline-config)
+  (spaceline-emacs-theme)
+  :ensure t)
+;; (use-package spaceline-all-the-icons 
+;;   :after spaceline
+;;   :config (spaceline-all-the-icons-theme)
+;;   (spaceline-all-the-icons--setup-package-updates)
+;;   (spaceline-all-the-icons--setup-git-ahead))
 
 ;;shit from GitHub
 ;;muh books
@@ -647,16 +666,10 @@ ges/"))
 (defalias 'email 'gnus)
 (defalias 'mail 'gnus)
 
-;;finally spaceline
-(use-package spaceline
-  :init (require 'spaceline-config)
-  (spaceline-emacs-theme)
-  :ensure t)
-;; (use-package spaceline-all-the-icons 
-;;   :after spaceline
-;;   :config (spaceline-all-the-icons-theme)
-;;   (spaceline-all-the-icons--setup-package-updates)
-;;   (spaceline-all-the-icons--setup-git-ahead))
+;;eshell
+;; (use-package eshell-git-prompt
+;;   :ensure t
+;;   :init (eshell-git-prompt-use-theme 'powerline))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -684,7 +697,7 @@ ges/"))
  '(minimap-window-location (quote right))
  '(package-selected-packages
    (quote
-	(helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
+	(nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
  '(send-mail-function (quote smtpmail-send-it))
  '(spaceline-all-the-icons-highlight-file-name t)
  '(sr-speedbar-right-side nil)

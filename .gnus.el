@@ -20,11 +20,13 @@
 (setq user-mail-address "scvhapps@gmail.com"
 	  user-full-name "P. Ivan")
 
-(setq gnus-select-method
-      '(nnimap "gmail"
-               (nnimap-address "imap.gmail.com")
-               (nnimap-server-port 993)
-               (nnimap-stream ssl)))
+(add-to-list 'gnus-secondary-select-methods '(nnimap "gmail"
+													 (nnimap-address "imap.gmail.com")  
+													 (nnimap-server-port "imaps")
+													 (nnimap-stream ssl)
+													 (nnmail-expiry-target "nnimap+gmail:[Google Mail]/Archive")  
+													 (nnmail-expiry-wait immediate)
+													 (nnir-search-engine imap)))
 
 (setq smtpmail-smtp-server "smtp.gmail.com"
       smtpmail-smtp-service 587
@@ -101,7 +103,8 @@
 							   (local-set-key (kbd "<M-RET>") #'message-send-and-exit)
 							   (local-set-key (kbd "M-a") #'mml-attach-file)
 							   (local-set-key (kbd "M-v") #'mml-attach-file)
-							   (local-set-key (kbd "M-k") #'message-dont-send)))
+							   (local-set-key (kbd "M-k") #'message-dont-send)
+							   (local-set-key (kbd "C-S-q") #'message-dont-send)))
 
 (defalias 'send-email 'message-send-and-exit)
 (defalias 'send-message 'message-send-and-exit)
@@ -136,5 +139,27 @@
 (defalias 'email-mark-all-read 'gnus-summary-catchup)
 (defalias 'mail-mark-all-read 'gnus-summary-catchup)
 (defalias 'gnus-mark-all-read 'gnus-summary-catchup)
+
+(gnus-add-configuration
+ '(article
+   (horizontal 1.0
+			   (vertical 25 (group 1.0))
+			   (vertical 1.0
+						 (summary 0.35 point)
+						 (article 1.0)))))
+
+(gnus-add-configuration
+ '(summary
+   (horizontal 1.0
+			   (vertical 25 (group 1.0))
+			   (vertical 1.0 (summary 1.0 point)))))
+
+(defun kill-gnus ()
+  (interactive)
+  (flet ((kill-buffer-ask (buffer) (kill-buffer buffer)))
+	(kill-matching-buffers "*Group*")
+	(kill-matching-buffers "*Article .+")
+	(kill-matching-buffers "*Summary .+")
+	(kill-matching-buffers ".newsrc-dribble")))
 
 ;;; gnus.el ends here
