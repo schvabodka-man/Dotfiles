@@ -4,11 +4,11 @@ alias move mv $*
 alias copy cp $*
 alias .. cd .. $*
 alias j z $*
-alias dired dired $pwd
+alias dired dired $pwd & kill-this-buffer
 alias cd cd $* & ls
-alias emacs find-file $_
-alias edit find-file $_
-alias open find-file $_
+alias emacs find-file $_ & kill-this-buffer
+alias edit find-file $_ & kill-this-buffer
+alias open find-file $_ & kill-this-buffer
 
 alias xrdb-merge xrdb -merge ~/.Xresources
 alias rofi-cache-clear rm ~/.cache/rofi-3.runcache
