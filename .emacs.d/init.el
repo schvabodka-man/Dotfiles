@@ -677,6 +677,11 @@
 (use-package eshell-git-prompt
   :ensure t
   :init (eshell-git-prompt-use-theme 'powerline))
+(use-package multi-eshell
+  :ensure t
+  :bind (("M-`" . multi-eshell)
+		 ("M-2" . multi-eshell-switch)
+		 ("M-1" . multi-eshell-go-back)))
 
 ;;dired
 (defun shell-instead-dired ()
@@ -906,6 +911,8 @@
  '(minimap-mode nil)
  '(minimap-width-fraction 0.13)
  '(minimap-window-location (quote right))
+ '(multi-eshell-name "*eshell*")
+ '(multi-eshell-shell-function (quote (eshell)))
  '(package-selected-packages
    (quote
 	(nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
