@@ -66,7 +66,7 @@
 		 (local-set-key (kbd "C-S-n") #'gnus-article-reply-with-original)
 		 (local-set-key (kbd "C-n") #'gnus-article-mail)
 		 (local-set-key (kbd "C-/") #'gnus-article-describe-briefly)
-		 (local-set-key (kbd "<M-RET>") #'gnus-article-show-summary)
+		 (local-set-key (kbd "<C-RET>") #'gnus-article-show-summary)
 		 (local-set-key (kbd "<pageup>") #'gnus-article-prev-page)
 		 (local-set-key (kbd "<pagedown>") #'gnus-article-next-page)))
 
@@ -124,7 +124,7 @@
 		 (local-set-key (kbd "<end>") #'gnus-summary-end-of-article)))
 
 (add-hook 'message-mode-hook (lambda ()
-							   (local-set-key (kbd "<M-RET>") #'message-send-and-exit)
+							   (local-set-key (kbd "<C-RET>") #'message-send-and-exit)
 							   (local-set-key (kbd "M-a") #'mml-attach-file)
 							   (local-set-key (kbd "M-v") #'mml-attach-file)
 							   (local-set-key (kbd "M-k") #'message-dont-send)

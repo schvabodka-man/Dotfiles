@@ -56,25 +56,18 @@ alias picard 'flatpak run org.musicbrainz.Picard'
 alias steam 'flatpak run com.valvesoftware.Steam'
 alias libreoffice 'flatpak run org.libreoffice.LibreOffice'
 alias skype 'flatpak run com.skype.Client'
-alias twitch 'flatpak run com.vinszent.GnomeTwitch'
 alias ppsspp 'flatpak run org.ppsspp.PPSSPP'
 alias retroarch 'flatpak run org.libretro.RetroArch'
-alias gnucash 'flatpak run org.gnucash.GnuCash'
 
-alias gnu-cash 'gnucash'
-alias cash 'gnucash'
-alias money 'gnucash'
 alias email 'emacsclient -c --eval "(gnus)"'
-alias mail 'geary'
+alias mail 'emacsclient -c --eval "(gnus)"'
 alias books 'calibre'
 alias itch.io 'itch'
 alias libre-office 'libreoffice'
 alias office 'libreoffice'
-alias gnome-twitch 'twitch'
 alias retro-arch 'retroarch'
 
 alias sloc 'cloc'
-alias cinema 'movie'
 alias mysql 'mycli'
 alias postgres 'pgcli'
 alias postgresql 'pgcli'
@@ -189,14 +182,5 @@ alias chromium-debug "chromium-browser --disable-gpu --remote-debugging-port=922
 alias git-gui "tig"
 alias git-history "tig"
 
-function _history
-	tig
-end
-
 . ~/.fishmarks/marks.fish
-
-#autojump
-set --global AUTOJUMP_PATH /usr/share/autojump/autojump.fish
-if test -e $AUTOJUMP_PATH
-	source $AUTOJUMP_PATH
-end
+alias j "z"

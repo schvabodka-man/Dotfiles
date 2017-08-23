@@ -1,0 +1,25 @@
+alias cd.. cd .. $*
+alias lsa ls -a $*
+alias move mv $*
+alias copy cp $*
+alias .. cd .. $*
+alias j z $*
+alias dired dired $pwd
+alias cd cd $* & ls
+alias emacs find-file $_
+alias edit find-file $_
+alias open find-file $_
+
+alias xrdb-merge xrdb -merge ~/.Xresources
+alias rofi-cache-clear rm ~/.cache/rofi-3.runcache
+alias newsbeuter-cache-clear rm ~/.newsbeuter/cache.db
+
+alias sloc cloc $*
+alias mysql mycli $*
+alias postgres pgcli $*
+alias postgresql pgcli $*
+alias pgsql pgcli $*
+alias psql pgcli $*
+
+alias cat /home/user/Go/bin/ccat *
+alias tree alder $*

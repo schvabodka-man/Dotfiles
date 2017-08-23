@@ -666,10 +666,14 @@ ges/"))
 (defalias 'email 'gnus)
 (defalias 'mail 'gnus)
 
-;;eshell
-;; (use-package eshell-git-prompt
-;;   :ensure t
-;;   :init (eshell-git-prompt-use-theme 'powerline))
+(use-package eshell-z
+  :ensure t)
+(use-package eshell-prompt-extras
+  :ensure t
+  :init (with-eval-after-load "esh-opt"
+		  (autoload 'epe-theme-lambda "eshell-prompt-extras")
+		  (setq eshell-highlight-prompt nil
+				eshell-prompt-function 'epe-theme-lambda)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -712,6 +716,11 @@ ges/"))
  '(company-tooltip ((t (:background "#0e1112" :foreground "#FFFFFF"))))
  '(company-tooltip-common ((t (:foreground "#Ff0000"))))
  '(company-tooltip-selection ((t (:background "#FFFFFF" :foreground "#000000"))))
+ '(epe-git-face ((t (:inherit font-lock-builtin-face))))
+ '(epe-pipeline-delimiter-face ((t (:foreground "lawn green"))))
+ '(epe-pipeline-host-face ((t (:foreground "cyan"))))
+ '(epe-pipeline-time-face ((t (:foreground "gold"))))
+ '(epe-pipeline-user-face ((t (:foreground "orange red"))))
  '(highlight ((t (:background "#FFFFFF" :foreground "#000000"))))
  '(highlight-thing ((t (:inherit (quote hi-white)))))
  '(minimap-active-region-background ((t (:background "#0e1112"))))

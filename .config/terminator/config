@@ -59,7 +59,7 @@
     cursor_shape = ibeam
     font = Fira Mono Medium 14
     foreground_color = "#ffffff"
-    palette = "#000000:#ff0000:#46ff00:#fff300:#0011ff:#ec00ff:#00faff:#8b8282:#5e5b5b:#ff4444:#4dff3e:#fcea49:#4b5dff:#ff63e5:#85ffe7:#ffffff"
+    palette = "#000000:#ff0000:#46ff00:#fff300:#4c8bea:#ec00ff:#00faff:#8b8282:#5e5b5b:#ff4444:#4dff3e:#fcea49:#4b5dff:#ff63e5:#85ffe7:#ffffff"
     scroll_on_output = True
     scrollback_infinite = True
     scrollbar_position = hidden
