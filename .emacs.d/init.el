@@ -877,7 +877,9 @@
 			(local-set-key (kbd "C-S-u") #'dired-unmark-all-files)
 			(local-set-key (kbd "C-`") #'dired-do-shell-command)
 			(local-set-key (kbd "M-`") #'shell-instead-dired)
-			(local-set-key (kbd "C-b") #'diredp-do-bookmark)))
+			(local-set-key (kbd "C-b") #'diredp-do-bookmark)
+
+			(local-set-key (kbd "M-p") #'helm-projectile)))
 
 (setq delete-by-moving-to-trash t)
 

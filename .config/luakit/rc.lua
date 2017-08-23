@@ -379,6 +379,12 @@ add_binds("all", {
 add_binds("normal", { { "<F1>", "Toggle web inspector.", function (w) w:run_cmd(":inspect") end }})
 add_binds("normal", { { "<F2>", "View source code of page", function (w) w:run_cmd(":view-source") end }})
 
+--bookmarks
+add_binds("all", {
+			 { "<Mod1-b>",      "Bookmarks menu", function (w) w:run_cmd(":bookmarks") end },
+			 { "<Mod1-Shift-b>",        "Save bookmarks",   function (w) w:run_cmd(":bookmark")   end },
+})
+
 --search
 add_binds("normal", {
 			 { "<Control-f>", "Search for string on current page.",

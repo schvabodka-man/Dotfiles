@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("eshell aliases"
+(("luakit"
+ (filename . "~/.config/luakit")
+ (front-context-string)
+ (rear-context-string . "kit $ s luakit\n")
+ (position . 31))
+("eshell aliases"
  (filename . "~/.emacs.d/eshell/alias")
  (front-context-string . "alias cd.. cd ..")
  (rear-context-string)
