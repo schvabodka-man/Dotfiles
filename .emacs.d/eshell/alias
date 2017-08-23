@@ -9,6 +9,15 @@ alias cd cd $* & ls
 alias emacs find-file $_ & kill-this-buffer
 alias edit find-file $_ & kill-this-buffer
 alias open find-file $_ & kill-this-buffer
+alias export-key gpg2 --export-secret-key $* --armor > $*.asc
+alias gpg-export-key export-key
+alias gpg2-export-key export-key
+alias encrypt gpg2 -e -r $*
+alias gpg-encrypt encrypt
+alias gpg2-encrypt encrypt
+alias decrypt gpg2 -d $*
+alias gpg-decrypt decrypt
+alias gpg2-decrypt decrypt
 
 alias xrdb-merge xrdb -merge ~/.Xresources
 alias rofi-cache-clear rm ~/.cache/rofi-3.runcache

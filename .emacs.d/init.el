@@ -5,8 +5,7 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packa(defalias 'gnus-mark-all-read 'gnus-summary-catchup)
-ges/"))
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (package-initialize)
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -55,7 +54,6 @@ ges/"))
   :init (yas-global-mode 1)
   :config
   (defalias 'snippet 'yas-expand)
-  (add-to-list 'company-backends 'company-yasnippet)
   (global-set-key (kbd "M-TAB") 'yas-expand))
 ;;flycheck
 (use-package flycheck
@@ -78,7 +76,6 @@ ges/"))
 (global-set-key (kbd "C-/") 'comment-line)
 (global-set-key (kbd "C-g") 'goto-line)
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
-(global-set-key (kbd "C-r") 'query-replace-regexp)
 (global-set-key (kbd "TAB") 'self-insert-command)
 ;; windows controls
 (global-set-key (kbd "M-,") 'split-window-horizontally)
@@ -434,7 +431,7 @@ ges/"))
   :config (projectile-global-mode)
   (setq projectile-indexing-method 'native)
   (setq projectile-enable-caching t)
-  (global-set-key (kbd "C-S-r") 'projectile-replace-regexp)
+  (global-set-key (kbd "C-M-r") 'projectile-replace-regexp)
   (defalias 'project-add 'projectile-add-known-project))
 (use-package helm-projectile
   :ensure t
@@ -586,11 +583,16 @@ ges/"))
   :init (require 'spaceline-config)
   (spaceline-emacs-theme)
   :ensure t)
-;; (use-package spaceline-all-the-icons 
-;;   :after spaceline
-;;   :config (spaceline-all-the-icons-theme)
-;;   (spaceline-all-the-icons--setup-package-updates)
-;;   (spaceline-all-the-icons--setup-git-ahead))
+;;really good query replace
+(use-package visual-regexp
+  :ensure t)
+(use-package visual-regexp-steroids
+  :ensure t
+  :after visual-regexp
+  :config (defalias 'multiple-cursors-mark 'vc/mc-mark)
+  :bind (("C-r" . vr/query-replace)
+		 ("C-m" . vr/mc-mark)
+		 ("C-S-r" . vr/replace)))
 
 ;;shit from GitHub
 ;;muh books
@@ -602,6 +604,7 @@ ges/"))
 (setq sql-sqlite-program "/usr/bin/sqlite3")
 (setq calibre-root-dir (expand-file-name "~/Dropbox/Books"))
 (setq calibre-db (concat calibre-root-dir "/metadata.db"))
+
 (el-get-bundle dockerfile-mode
   :url "https://raw.githubusercontent.com/spotify/dockerfile-mode/master/dockerfile-mode.el"
   :description "Dockerfile editing"
@@ -666,6 +669,7 @@ ges/"))
 (use-package eshell-git-prompt
   :ensure t
   :init (eshell-git-prompt-use-theme 'powerline))
+(global-set-key (kbd "<M-`'>") 'eshell)
 
 ;;dired
 (defun shell-instead-dired ()
@@ -834,6 +838,7 @@ ges/"))
 			(local-set-key (kbd "<RET>") #'dired-find-file)
 			(local-set-key (kbd "<mouse-1>") #'dired-find-file)
 			(local-set-key (kbd "C-M-r") #'dired-do-rename-regexp)
+			(local-set-key (kbd "C-v") #'dired-do-rename)
 			(local-set-key (kbd "C-p") #'dired-do-print)
 			(local-set-key (kbd "C-u") #'dired-unmark)
 			(local-set-key (kbd "C-v") #'dired-do-rename)
