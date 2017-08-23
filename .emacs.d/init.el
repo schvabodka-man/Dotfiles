@@ -672,6 +672,7 @@
 (defalias 'mail 'gnus)
 
 ;;eshell
+(setq eshell-banner-message "")
 (use-package eshell-z
   :ensure t)
 (use-package eshell-git-prompt
@@ -679,6 +680,12 @@
   :init (eshell-git-prompt-use-theme 'powerline))
 (use-package multi-eshell
   :ensure t
+  :config (defalias 'eshell-next 'multi-eshell-switch)
+  (defalias 'eshell-prev 'multi-eshell-go-back)
+  (defalias 'eshell-previous 'multi-eshell-go-back)
+  (defalias 'multi-eshell-next 'multi-eshell-switch)
+  (defalias 'multi-eshell-prev 'multi-eshell-go-back)
+  (defalias 'multi-eshell-previous 'multi-eshell-go-back)
   :bind (("M-`" . multi-eshell)
 		 ("M-2" . multi-eshell-switch)
 		 ("M-1" . multi-eshell-go-back)))
