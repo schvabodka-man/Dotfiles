@@ -22,9 +22,8 @@
 
 (add-to-list 'gnus-secondary-select-methods '(nnimap "gmail"
 													 (nnimap-address "imap.gmail.com")  
-													 (nnimap-server-port 993)
+													 (nnimap-server-port "imaps")
 													 (nnimap-stream ssl)
-													 (nnimap-authinfo-file "~/.gmail.gpg")
 													 (nnmail-expiry-target "nnimap+gmail:[Gmail]/All Mail")  
 													 (nnmail-expiry-wait 'immediate)
 													 (nnir-search-engine imap)))
