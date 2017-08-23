@@ -86,6 +86,7 @@
 		 (local-set-key (kbd "<S-down>") #'gnus-group-next-unread-group)
 		 (local-set-key (kbd "C-m") #'gnus-group-mark-group)
 		 (local-set-key (kbd "C-n") #'gnus-group-mail)
+		 (local-set-key (kbd "M-r") #'gnus-group-restart)
 		 (local-set-key (kbd "C-S-f") #'gnus-group-make-nnir-group)
 		 (local-set-key (kbd "C-S-m") #'gnus-group-unmark-group)
 		 (local-set-key (kbd "C-M-m") #'gnus-group-mark-buffer)
@@ -108,6 +109,7 @@
 		 (local-set-key (kbd "<C-S-down>") #'gnus-summary-next-unread-article)
 		 (local-set-key (kbd "C-S-n") #'gnus-summary-reply)
 		 (local-set-key (kbd "C-n") #'gnus-summary-mail-other-window)
+		 (local-set-key (kbd "M-r") #'gnus-summary-rescan-group)
 		 (local-set-key (kbd "C-r") #'gnus-summary-put-mark-as-read-next)
 		 (local-set-key (kbd "C-u") #'gnus-summary-put-mark-as-unread-next)
 		 (local-set-key (kbd "C-a") #'gnus-summary-put-mark-as-expirable-next)
@@ -169,6 +171,19 @@
 (defalias 'mail-archive 'gnus-summary-expire-articles-now)
 (defalias 'email-archive 'gnus-summary-expire-articles-now)
 (defalias 'gnus-archive 'gnus-summary-expire-articles-now)
+
+(defalias 'mail-summary-refresh 'gnus-summary-rescan-group)
+(defalias 'email-summary-refresh 'gnus-summary-rescan-group)
+(defalias 'gnus-summary-refresh 'gnus-summary-rescan-group)
+(defalias 'mail-group-refresh 'gnus-group-restart)
+(defalias 'email-group-refresh 'gnus-group-restart)
+(defalias 'gnus-group-refresh 'gnus-group-restart)
+(defalias 'mail-summary-update 'gnus-summary-rescan-group)
+(defalias 'email-summary-update 'gnus-summary-rescan-group)
+(defalias 'gnus-summary-update 'gnus-summary-rescan-group)
+(defalias 'mail-group-update 'gnus-group-restart)
+(defalias 'email-group-update 'gnus-group-restart)
+(defalias 'gnus-group-update 'gnus-group-restart)
 
 (gnus-add-configuration
  '(article
