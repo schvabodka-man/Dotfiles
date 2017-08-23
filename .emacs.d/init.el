@@ -688,6 +688,16 @@
   :url "https://gist.githubusercontent.com/kkatsuyuki/fa930411a86169c3bb1f03337d4af280/raw/be5bcc2e519a3ab9e67ea0f5238a3e0b75b0084e/eshell-bmk.el"
   :description "Eshell bokmarks integration")
 (load "~/.emacs.d/el-get/eshell-bmk/eshell-bmk")
+;;this is for killing cli buffers made for small tasks
+(defun kill-buffer-when-frame-delete-dwim (frame)
+  (if (string-match "*eshell*" (buffer-name))
+	  (unless (delq nil (mapcar #'(lambda (x)
+									(memq (current-buffer)
+										  (mapcar #'window-buffer x)))
+								(mapcar #'window-list
+										(delq frame (frame-list)))))
+		(kill-buffer (current-buffer)))))
+(add-hook 'delete-frame-functions 'kill-buffer-when-frame-delete-dwim)
 
 ;;dired
 (defun shell-instead-dired ()
