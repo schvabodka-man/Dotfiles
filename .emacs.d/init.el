@@ -4,6 +4,12 @@
 ;;; Code:
 ;;gc tweaks
 (setq gc-cons-threshold 100000000)
+;;byte compile everything
+(defun byte-compile-init-dir ()
+  "Byte-compile all your dotfiles."
+  (interactive)
+  (byte-recompile-directory user-emacs-directory 0))
+(byte-compile-init-dir)
 ;;stuff
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
@@ -671,7 +677,6 @@
 (use-package eshell-git-prompt
   :ensure t
   :init (eshell-git-prompt-use-theme 'powerline))
-(global-set-key (kbd "<M-`'>") 'eshell)
 
 ;;dired
 (defun shell-instead-dired ()
@@ -832,8 +837,8 @@
 			(local-set-key (kbd "C-S-c") #'dired-do-copy)
 			(local-set-key (kbd "<down>") #'dired-next-line)
 			(local-set-key (kbd "<up>") #'dired-previous-line)
-			(local-set-key (kbd "<Delete>") #'dired-flag-file-deletion)
-			(local-set-key (kbd "<C-Delete>") #'dired-do-delete)
+			(local-set-key (kbd "<delete>") #'dired-do-delete)
+			(local-set-key (kbd "<C-delete>") #'dired-flag-file-deletion)
 			(local-set-key (kbd "C-S-r") #'dired-do-find-regexp-and-replace)
 			(local-set-key (kbd "C-r") #'dired-do-rename)
 			(local-set-key (kbd "C-m") #'dired-mark)
@@ -872,12 +877,6 @@
   :ensure t
   :config  (diredp-toggle-find-file-reuse-dir))
 
-;;byte compile everything
-(defun byte-compile-init-dir ()
-  "Byte-compile all your dotfiles."
-  (interactive)
-  (byte-recompile-directory user-emacs-directory 0))
-(byte-compile-init-dir)
 ;;gc on emacs idle
 (run-with-idle-timer 2 t (lambda () (garbage-collect)))
 

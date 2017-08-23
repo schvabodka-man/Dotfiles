@@ -3,7 +3,7 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("gnus rc el"
- (filename . "~/.gnus.el")
+ (filename . "~/.emacs.d/gnus.el")
  (front-context-string . ";;; gnus --- My ")
  (rear-context-string)
  (position . 1))
