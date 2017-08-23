@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("gnus rc el"
+(("fish"
+ (filename . "/home/user/.config/fish")
+ (front-context-string)
+ (rear-context-string . "/fish $ s fish\n")
+ (position . 1510))
+("gnus rc el"
  (filename . "~/.emacs.d/gnus.el")
  (front-context-string . ";;; gnus --- My ")
  (rear-context-string)

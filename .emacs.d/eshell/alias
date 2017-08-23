@@ -3,7 +3,6 @@ alias lsa ls -a $*
 alias move mv $*
 alias copy cp $*
 alias .. cd .. $*
-alias j z $*
 alias dired dired $pwd & kill-this-buffer
 alias cd cd $* & ls
 alias emacs find-file $_ & kill-this-buffer
@@ -18,6 +17,11 @@ alias gpg2-encrypt encrypt
 alias decrypt gpg2 -d $*
 alias gpg-decrypt decrypt
 alias gpg2-decrypt decrypt
+alias l show-bmk-list
+alias d delete-bmk $*
+alias s add-bmk $*
+alias g cd-bmk $*
+alias j z $*
 
 alias xrdb-merge xrdb -merge ~/.Xresources
 alias rofi-cache-clear rm ~/.cache/rofi-3.runcache
