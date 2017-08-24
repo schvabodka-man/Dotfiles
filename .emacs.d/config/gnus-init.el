@@ -1,0 +1,5 @@
+(gnus-demon-add-handler 'gnus-demon-scan-news 2 5)
+(gnus-demon-init)
+(setq gnus-init-file "~/.emacs.d/gnus.el")
+(defalias 'email 'gnus)
+(defalias 'mail 'gnus)
