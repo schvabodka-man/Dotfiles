@@ -152,8 +152,6 @@
 (setq-default message-log-max nil)
 (kill-buffer "*Messages*")
 (setq initial-scratch-message nil)
-(if (get-buffer "*scratch*")
-	(kill-buffer "*scratch*"))
 ;;y or n
 (fset 'yes-or-no-p 'y-or-n-p)
 ;;use tabs instead of spaces
@@ -164,6 +162,11 @@
 (setq default-tab-width 4)
 (setq tabwidth 4)
 (setq c-basic-indent 4)
+;;nice windows undo redo
+(when (fboundp 'winner-mode)
+  (winner-mode 1))
+(global-set-key (kbd "M-z") 'winner-undo)
+(global-set-key (kbd "M-Z") 'winner-redo)
 ;;cua mode
 (cua-mode t)
 (setq cua-auto-tabify-rectangles nil)
@@ -670,6 +673,8 @@
 ;;eshell
 (setq eshell-banner-message "")
 (use-package eshell-z
+  :ensure t)
+(use-package eshell-up
   :ensure t)
 (use-package eshell-git-prompt
   :ensure t

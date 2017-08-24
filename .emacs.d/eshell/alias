@@ -1,8 +1,8 @@
-alias cd.. cd .. $*
+alias cd.. eshell-up $_
+alias .. eshell-up $_
 alias lsa ls -a $*
 alias move mv $*
 alias copy cp $*
-alias .. cd .. $*
 alias dired dired $pwd & kill-this-buffer
 alias cd cd $* & ls
 alias emacs find-file $_ & kill-this-buffer
@@ -23,6 +23,8 @@ alias s add-bmk $*
 alias g cd-bmk $*
 alias j z $*
 alias p projectile-switch-project $*
+alias u eshell-up $_
+alias up eshell-up $_
 
 alias xrdb-merge xrdb -merge ~/.Xresources
 alias rofi-cache-clear rm ~/.cache/rofi-3.runcache
