@@ -104,8 +104,6 @@
 		 (local-set-key (kbd "M-r") #'gnus-summary-rescan-group)
 		 (local-set-key (kbd "C-r") #'gnus-summary-put-mark-as-read-next)
 		 (local-set-key (kbd "C-u") #'gnus-summary-put-mark-as-unread-next)
-		 (local-set-key (kbd "C-a") #'gnus-summary-put-mark-as-expirable-next)
-		 (local-set-key (kbd "C-S-a") #'gnus-summary-expire-articles-now)
 		 (local-set-key (kbd "C-e") #'gnus-summary-put-mark-as-expirable-next)
 		 (local-set-key (kbd "C-S-e") #'gnus-summary-expire-articles-now)
 		 (local-set-key (kbd "C-S-r") #'gnus-summary-catchup)

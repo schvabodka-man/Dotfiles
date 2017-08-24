@@ -178,6 +178,113 @@
 ;;cua mode
 (cua-mode t)
 (setq cua-auto-tabify-rectangles nil)
+;;org agenda
+(setq org-agenda-files (list "~/Dropbox/Org/Wiki/Agenda/Todo"
+							 "~/Dropbox/Org/Wiki/Agenda/Diary"))
+(setq org-archive-location "~/Dropbox/Org/Wiki/Agenda/Archive/")
+(defalias 'todo 'org-todo-list)
+(defalias 'agenda 'org-agenda-list)
+(defalias 'year 'org-agenda-year-view)
+(defalias 'month 'org-agenda-month-view)
+(defalias 'week 'org-agenda-week-view)
+(defalias 'day 'org-agenda-day-view)
+(defalias 'org-time 'org-time-stamp)
+(add-hook 'org-mode-hook
+		  (lambda ()
+			(local-set-key (kbd "C-t") #'org-time-stamp)))
+(add-hook 'org-agenda-mode-hook
+		  (lambda ()
+			(local-set-key (kbd "<") nil)
+			(local-set-key (kbd ">") nil)
+			(local-set-key (kbd "A") nil)
+			(local-set-key (kbd "B") nil)
+			(local-set-key (kbd "C") nil)
+			(local-set-key (kbd "D") nil)
+			(local-set-key (kbd "E") nil)
+			(local-set-key (kbd "F") nil)
+			(local-set-key (kbd "G") nil)
+			(local-set-key (kbd "H") nil)
+			(local-set-key (kbd "I") nil)
+			(local-set-key (kbd "J") nil)
+			(local-set-key (kbd "K") nil)
+			(local-set-key (kbd "L") nil)
+			(local-set-key (kbd "M") nil)
+			(local-set-key (kbd "N") nil)
+			(local-set-key (kbd "O") nil)
+			(local-set-key (kbd "P") nil)
+			(local-set-key (kbd "Q") nil)
+			(local-set-key (kbd "R") nil)
+			(local-set-key (kbd "S") nil)
+			(local-set-key (kbd "T") nil)
+			(local-set-key (kbd "U") nil)
+			(local-set-key (kbd "V") nil)
+			(local-set-key (kbd "W") nil)
+			(local-set-key (kbd "X") nil)
+			(local-set-key (kbd "Y") nil)
+			(local-set-key (kbd "Z") nil)
+			(local-set-key (kbd "A") nil)
+			(local-set-key (kbd "B") nil)
+			(local-set-key (kbd "C") nil)
+			(local-set-key (kbd "D") nil)
+			(local-set-key (kbd "E") nil)
+			(local-set-key (kbd "F") nil)
+			(local-set-key (kbd "G") nil)
+			(local-set-key (kbd "H") nil)
+			(local-set-key (kbd "I") nil)
+			(local-set-key (kbd "J") nil)
+			(local-set-key (kbd "K") nil)
+			(local-set-key (kbd "L") nil)
+			(local-set-key (kbd "M") nil)
+			(local-set-key (kbd "N") nil)
+			(local-set-key (kbd "O") nil)
+			(local-set-key (kbd "P") nil)
+			(local-set-key (kbd "Q") nil)
+			(local-set-key (kbd "R") nil)
+			(local-set-key (kbd "S") nil)
+			(local-set-key (kbd "T") nil)
+			(local-set-key (kbd "U") nil)
+			(local-set-key (kbd "V") nil)
+			(local-set-key (kbd "W") nil)
+			(local-set-key (kbd "X") nil)
+			(local-set-key (kbd "Y") nil)
+			(local-set-key (kbd "Z") nil)
+			(local-set-key (kbd "a") nil)
+			(local-set-key (kbd "b") nil)
+			(local-set-key (kbd "c") nil)
+			(local-set-key (kbd "e") nil)
+			(local-set-key (kbd "f") nil)
+			(local-set-key (kbd "g") nil)
+			(local-set-key (kbd "h") nil)
+			(local-set-key (kbd "i") nil)
+			(local-set-key (kbd "j") nil)
+			(local-set-key (kbd "k") nil)
+			(local-set-key (kbd "l") nil)
+			(local-set-key (kbd "n") nil)
+			(local-set-key (kbd "o") nil)
+			(local-set-key (kbd "p") nil)
+			(local-set-key (kbd "q") nil)
+			(local-set-key (kbd "r") nil)
+			(local-set-key (kbd "s") nil)
+			(local-set-key (kbd "t") nil)
+			(local-set-key (kbd "u") nil)
+			(local-set-key (kbd "v") nil)
+			(local-set-key (kbd "x") nil)
+			(local-set-key (kbd "z") nil)
+
+			(local-set-key (kbd "m") #'org-agenda-month-view)
+			(local-set-key (kbd "y") #'org-agenda-year-view)
+			(local-set-key (kbd "C-g") #'org-agenda-goto-date)
+			(local-set-key (kbd "<return>") #'org-agenda-goto)
+			(local-set-key (kbd "M-f") #'org-agenda-filter-by-tag)
+			(local-set-key (kbd "C-S-f") #'org-agenda-filter-by-regexp)
+			(local-set-key (kbd "C-a") #'org-attach)
+			(local-set-key (kbd "C-e") #'org-agenda-archive)
+			(local-set-key (kbd "C-m") #'org-agenda-bulk-mark)
+			(local-set-key (kbd "C-S-m") #'org-agenda-bulk-mark-all)
+			(local-set-key (kbd "C-u") #'org-agenda-bulk-unmark)
+			(local-set-key (kbd "C-S-u") #'org-agenda-bulk-unmark-all)
+			(local-set-key (kbd "C-S-z") #'org-agenda-redo)))
+
 ;;minimap
 (use-package minimap
   :ensure t
@@ -232,8 +339,10 @@
 (use-package org-journal
   :ensure t
   :config
-  (setq org-journal-dir (expand-file-name "/home/user/Dropbox/Org/Wiki/Personal/Diary"))
-  (setq org-journal-date-format '"%d-%m-%Y")
+  (setq org-journal-dir (expand-file-name "/home/user/Dropbox/Org/Wiki/Agenda/Diary"))
+  (setq org-journal-date-format '"<%Y-%m-%d %a>")
+  (setq org-journal-time-format '"<%Y-%m-%d %a %R>")
+  (setq org-journal-file-format '"%Y-%m-%d.org")
   (defalias 'now 'org-journal-new-entry))
 ;;nice org mode bullets
 (use-package org-bullets
@@ -628,6 +737,11 @@
 (use-package helm-perspeen
   :ensure t
   :bind (("M-w" . helm-perspeen)))
+;;calendar
+(use-package calfw
+  :ensure t)
+(use-package calfw-org
+  :ensure t)
 
 ;;shit from GitHub
 ;;muh books
@@ -973,6 +1087,7 @@
  '(minimap-window-location (quote right))
  '(multi-eshell-name "*eshell*")
  '(multi-eshell-shell-function (quote (eshell)))
+ '(org-agenda-confirm-kill t)
  '(package-selected-packages
    (quote
 	(nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
