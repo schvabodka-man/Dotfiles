@@ -73,6 +73,7 @@
 (setq gnus-group-mode-hook
       '(lambda ()
 		 (local-set-key (kbd "<C-left>") #'gnus-group-prev-group)
+		 (local-set-key (kbd "<C-left>") #'gnus-group-prev-group)
 		 (local-set-key (kbd "<C-right>") #'gnus-group-next-group)
 		 (local-set-key (kbd "<C-S-left>") #'gnus-group-prev-unread-group)
 		 (local-set-key (kbd "<C-S-right>") #'gnus-group-next-unread-group)
@@ -91,6 +92,7 @@
 
 (setq gnus-summary-mode-hook 
       '(lambda ()
+		 (local-set-key (kbd "M-RET") #'perspeen-tab-create-tab)
 		 (local-set-key (kbd "<C-left>") #'gnus-summary-prev-article)
 		 (local-set-key (kbd "<C-right>") #'gnus-summary-next-article)
 		 (local-set-key (kbd "<C-S-left>") #'gnus-summary-prev-unread-article)
