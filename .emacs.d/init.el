@@ -154,8 +154,6 @@
 (setq suggest-key-bindings nil)
 (setq browse-url-browser-function 'browse-url-generic
 	  browse-url-generic-program "luakit")
-;;org mode select with shift
-(setq org-support-shift-select t)
 ;; killing messages buffer
 (setq-default message-log-max nil)
 (kill-buffer "*Messages*")
@@ -181,7 +179,8 @@
 ;;org agenda
 (setq org-agenda-files (list "~/Dropbox/Org/Wiki/Agenda/Todo"
 							 "~/Dropbox/Org/Wiki/Agenda/Diary"))
-(setq org-archive-location "~/Dropbox/Org/Wiki/Agenda/Archive/")
+(setq org-archive-location "~/Dropbox/Org/Wiki/Agenda/Archive/todo.org::* TASKS")
+(setq org-support-shift-select t)
 (defalias 'todo 'org-todo-list)
 (defalias 'agenda 'org-agenda-list)
 (defalias 'year 'org-agenda-year-view)
@@ -270,7 +269,7 @@
 			(local-set-key (kbd "v") nil)
 			(local-set-key (kbd "x") nil)
 			(local-set-key (kbd "z") nil)
-
+			
 			(local-set-key (kbd "m") #'org-agenda-month-view)
 			(local-set-key (kbd "y") #'org-agenda-year-view)
 			(local-set-key (kbd "C-g") #'org-agenda-goto-date)
@@ -355,11 +354,6 @@
   :ensure t
   :bind (("C-M-g" . helm-google))
   :config (defalias 'google 'helm-google))
-;;fast search
-(use-package google-this
-  :ensure t
-  :init (google-this-mode 1)
-  :bind (("M-g" . google-this)))
 ;;google translate
 (use-package google-translate
   :ensure t
@@ -622,8 +616,8 @@
   :config (defalias 'link-open 'link-hint-open-link)
   (defalias 'link-copy 'link-hint-copy-link)
   :bind
-  ("M-l" . link-hint-open-link)
-  ("M-S-l" . link-hint-copy-link))
+  ("M-g" . link-hint-open-link)
+  ("M-S-g" . link-hint-copy-link))
 ;;like pinboard 
 (use-package org-board
   :ensure t
@@ -1064,12 +1058,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-shell-modes (quote (sh-mode fish-mode)))
  '(diredp-image-preview-in-tooltip 300)
  '(diredp-image-show-this-file-use-frame-flag t)
  '(highlight-thing-case-sensitive-p t)
  '(highlight-thing-delay-seconds 0.1)
  '(highlight-thing-exclude-thing-under-point t)
- '(highlight-thing-excluded-major-modes (quote (special-mode)))
+ '(highlight-thing-excluded-major-modes
+   (quote
+	(Custom-mode org-agenda-mode cfw:calendar-mode minibuffer-inactive-mode eshell-mode shell-mode)))
  '(highlight-thing-what-thing (quote sexp))
  '(httpd-port 8088)
  '(js2-highlight-level 3)
@@ -1101,6 +1098,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(cfw:face-grid ((t (:foreground "white"))))
+ '(cfw:face-toolbar ((t (:foreground "white"))))
+ '(cfw:face-toolbar-button-off ((t (:foreground "white" :weight bold))))
  '(company-scrollbar-bg ((t (:background "#0e1112"))))
  '(company-scrollbar-fg ((t (:background "#FFFFFF"))))
  '(company-tooltip ((t (:background "#0e1112" :foreground "#FFFFFF"))))
@@ -1118,6 +1118,8 @@
  '(highlight-thing ((t (:inherit (quote hi-white)))))
  '(minimap-active-region-background ((t (:background "#0e1112"))))
  '(minimap-font-face ((t (:height 30 :family "Fira Mono"))))
+ '(perspeen-selected-face ((t (:background "DarkGoldenRod1" :foreground "Black" :weight bold))))
+ '(perspeen-tab--header-line-active ((t (:inherit mode-line :background "DarkGoldenrod1" :foreground "black"))))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "green"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "spring green"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "deep sky blue"))))
