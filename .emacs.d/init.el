@@ -733,11 +733,26 @@
 (use-package helm-perspeen
   :ensure t
   :bind (("M-w" . helm-perspeen)))
-;;calendar
+;;calendar better than builtin emacs cal
 (use-package calfw
-  :ensure t)
+  :ensure t
+  :config (add-hook 'cfw:calendar-mode-hook
+					(lambda () (local-set-key (kbd "d") #'cfw:change-view-day)
+					  (local-set-key (kbd "w") #'cfw:change-view-week)
+					  (local-set-key (kbd "W") #'cfw:change-view-two-weeks)
+					  (local-set-key (kbd "m") #'cfw:change-view-month)
+					  (local-set-key (kbd "]") #'cfw:navi-next-month-command)
+					  (local-set-key (kbd "[") #'cfw:navi-previous-month-command)
+					  (local-set-key (kbd ",") #'cfw:navi-previous-week-command)
+					  (local-set-key (kbd ".") #'cfw:navi-next-week-command)
+					  (local-set-key (kbd "C-<left>") #'cfw:navi-prev-item-command)
+					  (local-set-key (kbd "C-<right>") #'cfw:navi-next-item-command)
+					  (local-set-key (kbd "C-<up>") #'cfw:navi-prev-item-command)
+					  (local-set-key (kbd "C-<down>") #'cfw:navi-next-item-command)))) 
 (use-package calfw-org
-  :ensure t)
+  :ensure t
+  :config (defalias 'cal 'cfw:open-org-calendar)
+  (defalias 'calendar 'cfw:open-org-calendar))
 
 ;;shit from GitHub
 ;;muh books
