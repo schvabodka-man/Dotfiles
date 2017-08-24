@@ -92,7 +92,15 @@
 ;;redone backspace and del
 (global-set-key (kbd "C-<backspace>") 'ivy-backward-kill-word)
 ;;bookmark set
-(global-set-key (kbd "C-S-b") 'bookmark-set)
+(global-set-key (kbd "M-B") 'bookmark-set)
+;;opening new scratch buffer
+(defun make-new-buffer ()
+  (interactive)
+  (let (($buf (generate-new-buffer "*scratch*")))
+    (switch-to-buffer $buf)
+    (funcall initial-major-mode)
+    (setq buffer-offer-save t)))
+(global-set-key (kbd "M-~") 'make-new-buffer)
 
 ;;custom funcs and aliases
 (defun indent-all ()
@@ -329,10 +337,6 @@
 ;;icons
 (use-package all-the-icons
   :ensure t)
-;; (use-package mode-icons
-;;   :ensure t
-;;   :after all-the-icons
-;;   :init (mode-icons-mode))
 (use-package all-the-icons-dired
   :ensure t
   :after all-the-icons

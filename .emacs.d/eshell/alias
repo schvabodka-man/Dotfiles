@@ -26,9 +26,13 @@ alias p projectile-switch-project $*
 alias u eshell-up $_
 alias up eshell-up $_
 
+alias term terminator
+alias terminal terminator 
+alias console terminator 
+alias terminator terminator 
+
 alias xrdb-merge xrdb -merge ~/.Xresources
 alias rofi-cache-clear rm ~/.cache/rofi-3.runcache
-alias newsbeuter-cache-clear rm ~/.newsbeuter/cache.db
 
 alias sloc cloc $*
 alias mysql mycli $*
