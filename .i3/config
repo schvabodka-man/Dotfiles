@@ -40,9 +40,9 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+f fullscreen toggle
 
 # change container layout
-bindcode $mod+61 layout tabbed
-bindcode $mod+60 split vertical
-bindcode $mod+59 split horizontal
+bindcode $mod+t layout tabbed
+bindcode $mod+v split vertical
+bindcode $mod+h split horizontal
 
 # toggle tiling / floating
 bindsym $mod+space floating toggle

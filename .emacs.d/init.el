@@ -31,7 +31,7 @@
   :bind (("M-x" . helm-M-x)
 		 ("M-o" . helm-find-files)
 		 ("M-c" . helm-colors)
-		 ("M-w" . helm-buffers-list)
+		 ("M-W" . helm-buffers-list)
 		 ("M-b" . helm-bookmarks)
 		 ("C-f" . helm-occur)))
 ;;git
@@ -81,8 +81,8 @@
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
 (global-set-key (kbd "TAB") 'self-insert-command)
 ;; windows controls
-(global-set-key (kbd "M-,") 'split-window-horizontally)
-(global-set-key (kbd "M-.") 'split-window-vertically)
+(global-set-key (kbd "M-n") 'split-window-horizontally)
+(global-set-key (kbd "M-N") 'split-window-vertically)
 (global-set-key (kbd "M-<up>") 'windmove-up)
 (global-set-key (kbd "M-<down>") 'windmove-down)
 (global-set-key (kbd "M-<left>") 'windmove-left)
@@ -280,9 +280,9 @@
   :ensure t
   :config
   (add-hook 'restclient-mode-hook
-			(lambda () (local-set-key (kbd "M-r") #'restclient-http-send-current-stay-in-window)
-			  (local-set-key (kbd "M-n") #'restclient-jump-next)
-			  (local-set-key (kbd "M-p") #'restclient-jump-prev)))
+			(lambda () (local-set-key (kbd "<M-f4>") #'restclient-http-send-current-stay-in-window)
+			  (local-set-key (kbd "C-.") #'restclient-jump-next)
+			  (local-set-key (kbd "C-,") #'restclient-jump-prev)))
   (defalias 'restclient 'restclient-mode)
   (defalias 'rest 'restclient-mode)
   (defalias 'restapi 'restclient-mode)
@@ -604,6 +604,23 @@
   :config (defalias 'multiple-cursors-mark 'vc/mc-mark)
   :bind (("C-r" . vr/query-replace)
 		 ("C-S-r" . vr/replace)))
+;;multiple workspaces and tabbing
+(use-package perspeen
+  :ensure t
+  :init (setq perspeen-use-tab t)
+  :config (perspeen-mode)
+  :bind (("M-RET" . perspeen-tab-create-tab)
+		 ("M-Q" . perspeen-tab-del)
+		 ("M-," . perspeen-tab-prev)
+		 ("M-." . perspeen-tab-next)
+		 ("M-[" . perspeen-previous-ws)
+		 ("M-]" . perspeen-next-ws)
+		 ("M-r" . perspeen-rename-ws)
+		 ("C-M-q" . perspeen-delete-ws)
+		 ("<C-M-return>" . perspeen-create-ws)))
+(use-package helm-perspeen
+  :ensure t
+  :bind (("M-w" . helm-perspeen)))
 
 ;;shit from GitHub
 ;;muh books
@@ -714,9 +731,9 @@
 (defun shell-instead-dired ()
   (interactive)
   (let ((dired-buffer (current-buffer)))
-    (eshell (concat default-directory "-eshell"))
-    (kill-buffer dired-buffer)
-    (delete-other-windows)))
+	(eshell (concat default-directory "-eshell"))
+	(kill-buffer dired-buffer)
+	(delete-other-windows)))
 
 (global-set-key (kbd "M-d") 'dired)
 
@@ -920,6 +937,7 @@
 ;;gc on emacs idle
 (run-with-idle-timer 2 t (lambda () (garbage-collect)))
 
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -955,6 +973,7 @@
  '(spaceline-all-the-icons-highlight-file-name t)
  '(sr-speedbar-right-side nil)
  '(vlf-application (quote dont-ask)))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
