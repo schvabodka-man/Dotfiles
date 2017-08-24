@@ -716,6 +716,8 @@
   (defalias 'ws-remove 'perspeen-delete-ws)
   (defalias 'workspace-delete 'perspeen-delete-ws)
   (defalias 'workspace-remove 'perspeen-delete-ws)
+  (defalias 'ws-kill 'perspeen-delete-ws)
+  (defalias 'workspace-kill 'perspeen-delete-ws)
   (defalias 'ws-create 'perspeen-create-ws)
   (defalias 'ws-new 'perspeen-create-ws)
   (defalias 'workspace-create 'perspeen-create-ws)
