@@ -79,6 +79,10 @@
   (define-key emms-playlist-mode-map (kbd "n") nil)
   (define-key emms-playlist-mode-map (kbd "p") nil)
   
+
+  (define-key emms-playlist-mode-map (kbd "<return>") #'emms-pause)
+  (define-key emms-playlist-mode-map (kbd "<C-left>") #'emms-previous)
+  (define-key emms-playlist-mode-map (kbd "<C-right>") #'emms-next)
   (define-key emms-playlist-mode-map (kbd "C-k") #'emms-playlist-mode-current-kill)
   (define-key emms-playlist-mode-map (kbd "C-S-k") #'emms-mark-delete-marked-tracks)
   (define-key emms-playlist-mode-map (kbd "<delete>") #'emms-playlist-mode-kill-track)

@@ -15,6 +15,8 @@
 (load "~/.emacs.d/config/vanilla-emacs")
 ;;for editing fish scripts
 (load "~/.emacs.d/config/shell-scripting")
+;;undo redo
+(load "~/.emacs.d/config/undo-redo-tree")
 ;;for markdown
 (load "~/.emacs.d/config/markdown-editing")
 ;;org mode
@@ -84,6 +86,7 @@
  '(company-shell-modes (quote (sh-mode fish-mode)))
  '(diredp-image-preview-in-tooltip 300)
  '(diredp-image-show-this-file-use-frame-flag t)
+ '(global-undo-tree-mode t)
  '(highlight-thing-case-sensitive-p t)
  '(highlight-thing-delay-seconds 0.1)
  '(highlight-thing-exclude-thing-under-point t)
