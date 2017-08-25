@@ -50,4 +50,22 @@
   :ensure t
   :config
   (global-set-key (kbd "C-S-<down>") 'mc/mark-next-like-this)
-  (global-set-key (kbd "C-S-<up>") 'mc/mark-previous-like-this))
+  (global-set-key (kbd "C-S-<up>") 'mc/mark-previous-like-this)
+  (add-hook' after-init-hook 'bm-repository-load)
+  (add-hook 'find-file-hooks 'bm-buffer-restore)
+  (add-hook 'kill-emacs-hook #'(lambda nil
+								 (bm-buffer-save-all)
+								 (bm-repository-save)))
+  (add-hook 'after-save-hook #'bm-buffer-save)
+  (add-hook 'find-file-hooks   #'bm-buffer-restore)
+  (add-hook 'after-revert-hook #'bm-buffer-restore))
+;;local bookmarks for buffer
+(use-package bm
+  :ensure t
+  :config (setq-default bm-buffer-persistence t)
+  (setq bm-repository-file "~/.emacs.d/local-bookmarks")
+  :bind ("C-S-b" . bm-toggle))
+(use-package helm-bm
+  :ensure t
+  :config (defalias 'local-bookmarks 'helm-bm)
+  :bind ("C-M-b" . helm-bm))

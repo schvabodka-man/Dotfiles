@@ -124,6 +124,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(bm-face ((t (:background "firebrick" :foreground "white"))))
+ '(bm-fringe-persistent-face ((t (:background "forest green" :foreground "white"))))
+ '(bm-persistent-face ((t (:background "forest green" :foreground "white"))))
  '(cfw:face-grid ((t (:foreground "white"))))
  '(cfw:face-toolbar ((t (:foreground "white"))))
  '(cfw:face-toolbar-button-off ((t (:foreground "white" :weight bold))))
