@@ -9,3 +9,10 @@
 						  (bookmarks . 8)
 						  (projects . 8)
 						  (agenda . 8))))
+;;remove bullshit and start dashboard
+(defun acg-initial-buffer-choice ()
+  (if (get-buffer "*scratch*")
+	  (kill-buffer "*scratch*"))
+  (get-buffer "*dashboard*"))
+
+(setq initial-buffer-choice 'acg-initial-buffer-choice)
