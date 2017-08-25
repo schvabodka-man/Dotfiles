@@ -27,6 +27,8 @@
 (load "~/.emacs.d/config/google-botnet")
 ;;useless
 (load "~/.emacs.d/config/useless")
+;;weather reports
+(load "~/.emacs.d/config/weather-reports")
 ;;small but really useful
 (load "~/.emacs.d/config/small-but-useful")
 ;;time to play some games!
@@ -117,7 +119,9 @@
  '(send-mail-function (quote smtpmail-send-it))
  '(spaceline-all-the-icons-highlight-file-name t)
  '(sr-speedbar-right-side nil)
- '(vlf-application (quote dont-ask)))
+ '(vlf-application (quote dont-ask))
+ '(yahoo-weather-location "Uzhhorod")
+ '(yahoo-weather-mode t))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
