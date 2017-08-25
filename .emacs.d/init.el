@@ -39,7 +39,7 @@
 (load "~/.emacs.d/config/brainfuck-devel")
 ;;live preview for web
 (load "~/.emacs.d/config/html-live-editing")
-;;js development 
+;;js development
 (load "~/.emacs.d/config/javascript-setup")
 ;;project management
 (load "~/.emacs.d/config/projects-management.el")
