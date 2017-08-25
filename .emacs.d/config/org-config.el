@@ -3,6 +3,7 @@
 ;;; MUH ORG-MODE
 ;;; Code:
 (setq org-agenda-files (list "~/Dropbox/Org/Wiki/Agenda/Todo"
+							 "~/Dropbox/Org/Wiki/Agenda/Util"
 							 "~/Dropbox/Org/Wiki/Agenda/Diary"))
 (setq org-archive-location "~/Dropbox/Org/Wiki/Agenda/Archive/todo.org::* TASKS")
 (setq org-support-shift-select t)

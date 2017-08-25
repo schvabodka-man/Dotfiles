@@ -6,9 +6,11 @@
 (setq gc-cons-threshold 100000000)
 ;;stuff
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+						 ("marmalade" . "http://marmalade-repo.org/packages/")
+						 ("melpa-stable" . "https://stable.melpa.org/packages/")
+						 ("melpa" . "http://melpa.org/packages/")))
+;;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 (load "~/.emacs.d/config/big-frameworks")
 ;;keybindings
@@ -170,6 +172,9 @@
  '(spaceline-highlight-face ((t (:background "DarkGoldenrod2" :foreground "black" :inherit (quote mode-line)))))
  '(spaceline-modified ((t (:background "SkyBlue2" :foreground "black" :inherit (quote mode-line)))))
  '(spaceline-read-only ((t (:background "plum3" :foreground "black" :inherit (quote mode-line)))))
- '(spaceline-unmodified ((t (:background "DarkGoldenrod2" :foreground "black" :inherit (quote mode-line))))))
+ '(spaceline-unmodified ((t (:background "DarkGoldenrod2" :foreground "black" :inherit (quote mode-line)))))
+ '(weather-metno-date ((t (:inherit header-line :foreground "lawn green"))))
+ '(weather-metno-date-range ((t (:inherit font-lock-function-name-face :foreground "lawn green"))))
+ '(weather-metno-entry ((t (:inherit font-lock-variable-name-face :foreground "deep sky blue")))))
 (put 'dired-find-alternate-file 'disabled nil)
 ;;; init.el ends here
