@@ -116,6 +116,7 @@
  '(minimap-window-location (quote right))
  '(multi-eshell-name "*eshell*")
  '(multi-eshell-shell-function (quote (eshell)))
+ '(neo-theme (quote icons))
  '(org-agenda-confirm-kill t)
  '(package-selected-packages
    (quote

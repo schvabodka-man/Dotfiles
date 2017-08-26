@@ -123,3 +123,10 @@
   :ensure t
   :config (add-to-list 'emms-info-functions #'emms-info-mediainfo)
   :after emms)
+(use-package emms-player-mpv
+  :ensure t
+  :config (add-to-list 'emms-player-list 'emms-player-mpv)
+  :after emms)
+(use-package emms-player-simple-mpv
+  :ensure t
+  :config (require 'emms-player-simple-mpv-e.g.time-display))

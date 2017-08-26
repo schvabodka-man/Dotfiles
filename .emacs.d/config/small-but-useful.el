@@ -25,14 +25,40 @@
   (defalias 'install-temporary 'try)
   (defalias 'install-try 'try))
 ;;speedbar
-(use-package sr-speedbar
+(use-package neotree
   :ensure t
-  :config 
-  (defalias 'bar 'sr-speedbar-toggle)
-  (defalias 'panel 'sr-speedbar-toggle)
-  (defalias 'bar-toggle 'sr-speedbar-toggle)
-  (defalias 'panel-toggle 'sr-speedbar-toggle)
-  :bind (("M-s" . sr-speedbar-toggle)))
+  :pin melpa-stable
+  :config (define-key neotree-mode-map (kbd "C-n") #'neotree-create-node)
+  (define-key neotree-mode-map (kbd "C-S-c") #'neotree-copy-node)
+  (define-key neotree-mode-map (kbd "C-r") #'neotree-rename-node)
+  (define-key neotree-mode-map (kbd "C-k") #'neotree-delete-node)
+  (define-key neotree-mode-map (kbd "M-r") #'neotree-refresh)
+  (define-key neotree-mode-map (kbd "C-f") #'neotree-find)
+  (define-key neotree-mode-map (kbd "C-g") #'neotree-dir)
+  (define-key neotree-mode-map (kbd "<return>") #'neotree-change-root)
+  (define-key neotree-mode-map (kbd "<up>") #'neotree-previous-line)
+  (define-key neotree-mode-map (kbd "<down>") #'neotree-next-line)
+  (define-key neotree-mode-map (kbd "<delete>") #'neotree-delete-node)
+  (define-key neotree-mode-map (kbd "C-q") #'neotree-hide)
+  (define-key neotree-mode-map (kbd "C-h") #'neotree-hidden-file-toggle)
+  (define-key neotree-mode-map (kbd "q") nil)
+  (define-key neotree-mode-map (kbd "i") nil)
+  (define-key neotree-mode-map (kbd "n") nil)
+  (define-key neotree-mode-map (kbd "H") nil)
+  (define-key neotree-mode-map (kbd "D") nil)
+  (define-key neotree-mode-map (kbd "U") nil)
+  (define-key neotree-mode-map (kbd "A") nil)
+  (define-key neotree-mode-map (kbd "s") nil)
+  (define-key neotree-mode-map (kbd "S") nil)
+  (define-key neotree-mode-map (kbd "C-c C-c") nil)
+  (define-key neotree-mode-map (kbd "C-c c") nil)
+  :bind (("M-s" . neotree-toggle)))
+;;calibre
+(el-get-bundle calibre-mode
+  :url "https://raw.githubusercontent.com/whacked/calibre-mode/master/calibre-mode.el"
+  :description "Great sidebar"
+  :features calibre-mode)
+(require 'calibre-mode)
 ;;links hinting
 (use-package link-hint
   :ensure t
