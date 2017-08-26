@@ -68,7 +68,7 @@
 (use-package helm-bm
   :ensure t
   :config (defalias 'local-bookmarks 'helm-bm)
-  :bind ("C-M-b" . helm-bm))
+  :bind ("C-b" . helm-bm))
 ;;whitespaces problems
 (use-package whitespace-cleanup-mode
   :ensure t

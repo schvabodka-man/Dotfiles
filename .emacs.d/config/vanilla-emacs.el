@@ -40,7 +40,7 @@
 (defun indent-all ()
   (interactive)
   (indent-region (point-min) (point-max)))
-(global-set-key (kbd "C-b") 'indent-all)
+(global-set-key (kbd "C-i") 'indent-all)
 (defalias 'beautify 'indent-all)
 
 (defun put-file-name-on-clipboard ()

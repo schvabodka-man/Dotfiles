@@ -21,6 +21,8 @@
 (load "~/.emacs.d/config/undo-redo-tree")
 ;;for markdown
 (load "~/.emacs.d/config/markdown-editing")
+;;some quick stuff
+(load "~/.emacs.d/config/editing-addons")
 ;;org mode
 (load "~/.emacs.d/config/org-config")
 ;;rice

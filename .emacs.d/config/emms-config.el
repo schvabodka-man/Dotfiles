@@ -116,10 +116,6 @@
   (defalias 'emms-kill 'kill-emms)
   (defalias 'music-kill 'kill-emms)
   (defalias 'kill-music 'kill-emms))
-(use-package emms-player-mpv
-  :ensure t
-  :after emms
-  :config (add-to-list 'emms-player-list 'emms-player-mpv))
 (use-package helm-emms
   :ensure t
   :after emms)
