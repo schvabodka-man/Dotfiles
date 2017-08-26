@@ -123,6 +123,7 @@
  '(package-selected-packages
    (quote
 	(nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
+ '(paradox-github-token t)
  '(send-mail-function (quote smtpmail-send-it))
  '(spaceline-all-the-icons-highlight-file-name t)
  '(sr-speedbar-right-side nil)
