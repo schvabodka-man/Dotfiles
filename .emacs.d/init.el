@@ -10,7 +10,6 @@
 						 ("marmalade" . "http://marmalade-repo.org/packages/")
 						 ("melpa-stable" . "https://stable.melpa.org/packages/")
 						 ("melpa" . "http://melpa.org/packages/")))
-;;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 (load "~/.emacs.d/config/big-frameworks")
 ;;keybindings
