@@ -196,5 +196,4 @@
 ;;dired additions
 (use-package dired+
   :ensure t
-  :pin melpa-stable
   :config  (diredp-toggle-find-file-reuse-dir))

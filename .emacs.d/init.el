@@ -71,6 +71,8 @@
 (load "~/.emacs.d/config/gnus-init")
 ;;eshell
 (load "~/.emacs.d/config/eshell")
+;;packages
+(load "~/.emacs.d/config/package-managing")
 ;;dired
 (load "~/.emacs.d/config/dired-config")
 

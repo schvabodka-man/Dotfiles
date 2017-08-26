@@ -88,11 +88,16 @@
 		 (local-set-key (kbd "C-S-m") #'gnus-group-unmark-group)
 		 (local-set-key (kbd "C-M-m") #'gnus-group-mark-buffer)
 		 (local-set-key (kbd "C-M-S-m") #'gnus-group-unmark-all-groups)
-		 (local-set-key (kbd "C-r") #'gnus-group-mark-regexp)))
+		 (local-set-key (kbd "C-r") #'gnus-group-mark-regexp)
+		 (local-set-key (kbd "<return>") #'gnus-group-read-group)
+		 (local-set-key (kbd "SPC") nil)
+		 
+		 (local-set-key (kbd "M-RET") #'perspeen-tab-create-tab)))
 
 (setq gnus-summary-mode-hook 
       '(lambda ()
 		 (local-set-key (kbd "M-RET") #'perspeen-tab-create-tab)
+		 
 		 (local-set-key (kbd "<C-left>") #'gnus-summary-prev-article)
 		 (local-set-key (kbd "<C-right>") #'gnus-summary-next-article)
 		 (local-set-key (kbd "<C-S-left>") #'gnus-summary-prev-unread-article)
