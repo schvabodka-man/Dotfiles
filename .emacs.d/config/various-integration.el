@@ -25,7 +25,14 @@
   (prodigy-define-service
 	:name "Chromium debug mode"
 	:command "chromium-browser"
-	:args '("--remote-debugging-port=9222" "https://localhost:3000")
+	:args '("--remote-debugging-port=9222" "https://localhost:8080")
+	:tags '(web)
+	:stop-signal 'sigkill
+	:kill-process-buffer-on-stop t)
+  (prodigy-define-service
+	:name "Chromium debug mode NO GPU"
+	:command "chromium-browser"
+	:args '("--disable-gpu" "--remote-debugging-port=9222" "https://localhost:3000")
 	:tags '(web)
 	:stop-signal 'sigkill
 	:kill-process-buffer-on-stop t))

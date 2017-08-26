@@ -31,6 +31,7 @@
   :config (define-key neotree-mode-map (kbd "C-n") #'neotree-create-node)
   (define-key neotree-mode-map (kbd "C-S-c") #'neotree-copy-node)
   (define-key neotree-mode-map (kbd "C-r") #'neotree-rename-node)
+  (define-key neotree-mode-map (kbd "C-u") #'neotree-copy-filepath-to-yank-ring)
   (define-key neotree-mode-map (kbd "C-k") #'neotree-delete-node)
   (define-key neotree-mode-map (kbd "M-r") #'neotree-refresh)
   (define-key neotree-mode-map (kbd "C-f") #'neotree-find)
