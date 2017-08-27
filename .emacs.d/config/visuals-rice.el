@@ -24,3 +24,6 @@
   :description "Port of Atom theme")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/el-get/seti-theme")
 (load-theme 'seti t)
+(use-package emojify
+  :ensure t
+  :config (add-hook 'emacs-startup-hook 'global-emojify-mode))
