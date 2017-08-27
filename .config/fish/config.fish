@@ -7,8 +7,8 @@ set -g theme_color_scheme dark
 set -x JAVA_HOME '/usr/lib/jvm/java'
 set -x GRADLE_HOME '/usr/share/gradle'
 set -x GOPATH '/home/user/Go'
-set -x EDITOR "emacsclient -nw"
-set -x BROWSER "flatpak run org.mozilla.FirefoxNightly --no-remote"
+set -x EDITOR "emacsclient -c"
+set -x BROWSER "luakit"
 set -x FLATPACK_GNOME "3.24"
 
 set -x TLDR_COLOR_BLANK "white"

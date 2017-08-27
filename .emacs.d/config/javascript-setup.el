@@ -79,5 +79,6 @@
   :config (add-to-list 'company-backends 'company-tern)
   (add-hook 'js2-mode-hook 'tern-mode)
   (define-key tern-mode-keymap (kbd "M-.") nil)
-  (define-key tern-mode-keymap (kbd "M-,") nil))
+  (define-key tern-mode-keymap (kbd "M-,") nil)
+  (define-key tern-mode-keymap (kbd "C-j") 'tern-find-definition))
 

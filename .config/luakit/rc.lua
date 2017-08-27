@@ -164,6 +164,8 @@ local tab_favicons = require "tab_favicons"
 -- Add :view-source command
 local view_source = require "view_source"
 
+local editor = require "editor"
+
 -----------------------------
 ------- Custom funcs --------
 -----------------------------
@@ -203,7 +205,8 @@ end
 -----------------------------
 noscript.enable_scripts = false
 noscript.enable_plugins = false
-
+editor.editor_cmd = editor.builtin.xdg_open
+soup.accept_policy = "always"
 -----------------------------
 -------- Keybindings --------
 -----------------------------
@@ -218,7 +221,6 @@ add_binds("normal", {
 			 { "^", "nil", function (w) end },
 			 { "$", "nil", function (w) end },
 			 { "0", "nil",function (w, m) end },
-			 { "<Control-e>", function (w) end },
 			 { "<Control-y>", function (w) end },
 			 { "gg", "nil", function (w) end },
 			 { "G", "nil", function (w) end },
@@ -363,18 +365,9 @@ add_binds("all", {
 
 --reloading
 add_binds("all", {
-			 { "<Control-r>", "Reload current tab.", function (w) w:reload() end },
-			 { "<Control-Shift-r>", "Reload current tab (skipping cache).", function (w) w:reload(true) end },
+			 { "<Mod1-r>", "Reload current tab.", function (w) w:reload() end },
+			 { "<Mod1-Shift-r>", "Reload current tab (skipping cache).", function (w) w:reload(true) end },
 })
-
---menu
-add_binds("all", {
-			 { "<Down>",      "Move the menu row focus downwards.", function (w) w.menu:move_down() end },
-			 { "<Up>",        "Move the menu row focus upwards.",   function (w) w.menu:move_up()   end },
-			 { "<KP_Down>",   "Move the menu row focus downwards.", function (w) w.menu:move_down() end },
-			 { "<KP_Up>", "Move the menu row focus upwards.", function (w) w.menu:move_up() end },
-})
-
 --devel
 add_binds("normal", { { "<F1>", "Toggle web inspector.", function (w) w:run_cmd(":inspect") end }})
 add_binds("normal", { { "<F2>", "View source code of page", function (w) w:run_cmd(":view-source") end }})
