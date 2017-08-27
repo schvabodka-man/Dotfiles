@@ -92,6 +92,54 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(company-shell-modes (quote (sh-mode fish-mode)))
+ '(dired-filter-saved-filters
+   (quote
+	(("Emacs Lisp"
+	  (extension . "el")
+	  (omit))
+	 ("Pictures"
+	  (extension "jpg" "jpeg" "raw" "png" "gif" "tiff" "svg" "bmp")
+	  (omit))
+	 ("Images"
+	  (extension "jpg" "jpeg" "raw" "png" "gif" "tiff" "svg" "bmp")
+	  (omit))
+	 ("Video"
+	  (extension "mp4" "wmv" "avi" "flv" "mkv" "3gp" "rm" "ogv" "mov" "webm")
+	  (omit))
+	 ("Music"
+	  (extension "mp3" "flac" "alac" "wav" "wv" "ape" "ogg" "midi" "aac")
+	  (omit))
+	 ("Java"
+	  (extension "aj" "java" "jsp")
+	  (omit))
+	 ("JavaScript"
+	  (extension . "js")
+	  (omit))
+	 ("HTML"
+	  (extension "html" "jsp")
+	  (omit))
+	 ("CSS"
+	  (extension "css" "less" "sass" "scss")
+	  (omit))
+	 ("HTML/CSS"
+	  (extension "html" "css" "jsp" "sass" "scss" "less")
+	  (omit))
+	 ("Clojure"
+	  (extension "clj" "cljs")
+	  (omit))
+	 ("Scala"
+	  (extension "sbt" "scala")
+	  (omit))
+	 ("Shell scripts"
+	  (extension "sh" "fish")
+	  (omit))
+	 ("Gradle"
+	  (extension "properties" "gradle" "bat")
+	  (omit))
+	 (#("XML" 0 1
+		(idx 0))
+	  (extension . "xml")
+	  (omit)))))
  '(diredp-image-preview-in-tooltip 300)
  '(diredp-image-show-this-file-use-frame-flag t)
  '(global-undo-tree-mode t)

@@ -14,10 +14,9 @@
 (global-set-key (kbd "C-<end>") 'end-of-line)
 (global-set-key (kbd "C-<left>") 'left-word)
 (global-set-key (kbd "C-<right>") 'right-word)
-(global-set-key (kbd "C-/") 'comment-line)
 (global-set-key (kbd "C-g") 'goto-line)
+(global-set-key (kbd "C-/") 'comment-line)
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
-(global-set-key (kbd "TAB") 'self-insert-command)
 ;; windows controls
 (global-set-key (kbd "M-n") 'split-window-horizontally)
 (global-set-key (kbd "M-N") 'split-window-vertically)
@@ -27,6 +26,7 @@
 (global-set-key (kbd "M-<right>") 'windmove-right)
 (global-set-key (kbd "M-q") 'delete-window)
 (global-set-key (kbd "C-S-q") 'kill-this-buffer)
+(global-set-key (kbd "TAB") 'self-insert-command)
 ;;redone backspace and del
 (global-set-key (kbd "C-<backspace>") 'ivy-backward-kill-word)
 ;;bookmark set
@@ -41,11 +41,11 @@
 (global-set-key (kbd "M-~") 'make-new-buffer)
 
 ;;custom funcs and aliases
-(defun indent-all ()
+(defun indent-buffers ()
   (interactive)
   (indent-region (point-min) (point-max)))
-(global-set-key (kbd "C-i") 'indent-all)
 (defalias 'beautify 'indent-all)
+(global-set-key (kbd "C-b") 'indent-buffers)
 
 (defun put-file-name-on-clipboard ()
   (interactive)
@@ -144,3 +144,4 @@
 			(push '("=/=" . ?≠) prettify-symbols-alist)
 			(push '("==" . ?≡) prettify-symbols-alist)
 			(push '("lambda" . ?λ) prettify-symbols-alist)))
+

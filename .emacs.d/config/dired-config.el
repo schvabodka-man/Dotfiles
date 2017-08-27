@@ -146,7 +146,6 @@
 			(local-set-key (kbd "M-q") nil)
 			(local-set-key (kbd "+") nil)
 			(local-set-key (kbd "M-G") nil)
-			(local-set-key (kbd "<SPC>") nil)
 
 			(local-set-key (kbd "C-n") #'find-file)
 			(local-set-key (kbd "C-S-n") #'dired-create-directory)
@@ -197,3 +196,13 @@
 (use-package dired+
   :ensure t
   :config  (diredp-toggle-find-file-reuse-dir))
+(use-package dired-filter
+  :ensure t
+  :config (add-hook 'dired-mode-hook
+					(lambda ()
+					  (local-set-key (kbd "M-f") #'dired-filter-load-saved-filters))))
+(use-package dired-subtree
+  :ensure t
+  :config (add-hook 'dired-mode-hook
+					(lambda ()
+					  (local-set-key (kbd "<SPC>") #'dired-subtree-toggle))))
