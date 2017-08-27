@@ -6,14 +6,6 @@
   (setq mentor-rtorrent-buffer-name "*mentor*")
   ;;(setq mentor-rtorrent-external-rpc "~/.rtorrent-rpc.socket")
   )
-(el-get-bundle calibre-mode
-  :url "https://raw.githubusercontent.com/whacked/calibre-mode/master/calibre-mode.el"
-  :description "Calibre library management"
-  :features calibre-mode)
-(require 'calibre-mode)
-(setq sql-sqlite-program "/usr/bin/sqlite3")
-(setq calibre-root-dir (expand-file-name "~/Dropbox/Books"))
-(setq calibre-db (concat calibre-root-dir "/metadata.db"))
 ;;services
 (use-package prodigy
   :ensure t

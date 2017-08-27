@@ -38,6 +38,8 @@
 (load "~/.emacs.d/config/good-games")
 ;;docker
 (load "~/.emacs.d/config/docker-integration")
+;;books
+(load "~/.emacs.d/config/book-reading")
 ;;integrations
 (load "~/.emacs.d/config/various-integration")
 ;;brainfuck unironically. i like brainfuck because of its simplicity
@@ -83,7 +85,6 @@
 (byte-compile-init-dir)
 ;;gc on emacs idle
 (run-with-idle-timer 2 t (lambda () (garbage-collect)))
-
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
