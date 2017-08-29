@@ -200,6 +200,13 @@ local function scriptSwitcher(w)
    end
 end
 
+window.add_signal("build", function(w)
+    -- save the session automatically when the window is closed
+    w.win:add_signal("can-close", function()
+        w:save_session()
+        msg.info("session saved, closing!")
+    end)
+end)
 -----------------------------
 ---------- Values -----------
 -----------------------------

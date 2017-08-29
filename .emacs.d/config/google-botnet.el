@@ -1,7 +1,3 @@
-(use-package helm-google
-  :ensure t
-  :bind (("C-M-g" . helm-google))
-  :config (defalias 'google 'helm-google))
 ;;google translate
 (use-package google-translate
   :ensure t
