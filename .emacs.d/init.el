@@ -157,7 +157,6 @@
  '(js2-include-rhino-externs t)
  '(js2-instanceof-has-side-effects t)
  '(meghanada-debug t)
- '(meghanada-port 66666)
  '(meghanada-server-remote-debug t)
  '(minimap-buffer-name " MINIMAP")
  '(minimap-dedicated-window nil)

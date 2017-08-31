@@ -121,7 +121,6 @@
 		 (local-set-key (kbd "<end>") #'gnus-summary-end-of-article)))
 
 (add-hook 'message-mode-hook (lambda ()
-							   (local-set-key (kbd "<C-RET>") #'message-send-and-exit)
 							   (local-set-key (kbd "M-a") #'mml-attach-file)
 							   (local-set-key (kbd "M-v") #'mml-attach-file)
 							   (local-set-key (kbd "M-k") #'message-dont-send)

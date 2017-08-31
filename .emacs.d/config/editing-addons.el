@@ -16,3 +16,4 @@
   ;;(setq dumb-jump-use-visible-window nil)
   :bind (("C-j" . dumb-jump-go)
 		 ("C-S-j" . dumb-jump-back)))
+(add-hook 'before-save-hook 'indent-buffers)
