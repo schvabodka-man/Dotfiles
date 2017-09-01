@@ -36,6 +36,10 @@
   (defun run-meghanada-on-gradle ()
 	(when (string= (file-name-extension buffer-file-name) "gradle")
 	  (java)))
+  (defun run-meghanada-on-maven ()
+	(when (string= (file-name-base buffer-file-name) "pom")
+	  (java)))
+  (add-hook 'nxml-mode-hook 'run-meghanada-on-maven)
   (add-hook 'groovy-mode-hook 'run-meghanada-on-gradle)
   (add-hook 'kill-emacs-hook 'meghanada-server-kill))
 (use-package ensime

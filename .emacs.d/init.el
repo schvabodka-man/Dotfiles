@@ -174,6 +174,12 @@
    (quote
 	(nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
  '(paradox-github-token t)
+ '(projectile-globally-ignored-directories
+   (quote
+	(".idea" ".ensime_cache" ".eunit" ".git" ".hg" ".fslckout" "_FOSSIL_" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "gradle" ".gradle" ".meghanada" "build" "out" "libs" "target" ".mvn" "el-get" "elpa" "auto-save-list")))
+ '(projectile-globally-ignored-files
+   (quote
+	("TAGS" ".gitignore" ".projectile" ".ensime" "mvnw" "gradlew" "gradlew.bat" "mvnw.cmd")))
  '(send-mail-function (quote smtpmail-send-it))
  '(spaceline-all-the-icons-highlight-file-name t)
  '(sr-speedbar-right-side nil)

@@ -145,3 +145,6 @@
 			(push '("==" . ?≡) prettify-symbols-alist)
 			(push '("lambda" . ?λ) prettify-symbols-alist)))
 
+;;backups and auto saves. no cluttering
+(setq backup-directory-alist '(("." . "~/Dropbox/Emacs/Backup")))
+(setq auto-save-file-name-transforms `((".*" "~/Dropbox/Emacs/Autosave" t)))
