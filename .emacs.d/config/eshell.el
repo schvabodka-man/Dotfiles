@@ -36,4 +36,14 @@
 										(delq frame (frame-list)))))
 		(kill-buffer (current-buffer)))))
 (add-hook 'delete-frame-functions 'kill-buffer-when-frame-delete-dwim)
+
+(setenv "TLDR_COLOR_BLANK" "white")
+(setenv "TLDR_COLOR_NAME" "cyan")
+(setenv "TLDR_COLOR_DESCRIPTION" "white")
+(setenv "TLDR_COLOR_EXAMPLE" "green")
+(setenv "TLDR_COLOR_COMMAND" "red")
+(setenv "TLDR_COLOR_PARAMETER" "white")
+(setenv "TLDR_CACHE_ENABLED" "1")
+(setenv "TLDR_CACHE_MAX_AGE" "720")
+
 ;;; eshell ends here

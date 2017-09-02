@@ -45,7 +45,7 @@
   :init (yas-global-mode 1)
   :config
   (defalias 'snippet 'yas-expand)
-  (global-set-key (kbd "M-TAB") 'yas-expand))
+  (global-set-key (kbd "M-TAB") 'company-yasnippet))
 ;;flycheck
 (use-package flycheck
   :ensure t

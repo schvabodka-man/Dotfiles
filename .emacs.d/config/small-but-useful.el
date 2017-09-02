@@ -2,7 +2,7 @@
   :ensure t
   :config
   (add-hook 'restclient-mode-hook
-			(lambda () (local-set-key (kbd "<M-f4>") #'restclient-http-send-current-stay-in-window)
+			(lambda () (local-set-key (kbd "<M-f1>") #'restclient-http-send-current-stay-in-window)
 			  (local-set-key (kbd "C-.") #'restclient-jump-next)
 			  (local-set-key (kbd "C-,") #'restclient-jump-prev)))
   (defalias 'restclient 'restclient-mode)

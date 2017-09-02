@@ -1,3 +1,8 @@
+;;; jvm-languages --- JVM dev
+;;; Commentary:
+;;; Code:
+(use-package yasnippet-java-mode
+  :ensure t)
 (use-package kotlin-mode
   :ensure t)
 (use-package groovy-mode
@@ -19,17 +24,30 @@
 	(interactive)
 	(meghanada-import-all)
 	(meghanada-optimize-import))
+  (defalias 'java-beautify 'meghanada-code-beautify)
+  (defalias 'java-indent 'meghanada-code-beautify)
   (defalias 'java-jump 'meghanada-jump-declaration)
   (defalias 'java-jump-undo 'meghanada-back-jump)
   (defalias 'java-jump-back 'meghanada-back-jump)
+  (defalias 'java-run 'meghanada-exec-main)
+  (defalias 'java-exec 'meghanada-exec-main)
+  (defalias 'java-run-junit-test-class 'meghanada-run-junit-class)
+  (defalias 'java-exec-junit-test-class 'meghanada-run-junit-class)
+  (defalias 'java-debug 'meghanada-debug-main)
+  (defalias 'java-debug-junit-test-case 'meghanada-debug-junit-test-case)
   (add-hook 'java-mode-hook
 			(lambda ()
-			  (meghanada-mode t)
-			  (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)
-			  (add-hook 'before-save-hook 'meghanada-optimize-import)))
+			  (if (string-match "pong" (meghanada-ping))
+				  (progn
+					(meghanada-mode t)))))
   (add-hook 'meghanada-mode-hook
 			(lambda ()
 			  (local-set-key (kbd "C-j") #'meghanada-jump-declaration)
+			  (local-set-key (kbd "C-b") #'meghanada-code-beautify)
+			  (local-set-key (kbd "<M-f3>") #'meghanada-run-junit-test-case)
+			  (local-set-key (kbd "<M-f4>") #'meghanada-debug-junit-test-case)
+			  (local-set-key (kbd "<M-f1>") #'meghanada-exec-main)
+			  (local-set-key (kbd "<M-f2>") #'meghanada-debug-main)
 			  (local-set-key (kbd "C-S-j") #'meghanada-back-jump)))
   (define-key meghanada-mode-map (kbd "M-,") nil)
   (define-key meghanada-mode-map (kbd "M-.") nil)
