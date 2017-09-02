@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: file
+# key: file
+# Link to file in repo
+[$2](../$1)
