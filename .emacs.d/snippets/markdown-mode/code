@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # name: code
 # key: code
-# Insert code and shit
+# --
 ```$1
 $2
 ```

@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: get
-# key: get
-# --
-GET https://www.$1/requst?par=$2&par2=$3
-Content-Type: application/json
-Header: $4

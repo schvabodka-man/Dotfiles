@@ -66,4 +66,12 @@
   :config
   (setq
    ensime-sbt-command "/usr/bin/sbt"
-   sbt:program-name "/usr/bin/sbt"))
+   sbt:program-name "/usr/bin/sbt")
+  (setq ensime-startup-notification nil)
+  (setq ensime-startup-snapshot-notification nil))
+(use-package sbt-mode
+  :ensure t
+  :pin melpa)
+(use-package scala-mode
+  :ensure t
+  :pin melpa)

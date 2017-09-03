@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: link
 # key: link
-# Link to some site or stuff
+# --
 [$2](https://$1 "$3")

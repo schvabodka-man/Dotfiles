@@ -38,7 +38,7 @@
     (switch-to-buffer $buf)
     (funcall initial-major-mode)
     (setq buffer-offer-save t)))
-(global-set-key (kbd "M-~") 'make-new-buffer)
+(global-set-key (kbd "M-\\") 'make-new-buffer)
 
 ;;custom funcs and aliases
 (defun indent-buffers ()

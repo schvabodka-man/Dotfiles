@@ -183,8 +183,13 @@
 ;;image viewer
 (use-package picpocket
   :ensure t
-  :config (add-hook 'image-mode-hook 'picpocket)
-  (add-hook 'image-minor-mode-hook 'picpocket)
+  :config
+  (setq auto-mode-alist
+		(cl-loop for (regexp . mode) in auto-mode-alist
+				 if (eq mode 'image-mode)
+				 collect (cons regexp #'picpocket)
+				 else
+				 collect (cons regexp mode)))
   (add-hook 'picpocket-mode-hook
 			(lambda ()
 			  (local-set-key (kbd "<SPC>") nil)

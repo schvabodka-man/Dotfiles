@@ -38,6 +38,8 @@
 (load "~/.emacs.d/config/good-games")
 ;;docker
 (load "~/.emacs.d/config/docker-integration")
+;;monitoring
+(load "~/.emacs.d/config/system-monitoring")
 ;;books
 (load "~/.emacs.d/config/book-reading")
 ;;integrations
@@ -91,6 +93,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-minimum-prefix-length 0)
  '(company-shell-modes (quote (sh-mode fish-mode)))
  '(dired-filter-saved-filters
    (quote
@@ -142,6 +145,11 @@
 	  (omit)))))
  '(diredp-image-preview-in-tooltip 300)
  '(diredp-image-show-this-file-use-frame-flag t)
+ '(ensime-company-idle-delay 0.1)
+ '(ensime-graphical-tooltips t)
+ '(ensime-search-interface (quote helm))
+ '(ensime-typecheck-idle-interval 1)
+ '(ensime-typecheck-interval 1)
  '(global-undo-tree-mode t)
  '(highlight-thing-case-sensitive-p t)
  '(highlight-thing-delay-seconds 0.1)
@@ -176,13 +184,20 @@
  '(paradox-github-token t)
  '(projectile-globally-ignored-directories
    (quote
-	(".idea" ".ensime_cache" ".eunit" ".git" ".hg" ".fslckout" "_FOSSIL_" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "gradle" ".gradle" ".meghanada" "build" "out" "libs" "target" ".mvn" "el-get" "elpa" "auto-save-list")))
+	(".idea" ".ensime_cache" ".eunit" ".git" ".hg" ".fslckout" "_FOSSIL_" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "gradle" ".gradle" ".meghanada" "build" "out" "libs" "target" ".mvn" "el-get" "elpa" "auto-save-list" "project")))
  '(projectile-globally-ignored-files
    (quote
 	("TAGS" ".gitignore" ".projectile" ".ensime" "mvnw" "gradlew" "gradlew.bat" "mvnw.cmd")))
  '(send-mail-function (quote smtpmail-send-it))
  '(spaceline-all-the-icons-highlight-file-name t)
  '(sr-speedbar-right-side nil)
+ '(symon-delay 0)
+ '(symon-mode t)
+ '(symon-monitors
+   (quote
+	(symon-linux-network-rx-monitor symon-linux-network-tx-monitor time-date)))
+ '(symon-sparkline-thickness 1)
+ '(symon-sparkline-type (quote plain))
  '(vlf-application (quote dont-ask))
  '(yahoo-weather-location "Uzhhorod")
  '(yahoo-weather-mode t))
@@ -214,6 +229,7 @@
  '(emms-browser-artist-face ((t (:foreground "deep sky blue" :weight bold :height 1.3))))
  '(emms-browser-track-face ((t (:foreground "white" :height 1.0))))
  '(emms-browser-year/genre-face ((t (:foreground "spring green" :weight extra-bold :height 1.5))))
+ '(ensime-breakpoint-face ((t (:background "red"))))
  '(epe-git-face ((t (:inherit font-lock-builtin-face))))
  '(epe-pipeline-delimiter-face ((t (:foreground "lawn green"))))
  '(epe-pipeline-host-face ((t (:foreground "cyan"))))

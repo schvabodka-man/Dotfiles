@@ -121,8 +121,8 @@ bindsym XF86AudioPrev exec cmus-remote -r
 bindsym XF86AudioPlay exec cmus-remote -u
 
 #gaps
-gaps inner 5
-gaps outer 5
+#gaps inner 5
+#gaps outer 5
 
 # Autoexec
 #Wallpaper

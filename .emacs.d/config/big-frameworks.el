@@ -19,7 +19,7 @@
   :bind (("M-x" . helm-M-x)
 		 ("M-o" . helm-find-files)
 		 ("M-c" . helm-colors)
-		 ("M-W" . helm-buffers-list)
+		 ("M-w" . helm-buffers-list)
 		 ("M-b" . helm-bookmarks)
 		 ("C-f" . helm-occur)))
 ;;git
