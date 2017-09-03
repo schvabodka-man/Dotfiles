@@ -93,6 +93,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(battery-update-interval 10)
  '(company-minimum-prefix-length 0)
  '(company-shell-modes (quote (sh-mode fish-mode)))
  '(dired-filter-saved-filters
@@ -150,6 +151,7 @@
  '(ensime-search-interface (quote helm))
  '(ensime-typecheck-idle-interval 1)
  '(ensime-typecheck-interval 1)
+ '(fancy-battery-show-percentage t)
  '(global-undo-tree-mode t)
  '(highlight-thing-case-sensitive-p t)
  '(highlight-thing-delay-seconds 0.1)
@@ -191,7 +193,7 @@
  '(send-mail-function (quote smtpmail-send-it))
  '(spaceline-all-the-icons-highlight-file-name t)
  '(sr-speedbar-right-side nil)
- '(symon-delay 0)
+ '(symon-delay 4)
  '(symon-mode t)
  '(symon-monitors
    (quote

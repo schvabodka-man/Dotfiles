@@ -1,0 +1,10 @@
+;;; `(buffer-name)` --- $1
+
+;;; Copyright (C) `(format-time-string "%Y")` scvh-man
+;;; Author: scvh-man
+;;; License: http://www.gnu.org/licenses/gpl-3.0.en.html
+
+;;; Commentary:
+;;; Code:
+$2
+;;; `(buffer-name)` ends here

@@ -57,6 +57,11 @@
 			  '(:with company-yasnippet))))
 
   (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends)))
+(use-package yatemplate
+  :ensure t
+  :config (auto-insert-mode)
+  (setq auto-insert-alist nil)
+  (yatemplate-fill-alist))
 ;;flycheck
 (use-package flycheck
   :ensure t
