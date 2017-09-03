@@ -1,7 +1,7 @@
 ;;; jvm-languages --- JVM dev
 ;;; Commentary:
 ;;; Code:
-(use-package yasnippet-java-mode
+(use-package java-snippets
   :ensure t)
 (use-package kotlin-mode
   :ensure t)
