@@ -200,7 +200,6 @@
   (flet ((kill-buffer-ask (buffer) (kill-buffer buffer)))
 	(kill-matching-buffers "*Group*")
 	(kill-matching-buffers "*Article .+")
-	(kill-matching-buffers "*Summary .+")
-	(kill-matching-buffers ".newsrc-dribble")))
+	(kill-matching-buffers "*Summary .+")))
 
 ;;; gnus.el ends here

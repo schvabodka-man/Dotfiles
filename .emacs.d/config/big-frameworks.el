@@ -16,6 +16,12 @@
   :ensure t
   :init (require 'helm-config)
   :config (defalias 'color 'helm-colors)
+  (defalias 'htop 'helm-top)
+  (defalias 'htop-emacs 'helm-list-emacs-process)
+  (defalias 'task-manager 'helm-top)
+  (defalias 'task-manager-emacs 'helm-list-emacs-process)
+  (defalias 'process-manager 'helm-top)
+  (defalias 'process-manager-emacs 'helm-list-emacs-process)
   :bind (("M-x" . helm-M-x)
 		 ("M-o" . helm-find-files)
 		 ("M-c" . helm-colors)

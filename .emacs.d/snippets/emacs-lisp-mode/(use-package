@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: use-package shortcut
+# name: Use-package shortcut
 # key: (use-package
 # --
 (use-package $1

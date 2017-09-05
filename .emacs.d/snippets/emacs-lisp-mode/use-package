@@ -3,4 +3,4 @@
 # key: use-package
 # --
 (use-package $1
-:ensure t)
+:ensure t

@@ -18,6 +18,7 @@
   :init (require 'spaceline-config)
   (spaceline-emacs-theme)
   (spaceline-toggle-minor-modes-off)
+  (spaceline-toggle-version-control-on)
   :ensure t)
 (el-get-bundle seti-theme
   :url "https://raw.githubusercontent.com/schvabodka-man/seti-theme/master/seti-theme.el"

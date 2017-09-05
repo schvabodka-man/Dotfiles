@@ -93,7 +93,6 @@
 (setq browse-url-browser-function 'browse-url-generic
 	  browse-url-generic-program "luakit")
 ;; killing messages buffer
-(setq-default message-log-max nil)
 (kill-buffer "*Messages*")
 (setq initial-scratch-message nil)
 ;;y or n
