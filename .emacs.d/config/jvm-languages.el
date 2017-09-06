@@ -11,6 +11,8 @@
 (use-package grails-mode
   :ensure t
   :config (add-hook 'groovy-mode-hook 'grails-mode))
+(use-package gradle-mode
+  :ensure t)
 (use-package autodisass-java-bytecode
   :ensure t)
 (use-package meghanada
@@ -20,10 +22,8 @@
 	(interactive)
 	(meghanada-mode t)
 	(meghanada-client-direct-connect))
-  (defun java-import ()
-	(interactive)
-	(meghanada-import-all)
-	(meghanada-optimize-import))
+  (defalias 'java-import 'meghanada-import-all)
+  (defalias 'java-optimize-import 'meghanada-optimize-import)
   (defalias 'java-beautify 'meghanada-code-beautify)
   (defalias 'java-indent 'meghanada-code-beautify)
   (defalias 'java-jump 'meghanada-jump-declaration)
@@ -44,6 +44,8 @@
 			(lambda ()
 			  (local-set-key (kbd "C-j") #'meghanada-jump-declaration)
 			  (local-set-key (kbd "C-b") #'meghanada-code-beautify)
+			  (local-set-key (kbd "C-S-i") #'meghanada-optimize-import)
+			  (local-set-key (kbd "M-i") #'meghanada-import-all)
 			  (local-set-key (kbd "<M-f3>") #'meghanada-run-junit-test-case)
 			  (local-set-key (kbd "<M-f4>") #'meghanada-debug-junit-test-case)
 			  (local-set-key (kbd "<M-f1>") #'meghanada-exec-main)
@@ -51,14 +53,15 @@
 			  (local-set-key (kbd "C-S-j") #'meghanada-back-jump)))
   (define-key meghanada-mode-map (kbd "M-,") nil)
   (define-key meghanada-mode-map (kbd "M-.") nil)
-  (defun run-meghanada-on-gradle ()
-	(when (string= (file-name-extension buffer-file-name) "gradle")
-	  (java)))
-  (defun run-meghanada-on-maven ()
-	(when (string= (file-name-base buffer-file-name) "pom")
-	  (java)))
-  (add-hook 'nxml-mode-hook 'run-meghanada-on-maven)
-  (add-hook 'groovy-mode-hook 'run-meghanada-on-gradle)
+  ;; (defun run-meghanada-on-gradle ()
+  ;;	(when (string= (file-name-extension buffer-file-name) "gradle")
+  ;;	  (java)
+  ;;	  (gradle-mode)))
+  ;; (defun run-meghanada-on-maven ()
+  ;;	(when (string= (file-name-base buffer-file-name) "pom")
+  ;;	  (java)))
+  ;; (add-hook 'nxml-mode-hook 'run-meghanada-on-maven)
+  ;; (add-hook 'groovy-mode-hook 'run-meghanada-on-gradle)
   (add-hook 'kill-emacs-hook 'meghanada-server-kill))
 (use-package ensime
   :ensure t
@@ -108,3 +111,12 @@
 (use-package scala-mode
   :ensure t
   :pin melpa)
+(el-get-bundle maven-pom-mode
+  :url "https://github.com/m0smith/maven-pom-mode.git")
+(load "~/.emacs.d/el-get/maven-pom-mode/maven-pom-mode")
+(add-hook 'nxml-mode-hook (lambda ()
+							(when (string= (file-name-base buffer-file-name))
+							  (maven-pom-mode))))
+(define-key maven-pom-mode-map (kbd "M-i") #'maven-pom-add-dependency)
+(define-key maven-pom-mode-map (kbd "C-S-i") #'maven-pom-insert-dependency-xml)
+(define-key maven-pom-mode-map (kbd "C-c d") nil)
