@@ -80,6 +80,8 @@
 (load "~/.emacs.d/config/dired-config")
 ;;realgud
 (load "~/.emacs.d/config/realgud-debugger")
+;;finances
+(load "~/.emacs.d/config/finance-managing")
 ;;byte compile everything
 (defun byte-compile-init-dir ()
   "Byte-compile all your dotfiles."
@@ -156,7 +158,7 @@
  '(global-undo-tree-mode t)
  '(helm-boring-buffer-regexp-list
    (quote
-	("\\*Compile-Log\\*" "\\\\*.org" "\\*Warnings\\*" "\\\\*Echo Area" "\\\\*Minibuf" "\\*dashboard\\*" "\\*helm" "\\*server\\*" "\\*code-conversion-work\\*" "\\*Custom-Work\\*" "\\*Messages\\*" "\\*Compiler Input\\*" "\\*Compiler Output\\*" "\\*Completions\\*" "\\\\*Flycheck error" "\\\\*ENSIME-" "\\*ensime-connection\\*" ".newsrc-dribble" "\\*nntpd\\*" "\\*mm\\*" "\\*canonical address\\*" "\\*gnus work\\*" "\\*Gnus Backlog\\*" "\\\\*Async Prefetch" "\\\\*Gnus agent" "\\\\*extract address" "\\\\*Original Article" "\\*temp\\*" "\\*Process List\\*" "\\*Metahelp\\*" "\\*Help\\*")))
+	("\\*Compile-Log\\*" "\\*Warnings\\*" "\\\\*Echo Area" "\\\\*Minibuf" "\\*dashboard\\*" "\\*helm" "\\*server\\*" "\\*code-conversion-work\\*" "\\*Custom-Work\\*" "\\*Messages\\*" "\\*Compiler Input\\*" "\\*Compiler Output\\*" "\\*Completions\\*" "\\\\*Flycheck error" "\\\\*ENSIME-" "\\*ensime-connection\\*" ".newsrc-dribble" "\\*nntpd\\*" "\\*mm\\*" "\\*canonical address\\*" "\\*gnus work\\*" "\\*Gnus Backlog\\*" "\\\\*Async Prefetch" "\\\\*Gnus agent" "\\\\*extract address" "\\\\*Original Article" "\\*temp\\*" "\\*Process List\\*" "\\*Metahelp\\*" "\\*Help\\*")))
  '(highlight-thing-case-sensitive-p t)
  '(highlight-thing-delay-seconds 0.1)
  '(highlight-thing-exclude-thing-under-point t)

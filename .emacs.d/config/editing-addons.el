@@ -17,3 +17,6 @@
   :bind (("C-j" . dumb-jump-go)
 		 ("C-S-j" . dumb-jump-back)))
 (add-hook 'before-save-hook 'indent-buffers)
+(use-package avy
+  :ensure t
+  :bind (("C-g" . avy-goto-word-0)))

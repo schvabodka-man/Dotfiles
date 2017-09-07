@@ -23,3 +23,35 @@
 ;; (use-package helm-perspeen
 ;;   :ensure t
 ;;   :bind (("M-w" . helm-perspeen)))
+(use-package ace-window
+  :ensure t
+  :bind (("M-w" . ace-window)))
+(use-package window-purpose
+  :ensure t
+  :config (purpose-mode)
+  (add-to-list 'purpose-user-mode-purposes '(scala-mode . scala))
+  (add-to-list 'purpose-user-mode-purposes '(java-mode . java))
+  (add-to-list 'purpose-user-regexp-purposes '("\\.aj\\'" . aspectj))
+  (add-to-list 'purpose-user-mode-purposes '(emacs-lisp-mode . emacs))
+  (add-to-list 'purpose-user-name-purposes '("pom.XML" . maven))
+  (add-to-list 'purpose-user-regexp-purposes '("\\.gradle\\'" . gradle))
+  (add-to-list 'purpose-user-mode-purposes '(markdown-mode . markdown))
+  (add-to-list 'purpose-user-mode-purposes '(gfm-mode . markdown))
+  (add-to-list 'purpose-user-mode-purposes '(json-mode . json))
+  (add-to-list 'purpose-user-mode-purposes '(js2-mode . js))
+  (add-to-list 'purpose-user-mode-purposes '(javascript-mode . js))
+  (add-to-list 'purpose-user-mode-purposes '(web-mode . html))
+  (add-to-list 'purpose-user-mode-purposes '(css-mode . html))
+  (add-to-list 'purpose-user-mode-purposes '(html-mode . html))
+  (add-to-list 'purpose-user-mode-purposes '(fish-mode . shell-scripts))
+  (add-to-list 'purpose-user-mode-purposes '(shell-mode . shell-scripts))
+  (add-to-list 'purpose-user-name-purposes '(nxml-mode . xml))
+  (add-to-list 'purpose-user-name-purposes '(yaml-mode . yaml))
+  (add-to-list 'purpose-user-name-purposes '(org-mode . org))
+  (add-to-list 'purpose-user-name-purposes '(cfw:calendar-mode . org))
+  (add-to-list 'purpose-user-name-purposes '(org-agenda-mode . org))
+  (purpose-compile-user-configuration))
+(use-package helm-purpose
+  :ensure t
+  :bind ("C-w" . helm-purpose-switch-buffer-with-some-purpose)
+  ("C-S-w" . helm-purpose-switch-buffer-with-purpose))

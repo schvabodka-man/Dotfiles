@@ -1,6 +1,7 @@
 ;;; jvm-languages --- JVM dev
 ;;; Commentary:
 ;;; Code:
+(add-to-list 'auto-mode-alist '("\\.aj\\'" . java-mode))
 (use-package java-snippets
   :ensure t)
 (use-package kotlin-mode
@@ -104,6 +105,7 @@
   (define-key ensime-mode-map (kbd "M-p") #'projectile-switch-project)
   (define-key ensime-mode-map (kbd "C-S-i") #'ensime-refactor-diff-organize-imports)
   (define-key ensime-mode-map (kbd "<tab>") #'self-insert-command)
+  (define-key ensime-mode-map (kbd "<C-tab>") #'ensime-company-complete-or-indent)
   (define-key ensime-mode-map (kbd "M-i") #'ensime-import-type-at-point))
 (use-package sbt-mode
   :ensure t

@@ -148,8 +148,9 @@
   (defalias 'org-wiki-search-file 'deft-find-file)
   (defalias 'wiki-search 'deft)
   (defalias 'wiki-search-file 'deft-find-file)
-  (global-set-key (kbd "C-w") 'deft)
-  (global-set-key (kbd "C-S-w") 'deft-find-file))
+  ;; (global-set-key (kbd "C-w") 'deft)
+  ;; (global-set-key (kbd "C-S-w") 'deft-find-file)
+  )
 (use-package helm-org-rifle
   :ensure t
   :config (define-key org-mode-map (kbd "C-f") 'helm-org-rifle-current-buffer)
