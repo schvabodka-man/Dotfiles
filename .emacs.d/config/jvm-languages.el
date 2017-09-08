@@ -47,10 +47,6 @@
 			  (local-set-key (kbd "C-b") #'meghanada-code-beautify)
 			  (local-set-key (kbd "C-S-i") #'meghanada-optimize-import)
 			  (local-set-key (kbd "M-i") #'meghanada-import-all)
-			  (local-set-key (kbd "<M-f3>") #'meghanada-run-junit-test-case)
-			  (local-set-key (kbd "<M-f4>") #'meghanada-debug-junit-test-case)
-			  (local-set-key (kbd "<M-f1>") #'meghanada-exec-main)
-			  (local-set-key (kbd "<M-f2>") #'meghanada-debug-main)
 			  (local-set-key (kbd "C-S-j") #'meghanada-back-jump)))
   (define-key meghanada-mode-map (kbd "M-,") nil)
   (define-key meghanada-mode-map (kbd "M-.") nil)
@@ -113,6 +109,10 @@
 (use-package scala-mode
   :ensure t
   :pin melpa)
+(use-package android-mode
+  :ensure t
+  :config (add-hook 'java-mode-hook 'android-mode)
+  (add-hook 'scala-mode-hook 'android-mode))
 (el-get-bundle maven-pom-mode
   :url "https://github.com/m0smith/maven-pom-mode.git")
 (load "~/.emacs.d/el-get/maven-pom-mode/maven-pom-mode")

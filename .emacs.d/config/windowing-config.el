@@ -32,7 +32,7 @@
   (add-to-list 'purpose-user-mode-purposes '(scala-mode . scala))
   (add-to-list 'purpose-user-mode-purposes '(java-mode . java))
   (add-to-list 'purpose-user-regexp-purposes '("\\.aj\\'" . aspectj))
-  (add-to-list 'purpose-user-mode-purposes '(emacs-lisp-mode . emacs))
+  (add-to-list 'purpose-user-mode-purposes '(emacs-lisp-mode . emacs-lisp))
   (add-to-list 'purpose-user-name-purposes '("pom.XML" . maven))
   (add-to-list 'purpose-user-regexp-purposes '("\\.gradle\\'" . gradle))
   (add-to-list 'purpose-user-mode-purposes '(markdown-mode . markdown))
@@ -50,7 +50,13 @@
   (add-to-list 'purpose-user-name-purposes '(org-mode . org))
   (add-to-list 'purpose-user-name-purposes '(cfw:calendar-mode . org))
   (add-to-list 'purpose-user-name-purposes '(org-agenda-mode . org))
-  (purpose-compile-user-configuration))
+  (add-to-list 'purpose-user-mode-purposes '(lua-mode . lua))
+  (add-to-list 'purpose-user-regexp-purposes '("*Group*" . email))
+  (add-to-list 'purpose-user-regexp-purposes '("*Article .+" . email))
+  (add-to-list 'purpose-user-regexp-purposes '("*Summary .+" . email))
+  (add-to-list 'purpose-user-regexp-purposes '("*unsent mail to" . email))
+  (purpose-compile-user-configuration)
+  (purpose-x-kill-setup))
 (use-package helm-purpose
   :ensure t
   :bind ("C-w" . helm-purpose-switch-buffer-with-some-purpose)
