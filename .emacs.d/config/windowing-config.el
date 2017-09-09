@@ -56,8 +56,16 @@
   (add-to-list 'purpose-user-regexp-purposes '("*Summary .+" . email))
   (add-to-list 'purpose-user-regexp-purposes '("*unsent mail to" . email))
   (purpose-compile-user-configuration)
-  (purpose-x-kill-setup))
+  (purpose-x-kill-setup)
+  (purpose-x-magit-single-on))
 (use-package helm-purpose
   :ensure t
   :bind ("C-w" . helm-purpose-switch-buffer-with-some-purpose)
   ("C-S-w" . helm-purpose-switch-buffer-with-purpose))
+(use-package golden-ratio
+  :ensure t
+  :config (golden-ratio-mode 1)
+  (setq golden-ratio-auto-scale t)
+  (setq golden-ratio-adjust-factor .8
+		golden-ratio-wide-adjust-factor .8)
+  (purpose-x-golden-ratio-setup))

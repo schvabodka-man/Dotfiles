@@ -156,9 +156,10 @@
  '(ensime-typecheck-interval 1)
  '(fancy-battery-show-percentage t)
  '(global-undo-tree-mode t)
+ '(golden-ratio-exclude-modes (quote (neotree-mode)))
  '(helm-boring-buffer-regexp-list
    (quote
-	("\\*Compile-Log\\*" "\\*Warnings\\*" "\\\\*Echo Area" "\\\\*Minibuf" "\\*dashboard\\*" "\\*helm" "\\*server\\*" "\\*code-conversion-work\\*" "\\*Custom-Work\\*" "\\*Messages\\*" "\\*Compiler Input\\*" "\\*Compiler Output\\*" "\\*Completions\\*" "\\\\*Flycheck error" "\\\\*ENSIME-" "\\*ensime-connection\\*" ".newsrc-dribble" "\\*nntpd\\*" "\\*mm\\*" "\\*canonical address\\*" "\\*gnus work\\*" "\\*Gnus Backlog\\*" "\\\\*Async Prefetch" "\\\\*Gnus agent" "\\\\*extract address" "\\\\*Original Article" "\\*temp\\*" "\\*Process List\\*" "\\*Metahelp\\*" "\\*Help\\*")))
+	("\\*Compile-Log\\*" "\\*Warnings\\*" "\\\\*Echo Area" "\\\\*Minibuf" "\\*helm" "\\*server\\*" "\\*code-conversion-work\\*" "\\*Custom-Work\\*" "\\*Messages\\*" "\\*Compiler Input\\*" "\\*Compiler Output\\*" "\\*Completions\\*" "\\\\*Flycheck error" "\\\\*ENSIME-" "\\*ensime-connection\\*" ".newsrc-dribble" "\\*nntpd\\*" "\\*mm\\*" "\\*canonical address\\*" "\\*gnus work\\*" "\\*Gnus Backlog\\*" "\\\\*Async Prefetch" "\\\\*Gnus agent" "\\\\*extract address" "\\\\*Original Article" "\\*temp\\*" "\\*Process List\\*" "\\*Metahelp\\*" "\\*Help\\*")))
  '(highlight-thing-case-sensitive-p t)
  '(highlight-thing-delay-seconds 0.1)
  '(highlight-thing-exclude-thing-under-point t)
