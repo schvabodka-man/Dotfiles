@@ -100,3 +100,6 @@
 (use-package whitespace-cleanup-mode
   :ensure t
   :config (global-whitespace-cleanup-mode t))
+(use-package tldr
+  :ensure t
+  :config (tldr-update-docs))

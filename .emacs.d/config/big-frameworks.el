@@ -44,7 +44,8 @@
   :ensure t
   :init (add-hook 'after-init-hook 'global-company-mode)
   :config (setq company-dabbrev-downcase 0)
-  (setq company-idle-delay 0))
+  (setq company-idle-delay 0)
+  :bind ("<C-tab>" . company-complete))
 ;;snippets
 (use-package yasnippet
   :ensure t

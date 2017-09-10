@@ -82,6 +82,8 @@
 (load "~/.emacs.d/config/realgud-debugger")
 ;;finances
 (load "~/.emacs.d/config/finance-managing")
+;;LaTeX
+(load "~/.emacs.d/config/latex-editing")
 ;;byte compile everything
 (defun byte-compile-init-dir ()
   "Byte-compile all your dotfiles."

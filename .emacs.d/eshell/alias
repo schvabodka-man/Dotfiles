@@ -25,6 +25,7 @@ alias j z $*
 alias p projectile-switch-project $*
 alias u eshell-up $_
 alias up eshell-up $_
+alias tldr (tldr "$_")
 
 alias term terminator
 alias terminal terminator 
