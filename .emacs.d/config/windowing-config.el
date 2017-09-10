@@ -69,3 +69,9 @@
   (setq golden-ratio-adjust-factor .8
 		golden-ratio-wide-adjust-factor .8)
   (purpose-x-golden-ratio-setup))
+(use-package buffer-move
+  :ensure t
+  :bind ("<M-S-left>" . buf-move-left)
+  ("<M-S-right>" . buf-move-right)
+  ("<M-S-up>" . buf-move-up)
+  ("<M-S-down>" . buf-move-down))
