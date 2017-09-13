@@ -34,3 +34,15 @@
   :commands (helm-pass)
   :config (defalias 'pass 'helm-pass)
   (defalias 'passwords 'helm-pass))
+(use-package pandoc-mode
+  :ensure t
+  :config (add-hook 'web-mode-hook 'pandoc-mode)
+  (add-hook 'markdown-mode-hook 'pandoc-mode)
+  (add-hook 'gfm-mode-hook 'pandoc-mode)
+  (add-hook 'html-mode-hook 'pandoc-mode)
+  (add-hook 'TeX-mode-hook 'pandoc-mode)
+  (add-hook 'LaTeX-mode-hook 'pandoc-mode)
+  (add-hook 'doc-view-mode-hook 'pandoc-mode)
+  (defalias 'pandoc 'pandoc-main-hydra/body)
+  (defalias 'document-converter 'pandoc-main-hydra/body)
+  (defalias 'converter-document 'pandoc-main-hydra/body))

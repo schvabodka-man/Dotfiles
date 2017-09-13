@@ -42,8 +42,6 @@
 (load "~/.emacs.d/config/system-monitoring")
 ;;books
 (load "~/.emacs.d/config/book-reading")
-;;integrations
-(load "~/.emacs.d/config/various-integration")
 ;;brainfuck unironically. i like brainfuck because of its simplicity
 (load "~/.emacs.d/config/brainfuck-devel")
 ;;live preview for web
@@ -84,6 +82,8 @@
 (load "~/.emacs.d/config/finance-managing")
 ;;LaTeX
 (load "~/.emacs.d/config/latex-editing")
+;;integrations
+(load "~/.emacs.d/config/various-integration")
 ;;byte compile everything
 (defun byte-compile-init-dir ()
   "Byte-compile all your dotfiles."

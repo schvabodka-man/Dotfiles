@@ -41,7 +41,7 @@
   (add-to-list 'purpose-user-mode-purposes '(js2-mode . js))
   (add-to-list 'purpose-user-mode-purposes '(javascript-mode . js))
   (add-to-list 'purpose-user-mode-purposes '(web-mode . html))
-  (add-to-list 'purpose-user-mode-purposes '(css-mode . html))
+  (add-to-list 'purpose-user-mode-purposes '(css-mode . css))
   (add-to-list 'purpose-user-mode-purposes '(html-mode . html))
   (add-to-list 'purpose-user-mode-purposes '(fish-mode . shell-scripts))
   (add-to-list 'purpose-user-mode-purposes '(shell-mode . shell-scripts))
