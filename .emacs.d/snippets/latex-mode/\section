@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Section without numbering
+# key: \section
+# --
+\section*{$1}

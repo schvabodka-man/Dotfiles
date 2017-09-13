@@ -51,6 +51,15 @@
   (add-to-list 'purpose-user-name-purposes '(cfw:calendar-mode . org))
   (add-to-list 'purpose-user-name-purposes '(org-agenda-mode . org))
   (add-to-list 'purpose-user-mode-purposes '(lua-mode . lua))
+  (add-to-list 'purpose-user-mode-purposes '(desktop-entry-mode . desktop-entry))
+  (add-to-list 'purpose-user-mode-purposes '(conf-mode . configs))
+  (add-to-list 'purpose-user-mode-purposes '(conf-unix-mode . configs))
+  (add-to-list 'purpose-user-mode-purposes '(conf-windows-mode . configs))
+  (add-to-list 'purpose-user-mode-purposes '(conf-colon-mode . configs))
+  (add-to-list 'purpose-user-mode-purposes '(conf-ppd-mode . configs))
+  (add-to-list 'purpose-user-mode-purposes '(conf-space-keywords . configs))
+  (add-to-list 'purpose-user-mode-purposes '(conf-xdefaults-mode . x11-xorg-configs))
+  (add-to-list 'purpose-user-mode-purposes '(conf-javaprop-mode . java-properties))
   (add-to-list 'purpose-user-regexp-purposes '("*Group*" . email))
   (add-to-list 'purpose-user-regexp-purposes '("*Article .+" . email))
   (add-to-list 'purpose-user-regexp-purposes '("*Summary .+" . email))
@@ -75,3 +84,7 @@
   ("<M-S-right>" . buf-move-right)
   ("<M-S-up>" . buf-move-up)
   ("<M-S-down>" . buf-move-down))
+;; (use-package frames-only-mode
+;;   :ensure t
+;;   :config (frames-only-mode))
+;; (setq pop-up-frames t)

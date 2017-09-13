@@ -157,6 +157,9 @@
  '(ensime-typecheck-idle-interval 1)
  '(ensime-typecheck-interval 1)
  '(fancy-battery-show-percentage t)
+ '(frames-only-mode-use-window-functions
+   (quote
+	(report-emacs-bug checkdoc-show-diagnostics checkdoc)))
  '(global-undo-tree-mode t)
  '(golden-ratio-exclude-modes (quote (neotree-mode)))
  '(helm-boring-buffer-regexp-list
@@ -176,6 +179,8 @@
  '(js2-include-rhino-externs t)
  '(js2-instanceof-has-side-effects t)
  '(meghanada-debug t)
+ '(meghanada-server-jvm-option
+   "-Xms128m -Xmx750m -XX:ReservedCodeCacheSize=240m -XX:+UseConcMarkSweepGC -XX:SoftRefLRUPolicyMSPerMB=50 -ea -Dsun.io.useCanonCaches=false -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=4123,suspend=n")
  '(meghanada-server-remote-debug t)
  '(minimap-buffer-name " MINIMAP")
  '(minimap-dedicated-window nil)

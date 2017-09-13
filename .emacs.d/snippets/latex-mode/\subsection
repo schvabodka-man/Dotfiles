@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Subsection without numbering
+# key: \subsection
+# --
+\subsection*{$1}

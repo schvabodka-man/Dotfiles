@@ -201,18 +201,17 @@ local function scriptSwitcher(w)
 end
 
 window.add_signal("build", function(w)
-    -- save the session automatically when the window is closed
-    w.win:add_signal("can-close", function()
-        w:save_session()
-        msg.info("session saved, closing!")
-    end)
+					 -- save the session automatically when the window is closed
+					 w.win:add_signal("can-close", function()
+										 w:save_session()
+										 msg.info("session saved, closing!")
+					 end)
 end)
 -----------------------------
 ---------- Values -----------
 -----------------------------
 noscript.enable_scripts = false
 noscript.enable_plugins = false
-editor.editor_cmd = editor.builtin.xdg_open
 soup.accept_policy = "always"
 -----------------------------
 -------- Keybindings --------

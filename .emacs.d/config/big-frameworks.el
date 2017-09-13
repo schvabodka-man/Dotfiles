@@ -50,6 +50,7 @@
 (use-package yasnippet
   :ensure t
   :init (yas-global-mode 1)
+  :bind ("<C-S-tab>" . company-yasnippet)
   :config
   (defalias 'snippet 'yas-expand)
   (global-set-key (kbd "M-TAB") 'company-yasnippet)
