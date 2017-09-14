@@ -26,6 +26,11 @@
   :url "https://gist.githubusercontent.com/kkatsuyuki/fa930411a86169c3bb1f03337d4af280/raw/be5bcc2e519a3ab9e67ea0f5238a3e0b75b0084e/eshell-bmk.el"
   :description "Eshell bokmarks integration")
 (load "~/.emacs.d/el-get/eshell-bmk/eshell-bmk")
+(use-package with-editor
+  :ensure t
+  :config (add-hook 'shell-mode-hook  'with-editor-export-editor)
+  (add-hook 'term-exec-hook   'with-editor-export-editor)
+  (add-hook 'eshell-mode-hook 'with-editor-export-editor))
 ;;this is for killing cli buffers made for small tasks
 (defun kill-buffer-when-frame-delete-dwim (frame)
   (if (string-match "*eshell*" (buffer-name))
@@ -36,4 +41,11 @@
 										(delq frame (frame-list)))))
 		(kill-buffer (current-buffer)))))
 (add-hook 'delete-frame-functions 'kill-buffer-when-frame-delete-dwim)
+(setenv "PAGER" "cat")
+(setq eshell-visual-commands '("vi" "screen" "top" "less" "more" "lynx"
+							   "ncftp" "pine" "tin" "trn" "elm" "vim"
+							   "nmtui" "alsamixer" "htop" "el" "elinks"
+							   "ssh" "nethack" "dtop" "dstat"))
+(setq eshell-visual-subcommands '(("git" "log" "diff" "show")
+								  ("vagrant" "ssh")))
 ;;; eshell ends here

@@ -22,6 +22,7 @@
   (defalias 'task-manager-emacs 'helm-list-emacs-process)
   (defalias 'process-manager 'helm-top)
   (defalias 'process-manager-emacs 'helm-list-emacs-process)
+  (setq helm-exit-idle-delay 0)
   :bind (("M-x" . helm-M-x)
 		 ("M-o" . helm-find-files)
 		 ("M-c" . helm-colors)

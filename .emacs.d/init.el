@@ -84,6 +84,8 @@
 (load "~/.emacs.d/config/latex-editing")
 ;;integrations
 (load "~/.emacs.d/config/various-integration")
+;;elfeed
+(load "~/.emacs.d/config/rss-reading")
 ;;byte compile everything
 (defun byte-compile-init-dir ()
   "Byte-compile all your dotfiles."
@@ -92,6 +94,18 @@
 (byte-compile-init-dir)
 ;;gc on emacs idle
 (run-with-idle-timer 2 t (lambda () (garbage-collect)))
+(set-charset-priority 'unicode)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+(setq default-process-coding-system '(utf-8-unix . utf-8-unix))
+(setq jit-lock-defer-time nil
+	  ;; jit-lock-stealth-nice 0.1
+	  jit-lock-stealth-time 1
+	  jit-lock-stealth-verbose nil)
+(setq gnutls-min-prime-bits 4096)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -204,6 +218,7 @@
  '(projectile-globally-ignored-files
    (quote
 	("TAGS" ".gitignore" ".projectile" ".ensime" "mvnw" "gradlew" "gradlew.bat" "mvnw.cmd")))
+ '(rmh-elfeed-org-files (quote ("~/Dropbox/Org/Wiki/Agenda/Util/Rss.org")))
  '(send-mail-function (quote smtpmail-send-it))
  '(spaceline-all-the-icons-highlight-file-name t)
  '(sr-speedbar-right-side nil)

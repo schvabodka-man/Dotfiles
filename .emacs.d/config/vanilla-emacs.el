@@ -63,7 +63,7 @@
 		(insert filename)
 		(clipboard-kill-region (point-min) (point-max)))
 	  (message filename))))
-(global-set-key (kbd "C-u") 'put-file-name-on-clipboard)
+(global-set-key (kbd "M-u") 'put-file-name-on-clipboard)
 
 (global-set-key (kbd "C-l")
 				(defun ctrl-l-line-select ()

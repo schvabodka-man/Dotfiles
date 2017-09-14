@@ -27,4 +27,5 @@
 (load-theme 'seti t)
 (use-package emojify
   :ensure t
-  :config (add-hook 'emacs-startup-hook 'global-emojify-mode))
+  :config (add-hook 'emacs-startup-hook 'global-emojify-mode)
+  (add-hook 'prog-mode-hook (lambda () (emojify-mode -1))))

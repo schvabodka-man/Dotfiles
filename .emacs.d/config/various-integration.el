@@ -43,6 +43,7 @@
   (add-hook 'TeX-mode-hook 'pandoc-mode)
   (add-hook 'LaTeX-mode-hook 'pandoc-mode)
   (add-hook 'doc-view-mode-hook 'pandoc-mode)
+  (add-hook 'adoc-mode-hook 'pandoc-mode)
   (defalias 'pandoc 'pandoc-main-hydra/body)
   (defalias 'document-converter 'pandoc-main-hydra/body)
   (defalias 'converter-document 'pandoc-main-hydra/body))

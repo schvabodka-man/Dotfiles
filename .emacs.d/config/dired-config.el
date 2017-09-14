@@ -284,3 +284,8 @@
 			  (local-set-key (kbd "C-S-c") #'picpocket-copy)
 			  (local-set-key (kbd "C-S-v") #'picpocket-move)
 			  (local-set-key (kbd "<C-left>") #'picpocket-previous))))
+
+(use-package async
+  :ensure t)
+(autoload 'dired-async-mode "dired-async.el" nil t)
+(dired-async-mode 1)
