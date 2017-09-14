@@ -29,9 +29,6 @@
 		 ("C-M-w" . helm-buffers-list)
 		 ("M-b" . helm-bookmarks)
 		 ("C-f" . helm-occur)))
-;;git
-(use-package magit
-  :ensure t)
 ;;some libs
 (use-package dash
   :ensure t)

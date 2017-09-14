@@ -32,6 +32,8 @@
 (load "~/.emacs.d/config/useless")
 ;;weather reports
 (load "~/.emacs.d/config/weather-reports")
+;;git
+(load "~/.emacs.d/config/git-stuff")
 ;;small but really useful
 (load "~/.emacs.d/config/small-but-useful")
 ;;time to play some games!
