@@ -176,6 +176,7 @@
  '(frames-only-mode-use-window-functions
    (quote
 	(report-emacs-bug checkdoc-show-diagnostics checkdoc)))
+ '(git-messenger:use-magit-popup t)
  '(global-undo-tree-mode t)
  '(golden-ratio-exclude-buffer-names (quote ("MINIMAP")))
  '(golden-ratio-exclude-modes (quote (neotree-mode)))
@@ -278,6 +279,7 @@
  '(minimap-font-face ((t (:height 30 :family "Fira Mono"))))
  '(perspeen-selected-face ((t (:background "DarkGoldenRod1" :foreground "Black" :weight bold))))
  '(perspeen-tab--header-line-active ((t (:inherit mode-line :background "DarkGoldenrod1" :foreground "black"))))
+ '(popup-tip-face ((t (:background "black" :foreground "white"))))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "green"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "spring green"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "deep sky blue"))))

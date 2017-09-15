@@ -148,6 +148,6 @@
 (use-package git-messenger
   :ensure t
   :commands git-messenger:popup-message
-  :bind (("C-M-m" . git-messenger:popup-message))
+  :bind (("C-M-t" . git-messenger:popup-message))
   :config (setq git-messenger:show-detail t))
 ;;; git-stuff.el ends here

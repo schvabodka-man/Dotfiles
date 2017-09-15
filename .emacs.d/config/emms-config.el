@@ -100,8 +100,8 @@
   (define-key emms-playlist-mode-map (kbd "C-u") #'emms-mark-unmark-forward)
   (define-key emms-playlist-mode-map (kbd "C-t") #'emms-tag-editor-edit)
 
-  (define-key emms-browser-mode-map (kbd "<M-RET>") #'perspeen-tab-create-tab)
-  (define-key emms-playlist-mode-map (kbd "<M-RET>") #'perspeen-tab-create-tab)
+  (define-key emms-browser-mode-map (kbd "<M-RET>") #'multi-eshell)
+  (define-key emms-playlist-mode-map (kbd "<M-RET>") #'multi-eshell)
   
   (require 'emms-playing-time)
   (emms-playing-time 1)
