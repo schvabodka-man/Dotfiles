@@ -107,6 +107,7 @@
 					  (local-set-key (kbd ":Y") nil)
 					  (local-set-key (kbd ":Z") nil)
 
+					  (local-set-key (kbd "C-S-q") #'kill-this-buffer)
 					  (local-set-key (kbd "/") #'magit-popup-help)
 					  (local-set-key (kbd "c") #'magit-commit-popup)
 					  (local-set-key (kbd "p") #'magit-push-popup)
@@ -119,6 +120,9 @@
 					  (local-set-key (kbd "l") #'magit-log-popup)
 					  (local-set-key (kbd "h") #'magit-log-popup)))
   (define-key magit-popup-mode-map (kbd "q") #'magit-popup-quit)
+  (define-key magit-popup-mode-map (kbd "C-S-q") #'kill-this-buffer)
+  (define-key magit-status-mode-map (kbd "C-S-q") #'kill-this-buffer)
+  (define-key magit-diff-mode-map (kbd "C-S-q") #'kill-this-buffer)
   (setenv "GIT_PAGER" "")
   (if (file-exists-p  "/usr/local/bin/emacsclient")
 	  (setq magit-emacsclient-executable "/usr/local/bin/emacsclient")
@@ -150,4 +154,8 @@
   :commands git-messenger:popup-message
   :bind (("C-M-t" . git-messenger:popup-message))
   :config (setq git-messenger:show-detail t))
+(add-hook 'with-editor-mode-hook
+		  (lambda ()
+			(local-set-key (kbd "C-s") #'with-editor-finish)
+			(local-set-key (kbd "C-c C-c") nil)))
 ;;; git-stuff.el ends here
