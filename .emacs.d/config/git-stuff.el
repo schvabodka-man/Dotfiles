@@ -154,6 +154,9 @@
   :commands git-messenger:popup-message
   :bind (("C-M-t" . git-messenger:popup-message))
   :config (setq git-messenger:show-detail t))
+(use-package git-link
+  :ensure t
+  :bind ("C-M-u" . git-link))
 (add-hook 'with-editor-mode-hook
 		  (lambda ()
 			(local-set-key (kbd "C-s") #'with-editor-finish)

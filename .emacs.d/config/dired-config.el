@@ -166,10 +166,6 @@
 (defalias 'zip 'dired-do-compress)
 (defalias 'compress-file 'dired-do-compress)
 
-;;dired additions
-(use-package dired+
-  :ensure t
-  :config  (diredp-toggle-find-file-reuse-dir))
 (use-package dired-filter
   :ensure t
   :config (add-hook 'dired-mode-hook
@@ -180,6 +176,19 @@
   :config (add-hook 'dired-mode-hook
 					(lambda ()
 					  (local-set-key (kbd "<SPC>") #'dired-subtree-toggle))))
+;;git
+(use-package dired-k
+  :ensure t
+  :config (add-hook 'dired-initial-position-hook 'dired-k)
+  (add-hook 'dired-after-readin-hook #'dired-k-no-revert))
+;;one buffer per dired
+(el-get-bundle joseph-single-dired
+  :url "https://www.emacswiki.org/emacs/download/joseph-single-dired.el")
+(eval-after-load 'dired '(progn (require 'joseph-single-dired)))
+;;nice highlight
+(use-package dired-rainbow
+  :ensure t
+  :config (dired-rainbow-define html "#00ff00" ("htm" "html" "xhtml")))
 ;;image viewer
 (use-package picpocket
   :ensure t
@@ -284,7 +293,6 @@
 			  (local-set-key (kbd "C-S-c") #'picpocket-copy)
 			  (local-set-key (kbd "C-S-v") #'picpocket-move)
 			  (local-set-key (kbd "<C-left>") #'picpocket-previous))))
-
 (use-package async
   :ensure t)
 (autoload 'dired-async-mode "dired-async.el" nil t)
