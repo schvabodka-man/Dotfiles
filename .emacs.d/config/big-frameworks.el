@@ -34,9 +34,8 @@
   :ensure t)
 (use-package cl-lib
   :ensure t)
-;;(use-package magithub
-;;  :after magit
-;;  :config (magithub-feature-autoinject t))
+(use-package popup
+  :ensure t)
 ;;autocomplete
 (use-package company
   :ensure t

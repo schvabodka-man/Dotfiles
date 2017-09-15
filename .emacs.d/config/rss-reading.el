@@ -8,8 +8,8 @@
 ;;; Code:
 (use-package elfeed
   :ensure t
-  :config (define-key elfeed-search-mode-map (kbd "M-r") #'elfeed-search-update)
-  (define-key elfeed-search-mode-map (kbd "M-S-r") #'elfeed-search-fetch)
+  :config (define-key elfeed-search-mode-map (kbd "M-r") #'elfeed-update)
+  (define-key elfeed-search-mode-map (kbd "M-S-r") #'elfeed-update-feed)
   (define-key elfeed-search-mode-map (kbd "M-f") #'elfeed-search-live-filter)
   (define-key elfeed-search-mode-map (kbd "C-u") #'elfeed-search-yank)
   (define-key elfeed-search-mode-map (kbd "C-o") #'elfeed-search-browse-url)

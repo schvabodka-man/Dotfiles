@@ -16,7 +16,11 @@
 (defalias 'org-time 'org-time-stamp)
 (add-hook 'org-mode-hook
 		  (lambda ()
-			(local-set-key (kbd "C-t") #'org-time-stamp)
+			(local-set-key (kbd "C-M-i") #'org-time-stamp)
+			(local-set-key (kbd "M-i") #'org-wiki-insert)
+			(local-set-key (kbd "M-S-i") #'org-wiki-assert-insert)
+			(local-set-key (kbd "M-f") #'deft-find-file)
+			(local-set-key (kbd "M-S-f") #'deft)
 			(local-set-key (kbd "<S-left>") nil)
 			(local-set-key (kbd "<S-right>") nil)
 			(local-set-key (kbd "<S-up>") nil)

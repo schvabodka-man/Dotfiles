@@ -177,6 +177,7 @@
    (quote
 	(report-emacs-bug checkdoc-show-diagnostics checkdoc)))
  '(global-undo-tree-mode t)
+ '(golden-ratio-exclude-buffer-names (quote ("MINIMAP")))
  '(golden-ratio-exclude-modes (quote (neotree-mode)))
  '(helm-boring-buffer-regexp-list
    (quote
@@ -198,7 +199,7 @@
  '(meghanada-server-jvm-option
    "-Xms128m -Xmx750m -XX:ReservedCodeCacheSize=240m -XX:+UseConcMarkSweepGC -XX:SoftRefLRUPolicyMSPerMB=50 -ea -Dsun.io.useCanonCaches=false -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=4123,suspend=n")
  '(meghanada-server-remote-debug t)
- '(minimap-buffer-name " MINIMAP")
+ '(minimap-buffer-name "MINIMAP")
  '(minimap-dedicated-window nil)
  '(minimap-hide-fringes t)
  '(minimap-hide-scroll-bar t)

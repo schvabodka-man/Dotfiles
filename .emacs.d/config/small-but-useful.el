@@ -64,14 +64,11 @@
 (use-package link-hint
   :ensure t
   :config (defalias 'link-open 'link-hint-open-link)
-  (defalias 'link-copy 'link-hint-copy-link)
-  :bind
-  ("M-g" . link-hint-open-link)
-  ("M-S-g" . link-hint-copy-link))
+  (defalias 'link-copy 'link-hint-copy-link))
 (use-package minimap
   :ensure t
   :config
-  (global-set-key (kbd "M-m") 'minimap-mode))
+  (global-set-key (kbd "C-M-s") 'minimap-mode))
 ;;it must be by default in emacs
 (use-package multiple-cursors
   :ensure t
