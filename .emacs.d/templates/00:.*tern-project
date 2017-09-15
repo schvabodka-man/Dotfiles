@@ -1,0 +1,11 @@
+{
+"libs": [
+"browser",
+"jquery",
+"express",
+"prism"$1
+],
+"plugins": {
+"node": {}
+}
+}
