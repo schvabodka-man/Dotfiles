@@ -89,7 +89,11 @@
 (tool-bar-mode -1) 
 (toggle-scroll-bar -1)
 (show-paren-mode 1)
-(global-linum-mode t)
+(add-hook 'prog-mode-hook 'linum-mode)
+(add-hook 'org-mode-hook 'linum-mode)
+(add-hook 'markdown-mode-hook 'linum-mode)
+(add-hook 'gfm-mode-hook 'linum-mode)
+(add-hook 'adoc-mode-hook 'linum-mode)
 (setq inhibit-startup-screen t)
 (desktop-save-mode 1)
 (setq word-wrap t)
@@ -153,3 +157,5 @@
 ;;backups and auto saves. no cluttering
 (setq backup-directory-alist '(("." . "~/Dropbox/Emacs/Backup")))
 (setq auto-save-file-name-transforms `((".*" "~/Dropbox/Emacs/Autosave" t)))
+(define-key emacs-lisp-mode-map (kbd "C-S-e") #'eval-buffer)
+(define-key emacs-lisp-mode-map (kbd "C-e") #'eval-region)

@@ -11,19 +11,6 @@
   (defalias 'restclient-curl 'restclient-copy-curl-command)
   (defalias 'rest-curl 'restclient-copy-curl-command)
   (defalias 'restapi-curl 'restclient-copy-curl-command))
-;;using package without installing it
-(use-package try
-  :ensure t
-  :config
-  (defalias 'temporary-package 'try)
-  (defalias 'temporary-install 'try)
-  (defalias 'try-temporary 'try)
-  (defalias 'try-install 'try)
-  (defalias 'try-package 'try)
-  (defalias 'package-temporary 'try)
-  (defalias 'package-try 'try)
-  (defalias 'install-temporary 'try)
-  (defalias 'install-try 'try))
 ;;speedbar
 (use-package neotree
   :ensure t
@@ -63,6 +50,8 @@
 ;;links hinting
 (use-package link-hint
   :ensure t
+  :bind (("M-g" . link-hint-open-link)
+		 ("M-S-g" . link-hint-copy-link))
   :config (defalias 'link-open 'link-hint-open-link)
   (defalias 'link-copy 'link-hint-copy-link))
 (use-package minimap

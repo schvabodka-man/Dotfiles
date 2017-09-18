@@ -187,8 +187,7 @@
 (eval-after-load 'dired '(progn (require 'joseph-single-dired)))
 ;;nice highlight
 (use-package dired-rainbow
-  :ensure t
-  :config (dired-rainbow-define html "#00ff00" ("htm" "html" "xhtml")))
+  :ensure t)
 ;;image viewer
 (use-package picpocket
   :ensure t

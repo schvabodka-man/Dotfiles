@@ -68,6 +68,7 @@
   (add-to-list 'purpose-user-regexp-purposes '("*elfeed-entry*" . news))
   (add-to-list 'purpose-user-regexp-purposes '("*elfeed-log*" . news))
   (add-to-list 'purpose-user-regexp-purposes '("timemachine" . git-timemachine))
+  (add-to-list 'purpose-user-regexp-purposes '("tern-project" . js))
   (purpose-compile-user-configuration)
   (purpose-x-kill-setup)
   (purpose-x-magit-single-on))

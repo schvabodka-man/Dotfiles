@@ -243,7 +243,39 @@
   (define-key elfeed-show-mode-map (kbd ":Y") nil)
   (define-key elfeed-show-mode-map (kbd ":Z") nil)
   (define-key elfeed-show-mode-map (kbd "+") nil)
-  (define-key elfeed-show-mode-map (kbd "-") nil))
+  (define-key elfeed-show-mode-map (kbd "-") nil)
+
+  (defun elfeed-mark-all-read ()
+	(interactive)
+	(elfeed-untag elfeed-search-entries 'unread)
+	(elfeed-search-update :force))
+  (define-key elfeed-search-mode-map (kbd "C-S-r") #'elfeed-mark-all-read)
+  ;;from here http://pragmaticemacs.com/emacs/star-and-unstar-articles-in-elfeed/
+  (defun bjm/elfeed-star ()
+	"Apply starred to all selected entries."
+	(interactive )
+	(let* ((entries (elfeed-search-selected))
+		   (tag (intern "starred")))
+
+	  (cl-loop for entry in entries do (elfeed-tag entry tag))
+	  (mapc #'elfeed-search-update-entry entries)
+	  (unless (use-region-p) (forward-line))))
+  (defun bjm/elfeed-unstar ()
+	"Remove starred tag from all selected entries."
+	(interactive )
+	(let* ((entries (elfeed-search-selected))
+		   (tag (intern "starred")))
+
+	  (cl-loop for entry in entries do (elfeed-untag entry tag))
+	  (mapc #'elfeed-search-update-entry entries)
+	  (unless (use-region-p) (forward-line))))
+  (defface elfeed-search-starred-title-face
+	'((t :foreground "#ff0000"))
+	"Marks a starred Elfeed entry.")
+  (push '(starred elfeed-search-starred-title-face) elfeed-search-face-alist)
+  (define-key elfeed-search-mode-map (kbd "C-s") #'bjm/elfeed-star)
+  (define-key elfeed-search-mode-map (kbd "C-M-s") #'bjm/elfeed-unstar))
+
 (use-package elfeed-org
   :ensure t
   :config (elfeed-org))

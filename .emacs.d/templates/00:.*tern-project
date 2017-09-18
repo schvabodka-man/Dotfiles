@@ -3,7 +3,15 @@
 "browser",
 "jquery",
 "express",
-"prism"$1
+"prism",
+"sockjs",
+"stomp"
+],
+"loadEagerly": [
+"./**/*.js"
+],
+"dontLoad": [
+"./bower_components/"
 ],
 "plugins": {
 "node": {}
