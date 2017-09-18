@@ -16,7 +16,7 @@
 (defalias 'org-time 'org-time-stamp)
 (add-hook 'org-mode-hook
 		  (lambda ()
-			(local-set-key (kbd "C-M-i") #'org-time-stamp)
+			(local-set-key (kbd "C-t") #'org-time-stamp)
 			(local-set-key (kbd "M-i") #'org-wiki-insert)
 			(local-set-key (kbd "M-S-i") #'org-wiki-assert-insert)
 			(local-set-key (kbd "M-f") #'deft-find-file)
@@ -132,7 +132,6 @@
   :init (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 (use-package org-download
   :ensure t)
-
 ;;like pinboard 
 (use-package org-board
   :ensure t
@@ -185,7 +184,7 @@
 (use-package calfw-org
   :ensure t
   :config (defalias 'cal 'cfw:open-org-calendar)
-  (defalias 'calendar 'cfw:open-org-calendar))
+  (defalias 'calendar-org 'cfw:open-org-calendar))
 ;;wiki!
 (el-get-bundle org-wiki
   :url "https://raw.githubusercontent.com/caiorss/org-wiki/master/org-wiki.el"

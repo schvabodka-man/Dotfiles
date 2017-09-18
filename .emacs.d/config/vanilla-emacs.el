@@ -16,6 +16,7 @@
 (global-set-key (kbd "C-<right>") 'right-word)
 (global-set-key (kbd "C-S-g") 'goto-line)
 (global-set-key (kbd "C-/") 'comment-line)
+(global-set-key (kbd "M-,") 'customize-group)
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
 ;; windows controls
 (global-set-key (kbd "M-n") (lambda ()
@@ -31,7 +32,7 @@
 (global-set-key (kbd "M-<left>") 'windmove-left)
 (global-set-key (kbd "M-<right>") 'windmove-right)
 (global-set-key (kbd "M-q") 'delete-window)
-(global-set-key (kbd "C-S-q") 'kill-this-buffer)
+(global-set-key (kbd "C-q") 'kill-this-buffer)
 (global-set-key (kbd "TAB") 'self-insert-command)
 ;;redone backspace and del
 (global-set-key (kbd "C-<backspace>") 'ivy-backward-kill-word)
@@ -44,7 +45,7 @@
     (switch-to-buffer $buf)
     (funcall initial-major-mode)
     (setq buffer-offer-save t)))
-(global-set-key (kbd "M-\\") 'make-new-buffer)
+(global-set-key (kbd "<M-return>") 'make-new-buffer)
 
 ;;custom funcs and aliases
 (defun indent-buffers ()

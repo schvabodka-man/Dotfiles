@@ -18,7 +18,7 @@
   (defalias 'multi-eshell-next 'multi-eshell-switch)
   (defalias 'multi-eshell-prev 'multi-eshell-go-back)
   (defalias 'multi-eshell-previous 'multi-eshell-go-back)
-  :bind (("<M-RET>" . multi-eshell)
+  :bind (("M-`" . multi-eshell)
 		 ("M-2" . multi-eshell-switch)
 		 ("M-1" . multi-eshell-go-back)))
 ;;bookmarks for eshell

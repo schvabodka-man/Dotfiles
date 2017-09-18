@@ -378,7 +378,6 @@ add_binds("all", {
 --devel
 add_binds("normal", { { "<F1>", "Toggle web inspector.", function (w) w:run_cmd(":inspect") end }})
 add_binds("normal", { { "<F2>", "View source code of page", function (w) w:run_cmd(":view-source") end }})
-
 --bookmarks
 add_binds("all", {
 			 { "<Mod1-b>",      "Bookmarks menu", function (w) w:run_cmd(":bookmarks") end },
@@ -522,6 +521,14 @@ add_cmds({
 add_cmds({
 	  { ":plugins-toggle", [[Toggle plugins]], function (w) w:toggle_plugins()  end },
 })
+--devel
+add_cmds({
+	  { ":devel", [[Toggle web inspector]], function (w) w:run_cmd(":inspect")  end },
+	  { ":development", [[Toggle web inspector]], function (w) w:run_cmd(":inspect")  end },
+	  { ":html", [[View source code of page]], function (w)  w:run_cmd(":view-source")  end },
+	  { ":code", [[View source code of page]], function (w)  w:run_cmd(":view-source")  end },
+})
+
 -----------------------------
 -- End user script loading --
 -----------------------------
