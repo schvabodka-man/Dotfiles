@@ -9,7 +9,8 @@
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 						 ("marmalade" . "http://marmalade-repo.org/packages/")
 						 ("melpa-stable" . "https://stable.melpa.org/packages/")
-						 ("melpa" . "http://melpa.org/packages/")))
+						 ("melpa" . "http://melpa.org/packages/")
+						 ("SC"   . "http://joseito.republika.pl/sunrise-commander/")))
 (package-initialize)
 (load "~/.emacs.d/config/big-frameworks")
 ;;keybindings
@@ -103,10 +104,10 @@
 (set-selection-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 (setq default-process-coding-system '(utf-8-unix . utf-8-unix))
-(setq jit-lock-defer-time nil
-	  ;; jit-lock-stealth-nice 0.1
-	  jit-lock-stealth-time 1
-	  jit-lock-stealth-verbose nil)
+;; (setq jit-lock-defer-time nil
+;;	  ;; jit-lock-stealth-nice 0.1
+;;	  jit-lock-stealth-time 1
+;;	  jit-lock-stealth-verbose nil)
 (setq gnutls-min-prime-bits 4096)
 
 (custom-set-variables
@@ -266,6 +267,12 @@
  '(dired-k-ignored ((t (:foreground "red" :weight bold))))
  '(dired-k-modified ((t (:foreground "yellow" :weight bold))))
  '(dired-k-untracked ((t (:foreground "white" :weight bold))))
+ '(dired-subtree-depth-1-face ((t nil)))
+ '(dired-subtree-depth-2-face ((t nil)))
+ '(dired-subtree-depth-3-face ((t nil)))
+ '(dired-subtree-depth-4-face ((t nil)))
+ '(dired-subtree-depth-5-face ((t nil)))
+ '(dired-subtree-depth-6-face ((t nil)))
  '(emms-browser-album-face ((t (:foreground "spring green" :weight extra-bold :height 1.1))))
  '(emms-browser-artist-face ((t (:foreground "deep sky blue" :weight bold :height 1.3))))
  '(emms-browser-track-face ((t (:foreground "white" :height 1.0))))

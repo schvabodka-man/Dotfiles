@@ -44,9 +44,11 @@
   (add-to-list 'purpose-user-mode-purposes '(css-mode . css))
   (add-to-list 'purpose-user-mode-purposes '(html-mode . html))
   (add-to-list 'purpose-user-mode-purposes '(fish-mode . shell-scripts))
-  (add-to-list 'purpose-user-mode-purposes '(shell-mode . shell-scripts))
+  (add-to-list 'purpose-user-mode-purposes '(sh-mode . shell-scripts))
   (add-to-list 'purpose-user-name-purposes '(nxml-mode . xml))
   (add-to-list 'purpose-user-name-purposes '(yaml-mode . yaml))
+  (add-to-list 'purpose-user-name-purposes '(eshell-mode . eshell))
+  (add-to-list 'purpose-user-mode-purposes '(shell-mode . shell))
   (add-to-list 'purpose-user-name-purposes '(org-mode . org))
   (add-to-list 'purpose-user-name-purposes '(cfw:calendar-mode . org))
   (add-to-list 'purpose-user-name-purposes '(org-agenda-mode . org))
@@ -57,6 +59,9 @@
   (add-to-list 'purpose-user-mode-purposes '(conf-windows-mode . configs))
   (add-to-list 'purpose-user-mode-purposes '(conf-colon-mode . configs))
   (add-to-list 'purpose-user-mode-purposes '(conf-ppd-mode . configs))
+  (add-to-list 'purpose-user-mode-purposes '(image-dired-thumbnail-mode . pictures))
+  (add-to-list 'purpose-user-mode-purposes '(image-dired-display-image-mode . pictures))
+  (add-to-list 'purpose-user-mode-purposes '(image-mode . pictures))
   (add-to-list 'purpose-user-mode-purposes '(conf-space-keywords . configs))
   (add-to-list 'purpose-user-mode-purposes '(conf-xdefaults-mode . x11-xorg-configs))
   (add-to-list 'purpose-user-mode-purposes '(conf-javaprop-mode . java-properties))
@@ -89,6 +94,13 @@
   ("<M-S-right>" . buf-move-right)
   ("<M-S-up>" . buf-move-up)
   ("<M-S-down>" . buf-move-down))
+;; (use-package sauron
+;;   :ensure t
+;;   :config (setq sauron-separate-frame nil)
+;;   (sauron-start-hidden)
+;;   (sauron-elfeed-start)
+;;   (defalias 'events 'sauron-toggle-hide-show)
+;;   (defalias 'notifications 'sauron-toggle-hide-show))
 ;; (use-package frames-only-mode
 ;;   :ensure t
 ;;   :config (frames-only-mode))
