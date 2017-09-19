@@ -25,7 +25,6 @@ alias j z $*
 alias p projectile-switch-project $*
 alias u eshell-up $_
 alias up eshell-up $_
-alias tldr (tldr "$_")
 alias project touch .projectile
 alias project-js touch .projectile & touch .indium & touch .tern-project
 alias project-javascript project-js
