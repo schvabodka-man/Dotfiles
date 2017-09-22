@@ -14,7 +14,7 @@
 (global-set-key (kbd "C-<end>") 'end-of-line)
 (global-set-key (kbd "C-<left>") 'left-word)
 (global-set-key (kbd "C-<right>") 'right-word)
-(global-set-key (kbd "C-S-g") 'goto-line)
+;; (global-set-key (kbd "C-S-g") 'goto-line)
 (global-set-key (kbd "C-/") 'comment-line)
 (global-set-key (kbd "M-,") 'customize-group)
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
@@ -64,7 +64,7 @@
 		(insert filename)
 		(clipboard-kill-region (point-min) (point-max)))
 	  (message filename))))
-(global-set-key (kbd "M-u") 'put-file-name-on-clipboard)
+(global-set-key (kbd "C-y") 'put-file-name-on-clipboard)
 
 (global-set-key (kbd "C-l")
 				(defun ctrl-l-line-select ()

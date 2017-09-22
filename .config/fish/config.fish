@@ -7,6 +7,7 @@ set -g theme_color_scheme dark
 set -x JAVA_HOME '/usr/lib/jvm/java'
 set -x GRADLE_HOME '/usr/share/gradle'
 set -x GOPATH '/home/user/Go'
+set -x ANDROID_HOME '/home/user/Android/Sdk'
 set -x EDITOR "emacsclient -c"
 set -x BROWSER "luakit"
 set -x FLATPACK_GNOME "3.24"

@@ -19,4 +19,13 @@
 (add-hook 'before-save-hook 'indent-buffers)
 (use-package avy
   :ensure t
-  :bind (("C-g" . avy-goto-word-0)))
+  :bind (("C-g" . avy-goto-word-0)
+		 ("C-S-g" . avy-goto-line)))
+(use-package highlight-parentheses
+  :ensure t
+  :config (global-highlight-parentheses-mode t))
+(use-package centered-cursor-mode
+  :ensure t
+  :config (add-hook 'after-init-hook
+					(lambda ()
+					  (global-centered-cursor-mode t))))

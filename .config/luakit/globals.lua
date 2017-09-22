@@ -1,7 +1,7 @@
 -- Global variables for luakit
 
 local globals = {
-   homepage         = "https://www.startpage.com/do/mypage.pl?prfh=design_typeEEE1N1Nlang_homepageEEEs/night/eng/N1Nenable_video_settingsEEE1N1Nresults_countEEE1N1Nlanguage_uiEEEenglishN1Ndisable_open_in_new_windowEEE0N1NlanguageEEEenglishN1NsslEEE1N1Ndisable_family_filterEEE1N1Nnum_of_resultsEEE20N1Ndisable_video_family_filterEEE1N1NsuggestionsEEE1N1Ngeo_mapEEE1N1N",
+   homepage         = "https://searx.me/?results_on_new_tab=True&language=all&locale=en&disabled_plugins=&image_proxy=False&autocomplete=startpage&safesearch=0&theme=oscar&method=POST&categories=general",
    scroll_step         = 40,
    zoom_step           = 0.1,
    max_cmd_history     = 1000,
@@ -24,6 +24,7 @@ local globals = {
 -- it to avoid collisions with lua's string.format characters.
 -- See: http://www.lua.org/manual/5.1/manual.html#pdf-string.format
 globals.search_engines = {
+   searx       = "https://searx.me/?results_on_new_tab=True&language=all&locale=en&disabled_plugins=&image_proxy=False&autocomplete=startpage&safesearch=0&theme=oscar&method=POST&categories=general&q=%s",
    duckduckgo  = "https://duckduckgo.com/?q=%s",
    startpage  = "https://www.startpage.com/do/dsearch?query=%s&cat=web&pl=opensearch&language=english",
    github      = "https://github.com/search?q=%s",
@@ -50,7 +51,7 @@ globals.search_engines = {
    youtube          = "https://www.youtube.com/results?search_query=%s",
 }
 
-globals.search_engines.default = globals.search_engines.startpage
+globals.search_engines.default = globals.search_engines.searx
 -- Use this instead to disable auto-searching
 --search_engines.default = "%s"
 
@@ -60,8 +61,8 @@ globals.search_engines.default = globals.search_engines.startpage
 globals.domain_props = {
    ["all"] = {
 	  -- enable_webgl            = false,
-	  -- enable_scripts          = false,
-	  -- enable_plugins          = false,
+	  enable_scripts          = false,
+	  enable_plugins          = false,
 	  zoom_text_only          = false,
    }, 
    -- ["youtube.com"] = {

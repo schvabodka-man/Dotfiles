@@ -116,6 +116,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(battery-update-interval 10)
+ '(ccm-step-delay 0)
+ '(ccm-step-size 1)
  '(company-minimum-prefix-length 0)
  '(company-shell-modes (quote (sh-mode fish-mode)))
  '(dired-filter-saved-filters
@@ -178,6 +180,7 @@
    (quote
 	(report-emacs-bug checkdoc-show-diagnostics checkdoc)))
  '(git-messenger:use-magit-popup t)
+ '(global-centered-cursor-mode nil)
  '(global-undo-tree-mode t)
  '(golden-ratio-exclude-buffer-names (quote ("MINIMAP")))
  '(golden-ratio-exclude-modes (quote (neotree-mode)))
@@ -191,6 +194,8 @@
    (quote
 	(Custom-mode org-agenda-mode cfw:calendar-mode minibuffer-inactive-mode eshell-mode shell-mode emms-playlist-mode)))
  '(highlight-thing-what-thing (quote word))
+ '(hl-paren-background-colors (quote ("white")))
+ '(hl-paren-colors (quote ("magenta" "yellow" "VioletRed1" "medium orchid")))
  '(httpd-port 8088)
  '(js2-highlight-level 3)
  '(js2-idle-timer-delay 0.1)
@@ -217,6 +222,7 @@
    (quote
 	(nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
  '(paradox-github-token t)
+ '(popwin:adjust-other-windows nil)
  '(projectile-globally-ignored-directories
    (quote
 	(".idea" ".ensime_cache" ".eunit" ".git" ".hg" ".fslckout" "_FOSSIL_" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "gradle" ".gradle" ".meghanada" "build" "out" "libs" "target" ".mvn" "el-get" "elpa" "auto-save-list" "project")))
@@ -234,6 +240,7 @@
 	(symon-linux-network-rx-monitor symon-linux-network-tx-monitor time-date)))
  '(symon-sparkline-thickness 1)
  '(symon-sparkline-type (quote plain))
+ '(undo-tree-auto-save-history t)
  '(vlf-application (quote dont-ask))
  '(yahoo-weather-location "Uzhhorod")
  '(yahoo-weather-mode t))

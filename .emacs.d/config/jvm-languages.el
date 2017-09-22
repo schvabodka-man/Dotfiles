@@ -61,60 +61,60 @@
 ;; (add-hook 'nxml-mode-hook 'run-meghanada-on-maven)
 ;; (add-hook 'groovy-mode-hook 'run-meghanada-on-gradle)
 ;; (add-hook 'kill-emacs-hook 'meghanada-server-kill))
-(use-package ensime
-  :ensure t
-  :pin melpa
-  :config
-  (setq
-   ensime-sbt-command "/usr/bin/sbt"
-   sbt:program-name "/usr/bin/sbt")
-  (setq ensime-startup-notification nil)
-  (setq ensime-startup-snapshot-notification nil)
-  (defalias 'scala-import 'ensime-import-type-at-point)
-  (defalias 'scala-clean-import 'ensime-refactor-diff-organize-imports)
-  (defalias 'scala-organize-import 'ensime-refactor-diff-organize-imports)
-  (defalias 'ensime-clean-import 'ensime-refactor-diff-organize-imports)
-  (defalias 'ensime-organize-import 'ensime-refactor-diff-organize-imports)
-  (defalias 'scala-repl 'ensime-inf-switch)
-  (defalias 'ensime-repl 'ensime-inf-switch)
-  (defalias 'scala-eval 'ensime-inf-eval-buffer)
-  (defalias 'ensime-eval 'ensime-inf-eval-buffer)
-  (defalias 'scala-eval-region 'ensime-inf-eval-region)
-  (defalias 'ensime-eval-region 'ensime-inf-eval-region)
-  (defalias 'ensime-jump-to-definition 'ensime-edit-definition)
-  (defalias 'scala-jump-to-definition 'ensime-edit-definition)
-  (defalias 'scala-undo-jump-to-definition 'ensime-pop-find-definition-stack)
-  (defalias 'ensime-undo-jump-to-definition 'ensime-pop-find-definition-stack)
-  (defalias 'scala-back-jump-to-definition 'ensime-pop-find-definition-stack)
-  (defalias 'ensime-back-jump-to-definition 'ensime-pop-find-definition-stack)
-  (defalias 'ensime-doc 'ensime-show-doc-for-symbol-at-point)
-  (defalias 'ensime-documentation 'ensime-show-doc-for-symbol-at-point)
-  (defalias 'scala-documentation 'ensime-show-doc-for-symbol-at-point)
-  (defalias 'scala-doc 'ensime-show-doc-for-symbol-at-point)
-  (add-hook 'java-mode-hook 'ensime-mode)
-  (define-key ensime-mode-map (kbd "M-,") nil)
-  (define-key ensime-mode-map (kbd "M-.") nil)
-  (define-key ensime-mode-map (kbd "C-j") #'ensime-edit-definition)
-  (define-key ensime-mode-map (kbd "C-S-j") #'ensime-pop-find-definition-stack)
-  (define-key ensime-mode-map (kbd "M-r") #'ensime-refactor-diff-rename)
-  (define-key ensime-mode-map (kbd "C-e") #'ensime-inf-eval-buffer)
-  (define-key ensime-mode-map (kbd "C-d") #'ensime-show-doc-for-symbol-at-point)
-  (define-key ensime-mode-map (kbd "C-S-e") #'ensime-inf-eval-region)
-  (define-key ensime-mode-map (kbd "M-p") #'projectile-switch-project)
-  (define-key ensime-mode-map (kbd "C-S-i") #'ensime-refactor-diff-organize-imports)
-  (define-key ensime-mode-map (kbd "<tab>") #'self-insert-command)
-  (define-key ensime-mode-map (kbd "<C-tab>") #'ensime-company-complete-or-indent)
-  (define-key ensime-mode-map (kbd "M-i") #'ensime-import-type-at-point))
-(use-package sbt-mode
-  :ensure t
-  :pin melpa)
-(use-package scala-mode
-  :ensure t
-  :pin melpa)
-(use-package android-mode
-  :ensure t
-  :config (add-hook 'java-mode-hook 'android-mode)
-  (add-hook 'scala-mode-hook 'android-mode))
+;; (use-package ensime
+;;   :ensure t
+;;   :pin melpa
+;;   :config
+;;   (setq
+;;    ensime-sbt-command "/usr/bin/sbt"
+;;    sbt:program-name "/usr/bin/sbt")
+;;   (setq ensime-startup-notification nil)
+;;   (setq ensime-startup-snapshot-notification nil)
+;;   (defalias 'scala-import 'ensime-import-type-at-point)
+;;   (defalias 'scala-clean-import 'ensime-refactor-diff-organize-imports)
+;;   (defalias 'scala-organize-import 'ensime-refactor-diff-organize-imports)
+;;   (defalias 'ensime-clean-import 'ensime-refactor-diff-organize-imports)
+;;   (defalias 'ensime-organize-import 'ensime-refactor-diff-organize-imports)
+;;   (defalias 'scala-repl 'ensime-inf-switch)
+;;   (defalias 'ensime-repl 'ensime-inf-switch)
+;;   (defalias 'scala-eval 'ensime-inf-eval-buffer)
+;;   (defalias 'ensime-eval 'ensime-inf-eval-buffer)
+;;   (defalias 'scala-eval-region 'ensime-inf-eval-region)
+;;   (defalias 'ensime-eval-region 'ensime-inf-eval-region)
+;;   (defalias 'ensime-jump-to-definition 'ensime-edit-definition)
+;;   (defalias 'scala-jump-to-definition 'ensime-edit-definition)
+;;   (defalias 'scala-undo-jump-to-definition 'ensime-pop-find-definition-stack)
+;;   (defalias 'ensime-undo-jump-to-definition 'ensime-pop-find-definition-stack)
+;;   (defalias 'scala-back-jump-to-definition 'ensime-pop-find-definition-stack)
+;;   (defalias 'ensime-back-jump-to-definition 'ensime-pop-find-definition-stack)
+;;   (defalias 'ensime-doc 'ensime-show-doc-for-symbol-at-point)
+;;   (defalias 'ensime-documentation 'ensime-show-doc-for-symbol-at-point)
+;;   (defalias 'scala-documentation 'ensime-show-doc-for-symbol-at-point)
+;;   (defalias 'scala-doc 'ensime-show-doc-for-symbol-at-point)
+;;   (add-hook 'java-mode-hook 'ensime-mode)
+;;   (define-key ensime-mode-map (kbd "M-,") nil)
+;;   (define-key ensime-mode-map (kbd "M-.") nil)
+;;   (define-key ensime-mode-map (kbd "C-j") #'ensime-edit-definition)
+;;   (define-key ensime-mode-map (kbd "C-S-j") #'ensime-pop-find-definition-stack)
+;;   (define-key ensime-mode-map (kbd "M-r") #'ensime-refactor-diff-rename)
+;;   (define-key ensime-mode-map (kbd "C-e") #'ensime-inf-eval-buffer)
+;;   (define-key ensime-mode-map (kbd "C-d") #'ensime-show-doc-for-symbol-at-point)
+;;   (define-key ensime-mode-map (kbd "C-S-e") #'ensime-inf-eval-region)
+;;   (define-key ensime-mode-map (kbd "M-p") #'projectile-switch-project)
+;;   (define-key ensime-mode-map (kbd "C-S-i") #'ensime-refactor-diff-organize-imports)
+;;   (define-key ensime-mode-map (kbd "<tab>") #'self-insert-command)
+;;   (define-key ensime-mode-map (kbd "<C-tab>") #'ensime-company-complete-or-indent)
+;;   (define-key ensime-mode-map (kbd "M-i") #'ensime-import-type-at-point))
+;; (use-package sbt-mode
+;;   :ensure t
+;;   :pin melpa)
+;; (use-package scala-mode
+;;   :ensure t
+;;   :pin melpa)
+;; (use-package android-mode
+;;   :ensure t
+;;   :config (add-hook 'java-mode-hook 'android-mode)
+;;   (add-hook 'scala-mode-hook 'android-mode))
 (el-get-bundle maven-pom-mode
   :url "https://github.com/m0smith/maven-pom-mode.git")
 (load "~/.emacs.d/el-get/maven-pom-mode/maven-pom-mode")

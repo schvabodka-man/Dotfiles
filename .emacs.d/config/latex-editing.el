@@ -46,4 +46,10 @@
   :config (add-to-list 'company-backends 'company-math-symbols-unicode)
   (add-to-list 'company-backends 'company-math-symbols-latex)
   (add-to-list 'company-backends 'company-latex-commands))
+(use-package magic-latex-buffer
+  :ensure t
+  :config (add-hook 'latex-mode-hook 'magic-latex-buffer)
+  (add-hook 'tex-mode-hook 'magic-latex-buffer)
+  (add-hook 'TeX-mode-hook 'magic-latex-buffer)
+  (add-hook 'LaTeX-mode-hook 'magic-latex-buffer))
 ;;; latex-editing.el ends here

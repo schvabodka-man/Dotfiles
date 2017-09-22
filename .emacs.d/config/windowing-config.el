@@ -105,3 +105,11 @@
 ;;   :ensure t
 ;;   :config (frames-only-mode))
 ;; (setq pop-up-frames t)
+(use-package centered-window-mode
+  :ensure t
+  :config (centered-window-mode t))
+;; (use-package auto-dim-other-buffers
+;;   :ensure t
+;;   :config (add-hook 'after-init-hook (lambda ()
+;;									   (when (fboundp 'auto-dim-other-buffers-mode)
+;;										 (auto-dim-other-buffers-mode t)))))

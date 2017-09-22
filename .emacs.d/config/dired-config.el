@@ -609,3 +609,5 @@
 			(local-set-key (kbd "C-M-s") #'tar-expunge)
 			(local-set-key (kbd "<delete>") #'tar-expunge)
 			(local-set-key (kbd "<C-delete>") #'tar-flag-deleted)))
+;; (use-package peep-dired
+;;   :ensure t)

@@ -185,11 +185,6 @@ local function yank(w)
    w:notify("Copied: " .. uri)
 end
 
---pass integration
-local function pass()
-   luakit.spawn('terminator -e "~/.config/fish/shortcuts/search-password.fish"')
-end
-
 local function scriptSwitcher(w)
    if (noscript.enable_scripts == true) then
 	  noscript.enable_scripts = false
@@ -210,8 +205,6 @@ end)
 -----------------------------
 ---------- Values -----------
 -----------------------------
-noscript.enable_scripts = false
-noscript.enable_plugins = false
 editor.editor_cmd = "emacsclient -c"
 soup.accept_policy = "always"
 -----------------------------
@@ -284,7 +277,6 @@ add_binds("normal", {
 			 { "^ZQ$", "nil", function (w) end },
 			 { "^D$",  "nil", function (w) end },
 			 { "u",  "nil", function (w) end },
-			 { "<Control-z>", "nil", function (w) end },
 			 { ":", "nil", function (w) end, {} },
 			 { "^f$", function (w) end },
 			 { "^F$", function (w) end },
@@ -339,7 +331,7 @@ add_binds("all", {
 			 { "<Mod1-Control-Return>", "Open one or more URLs based on current location in a new tab.", function (w) w:enter_cmd(":tabopen " .. (w.view.uri or "")) end },
 })
 add_binds("normal", {{ "<Mod1-Return>", "Open a new tab.", function (w) w:new_tab("luakit://newtab/") end }})
-add_binds("normal", {{ "<Control-z>", "Reopen tab.", function (w) w:run_cmd(":undolist!") end }})
+add_binds("normal", {{ "<Mod1-z>", "Reopen tab.", function (w) w:run_cmd(":undolist!") end }})
 
 --scripts and plugins
 add_binds("normal", {{ "<Mod1-s>", "Toggle scripts.", function (w) w:toggle_scripts() end },
@@ -359,7 +351,7 @@ add_binds("normal", {
 add_binds("all", {{ "<Mod1-x>", "Enter `command` mode.", function (w) w:set_mode("command") end, {} }})
 
 --yanking
-add_binds("normal", {{ "<Control-u>", "Yank current URI to clipboard.", function (w) yank(w) end}})
+add_binds("normal", {{ "<Control-y>", "Yank current URI to clipboard.", function (w) yank(w) end}})
 add_binds("all", {{ "<Control-c>", "Yank current text selection.", function (w) w:run_cmd(":yanksel") end}})
 add_binds("normal", {{ "<Control-c>", "Yank current text selection.", function (w) w:run_cmd(":yanksel") end}}) --for some reason
 --opening
@@ -499,16 +491,12 @@ add_cmds({
 	  { ":mpv", [[Play in MPV player]], function (w) mpv(w) end },
 	  { ":video", [[Play in MPV player]], function (w) mpv(w) end },
 })
---pass integration
-add_cmds({
-	  { ":pass", [[Unix pass]], function () pass()  end },
-	  { ":passwords", [[Unix pass]], function () pass()  end },
-})
 --yanking
 add_cmds({
 	  { ":yank", [[Copy url]], function (w) yank(w) end },
 	  { ":url", [[Copy url]], function (w) yank(w) end },
 	  { ":uri", [[Copy url]], function (w) yank(w) end },
+	  { ":path", [[Copy url]], function (w) yank(w) end },
 })
 --noscript
 add_cmds({

@@ -42,6 +42,9 @@
   :init (add-hook 'after-init-hook 'global-company-mode)
   :config (setq company-dabbrev-downcase 0)
   (setq company-idle-delay 0)
+  (delete 'company-dabbrev company-backends)
+  (delete 'company-ispell company-backends)
+  (delete '(company-dabbrev-code company-keywords) company-backends)
   :bind ("<C-tab>" . company-complete))
 ;;snippets
 (use-package yasnippet
@@ -50,7 +53,6 @@
   :bind ("<C-iso-lefttab>" . company-yasnippet)
   :config
   (defalias 'snippet 'yas-expand)
-  (global-set-key (kbd "M-TAB") 'company-yasnippet)
   ;;i found this on the stackoverflow
   ;; (defvar company-mode/enable-yas t
   ;;	"Enable yasnippet for all backends.")

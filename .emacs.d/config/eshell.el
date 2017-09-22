@@ -59,4 +59,9 @@
 	(set-window-buffer currentbuf newbuf)
 	(shell newbuf)))
 (global-set-key (kbd "M-~") 'new-shell)
+(setenv "JAVA_HOME" "/usr/lib/jvm/java")
+(setenv "GRADLE_HOME" "/usr/share/gradle")
+(setenv "GOPATH" "/home/user/Go")
+(setenv "BROWSER" "luakit")
+(setenv "ANDROID_HOME" "/home/user/Android/Sdk")
 ;;; eshell ends here
