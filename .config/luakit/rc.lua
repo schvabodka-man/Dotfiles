@@ -205,6 +205,8 @@ end)
 -----------------------------
 ---------- Values -----------
 -----------------------------
+noscript.enable_scripts = false		
+noscript.enable_plugins = false
 editor.editor_cmd = "emacsclient -c"
 soup.accept_policy = "always"
 -----------------------------

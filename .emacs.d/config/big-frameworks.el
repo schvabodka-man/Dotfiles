@@ -7,9 +7,12 @@
 ;;usable with some packages that don't use helm stuff
 (use-package ivy
   :ensure t
-  :init (ivy-mode))
+  :pin melpa-stable
+  :init (ivy-mode)
+  :bind (("C-M-w" . ivy-switch-buffer)))
 ;;el-get
 (use-package el-get
+  :pin melpa
   :ensure t)
 ;;helm
 (use-package helm
@@ -26,28 +29,32 @@
   :bind (("M-x" . helm-M-x)
 		 ("M-o" . helm-find-files)
 		 ("M-c" . helm-colors)
-		 ("C-M-w" . helm-buffers-list)
 		 ("M-b" . helm-bookmarks)
 		 ("C-f" . helm-occur)))
 ;;some libs
 (use-package dash
+  :pin melpa-stable
   :ensure t)
 (use-package cl-lib
+  :pin melpa-stable
   :ensure t)
 (use-package popup
+  :pin melpa-stable
   :ensure t)
 ;;autocomplete
 (use-package company
   :ensure t
+  :pin melpa-stable
   :init (add-hook 'after-init-hook 'global-company-mode)
   :config (setq company-dabbrev-downcase 0)
-  (setq company-idle-delay 0)
+  (setq company-idle-delay 0.2)
   (delete 'company-dabbrev company-backends)
   (delete 'company-ispell company-backends)
   (delete '(company-dabbrev-code company-keywords) company-backends)
   :bind ("<C-tab>" . company-complete))
 ;;snippets
 (use-package yasnippet
+  :pin melpa-stable
   :ensure t
   :init (yas-global-mode 1)
   :bind ("<C-iso-lefttab>" . company-yasnippet)
@@ -73,6 +80,8 @@
 ;;flycheck
 (use-package flycheck
   :ensure t
+  :pin melpa-stable
   :init (global-flycheck-mode))
 (use-package hydra
-  :ensure t)
+  :ensure t
+  :pin melpa-stable)

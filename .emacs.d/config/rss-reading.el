@@ -7,6 +7,7 @@
 ;;; Commentary:
 ;;; Code:
 (use-package elfeed
+  :pin melpa-stable
   :ensure t
   :config (define-key elfeed-search-mode-map (kbd "M-r") #'elfeed-update)
   (define-key elfeed-search-mode-map (kbd "M-S-r") #'elfeed-update-feed)

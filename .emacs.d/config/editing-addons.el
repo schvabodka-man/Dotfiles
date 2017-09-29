@@ -16,7 +16,6 @@
   ;;(setq dumb-jump-use-visible-window nil)
   :bind (("C-j" . dumb-jump-go)
 		 ("C-S-j" . dumb-jump-back)))
-(add-hook 'before-save-hook 'indent-buffers)
 (use-package avy
   :ensure t
   :bind (("C-g" . avy-goto-word-0)
@@ -24,8 +23,11 @@
 (use-package highlight-parentheses
   :ensure t
   :config (global-highlight-parentheses-mode t))
-(use-package centered-cursor-mode
+;; (use-package centered-cursor-mode
+;;   :ensure t
+;;   :config (add-hook 'after-init-hook
+;;					(lambda ()
+;;					  (global-centered-cursor-mode t))))
+(use-package nlinum
   :ensure t
-  :config (add-hook 'after-init-hook
-					(lambda ()
-					  (global-centered-cursor-mode t))))
+  :config (global-nlinum-mode t))

@@ -2,9 +2,17 @@
 ;;; Commentary:
 ;;; MUH ORG-MODE
 ;;; Code:
-(setq org-agenda-files (list "~/Dropbox/Org/Wiki/Agenda/Todo"
-							 "~/Dropbox/Org/Wiki/Agenda/Util"
-							 "~/Dropbox/Org/Wiki/Agenda/Diary"))
+;;wiki!
+(el-get-bundle org-wiki
+  :url "https://raw.githubusercontent.com/caiorss/org-wiki/master/org-wiki.el"
+  :description "Emacs' desktop wiki built with org-mode"
+  :features org-wiki)
+(require 'org-wiki)
+(setq org-wiki-location "~/Dropbox/Org/Wiki")
+(defalias 'wiki 'org-wiki-index)
+(setq org-agenda-files (list "~/Dropbox/Org/Agenda/Todo"
+							 "~/Dropbox/Org/Agenda/Util"
+							 "~/Dropbox/Org/Agenda/Diary"))
 (setq org-archive-location "~/Dropbox/Org/Wiki/Agenda/Archive/todo.org::* TASKS")
 (setq org-support-shift-select t)
 (defalias 'todo 'org-todo-list)
@@ -121,7 +129,7 @@
 (use-package org-journal
   :ensure t
   :config
-  (setq org-journal-dir (expand-file-name "/home/user/Dropbox/Org/Wiki/Agenda/Diary"))
+  (setq org-journal-dir (expand-file-name "/home/user/Dropbox/Org/Agenda/Diary"))
   (setq org-journal-date-format '"<%Y-%m-%d %a>")
   (setq org-journal-time-format '"<%Y-%m-%d %a %R>")
   (setq org-journal-file-format '"%Y-%m-%d.org")
@@ -146,7 +154,7 @@
 (use-package deft
   :ensure t
   :config (setq deft-extensions '("txt" "org" "md"))
-  (setq deft-directory "~/Dropbox/Org/Wiki")
+  (setq deft-directory "~/Dropbox/Org/")
   (setq deft-recursive t)
   (defalias 'org-wiki-find 'deft)
   (defalias 'org-wiki-find-files 'deft-find-file)
@@ -185,12 +193,17 @@
   :ensure t
   :config (defalias 'cal 'cfw:open-org-calendar)
   (defalias 'calendar-org 'cfw:open-org-calendar))
-;;wiki!
-(el-get-bundle org-wiki
-  :url "https://raw.githubusercontent.com/caiorss/org-wiki/master/org-wiki.el"
-  :description "Emacs' desktop wiki built with org-mode"
-  :features org-wiki)
-(require 'org-wiki)
-(setq org-wiki-location "~/Dropbox/Org/Wiki")
-(defalias 'wiki 'org-wiki-index)
+(use-package bbdb
+  :ensure t)
+(use-package helm-bbdb
+  :ensure t)
+(use-package org-caldav
+  :ensure t
+  :config (setq plstore-cache-passphrase-for-symmetric-encryption t))
+(setq org-caldav-url "http://192.168.2.125:5232/")
+(setq org-caldav-calendars
+	  '((:calendar-id "Life" :files ("~/Dropbox/Org/Agenda/Todo/Life.org")
+					  :inbox "~/Dropbox/Org/Agenda/Todo/Life-inbox.org")
+		(:calendar-id "Work" :files ("~/Dropbox/Org/Agenda/Todo/Work.org")
+					  :inbox "~/Dropbox/Org/Agenda/Todo/Work-inbox.org")))
 ;;; org-config.el ends here

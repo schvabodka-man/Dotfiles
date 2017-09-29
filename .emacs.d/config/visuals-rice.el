@@ -29,3 +29,10 @@
   :ensure t
   :config (add-hook 'emacs-startup-hook 'global-emojify-mode)
   (add-hook 'prog-mode-hook (lambda () (emojify-mode -1))))
+(use-package all-the-icons-ivy
+  :ensure t
+  :config (all-the-icons-ivy-setup))
+;; (use-package all-the-icons-gnus
+;;   :ensure t
+;;   :pin melpa-stable
+;;   :config (all-the-icons-gnus-setup))

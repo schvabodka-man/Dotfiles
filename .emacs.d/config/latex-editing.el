@@ -22,7 +22,9 @@
 										TeX-command-list)))
   (add-hook 'TeX-mode-hook '(lambda () (setq TeX-command-default "latexmk")))
   (define-key 'TeX-mode-map (kbd "<M-f2>") #'TeX-command-run-all)
-  (define-key 'LaTeX-mode-map (kbd "<M-f2>") #'TeX-command-run-all))
+  (define-key 'LaTeX-mode-map (kbd "<M-f2>") #'TeX-command-run-all)
+  (define-key 'TeX-mode-map (kbd "C-l") #'ctrl-l-line-select)
+  (define-key 'LaTeX-mode-map (kbd "C-l") #'ctrl-l-line-select))
 (use-package reftex
   :commands turn-on-reftex
   :init
@@ -41,11 +43,11 @@
   (define-key LaTeX-mode-map (kbd "<M-f1>") #'latex-preview-pane-mode)
   (define-key doc-view-mode-map (kbd "M-r") #'latex-preview-pane-update)
   (define-key doc-view-mode-map (kbd "M-p") #'projectile-switch-project))
-(use-package company-math
-  :ensure t
-  :config (add-to-list 'company-backends 'company-math-symbols-unicode)
-  (add-to-list 'company-backends 'company-math-symbols-latex)
-  (add-to-list 'company-backends 'company-latex-commands))
+;; (use-package company-math
+;;   :ensure t
+;;   :config (add-to-list 'company-backends 'company-math-symbols-unicode)
+;;   (add-to-list 'company-backends 'company-math-symbols-latex)
+;;   (add-to-list 'company-backends 'company-latex-commands))
 (use-package magic-latex-buffer
   :ensure t
   :config (add-hook 'latex-mode-hook 'magic-latex-buffer)

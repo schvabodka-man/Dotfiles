@@ -28,6 +28,13 @@
 													 (nnmail-expiry-wait 'immediate)
 													 (nnir-search-engine imap)))
 
+(defun kill-gnus ()
+  (interactive)
+  (flet ((kill-buffer-ask (buffer) (kill-buffer buffer)))
+	(kill-matching-buffers "*Group*")
+	(kill-matching-buffers "*Article .+")
+	(kill-matching-buffers "*Summary .+")))
+
 (setq smtpmail-smtp-server "smtp.gmail.com"
       smtpmail-smtp-service 587
       gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]")
@@ -68,6 +75,7 @@
 		 (local-set-key (kbd "C-/") #'gnus-article-describe-briefly)
 		 (local-set-key (kbd "<C-RET>") #'gnus-article-show-summary)
 		 (local-set-key (kbd "<pageup>") #'gnus-article-prev-page)
+		 (local-set-key (kbd "C-M-q") #'kill-gnus)
 		 (local-set-key (kbd "C-S-w") #'helm-purpose-switch-buffer-with-purpose)
 		 (local-set-key (kbd "C-w") #'helm-purpose-switch-buffer-with-some-purpose)
 		 (local-set-key (kbd "<pagedown>") #'gnus-article-next-page)))
@@ -87,6 +95,7 @@
 		 (local-set-key (kbd "C-n") #'gnus-group-mail)
 		 (local-set-key (kbd "M-r") #'gnus-group-restart)
 		 (local-set-key (kbd "C-S-w") #'helm-purpose-switch-buffer-with-purpose)
+		 (local-set-key (kbd "C-M-q") #'kill-gnus)
 		 (local-set-key (kbd "C-w") #'helm-purpose-switch-buffer-with-some-purpose)
 		 (local-set-key (kbd "C-S-f") #'gnus-group-make-nnir-group)
 		 (local-set-key (kbd "C-S-m") #'gnus-group-unmark-group)
@@ -103,7 +112,8 @@
 		 (local-set-key (kbd "M-RET") #'perspeen-tab-create-tab)
 		 (local-set-key (kbd "C-S-w") #'helm-purpose-switch-buffer-with-purpose)
 		 (local-set-key (kbd "C-w") #'helm-purpose-switch-buffer-with-some-purpose)
-		 
+
+		 (local-set-key (kbd "C-M-q") #'kill-gnus)
 		 (local-set-key (kbd "<C-left>") #'gnus-summary-prev-article)
 		 (local-set-key (kbd "<C-right>") #'gnus-summary-next-article)
 		 (local-set-key (kbd "<C-S-left>") #'gnus-summary-prev-unread-article)
@@ -200,12 +210,4 @@
    (horizontal 1.0
 			   (vertical 25 (group 1.0))
 			   (vertical 1.0 (summary 1.0 point)))))
-
-(defun kill-gnus ()
-  (interactive)
-  (flet ((kill-buffer-ask (buffer) (kill-buffer buffer)))
-	(kill-matching-buffers "*Group*")
-	(kill-matching-buffers "*Article .+")
-	(kill-matching-buffers "*Summary .+")))
-
 ;;; gnus.el ends here

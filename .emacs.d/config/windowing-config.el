@@ -81,13 +81,13 @@
   :ensure t
   :bind ("C-w" . helm-purpose-switch-buffer-with-some-purpose)
   ("C-S-w" . helm-purpose-switch-buffer-with-purpose))
-(use-package golden-ratio
-  :ensure t
-  :config (golden-ratio-mode 1)
-  (setq golden-ratio-auto-scale t)
-  (setq golden-ratio-adjust-factor .8
-		golden-ratio-wide-adjust-factor .8)
-  (purpose-x-golden-ratio-setup))
+;; (use-package golden-ratio
+;;   :ensure t
+;;   :config (golden-ratio-mode 1)
+;;   (setq golden-ratio-auto-scale t)
+;;   (setq golden-ratio-adjust-factor .8
+;;		golden-ratio-wide-adjust-factor .8)
+;;   (purpose-x-golden-ratio-setup))
 (use-package buffer-move
   :ensure t
   :bind ("<M-S-left>" . buf-move-left)
@@ -108,6 +108,9 @@
 (use-package centered-window-mode
   :ensure t
   :config (centered-window-mode t))
+;; (use-package popwin
+;;   :ensure t
+;;   :config (popwin-mode 1))
 ;; (use-package auto-dim-other-buffers
 ;;   :ensure t
 ;;   :config (add-hook 'after-init-hook (lambda ()
