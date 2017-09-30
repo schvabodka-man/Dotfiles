@@ -189,8 +189,8 @@
   :url "https://www.emacswiki.org/emacs/download/joseph-single-dired.el")
 (eval-after-load 'dired '(progn (require 'joseph-single-dired)))
 ;;nice highlight
-(use-package dired-rainbow
-  :ensure t)
+;; (use-package dired-rainbow
+;;   :ensure t)
 ;;image viewer
 ;; (use-package picpocket
 ;;   :ensure t
@@ -610,3 +610,39 @@
 			(local-set-key (kbd "<C-delete>") #'tar-flag-deleted)))
 ;; (use-package peep-dired
 ;;   :ensure t)
+;;speedbar
+;; (use-package neotree
+;;   :ensure t
+;;   :pin melpa-stable
+;;   :config (define-key neotree-mode-map (kbd "C-n") #'neotree-create-node)
+;;   (define-key neotree-mode-map (kbd "C-S-c") #'neotree-copy-node)
+;;   (define-key neotree-mode-map (kbd "C-r") #'neotree-rename-node)
+;;   (define-key neotree-mode-map (kbd "C-u") #'neotree-copy-filepath-to-yank-ring)
+;;   (define-key neotree-mode-map (kbd "C-k") #'neotree-delete-node)
+;;   (define-key neotree-mode-map (kbd "M-r") #'neotree-refresh)
+;;   (define-key neotree-mode-map (kbd "C-f") #'neotree-find)
+;;   (define-key neotree-mode-map (kbd "C-g") #'neotree-dir)
+;;   (define-key neotree-mode-map (kbd "<return>") #'neotree-change-root)
+;;   (define-key neotree-mode-map (kbd "<up>") #'neotree-previous-line)
+;;   (define-key neotree-mode-map (kbd "<down>") #'neotree-next-line)
+;;   (define-key neotree-mode-map (kbd "<delete>") #'neotree-delete-node)
+;;   (define-key neotree-mode-map (kbd "C-q") #'neotree-hide)
+;;   (define-key neotree-mode-map (kbd "C-h") #'neotree-hidden-file-toggle)
+;;   (define-key neotree-mode-map (kbd "q") nil)
+;;   (define-key neotree-mode-map (kbd "i") nil)
+;;   (define-key neotree-mode-map (kbd "n") nil)
+;;   (define-key neotree-mode-map (kbd "H") nil)
+;;   (define-key neotree-mode-map (kbd "D") nil)
+;;   (define-key neotree-mode-map (kbd "U") nil)
+;;   (define-key neotree-mode-map (kbd "A") nil)
+;;   (define-key neotree-mode-map (kbd "s") nil)
+;;   (define-key neotree-mode-map (kbd "S") nil)
+;;   (define-key neotree-mode-map (kbd "C-c C-c") nil)
+;;   (define-key neotree-mode-map (kbd "C-c c") nil)
+;;   :bind (("M-s" . neotree-toggle)))
+(use-package dired-sidebar
+  :ensure t
+  :bind (("M-s" . dired-sidebar-toggle-with-current-directory))
+  :config (add-hook 'dired-mode-hook
+					(lambda ()
+					  (local-set-key (kbd "M-s") #'dired-sidebar-toggle-sidebar))))
