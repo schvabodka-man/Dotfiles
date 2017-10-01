@@ -11,12 +11,6 @@
   (defalias 'restclient-curl 'restclient-copy-curl-command)
   (defalias 'rest-curl 'restclient-copy-curl-command)
   (defalias 'restapi-curl 'restclient-copy-curl-command))
-;;calibre
-(el-get-bundle calibre-mode
-  :url "https://raw.githubusercontent.com/whacked/calibre-mode/master/calibre-mode.el"
-  :description "Great sidebar"
-  :features calibre-mode)
-(require 'calibre-mode)
 ;;links hinting
 (use-package link-hint
   :ensure t

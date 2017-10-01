@@ -24,7 +24,7 @@
   (prodigy-define-service
 	:name "Chromium debug mode NO GPU"
 	:command "chromium-browser"
-	:args '("--disable-gpu" "--remote-debugging-port=9222" "https://localhost:3000")
+	:args '("--disable-gpu" "--remote-debugging-port=9222" "https://localhost:8080")
 	:tags '(web)
 	:stop-signal 'sigkill
 	:kill-process-buffer-on-stop t))
@@ -47,3 +47,9 @@
   (defalias 'pandoc 'pandoc-main-hydra/body)
   (defalias 'document-converter 'pandoc-main-hydra/body)
   (defalias 'converter-document 'pandoc-main-hydra/body))
+;;calibre
+(el-get-bundle calibre-mode
+  :url "https://raw.githubusercontent.com/whacked/calibre-mode/master/calibre-mode.el"
+  :description "Great sidebar"
+  :features calibre-mode)
+(require 'calibre-mode)
