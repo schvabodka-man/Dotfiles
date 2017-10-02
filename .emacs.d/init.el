@@ -6,12 +6,13 @@
 ;;from here https://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/
 ;;this hack works awesome
 (let ((gc-cons-threshold most-positive-fixnum))
-  (defun my-minibuffer-setup-hook ()
-	(setq gc-cons-threshold 100000000))
-  (defun my-minibuffer-exit-hook ()
-	(setq gc-cons-threshold 800000))
-  (add-hook 'minibuffer-setup-hook #'my-minibuffer-setup-hook)
-  (add-hook 'minibuffer-exit-hook #'my-minibuffer-exit-hook)
+  ;; (defun my-minibuffer-setup-hook ()
+  ;;	(setq gc-cons-threshold 100000000))
+  ;; (defun my-minibuffer-exit-hook ()
+  ;;	(setq gc-cons-threshold 800000))
+  ;; (add-hook 'minibuffer-setup-hook #'my-minibuffer-setup-hook)
+  ;; (add-hook 'minibuffer-exit-hook #'my-minibuffer-exit-hook)
+  (setq gc-cons-threshold 800000)
   ;; ;;stuff
   (require 'package)
   (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
@@ -97,6 +98,10 @@
   (load "~/.emacs.d/config/various-integration")
   ;;elfeed
   (load "~/.emacs.d/config/rss-reading")
+  ;;document viewing
+  (load "~/.emacs.d/config/document-viewers")
+  ;;im
+  (load "~/.emacs.d/config/im-social")
   ;;byte compile everything
   (defun byte-compile-init-dir ()
 	"Byte-compile all your dotfiles."
@@ -395,6 +400,7 @@
  '(ensime-search-interface (quote helm))
  '(ensime-typecheck-idle-interval 1)
  '(ensime-typecheck-interval 1)
+ '(erc-email-userid "scvh")
  '(fancy-battery-show-percentage t)
  '(frames-only-mode-use-window-functions
    (quote
@@ -462,6 +468,9 @@
  '(symon-sparkline-type (quote plain))
  '(undo-tree-auto-save-history t)
  '(vlf-application (quote dont-ask))
+ '(vlf-forbidden-modes-list
+   (quote
+	(archive-mode tar-mode jka-compr git-commit-mode image-mode doc-view-mode doc-view-mode-maybe pdf-view-mode ebrowse-tree-mode)))
  '(yahoo-weather-location "Uzhhorod")
  '(yahoo-weather-mode t))
 (custom-set-faces

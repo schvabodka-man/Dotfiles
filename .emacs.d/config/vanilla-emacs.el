@@ -106,7 +106,7 @@
 (electric-pair-mode)
 (setq suggest-key-bindings nil)
 (setq browse-url-browser-function 'browse-url-generic
-	  browse-url-generic-program "luakit")
+	  browse-url-generic-program "qutebrowser")
 ;; killing messages buffer
 (kill-buffer "*Messages*")
 (setq initial-scratch-message nil)
@@ -164,3 +164,30 @@
 (setq auto-save-file-name-transforms `((".*" "~/Dropbox/Emacs/Autosave" t)))
 (define-key emacs-lisp-mode-map (kbd "C-S-e") #'eval-buffer)
 (define-key emacs-lisp-mode-map (kbd "C-e") #'eval-region)
+;;run without promt yes or no. From here https://emacs.stackexchange.com/questions/19077/how-to-programmatically-answer-yes-to-those-commands-that-prompt-for-a-decisio
+(defmacro my/with-advice (adlist &rest body)
+  "Execute BODY with temporary advice in ADLIST.
+
+Each element of ADLIST should be a list of the form
+  (SYMBOL WHERE FUNCTION [PROPS])
+suitable for passing to `advice-add'.  The BODY is wrapped in an
+`unwind-protect' form, so the advice will be removed even in the
+event of an error or nonlocal exit."
+  (declare (debug ((&rest (&rest form)) body))
+           (indent 1))
+  `(progn
+     ,@(mapcar (lambda (adform)
+                 (cons 'advice-add adform))
+               adlist)
+     (unwind-protect (progn ,@body)
+       ,@(mapcar (lambda (adform)
+                   `(advice-remove ,(car adform) ,(nth 2 adform)))
+                 adlist))))
+
+(defun my/bypass-confirmation-all (function &rest args)
+  "Call FUNCTION with ARGS, bypassing all prompts.
+This includes both `y-or-n-p' and `yes-or-no-p'."
+  (my/with-advice
+	  ((#'y-or-n-p    :override (lambda (prompt) t))
+	   (#'yes-or-no-p :override (lambda (prompt) t)))
+	(apply function args)))

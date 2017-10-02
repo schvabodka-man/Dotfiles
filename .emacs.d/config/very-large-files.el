@@ -6,4 +6,5 @@
 					  (local-set-key (kbd "C-g") #'vlf-goto-line)
 					  (local-set-key (kbd "C-r") #'vlf-query-replace)
 					  (local-set-key (kbd "<Home>") #'vlf-beginning-of-file)
-					  (local-set-key (kbd "<End>") #'vlf-end-of-file))))
+					  (local-set-key (kbd "<End>") #'vlf-end-of-file)))
+  (setq large-file-warning-threshold nil))
