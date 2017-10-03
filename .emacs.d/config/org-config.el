@@ -3,13 +3,13 @@
 ;;; MUH ORG-MODE
 ;;; Code:
 ;;wiki!
-(el-get-bundle org-wiki
-  :url "https://raw.githubusercontent.com/caiorss/org-wiki/master/org-wiki.el"
-  :description "Emacs' desktop wiki built with org-mode"
-  :features org-wiki)
-(require 'org-wiki)
-(setq org-wiki-location "~/Dropbox/Org/Wiki")
-(defalias 'wiki 'org-wiki-index)
+;; (el-get-bundle org-wiki
+;;   :url "https://raw.githubusercontent.com/caiorss/org-wiki/master/org-wiki.el"
+;;   :description "Emacs' desktop wiki built with org-mode"
+;;   :features org-wiki)
+;; (require 'org-wiki)
+;; (setq org-wiki-location "~/Dropbox/Org/Wiki")
+;; (defalias 'wiki 'org-wiki-index)
 (setq org-agenda-files (list "~/Dropbox/Org/Agenda/Todo"
 							 "~/Dropbox/Org/Agenda/Util"
 							 "~/Dropbox/Org/Agenda/Diary"))
@@ -25,8 +25,8 @@
 (add-hook 'org-mode-hook
 		  (lambda ()
 			(local-set-key (kbd "C-t") #'org-time-stamp)
-			(local-set-key (kbd "M-i") #'org-wiki-insert)
-			(local-set-key (kbd "M-S-i") #'org-wiki-assert-insert)
+			;; (local-set-key (kbd "M-i") #'org-wiki-insert)
+			;; (local-set-key (kbd "M-S-i") #'org-wiki-assert-insert)
 			(local-set-key (kbd "M-f") #'deft-find-file)
 			(local-set-key (kbd "M-S-f") #'deft)
 			(local-set-key (kbd "<S-left>") nil)
@@ -156,24 +156,22 @@
   :config (setq deft-extensions '("txt" "org" "md"))
   (setq deft-directory "~/Dropbox/Org/")
   (setq deft-recursive t)
+  (defalias 'wiki 'deft-find-file)
   (defalias 'org-wiki-find 'deft)
   (defalias 'org-wiki-find-files 'deft-find-file)
   (defalias 'wiki-find 'deft)
   (defalias 'wiki-find-files 'deft-find-file)
   (defalias 'org-wiki-search-files 'deft-find-file)
   (defalias 'wiki-search 'deft)
-  (defalias 'wiki-search-files 'deft-find-file)
-  ;; (global-set-key (kbd "C-w") 'deft)
-  ;; (global-set-key (kbd "C-S-w") 'deft-find-file)
-  )
-(use-package helm-org-rifle
-  :ensure t
-  :config (define-key org-mode-map (kbd "C-f") 'helm-org-rifle-current-buffer)
-  (define-key org-mode-map (kbd "C-S-f") 'helm-org-rifle)
-  (defalias 'org-mode-search-current-buffer 'helm-org-rifle-current-buffer)
-  (defalias 'org-mode-search 'helm-org-rifle)
-  (defalias 'mode-search-current-buffer 'helm-org-rifle-current-buffer)
-  (defalias 'mode-search 'helm-org-rifle))
+  (defalias 'wiki-search-files 'deft-find-file))
+;; (use-package helm-org-rifle
+;;   :ensure t
+;;   :config (define-key org-mode-map (kbd "C-f") 'helm-org-rifle-current-buffer)
+;;   (define-key org-mode-map (kbd "C-S-f") 'helm-org-rifle)
+;;   (defalias 'org-mode-search-current-buffer 'helm-org-rifle-current-buffer)
+;;   (defalias 'org-mode-search 'helm-org-rifle)
+;;   (defalias 'mode-search-current-buffer 'helm-org-rifle-current-buffer)
+;;   (defalias 'mode-search 'helm-org-rifle))
 (use-package calfw
   :ensure t
   :config (add-hook 'cfw:calendar-mode-hook
@@ -195,15 +193,6 @@
   (defalias 'calendar-org 'cfw:open-org-calendar))
 (use-package bbdb
   :ensure t)
-(use-package helm-bbdb
+(use-package counsel-bbdb
   :ensure t)
-(use-package org-caldav
-  :ensure t
-  :config (setq plstore-cache-passphrase-for-symmetric-encryption t))
-(setq org-caldav-url "http://192.168.2.125:5232/")
-(setq org-caldav-calendars
-	  '((:calendar-id "Life" :files ("~/Dropbox/Org/Agenda/Todo/Life.org")
-					  :inbox "~/Dropbox/Org/Agenda/Todo/Life-inbox.org")
-		(:calendar-id "Work" :files ("~/Dropbox/Org/Agenda/Todo/Work.org")
-					  :inbox "~/Dropbox/Org/Agenda/Todo/Work-inbox.org")))
 ;;; org-config.el ends here

@@ -11,7 +11,7 @@
   (defalias 'jump-definition 'dumb-jump-go)
   (defalias 'undo-jump-definition 'dumb-jump-back)
   (defalias 'undo-jump-to-definition 'dumb-jump-back)
-  (setq dumb-jump-selector 'helm)
+  (setq dumb-jump-selector 'ivy)
   (setq dumb-jump-aggressive nil)
   ;;(setq dumb-jump-use-visible-window nil)
   :bind (("C-j" . dumb-jump-go)

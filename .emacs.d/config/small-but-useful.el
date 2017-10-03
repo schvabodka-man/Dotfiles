@@ -18,10 +18,10 @@
 		 ("M-S-g" . link-hint-copy-link))
   :config (defalias 'link-open 'link-hint-open-link)
   (defalias 'link-copy 'link-hint-copy-link))
-(use-package minimap
-  :ensure t
-  :config
-  (global-set-key (kbd "C-M-s") 'minimap-mode))
+;; (use-package minimap
+;;   :ensure t
+;;   :config
+;;   (global-set-key (kbd "C-M-s") 'minimap-mode))
 ;;it must be by default in emacs
 (use-package multiple-cursors
   :ensure t
@@ -29,23 +29,23 @@
   (global-set-key (kbd "C-S-<down>") 'mc/mark-next-like-this)
   (global-set-key (kbd "C-S-<up>") 'mc/mark-previous-like-this))
 ;;local bookmarks for buffer
-(use-package bm
-  :ensure t
-  :config (setq-default bm-buffer-persistence t)
-  (setq bm-repository-file "~/.emacs.d/local-bookmarks")
-  (add-hook' after-init-hook 'bm-repository-load)
-  (add-hook 'find-file-hooks 'bm-buffer-restore)
-  (add-hook 'kill-emacs-hook #'(lambda nil
-								 (bm-buffer-save-all)
-								 (bm-repository-save)))
-  (add-hook 'after-save-hook #'bm-buffer-save)
-  (add-hook 'find-file-hooks   #'bm-buffer-restore)
-  (add-hook 'after-revert-hook #'bm-buffer-restore)
-  :bind ("C-S-b" . bm-toggle))
-(use-package helm-bm
-  :ensure t
-  :config (defalias 'local-bookmarks 'helm-bm)
-  :bind ("C-M-b" . helm-bm))
+;; (use-package bm
+;;   :ensure t
+;;   :config (setq-default bm-buffer-persistence t)
+;;   (setq bm-repository-file "~/.emacs.d/local-bookmarks")
+;;   (add-hook' after-init-hook 'bm-repository-load)
+;;   (add-hook 'find-file-hooks 'bm-buffer-restore)
+;;   (add-hook 'kill-emacs-hook #'(lambda nil
+;;								 (bm-buffer-save-all)
+;;								 (bm-repository-save)))
+;;   (add-hook 'after-save-hook #'bm-buffer-save)
+;;   (add-hook 'find-file-hooks   #'bm-buffer-restore)
+;;   (add-hook 'after-revert-hook #'bm-buffer-restore)
+;;   :bind ("C-S-b" . bm-toggle))
+;; (use-package helm-bm
+;;   :ensure t
+;;   :config (defalias 'local-bookmarks 'helm-bm)
+;;   :bind ("C-M-b" . helm-bm))
 ;;whitespaces problems
 (use-package whitespace-cleanup-mode
   :ensure t

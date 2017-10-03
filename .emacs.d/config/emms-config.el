@@ -45,7 +45,7 @@
   (define-key emms-browser-mode-map (kbd "C-o") #'emms-add-directory-tree)
   (define-key emms-browser-mode-map (kbd "C-S-o") #'emms-add-file)
   (define-key emms-browser-mode-map (kbd "C-M-o") #'emms-add-playlist)
-  (define-key emms-browser-mode-map (kbd "M-o") #'helm-emms)
+  ;; (define-key emms-browser-mode-map (kbd "M-o") #'helm-emms)
   (define-key emms-browser-mode-map (kbd "C-k") #'emms-browser-clear-playlist)
   (define-key emms-browser-mode-map (kbd "C-<delete>") #'emms-browser-clear-playlist)
   (define-key emms-browser-mode-map (kbd "C-1") #'emms-browse-by-genre)
@@ -87,7 +87,7 @@
   (define-key emms-playlist-mode-map (kbd "C-S-k") #'emms-mark-delete-marked-tracks)
   (define-key emms-playlist-mode-map (kbd "<delete>") #'emms-playlist-mode-kill-track)
   (define-key emms-playlist-mode-map (kbd "<C-delete>") #'emms-mark-delete-marked-tracks)
-  (define-key emms-playlist-mode-map (kbd "M-o") #'helm-emms)
+  ;; (define-key emms-playlist-mode-map (kbd "M-o") #'helm-emms)
   (define-key emms-playlist-mode-map (kbd "<Home>") #'emms-playlist-mode-first)
   (define-key emms-playlist-mode-map (kbd "<End>") #'emms-playlist-mode-last)
   (define-key emms-playlist-mode-map (kbd "C-s") #'emms-playlist-save)
@@ -116,9 +116,9 @@
   (defalias 'emms-kill 'kill-emms)
   (defalias 'music-kill 'kill-emms)
   (defalias 'kill-music 'kill-emms))
-(use-package helm-emms
-  :ensure t
-  :after emms)
+;; (use-package helm-emms
+;;   :ensure t
+;;   :after emms)
 (use-package emms-info-mediainfo
   :ensure t
   :config (add-to-list 'emms-info-functions #'emms-info-mediainfo)

@@ -5,12 +5,10 @@
   (setq projectile-enable-caching t)
   (global-set-key (kbd "C-M-r") 'projectile-replace-regexp)
   (defalias 'project-add 'projectile-add-known-project))
-(use-package helm-projectile
+(use-package counsel-projectile
   :ensure t
-  :after projectile
-  :config (helm-projectile-on)
-  (setq projectile-completion-system 'helm)
-  (global-set-key (kbd "M-p") 'helm-projectile-switch-project)
-  (global-set-key (kbd "M-f") 'helm-projectile-find-file)
-  (global-set-key (kbd "M-S-f") 'helm-projectile-find-dir)
-  (global-set-key (kbd "C-S-f") 'helm-projectile-grep))
+  :bind (("M-p" . counsel-projectile-switch-project)
+		 ("M-f" . counsel-projectile-find-file)
+		 ("M-S-f" . counsel-projectile-find-dir)
+		 ("C-M-f" . counsel-projectile-ag))
+  :config (setq projectile-completion-system 'default))

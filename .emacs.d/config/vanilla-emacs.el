@@ -160,8 +160,8 @@
 			(push '("lambda" . ?λ) prettify-symbols-alist)))
 
 ;;backups and auto saves. no cluttering
-(setq backup-directory-alist '(("." . "~/Dropbox/Emacs/Backup")))
-(setq auto-save-file-name-transforms `((".*" "~/Dropbox/Emacs/Autosave" t)))
+(setq backup-directory-alist '(("." . "~/.emacs.d/Backup")))
+(setq auto-save-file-name-transforms `((".*" "~/.emacs.d/Autosave" t)))
 (define-key emacs-lisp-mode-map (kbd "C-S-e") #'eval-buffer)
 (define-key emacs-lisp-mode-map (kbd "C-e") #'eval-region)
 ;;run without promt yes or no. From here https://emacs.stackexchange.com/questions/19077/how-to-programmatically-answer-yes-to-those-commands-that-prompt-for-a-decisio

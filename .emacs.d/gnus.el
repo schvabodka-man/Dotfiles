@@ -76,8 +76,8 @@
 		 (local-set-key (kbd "<C-RET>") #'gnus-article-show-summary)
 		 (local-set-key (kbd "<pageup>") #'gnus-article-prev-page)
 		 (local-set-key (kbd "C-M-q") #'kill-gnus)
-		 (local-set-key (kbd "C-S-w") #'helm-purpose-switch-buffer-with-purpose)
-		 (local-set-key (kbd "C-w") #'helm-purpose-switch-buffer-with-some-purpose)
+		 (local-set-key (kbd "C-S-w") #'ivy-purpose-switch-buffer-with-purpose)
+		 (local-set-key (kbd "C-w") #'ivy-purpose-switch-buffer-with-some-purpose)
 		 (local-set-key (kbd "<pagedown>") #'gnus-article-next-page)))
 
 (setq gnus-group-mode-hook
@@ -94,9 +94,9 @@
 		 (local-set-key (kbd "C-m") #'gnus-group-mark-group)
 		 (local-set-key (kbd "C-n") #'gnus-group-mail)
 		 (local-set-key (kbd "M-r") #'gnus-group-restart)
-		 (local-set-key (kbd "C-S-w") #'helm-purpose-switch-buffer-with-purpose)
+		 (local-set-key (kbd "C-S-w") #'ivy-purpose-switch-buffer-with-purpose)
 		 (local-set-key (kbd "C-M-q") #'kill-gnus)
-		 (local-set-key (kbd "C-w") #'helm-purpose-switch-buffer-with-some-purpose)
+		 (local-set-key (kbd "C-w") #'ivy-purpose-switch-buffer-with-some-purpose)
 		 (local-set-key (kbd "C-S-f") #'gnus-group-make-nnir-group)
 		 (local-set-key (kbd "C-S-m") #'gnus-group-unmark-group)
 		 (local-set-key (kbd "C-M-m") #'gnus-group-mark-buffer)
@@ -110,8 +110,8 @@
 (setq gnus-summary-mode-hook 
       '(lambda ()
 		 (local-set-key (kbd "M-RET") #'perspeen-tab-create-tab)
-		 (local-set-key (kbd "C-S-w") #'helm-purpose-switch-buffer-with-purpose)
-		 (local-set-key (kbd "C-w") #'helm-purpose-switch-buffer-with-some-purpose)
+		 (local-set-key (kbd "C-S-w") #'ivy-purpose-switch-buffer-with-purpose)
+		 (local-set-key (kbd "C-w") #'ivy-purpose-switch-buffer-with-some-purpose)
 
 		 (local-set-key (kbd "C-M-q") #'kill-gnus)
 		 (local-set-key (kbd "<C-left>") #'gnus-summary-prev-article)

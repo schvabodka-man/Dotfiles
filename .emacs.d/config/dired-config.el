@@ -151,7 +151,7 @@
 			(local-set-key (kbd "C-s") #'dired-do-compress)
 			(local-set-key (kbd "C-b") #'diredp-do-bookmark)
 
-			(local-set-key (kbd "M-p") #'helm-projectile)))
+			(local-set-key (kbd "M-p") #'counsel-projectile-switch-project)))
 
 (setq delete-by-moving-to-trash t)
 

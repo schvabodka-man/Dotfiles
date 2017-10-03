@@ -29,11 +29,10 @@
 	:stop-signal 'sigkill
 	:kill-process-buffer-on-stop t))
 ;;pass integration
-(use-package helm-pass
+(use-package ivy-pass
   :ensure t
-  :commands (helm-pass)
-  :config (defalias 'pass 'helm-pass)
-  (defalias 'passwords 'helm-pass))
+  :config (defalias 'pass 'ivy-pass)
+  (defalias 'passwords 'ivy-pass))
 (use-package pandoc-mode
   :ensure t
   :config (add-hook 'web-mode-hook 'pandoc-mode)

@@ -77,10 +77,10 @@
   (purpose-compile-user-configuration)
   (purpose-x-kill-setup)
   (purpose-x-magit-single-on))
-(use-package helm-purpose
+(use-package ivy-purpose
   :ensure t
-  :bind ("C-w" . helm-purpose-switch-buffer-with-some-purpose)
-  ("C-S-w" . helm-purpose-switch-buffer-with-purpose))
+  :bind (("C-w" . ivy-purpose-switch-buffer-with-some-purpose)
+		 ("C-S-w" . ivy-purpose-switch-buffer-with-purpose)))
 ;; (use-package golden-ratio
 ;;   :ensure t
 ;;   :config (golden-ratio-mode 1)

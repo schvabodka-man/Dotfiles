@@ -1,9 +1,12 @@
 (use-package flyspell-correct
   :ensure t)
-(use-package flyspell-correct-helm
+;; (use-package flyspell-correct-helm
+;;   :ensure t
+;;   :config
+;;   (define-key flyspell-mode-map (kbd "C-'") 'flyspell-correct-previous-word-generic))
+(use-package flyspell-correct-ivy
   :ensure t
-  :config
-  (define-key flyspell-mode-map (kbd "C-'") 'flyspell-correct-previous-word-generic))
+  :config (define-key flyspell-mode-map (kbd "C-'") 'flyspell-correct-previous-word-generic))
 (setq flyspell-issue-message-flag nil)
 (setq flyspell-issue-welcome-flag nil)
 (mapcar (lambda (mode-hook) (add-hook mode-hook 'flyspell-prog-mode))

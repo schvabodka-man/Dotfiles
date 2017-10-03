@@ -6,6 +6,10 @@
 
 ;;; Commentary:
 ;;; Code:
+(setq erc-log-channels-directory "~/.erc/logs/")
+(setq erc-save-buffer-on-part t)
+(setq erc-hide-timestamps t)
+(setq erc-log-insert-log-on-open nil)
 (defun social ()
   "Connect to IM networks using bitlbee."
   (interactive)
@@ -26,4 +30,12 @@
   (add-hook 'erc-mode-hook
 			(lambda ()
 			  (erc-image-mode 1))))
+(use-package erc-view-log
+  :ensure t
+  :config (add-to-list 'auto-mode-alist '("\\.erclogs/.*\\.log" . erc-view-log-mode)))
+(use-package erc-hl-nicks
+  :ensure t
+  :config (add-hook 'erc-mode-hook
+					(lambda ()
+					  (erc-hl-nicks-mode 1))))
 ;;; im-social.el ends here

@@ -9,28 +9,48 @@
   :ensure t
   :pin melpa-stable
   :init (ivy-mode)
+  (setq ivy-height 20)
+  (setq ivy-initial-inputs-alist nil)
+  (setq ivy-use-virtual-buffers t)
   :bind (("C-M-w" . ivy-switch-buffer)))
+(use-package counsel
+  :ensure t
+  :after ivy
+  :pin melpa-stable
+  :bind (("M-x" . counsel-M-x)
+		 ("M-o" . counsel-find-file)
+		 ("M-b" . counsel-bookmark)
+		 ("C-f" . counsel-ag)
+		 ("C-S-f" . counsel-grep)
+		 ("C-h k" . counsel-descbinds)))
+;;kinda slow so i prefer counsel ag and grep
+;; (use-package swiper
+;;   :ensure t
+;;   :pin melpa-stable
+;;   :after ivy
+;;   :bind (("C-f" . swiper)))
 ;;el-get
 (use-package el-get
   :pin melpa
   :ensure t)
 ;;helm
-(use-package helm
-  :ensure t
-  :init (require 'helm-config)
-  :config (defalias 'color 'helm-colors)
-  (defalias 'htop 'helm-top)
-  (defalias 'htop-emacs 'helm-list-emacs-process)
-  (defalias 'task-manager 'helm-top)
-  (defalias 'task-manager-emacs 'helm-list-emacs-process)
-  (defalias 'process-manager 'helm-top)
-  (defalias 'process-manager-emacs 'helm-list-emacs-process)
-  (setq helm-exit-idle-delay 0)
-  :bind (("M-x" . helm-M-x)
-		 ("M-o" . helm-find-files)
-		 ("M-c" . helm-colors)
-		 ("M-b" . helm-bookmarks)
-		 ("C-f" . helm-occur)))
+;; (use-package helm
+;;   :ensure t
+;;   :pin melpa-stable
+;;   :init (require 'helm-config)
+;;   :config (defalias 'color 'helm-colors)
+;;   (defalias 'htop 'helm-top)
+;;   (defalias 'htop-emacs 'helm-list-emacs-process)
+;;   (defalias 'task-manager 'helm-top)
+;;   (defalias 'task-manager-emacs 'helm-list-emacs-process)
+;;   (defalias 'process-manager 'helm-top)
+;;   (defalias 'process-manager-emacs 'helm-list-emacs-process)
+;;   (setq helm-exit-idle-delay 0)
+;;   :bind (("M-x" . helm-M-x)
+;;		 ("M-o" . helm-find-files)
+;;		 ("M-c" . helm-colors)
+;;		 ("M-b" . helm-bookmarks)
+;;		 ("C-f" . helm-occur)))
 ;;some libs
 (use-package dash
   :pin melpa-stable
