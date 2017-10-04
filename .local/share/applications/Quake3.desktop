@@ -1,9 +1,0 @@
-[Desktop Entry]
-
-Type=Application
-Version=1.0
-Name=Quake 3
-Comment=Ioquake3
-Exec=quake3
-Terminal=false
-Categories=Games;
