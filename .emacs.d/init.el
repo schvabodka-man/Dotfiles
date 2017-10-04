@@ -88,7 +88,7 @@
 ;;dired
 (load "~/.emacs.d/config/dired-config")
 ;;realgud
-;;(load "~/.emacs.d/config/realgud-debugger")
+(load "~/.emacs.d/config/realgud-debugger")
 ;;finances
 (load "~/.emacs.d/config/finance-managing")
 ;;LaTeX
@@ -101,6 +101,8 @@
 (load "~/.emacs.d/config/document-viewers")
 ;;im
 (load "~/.emacs.d/config/im-social")
+;;sauron
+(load "~/.emacs.d/config/sauron-notify")
 ;;byte compile everything
 (defun byte-compile-init-dir ()
   "Byte-compile all your dotfiles."

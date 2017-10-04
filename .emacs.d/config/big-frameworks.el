@@ -20,8 +20,8 @@
   :bind (("M-x" . counsel-M-x)
 		 ("M-o" . counsel-find-file)
 		 ("M-b" . counsel-bookmark)
-		 ("C-f" . counsel-ag)
-		 ("C-S-f" . counsel-grep)
+		 ("C-S-f" . counsel-ag)
+		 ("C-f" . counsel-grep)
 		 ("C-h k" . counsel-descbinds)))
 ;;kinda slow so i prefer counsel ag and grep
 ;; (use-package swiper
@@ -80,16 +80,16 @@
   :config
   (defalias 'snippet 'yas-expand)
   ;;i found this on the stackoverflow
-  ;; (defvar company-mode/enable-yas t
-  ;;	"Enable yasnippet for all backends.")
+  (defvar company-mode/enable-yas t
+	"Enable yasnippet for all backends.")
 
-  ;; (defun company-mode/backend-with-yas (backend)
-  ;;	(if (or (not company-mode/enable-yas) (and (listp backend) (member 'company-yasnippet backend)))
-  ;;		backend
-  ;;	  (append (if (consp backend) backend (list backend))
-  ;;			  '(:with company-yasnippet))))
+  (defun company-mode/backend-with-yas (backend)
+	(if (or (not company-mode/enable-yas) (and (listp backend) (member 'company-yasnippet backend)))
+		backend
+	  (append (if (consp backend) backend (list backend))
+			  '(:with company-yasnippet))))
 
-  ;; (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
+  (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
   )
 (use-package yatemplate
   :ensure t

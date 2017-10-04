@@ -642,7 +642,7 @@
 ;;   :bind (("M-s" . neotree-toggle)))
 (use-package dired-sidebar
   :ensure t
-  :bind (("M-s" . dired-sidebar-toggle-with-current-directory))
+  :bind (("M-S-d" . dired-sidebar-toggle-with-current-directory))
   :config (add-hook 'dired-mode-hook
 					(lambda ()
-					  (local-set-key (kbd "M-s") #'dired-sidebar-toggle-sidebar))))
+					  (local-set-key (kbd "M-S-d") #'dired-sidebar-toggle-sidebar))))

@@ -65,6 +65,7 @@
   (add-to-list 'purpose-user-mode-purposes '(conf-space-keywords . configs))
   (add-to-list 'purpose-user-mode-purposes '(conf-xdefaults-mode . x11-xorg-configs))
   (add-to-list 'purpose-user-mode-purposes '(conf-javaprop-mode . java-properties))
+  (add-to-list 'purpose-user-mode-purposes '(erc-mode . erc))
   (add-to-list 'purpose-user-regexp-purposes '("*Group*" . email))
   (add-to-list 'purpose-user-regexp-purposes '("*Article .+" . email))
   (add-to-list 'purpose-user-regexp-purposes '("*Summary .+" . email))

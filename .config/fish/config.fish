@@ -7,19 +7,11 @@ set -g theme_color_scheme dark
 set -x JAVA_HOME '/usr/lib/jvm/java'
 set -x GRADLE_HOME '/usr/share/gradle'
 set -x GOPATH '/home/user/Go'
+set -x LGOBIN '/home/user/Go/bin'
 set -x ANDROID_HOME '/home/user/Android/Sdk'
 set -x EDITOR "emacsclient -c"
 set -x BROWSER "luakit"
 set -x FLATPACK_GNOME "3.24"
-
-set -x TLDR_COLOR_BLANK "white"
-set -x TLDR_COLOR_NAME "cyan"
-set -x TLDR_COLOR_DESCRIPTION "white"
-set -x TLDR_COLOR_EXAMPLE "green"
-set -x TLDR_COLOR_COMMAND "red"
-set -x TLDR_COLOR_PARAMETER "white"
-set -x TLDR_CACHE_ENABLED "1"
-set -x TLDR_CACHE_MAX_AGE "720"
 
 # Custom alias for listing files when moving to directory
 function cd
@@ -28,30 +20,10 @@ function cd
 end
 
 #docker shitty aliases
-function docker-build
-	docker build -t scvh.com/$argv $argv
-end
 function docker-kill
 	docker stop $argv > /dev/null
 	docker rm $argv > /dev/null
 end
-function docker-run
-	#fish shell don't allow me to set variables with dashes in it
-	docker stop (echo $argv | perl -n -e '/^--name\s(.|\w+)\s-|--/ && print "$1\n"') > /dev/null
-	docker rm (echo $argv | perl -n -e '/^--name\s(.|\w+)\s-|--/ && print "$1\n"') > /dev/null
-	t	docker run $argv
-end
-
-function forecast
-	if count $argv > /dev/null
-		/usr/bin/forecast --hourly $argv
-	else
-		/usr/bin/forecast --hourly "Uzhgorod"
-	end
-end
-alias weather 'forecast'
-
-alias itch '~/.config/fish/dockershortcuts/itch.fish'
 
 alias picard 'flatpak run org.musicbrainz.Picard'
 alias steam 'flatpak run com.valvesoftware.Steam'
@@ -69,16 +41,14 @@ alias office 'libreoffice'
 alias retro-arch 'retroarch'
 
 alias sloc 'cloc'
+alias icat '~/bin/icat/icat'
 alias mysql 'mycli'
 alias postgres 'pgcli'
 alias postgresql 'pgcli'
 alias pgsql 'pgcli'
 alias psql 'pgcli'
-alias translate 'trino'
-alias google '~/bin/googler/googler'
-alias gopm '/home/user/Go/bin/gopm'
-alias license '/home/user/Go/bin/license'
-alias fpp '/home/user/bin/PathPicker/fpp'
+alias gopm '~/Go/bin/gopm'
+alias tree 'alder'
 
 alias project 'touch .projectile'
 function project-js
@@ -107,8 +77,6 @@ function search #for some reason i cant just pipe my shit
 	rm .found
 end
 
-alias passwords 'search-password'
-
 alias xrdb-merge 'xrdb -merge ~/.Xresources'
 alias rofi-cache-clear 'rm ~/.cache/rofi-3.runcache'
 alias newsbeuter-cache-clear 'rm ~/.newsbeuter/cache.db'
@@ -119,8 +87,24 @@ alias rm 'rm -rf'
 alias lsa 'ls -a'
 alias emacs 'emacsclient -nw'
 alias emacs-daemon '/usr/bin/emacs --daemon'
-alias cat '/home/user/Go/bin/ccat'
-alias tree 'alder'
+
+function cat
+	for arg in $argv
+		if echo $arg | grep jpg > /dev/null
+			~/bin/icat/icat $arg
+			break
+		else if echo $arg | grep jpeg > /dev/null
+			~/bin/icat/icat $argv
+			break
+		else if echo $arg | grep png > /dev/null
+			~/bin/icat/icat $argv
+			break
+		else
+			~/Go/bin/ccat $argv
+			break
+		end
+	end
+end
 
 #pandoc macro
 function html-to-pdf
@@ -166,21 +150,11 @@ end
 function tmux-attach
 	tmux attach-session -t $argv
 end
-alias tmux-server "tmux start-server"
-alias tmux-ls "tmux ls"
-alias tmux-list "tmux ls"
-alias tmux-sessions "tmux ls"
-alias tmux-connect "tmux-attach"
 alias tmux-config-update "tmux source ~/.config/tmux/tmux.conf"
 alias tmux-update-config "tmux source ~/.config/tmux/tmux.conf"
 
-alias cmus "~/.config/fish/shortcuts/cmus.fish"
-alias rtorrent "~/.config/fish/shortcuts/rtorrent.fish"
-
 alias chromium-debug "chromium-browser --disable-gpu --remote-debugging-port=9222 https://localhost:3000"
 
-alias git-gui "tig"
-alias git-history "tig"
-
 . ~/.fishmarks/marks.fish
+
 alias j "z"

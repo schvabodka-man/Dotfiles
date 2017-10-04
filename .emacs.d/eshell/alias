@@ -31,6 +31,7 @@ alias project-javascript project-js
 alias javascript-project project-js
 alias js-project project-js
 
+
 alias term terminator
 alias terminal terminator 
 alias console terminator 
@@ -45,6 +46,7 @@ alias postgres pgcli $*
 alias postgresql pgcli $*
 alias pgsql pgcli $*
 alias psql pgcli $*
+alias icat ~/bin/icat/icat $*
 
 alias cat /home/user/Go/bin/ccat *
 alias tree alder $*
