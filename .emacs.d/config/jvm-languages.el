@@ -6,9 +6,33 @@
   :ensure t)
 (use-package kotlin-mode
   :ensure t)
+;; (use-package flycheck-kotlin
+;;   :ensure t
+;;   :config (flycheck-kotlin-setup))
 (use-package groovy-mode
   :ensure t
   :config (add-to-list 'auto-mode-alist '("\\.gradle\\'" . groovy-mode)))
+(use-package groovy-imports
+  :ensure t
+  :config (setq groovy-imports-find-block-function 'groovy-imports-find-place-sorted-block)
+  (define-key groovy-mode-map (kbd "M-i") 'groovy-imports-add-import)
+  (define-key groovy-mode-map (kbd "C-S-i") 'groovy-imports-add-import-dwim)
+  (define-key groovy-mode-map (kbd "C-M-i") 'groovy-imports-scan-file)
+  (setq groovy-imports-save-buffer-after-import-added nil)
+  (add-hook 'groovy-mode-hook 'groovy-imports-scan-file))
+(use-package inf-groovy
+  :ensure t
+  :config (add-hook 'groovy-mode-hook 'inferior-groovy-mode)
+  (add-hook 'groovy-mode-hook 'inferior-groovy-mode)
+  (define-key inferior-groovy-mode-map (kbd "<M-f1>") 'switch-to-groovy)
+  (define-key inferior-groovy-mode-map (kbd "<M-S-f1>") 'run-groovy)
+  (define-key inferior-groovy-mode-map (kbd "C-e") 'groovy-send-region)
+  (define-key inferior-groovy-mode-map (kbd "C-S-e") 'groovy-send-region-and-go)
+  (define-key inferior-groovy-mode-map (kbd "M-i") 'groovy-imports-add-import)
+  (define-key inferior-groovy-mode-map (kbd "C-S-i") 'groovy-imports-add-import-dwim)
+  (define-key inferior-groovy-mode-map (kbd "C-M-i") 'groovy-imports-scan-file)
+  (defalias 'groovy-repl-run 'run-groovy)
+  (defalias 'groovy-repl 'switch-to-groovy))
 (use-package grails-mode
   :ensure t
   :config (add-hook 'groovy-mode-hook 'grails-mode))

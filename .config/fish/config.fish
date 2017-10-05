@@ -5,8 +5,9 @@ set -g theme_display_date yes
 set -g theme_color_scheme dark
 set -g theme_display_hg yes
 #Homes!
-set -x JAVA_HOME '/usr/lib/jvm/java'
+set -x JAVA_HOME '/usr/share/java'
 set -x GRADLE_HOME '/usr/share/gradle'
+set -x GROOVY_HOME '/usr/share/groovy'
 set -x GOPATH '/home/user/Go'
 set -x LGOBIN '/home/user/Go/bin'
 set -x ANDROID_HOME '/home/user/Android/Sdk'
@@ -16,6 +17,15 @@ set -x BROWSER "qutebrowser"
 . ~/.fishmarks/marks.fish
 source ~/.local/share/icons-in-terminal/icons.fish
 source ~/bin/up/up.fish
+source ~/bin/pip-fish/pip.fish
+source ~/bin/docker-fish/docker.fish
+source ~/bin/docker-fish/docker-compose.fish
+source ~/bin/hub-fish/hub.fish
+
+function fish_user_key_bindings
+	bind \es sudope
+	bind \e\t complete
+end
 
 # Custom alias for listing files when moving to directory
 function cd
@@ -52,6 +62,14 @@ alias dir '~/bin/ls-icons/binary/bin/dir --color'
 alias diff 'colordiff'
 function less
 	/usr/bin/src-hilite-lesspipe.sh $argv | /bin/less -R -N
+end
+function git
+	#in some distros hub are hard to install
+	if test -e /bin/hub
+		hub $argv
+	else
+		/bin/git $argv
+	end
 end
 
 #sql wrappers
