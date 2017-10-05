@@ -1,8 +1,9 @@
 #disable greeting
 set fish_greeting ""
 #Powerline theming
-set -g theme_display_date no
+set -g theme_display_date yes
 set -g theme_color_scheme dark
+set -g theme_display_hg yes
 #Homes!
 set -x JAVA_HOME '/usr/lib/jvm/java'
 set -x GRADLE_HOME '/usr/share/gradle'
@@ -10,8 +11,11 @@ set -x GOPATH '/home/user/Go'
 set -x LGOBIN '/home/user/Go/bin'
 set -x ANDROID_HOME '/home/user/Android/Sdk'
 set -x EDITOR "emacsclient -c"
-set -x BROWSER "luakit"
-set -x FLATPACK_GNOME "3.24"
+set -x BROWSER "qutebrowser"
+
+. ~/.fishmarks/marks.fish
+source ~/.local/share/icons-in-terminal/icons.fish
+source ~/bin/up/up.fish
 
 # Custom alias for listing files when moving to directory
 function cd
@@ -25,36 +29,45 @@ function docker-kill
 	docker rm $argv > /dev/null
 end
 
-alias picard 'flatpak run org.musicbrainz.Picard'
 alias steam 'flatpak run com.valvesoftware.Steam'
-alias libreoffice 'flatpak run org.libreoffice.LibreOffice'
 alias skype 'flatpak run com.skype.Client'
 alias ppsspp 'flatpak run org.ppsspp.PPSSPP'
 alias retroarch 'flatpak run org.libretro.RetroArch'
 
-alias email 'emacsclient -c --eval "(gnus)"'
-alias mail 'emacsclient -c --eval "(gnus)"'
-alias books 'calibre'
-alias itch.io 'itch'
-alias libre-office 'libreoffice'
-alias office 'libreoffice'
-alias retro-arch 'retroarch'
-
 alias sloc 'cloc'
-alias icat '~/bin/icat/icat'
+alias gopm '~/Go/bin/gopm'
+alias transfersh 'transfer-sh'
+alias upload 'transfer-sh'
+alias j "z"
+
+#better work with standart unix utils
+alias tree 'alder'
+alias cp 'pycp'
+alias mv 'pymv'
+alias cat 'bcat'
+alias cd.. 'up' #priceless
+alias .. 'up'
+alias ls '~/bin/ls-icons/binary/bin/ls --color'
+alias dir '~/bin/ls-icons/binary/bin/dir --color'
+alias diff 'colordiff'
+function less
+	/usr/bin/src-hilite-lesspipe.sh $argv | /bin/less -R -N
+end
+
+#sql wrappers
 alias mysql 'mycli'
 alias postgres 'pgcli'
 alias postgresql 'pgcli'
 alias pgsql 'pgcli'
 alias psql 'pgcli'
-alias gopm '~/Go/bin/gopm'
-alias tree 'alder'
 
+#aliases for creating projects
 alias project 'touch .projectile'
 function project-js
 	touch .indium
 	touch .projectile
 	touch .tern-project
+	touch .csswatcher
 	echo "{
 	\"libs\": [
 	\"browser\",
@@ -71,40 +84,16 @@ alias project-javascript 'project-js'
 alias javascript-project 'project-js'
 alias js-project 'project-js'
 
-function search #for some reason i cant just pipe my shit
-	fzf --ansi --inline-info --multi --history=/home/user/.config/fzf/history --preview="cat {}" > .found
-	cat .found | fpp
-	rm .found
-end
-
+#moar useful aliases
 alias xrdb-merge 'xrdb -merge ~/.Xresources'
 alias rofi-cache-clear 'rm ~/.cache/rofi-3.runcache'
 alias newsbeuter-cache-clear 'rm ~/.newsbeuter/cache.db'
 alias move 'mv'
 alias copy 'cp'
-alias cd.. 'cd ..' #priceless
 alias rm 'rm -rf'
 alias lsa 'ls -a'
 alias emacs 'emacsclient -nw'
 alias emacs-daemon '/usr/bin/emacs --daemon'
-
-function cat
-	for arg in $argv
-		if echo $arg | grep jpg > /dev/null
-			~/bin/icat/icat $arg
-			break
-		else if echo $arg | grep jpeg > /dev/null
-			~/bin/icat/icat $argv
-			break
-		else if echo $arg | grep png > /dev/null
-			~/bin/icat/icat $argv
-			break
-		else
-			~/Go/bin/ccat $argv
-			break
-		end
-	end
-end
 
 #pandoc macro
 function html-to-pdf
@@ -154,7 +143,3 @@ alias tmux-config-update "tmux source ~/.config/tmux/tmux.conf"
 alias tmux-update-config "tmux source ~/.config/tmux/tmux.conf"
 
 alias chromium-debug "chromium-browser --disable-gpu --remote-debugging-port=9222 https://localhost:3000"
-
-. ~/.fishmarks/marks.fish
-
-alias j "z"

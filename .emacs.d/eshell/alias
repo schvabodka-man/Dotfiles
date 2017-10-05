@@ -26,7 +26,7 @@ alias p projectile-switch-project $*
 alias u eshell-up $_
 alias up eshell-up $_
 alias project touch .projectile
-alias project-js touch .projectile & touch .indium & touch .tern-project
+alias project-js touch .projectile & touch .indium & touch .tern-project & touch .csswatcher
 alias project-javascript project-js
 alias javascript-project project-js
 alias js-project project-js
@@ -46,7 +46,5 @@ alias postgres pgcli $*
 alias postgresql pgcli $*
 alias pgsql pgcli $*
 alias psql pgcli $*
-alias icat ~/bin/icat/icat $*
-
-alias cat /home/user/Go/bin/ccat *
+alias cat ~/Go/bin/ccat $*
 alias tree alder $*

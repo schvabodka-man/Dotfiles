@@ -45,7 +45,7 @@
   (add-hook 'find-file-hook (lambda ()
 							  (when (string= (file-name-extension buffer-file-name) "css")
 								(flycheck-select-checker 'css-csslint)))))
-;; (use-package ac-html-csswatcher
-;;   :ensure t
-;;   :after company-web
-;;   :config (company-web-csswatcher-setup))
+(use-package ac-html-csswatcher
+  :ensure t
+  :after company-web
+  :config (company-web-csswatcher-setup))
