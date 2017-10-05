@@ -6,12 +6,13 @@ helper = /home/user/bin/pass-git-helper/pass-git-helper
 [core]
 autocrlf = input
 [alias]
-c = "!fish -c \"git commit -m \"$@\"\" -"
+c = "!fish -c \"git commit -a -m \"$@\"\" -"
 a = add
 d = diff
 b = checkout -b
 m = merge
 p = push -u origin
+pm = push -u origin master
 squash = "!fish -c \"git reset --soft HEAD~$@ & git commit -m 'Squashed last $@ commits'\" -"
 history = "!fish -c \"git log (git rev-parse --abbrev-ref HEAD) --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --max-count=50 --full-history --since=2.weeks \" -"
 #moving one commit at time
