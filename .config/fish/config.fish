@@ -13,8 +13,25 @@ set -x LGOBIN '/home/user/Go/bin'
 set -x ANDROID_HOME '/home/user/Android/Sdk'
 set -x EDITOR "emacsclient -c"
 set -x BROWSER "qutebrowser"
+#colored man
+set -x  LESS_TERMCAP_mb (tput bold; tput setaf 1)
+set -x LESS_TERMCAP_md (tput bold; tput setaf 2)
+set -x LESS_TERMCAP_me (tput sgr0)
+set -x LESS_TERMCAP_so (tput bold; tput setaf 1; tput setab 7)
+set -x LESS_TERMCAP_se (tput rmso; tput sgr0)
+set -x LESS_TERMCAP_us (tput smul; tput bold; tput setaf 7)
+set -x LESS_TERMCAP_ue (tput rmul; tput sgr0)
+set -x LESS_TERMCAP_mr (tput rev)
+set -x LESS_TERMCAP_mh (tput dim)
+set -x LESS_TERMCAP_ZN (tput ssubm)
+set -x LESS_TERMCAP_ZV (tput rsubm)
+set -x LESS_TERMCAP_ZO (tput ssupm)
+set -x LESS_TERMCAP_ZW (tput rsupm)
+set -x GROFF_NO_SGR 1
 
+#shell bookmarks
 . ~/.fishmarks/marks.fish
+
 source ~/.local/share/icons-in-terminal/icons.fish
 source ~/bin/up/up.fish
 source ~/bin/pip-fish/pip.fish
@@ -161,3 +178,12 @@ alias tmux-config-update "tmux source ~/.config/tmux/tmux.conf"
 alias tmux-update-config "tmux source ~/.config/tmux/tmux.conf"
 
 alias chromium-debug "chromium-browser --disable-gpu --remote-debugging-port=9222 https://localhost:3000"
+
+function git-remote
+	git remote remove origin
+	git remote add origin $argv
+end
+function git-squash
+	git reset --soft HEAD~$argv
+	git commit -m 'Squashed last $argv commits'
+end
