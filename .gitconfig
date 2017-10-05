@@ -1,0 +1,26 @@
+[user]
+email = scvhapps@gmail.com
+name = schvabodka-man
+[credential]
+helper = /home/user/bin/pass-git-helper/pass-git-helper
+[core]
+autocrlf = input
+[alias]
+c = "!fish -c \"git commit -m \"$@\"\" -"
+a = add
+d = diff
+b = checkout -b
+m = merge
+p = push -u origin
+squash = "!fish -c \"git reset --soft HEAD~$@ & git commit -m 'Squashed last $@ commits'\" -"
+history = "!fish -c \"git log (git rev-parse --abbrev-ref HEAD) --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --max-count=50 --full-history --since=2.weeks \" -"
+#moving one commit at time
+undo = reset HEAD~
+redo = reset HEAD@{1}
+prev = undo
+previous = undo
+next = redo
+back = undo
+#same ones
+goto = reset --hard
+jump = goto
