@@ -133,6 +133,7 @@
  '(bbdb-file-remote nil)
  '(ccm-step-delay 0)
  '(ccm-step-size 1)
+ '(company-fish-shell-modes (quote (fish-mode)))
  '(company-minimum-prefix-length 0)
  '(company-shell-modes (quote (sh-mode fish-mode)))
  '(company-show-numbers t)
@@ -251,7 +252,7 @@
  '(send-mail-function (quote smtpmail-send-it))
  '(spaceline-all-the-icons-highlight-file-name t)
  '(sr-speedbar-right-side nil)
- '(symon-delay 4)
+ '(symon-delay 10)
  '(symon-mode t)
  '(symon-monitors
    (quote

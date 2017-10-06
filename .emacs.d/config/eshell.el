@@ -28,9 +28,7 @@
 (load "~/.emacs.d/el-get/eshell-bmk/eshell-bmk")
 (use-package with-editor
   :ensure t
-  :config (add-hook 'shell-mode-hook  'with-editor-export-editor)
-  (add-hook 'term-exec-hook   'with-editor-export-editor)
-  (add-hook 'eshell-mode-hook 'with-editor-export-editor))
+  :config (add-hook 'eshell-mode-hook 'with-editor-export-editor))
 ;;this is for killing cli buffers made for small tasks
 (defun kill-buffer-when-frame-delete-dwim (frame)
   (if (string-match "*eshell*" (buffer-name))

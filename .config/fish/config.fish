@@ -13,6 +13,7 @@ set -x LGOBIN '/home/user/Go/bin'
 set -x ANDROID_HOME '/home/user/Android/Sdk'
 set -x EDITOR "emacsclient -c"
 set -x BROWSER "qutebrowser"
+set -x PKG_CONFIG_PATH '/usr/lib/pkgconfig'
 #colored man
 set -x  LESS_TERMCAP_mb (tput bold; tput setaf 1)
 set -x LESS_TERMCAP_md (tput bold; tput setaf 2)
@@ -30,18 +31,46 @@ set -x LESS_TERMCAP_ZW (tput rsupm)
 set -x GROFF_NO_SGR 1
 
 #shell bookmarks
-. ~/.fishmarks/marks.fish
+if test -e ~/.fishmarks/marks.fish
+	. ~/.fishmarks/marks.fish
+end
 
-source ~/.local/share/icons-in-terminal/icons.fish
-source ~/bin/up/up.fish
-source ~/bin/pip-fish/pip.fish
-source ~/bin/docker-fish/docker.fish
-source ~/bin/docker-fish/docker-compose.fish
-source ~/bin/hub-fish/hub.fish
+if test -e ~/.local/share/icons-in-terminal/icons.fish
+	source ~/.local/share/icons-in-terminal/icons.fish
+end
 
-function fish_user_key_bindings
-	bind \es sudope
-	bind \e\t complete
+if test -e ~/bin/pip-fish/pip.fish
+	source ~/bin/pip-fish/pip.fish
+end
+
+if test -e ~/bin/docker-fish/docker.fish
+	source ~/bin/docker-fish/docker.fish
+end
+
+if test -e ~/bin/docker-fish/docker-compose.fish
+	source ~/bin/docker-fish/docker-compose.fish
+end
+
+if test -e ~/bin/hub-fish/hub.fish
+	source ~/bin/hub-fish/hub.fish
+end
+
+if test -e ~/bin/up/up.fish
+	source ~/bin/up/up.fish
+	alias cd.. 'up' #priceless
+	alias .. 'up'
+end
+
+if test -e ~/bin/transfersh/transfer.fish
+	source ~/bin/up/up.fish
+	source ~/bin/transfersh/transfer.fish
+	alias upload 'transfer'
+end
+
+if test -e /usr/local/bin/grc
+	source ~/.config/fish/grc-cleaned.fish
+else if test -e /bin/grc
+	source ~/.config/fish/grc-cleaned.fish
 end
 
 # Custom alias for listing files when moving to directory
@@ -63,23 +92,40 @@ alias retroarch 'flatpak run org.libretro.RetroArch'
 
 alias sloc 'cloc'
 alias gopm '~/Go/bin/gopm'
-alias transfersh 'transfer-sh'
-alias upload 'transfer-sh'
 alias j "z"
 
 #better work with standart unix utils
-alias tree 'alder'
-alias cp 'pycp'
-alias mv 'pymv'
-alias cat 'bcat'
-alias cd.. 'up' #priceless
-alias .. 'up'
-alias ls '~/bin/ls-icons/binary/bin/ls --color'
-alias dir '~/bin/ls-icons/binary/bin/dir --color'
-alias diff 'colordiff'
-function less
-	/usr/bin/src-hilite-lesspipe.sh $argv | /bin/less -R -N
+if test -e /bin/alder
+	alias tree 'alder'
 end
+
+if test -e /bin/pycp
+	alias cp 'pycp'
+	alias mv 'pymv'
+end
+
+alias cat 'bcat'
+
+if test -e ~/bin/ls-icons/binary/bin/ls
+	alias ls '~/bin/ls-icons/binary/bin/ls --color'
+end
+
+if test -e ~/bin/ls-icons/binary/bin/dir
+	alias dir '~/bin/ls-icons/binary/bin/dir --color'
+end
+
+if test -e /bin/colordiff
+	alias diff 'colordiff'
+end
+
+function less
+	if test -e /usr/bin/src-hilite-lesspipe.sh
+		/usr/bin/src-hilite-lesspipe.sh $argv | /bin/less -R -N
+	else
+		/bin/less $argv
+	end
+end
+
 function git
 	#in some distros hub are hard to install
 	if test -e /bin/hub
@@ -90,11 +136,16 @@ function git
 end
 
 #sql wrappers
-alias mysql 'mycli'
-alias postgres 'pgcli'
-alias postgresql 'pgcli'
-alias pgsql 'pgcli'
-alias psql 'pgcli'
+if test -e /bin/mycli
+	alias mysql 'mycli'
+end
+
+if test -e /bin/pgcli
+	alias postgres 'pgcli'
+	alias postgresql 'pgcli'
+	alias pgsql 'pgcli'
+	alias psql 'pgcli'
+end
 
 #aliases for creating projects
 alias project 'touch .projectile'
@@ -121,8 +172,6 @@ alias js-project 'project-js'
 
 #moar useful aliases
 alias xrdb-merge 'xrdb -merge ~/.Xresources'
-alias rofi-cache-clear 'rm ~/.cache/rofi-3.runcache'
-alias newsbeuter-cache-clear 'rm ~/.newsbeuter/cache.db'
 alias move 'mv'
 alias copy 'cp'
 alias rm 'rm -rf'
@@ -186,4 +235,205 @@ end
 function git-squash
 	git reset --soft HEAD~$argv
 	git commit -m 'Squashed last $argv commits'
+end
+
+set -U fish_key_bindings fish_vi_key_bindings
+
+function nothing
+end
+
+function fish_user_key_bindings
+	bind k kill-line
+	bind / __fish_toggle_comment_commandline
+	bind s sudope
+	bind -m insert \t force-repaint
+	bind -m insert -k backspace backward-delete-char
+	bind -k backspace backward-delete-char
+
+	bind \[^? backward-kill-bigword
+	bind -m insert \[^? backward-kill-bigword
+	bind \[3\;5~ kill-bigword
+	bind -m insert \[3\;5~ kill-bigword
+
+	bind -e \cs
+	bind -e \e\[H
+	bind -e \e\[F
+	bind -e \e\[1\~
+	bind -e \e\[4\~
+	bind -e \e\[A
+	bind -e \e\[B
+	bind -e \ck
+	bind -e \cy
+	bind -e \ed
+	bind -e \cd
+	bind -e -k
+	bind -e \eh
+	bind -e \ep
+	bind -e \e\[I
+	bind -e \e\[O
+	bind -e \e\#
+	bind -e -k ppage
+	bind -e -k npage
+	bind -e \e\<
+	bind -e \e\>
+
+	bind -e -M visual '$'
+	bind -e -M visual 'g$'
+	bind -e -M visual \e\[F
+	bind -e -M visual '^'
+	bind -e -M visual 0
+	bind -e -M visual 'g^'
+	bind -e -M visual \e\[H
+
+	bind -e -M insert \ck
+	bind -e -M insert \cy
+	bind -e -M insert \e\#
+	bind -e -M insert \n
+	bind -e -m insert \n
+
+	bind -e -M visual b
+	bind -e -M visual B
+	bind -e -M visual ge
+	bind -e -M visual gE
+	bind -e -M visual w
+	bind -e -M visual W
+	bind -e -M visual e
+	bind -e -M visual E
+
+	bind -e -k up
+	bind -e -k down
+	bind -e -M visual -k up
+	bind -e -M visual -k down
+	bind -e -M insert -k up
+	bind -e -M insert -k down
+
+	bind -e :q
+	bind -e h
+	bind -e l
+	bind -e -m insert I
+	bind -e -m insert a
+	bind -e -m insert A
+	bind -e gg
+	bind -e G
+	bind -e '$'
+	bind -e 'g$'
+	bind -e '^'
+	bind -e 0
+	bind -e 'g^'
+	bind -e u
+	bind -e \cr
+	bind -e '['
+	bind -e ']'
+	bind -e k
+	bind -e j
+	bind -e b
+	bind -e B
+
+	bind -e gu
+	bind -e gU
+	bind -e J
+	bind -e K
+	bind -e yy
+	bind -e Y
+	bind -e 'y$'
+	bind -e 'y^'
+	bind -e yw
+	bind -e yW
+	bind -e yiw
+	bind -e yiW
+	bind -e yaw
+	bind -e yaW
+	bind -e ye
+	bind -e yE
+	bind -e yb
+	bind -e yB
+	bind -e yge
+	bind -e ygE
+	bind -e j
+	bind -e b
+	#unbind i and v
+	bind -e -m visual v
+	bind -e -m insert i
+
+	bind -e '~'
+	bind -e f
+	bind -e F
+	bind -e t
+	bind -e T
+	bind -e p
+	bind -e P
+	bind -e gp
+
+	bind -e diw
+	bind -e diW
+	bind -e daw
+	bind -e daW
+
+	bind -e ge
+	bind -e gE
+	bind -e w
+	bind -e W
+	bind -e e
+	bind -e E
+	bind -e x
+	bind -e X
+	bind -e dd
+	bind -e D
+	bind -e 'd$'
+	bind -e 'd^'
+	bind -e dw
+	bind -e dW
+	bind -e de
+	bind -e dE
+	bind -e db
+	bind -e dB
+	bind -e dge
+	bind -e dgE
+
+	bind -e -M insert \cd
+	bind -e -M insert -k f1
+	bind -e -M insert \eh
+	bind -e -M insert \ep
+
+	bind -e -M insert \cl
+	bind -e -M insert \cc
+	bind -e -M insert \cu
+	bind -e -M insert \cw
+
+	bind -e -m insert S
+	bind -e -m insert cc
+	bind -e -m insert C
+	bind -e -m insert 'c$'
+	bind -e -m insert 'c^'
+	bind -e -m insert cw
+	bind -e -m insert cW
+	bind -e -m insert ciw
+	bind -e -m insert ciW
+	bind -e -m insert caw
+	bind -e -m insert caW
+	bind -e -m insert ce
+	bind -e -m insert cE
+	bind -e -m insert cb
+	bind -e -m insert cB
+	bind -e -m insert cge
+	bind -e -m insert cgE
+	bind -e -M insert \cx
+
+	bind -e -M insert \cp
+	bind -e -M insert \cn
+	bind -e \cp
+	bind -e \cn
+
+	bind -e -M insert \ca
+	bind -e -M insert \ce
+	bind -e -M insert \ey
+	bind -e -M insert \b
+	bind -e -M insert \cf
+	bind -e -M insert \cb
+	bind -e -M insert \ct
+	bind -e -M insert \et
+	bind -e -M insert \eu
+	bind -e -M insert \ec
+	bind -e -M insert \eb
+	bind -e -M insert \ef
 end
