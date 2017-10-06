@@ -90,8 +90,14 @@ alias skype 'flatpak run com.skype.Client'
 alias ppsspp 'flatpak run org.ppsspp.PPSSPP'
 alias retroarch 'flatpak run org.libretro.RetroArch'
 
-alias sloc 'cloc'
-alias gopm '~/Go/bin/gopm'
+if test -e /bin/cloc
+	alias sloc 'cloc'
+end
+
+if test -e ~/Go/bin/gopm
+	alias gopm '~/Go/bin/gopm'
+end
+
 alias j "z"
 
 #better work with standart unix utils
@@ -243,17 +249,28 @@ function nothing
 end
 
 function fish_user_key_bindings
-	bind k kill-line
+	bind k backward-kill-line
 	bind / __fish_toggle_comment_commandline
 	bind s sudope
 	bind -m insert \t force-repaint
 	bind -m insert -k backspace backward-delete-char
 	bind -k backspace backward-delete-char
+	bind -M insert -m default \e force-repaint
 
 	bind \[^? backward-kill-bigword
 	bind -m insert \[^? backward-kill-bigword
 	bind \[3\;5~ kill-bigword
 	bind -m insert \[3\;5~ kill-bigword
+
+	#new line
+	bind -M insert \e\n commandline\ -i\ \\n
+	bind -M insert \e\r commandline\ -i\ \\n
+
+	#unbind useless shit
+	bind -e \cu
+
+	bind -e \e\n
+	bind -e \e\r
 
 	bind -e \cs
 	bind -e \e\[H
