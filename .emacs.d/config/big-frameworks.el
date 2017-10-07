@@ -1,9 +1,3 @@
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-(eval-when-compile
-  (require 'use-package))
-(package-refresh-contents)
 ;;usable with some packages that don't use helm stuff
 (use-package ivy
   :ensure t
@@ -12,17 +6,16 @@
   (setq ivy-height 20)
   (setq ivy-initial-inputs-alist nil)
   (setq ivy-use-virtual-buffers t)
-  :bind (("C-M-w" . ivy-switch-buffer)))
+  :config (define-key evil-normal-state-map (kbd "C-w") 'ivy-switch-buffer))
 (use-package counsel
   :ensure t
   :after ivy
   :pin melpa-stable
-  :bind (("M-x" . counsel-M-x)
-		 ("M-o" . counsel-find-file)
-		 ("M-b" . counsel-bookmark)
-		 ("C-S-f" . counsel-ag)
-		 ("C-f" . counsel-grep)
-		 ("C-h k" . counsel-descbinds)))
+  :bind (("C-h C-k" . counsel-descbinds))
+  :config (define-key evil-normal-state-map (kbd "o") 'counsel-find-file)
+  (define-key evil-normal-state-map (kbd ";") 'counsel-M-x)
+  (define-key evil-normal-state-map (kbd "b") 'counsel-bookmark)
+  (define-key evil-normal-state-map (kbd "f") 'counsel-grep))
 ;;kinda slow so i prefer counsel ag and grep
 ;; (use-package swiper
 ;;   :ensure t

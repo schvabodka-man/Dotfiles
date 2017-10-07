@@ -12,7 +12,6 @@
 ;; (add-hook 'minibuffer-setup-hook #'my-minibuffer-setup-hook)
 ;; (add-hook 'minibuffer-exit-hook #'my-minibuffer-exit-hook)
 (setq gc-cons-threshold 200000000)
-;; ;;stuff
 (require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 						 ("marmalade" . "http://marmalade-repo.org/packages/")
@@ -20,9 +19,17 @@
 						 ("melpa" . "http://melpa.org/packages/")
 						 ("SC"   . "http://joseito.republika.pl/sunrise-commander/")))
 (package-initialize)
-(load "~/.emacs.d/config/big-frameworks")
-;;keybindings
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(eval-when-compile
+  (require 'use-package))
+(package-refresh-contents)
+;;profit
 (load "~/.emacs.d/config/vanilla-emacs")
+(load "~/.emacs.d/config/evil-config")
+;;evil
+(load "~/.emacs.d/config/big-frameworks")
 ;;for editing fish scripts
 (load "~/.emacs.d/config/shell-scripting")
 ;;undo redo
@@ -213,7 +220,7 @@
    (quote
 	(Custom-mode org-agenda-mode cfw:calendar-mode minibuffer-inactive-mode eshell-mode shell-mode emms-playlist-mode)))
  '(highlight-thing-what-thing (quote word))
- '(hl-paren-background-colors (quote ("white")))
+ '(hl-paren-background-colors nil)
  '(hl-paren-colors (quote ("magenta" "yellow" "VioletRed1" "medium orchid")))
  '(httpd-port 8088)
  '(js2-highlight-level 3)
@@ -317,6 +324,7 @@
  '(eshell-git-prompt-powerline-not-clean-face ((t (:background "indian red" :foreground "black"))))
  '(highlight ((t (:background "#FFFFFF" :foreground "#000000"))))
  '(highlight-thing ((t (:inherit (quote hi-white)))))
+ '(hl-paren-face ((t (:underline "lawn green"))) t)
  '(link ((t (:foreground "cyan1"))))
  '(minimap-active-region-background ((t (:background "#0e1112"))))
  '(minimap-font-face ((t (:height 30 :family "Fira Mono"))))
@@ -335,7 +343,7 @@
  '(spaceline-evil-emacs ((t (:background "SkyBlue2" :foreground "black" :inherit (quote mode-line)))))
  '(spaceline-evil-insert ((t (:background "chartreuse3" :foreground "black" :inherit (quote mode-line)))))
  '(spaceline-evil-motion ((t (:background "plum3" :foreground "black" :inherit (quote mode-line)))))
- '(spaceline-evil-normal ((t (:background "DarkGoldenrod2" :foreground "black" :inherit (quote mode-line)))))
+ '(spaceline-evil-normal ((t (:background "white" :foreground "black" :inherit (quote mode-line)))))
  '(spaceline-evil-replace ((t (:background "chocolate" :foreground "white" :inherit (quote mode-line)))))
  '(spaceline-evil-visual ((t (:background "purple" :foreground "#FFFFFF" :inherit (quote mode-line)))))
  '(spaceline-flycheck-error ((t (:distant-foreground "orange red" :foreground "red"))))

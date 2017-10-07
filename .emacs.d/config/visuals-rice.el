@@ -19,6 +19,7 @@
   (spaceline-emacs-theme)
   (spaceline-toggle-minor-modes-off)
   (spaceline-toggle-version-control-on)
+  (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
   :ensure t)
 (el-get-bundle seti-theme
   :url "https://raw.githubusercontent.com/schvabodka-man/seti-theme/master/seti-theme.el"

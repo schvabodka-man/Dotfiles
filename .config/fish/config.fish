@@ -110,6 +110,10 @@ if test -e /bin/pycp
 	alias mv 'pymv'
 end
 
+if test -e /bin/trash-put
+	alias rm 'trash-put'
+end
+
 alias cat 'bcat'
 
 if test -e ~/bin/ls-icons/binary/bin/ls
@@ -180,7 +184,6 @@ alias js-project 'project-js'
 alias xrdb-merge 'xrdb -merge ~/.Xresources'
 alias move 'mv'
 alias copy 'cp'
-alias rm 'rm -rf'
 alias lsa 'ls -a'
 alias emacs 'emacsclient -nw'
 alias emacs-daemon '/usr/bin/emacs --daemon'
@@ -249,13 +252,30 @@ function nothing
 end
 
 function fish_user_key_bindings
-	bind k backward-kill-line
 	bind / __fish_toggle_comment_commandline
 	bind s sudope
 	bind -m insert \t force-repaint
 	bind -m insert -k backspace backward-delete-char
 	bind -k backspace backward-delete-char
 	bind -M insert -m default \e force-repaint
+
+	bind k backward-delete-char
+	bind K delete-char
+	bind kw backward-kill-bigword
+	bind kW kill-bigword
+	bind kb backward-kill-line
+	bind ks backward-kill-line
+	bind kh backward-kill-line
+	bind ke kill-line
+
+	bind -e d
+	bind -e D
+	bind -e dw
+	bind -e dW
+	bind -e db
+	bind -e ds
+	bind -e dh
+	bind -e de
 
 	bind \[^? backward-kill-bigword
 	bind -m insert \[^? backward-kill-bigword
@@ -398,12 +418,6 @@ function fish_user_key_bindings
 	bind -e D
 	bind -e 'd$'
 	bind -e 'd^'
-	bind -e dw
-	bind -e dW
-	bind -e de
-	bind -e dE
-	bind -e db
-	bind -e dB
 	bind -e dge
 	bind -e dgE
 

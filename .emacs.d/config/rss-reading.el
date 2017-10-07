@@ -9,22 +9,7 @@
 (use-package elfeed
   :pin melpa-stable
   :ensure t
-  :config (define-key elfeed-search-mode-map (kbd "M-r") #'elfeed-update)
-  (define-key elfeed-search-mode-map (kbd "M-S-r") #'elfeed-update-feed)
-  (define-key elfeed-search-mode-map (kbd "M-f") #'elfeed-search-live-filter)
-  (define-key elfeed-search-mode-map (kbd "C-u") #'elfeed-search-yank)
-  (define-key elfeed-search-mode-map (kbd "C-o") #'elfeed-search-browse-url)
-  (define-key elfeed-search-mode-map (kbd "C-i") #'elfeed-search-tag-all)
-  (define-key elfeed-search-mode-map (kbd "C-i") #'elfeed-search-untag-all)
-
-  (define-key elfeed-show-mode-map (kbd "M-r") #'elfeed-show-refresh)
-  (define-key elfeed-show-mode-map (kbd "C-o") #'elfeed-show-visit)
-  (define-key elfeed-show-mode-map (kbd "C-u") #'elfeed-show-yank)
-  (define-key elfeed-show-mode-map (kbd "C-i") #'elfeed-show-tag)
-  (define-key elfeed-show-mode-map (kbd "C-S-i") #'elfeed-show-untag)
-  (define-key elfeed-show-mode-map (kbd "C-.") #'elfeed-show-next)
-  (define-key elfeed-show-mode-map (kbd "C-,") #'elfeed-show-prev)
-
+  :config
   (defalias 'rss 'elfeed)
   (defalias 'news 'elfeed)
 
@@ -246,11 +231,26 @@
   (define-key elfeed-show-mode-map (kbd "+") nil)
   (define-key elfeed-show-mode-map (kbd "-") nil)
 
+  (evil-define-key 'normal elfeed-search-mode-map (kbd "r") 'elfeed-update)
+  (evil-define-key 'normal elfeed-search-mode-map (kbd "f") 'elfeed-search-live-filter)
+  (evil-define-key 'normal elfeed-search-mode-map (kbd "y") 'elfeed-search-yank)
+  (evil-define-key 'normal elfeed-search-mode-map (kbd "o") 'elfeed-search-browse-url)
+  (evil-define-key 'normal elfeed-search-mode-map (kbd "t") 'elfeed-search-tag-all)
+  (evil-define-key 'normal elfeed-search-mode-map (kbd "T") 'elfeed-search-untag-all)
+
+  (evil-define-key 'normal elfeed-show-mode-map (kbd "r") #'elfeed-show-refresh)
+  (evil-define-key 'normal elfeed-show-mode-map (kbd "o") #'elfeed-show-visit)
+  (evil-define-key 'normal elfeed-show-mode-map (kbd "y") #'elfeed-show-yank)
+  (evil-define-key 'normal elfeed-show-mode-map (kbd "t") #'elfeed-show-tag)
+  (evil-define-key 'normal elfeed-show-mode-map (kbd "T") #'elfeed-show-untag)
+  (evil-define-key 'normal elfeed-show-mode-map (kbd ".") #'elfeed-show-next)
+  (evil-define-key 'normal elfeed-show-mode-map (kbd ",") #'elfeed-show-prev)
+
   (defun elfeed-mark-all-read ()
 	(interactive)
 	(elfeed-untag elfeed-search-entries 'unread)
 	(elfeed-search-update :force))
-  (define-key elfeed-search-mode-map (kbd "C-S-r") #'elfeed-mark-all-read)
+  (evil-define-key 'normal elfeed-search-mode-map (kbd "R") #'elfeed-mark-all-read)
   ;;from here http://pragmaticemacs.com/emacs/star-and-unstar-articles-in-elfeed/
   (defun bjm/elfeed-star ()
 	"Apply starred to all selected entries."
@@ -274,8 +274,8 @@
 	'((t :foreground "#ff0000"))
 	"Marks a starred Elfeed entry.")
   (push '(starred elfeed-search-starred-title-face) elfeed-search-face-alist)
-  (define-key elfeed-search-mode-map (kbd "C-s") #'bjm/elfeed-star)
-  (define-key elfeed-search-mode-map (kbd "C-M-s") #'bjm/elfeed-unstar))
+  (evil-define-key 'normal elfeed-search-mode-map (kbd "s") #'bjm/elfeed-star)
+  (evil-define-key 'normal elfeed-search-mode-map (kbd "S") #'bjm/elfeed-unstar))
 
 (use-package elfeed-org
   :ensure t

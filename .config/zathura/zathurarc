@@ -23,9 +23,10 @@ map - zoom in
 map + zoom out
 map = zoom default
 map ; focus_inputbar :
-map ] navigate next
-map [ navigate previous
-map g focus_inputbar :
-map <C-Left> scroll full-left
-map <C-Right> scroll full-right
+map . navigate next
+map , navigate previous
+map <C-Left> navigate previous
+map <C-Right> navigate next
+map <S-Left> scroll full-left
+map <S-Right> scroll full-right
 set selection-clipboard "clipboard"

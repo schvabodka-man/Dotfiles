@@ -5,7 +5,7 @@
 	(kill-buffer dired-buffer)
 	(delete-other-windows)))
 
-(global-set-key (kbd "M-d") 'dired)
+(define-key evil-normal-state-map (kbd "d") 'dired)
 
 (add-hook 'dired-mode-hook
 		  (lambda ()
@@ -119,39 +119,35 @@
 			(local-set-key (kbd "C-M") nil)
 			(local-set-key (kbd "M-q") nil)
 			(local-set-key (kbd "+") nil)
-			(local-set-key (kbd "M-G") nil)
+			(local-set-key (kbd "M-G") nil)))
 
-			(local-set-key (kbd "C-n") #'find-file)
-			(local-set-key (kbd "C-S-n") #'dired-create-directory)
-			(local-set-key (kbd "C-g") #'dired-goto-file)
-			(local-set-key (kbd "C-S-g") #'dired-goto-subdir)
-			(local-set-key (kbd "C-S-c") #'dired-do-copy)
-			(local-set-key (kbd "<down>") #'dired-next-line)
-			(local-set-key (kbd "<up>") #'dired-previous-line)
-			(local-set-key (kbd "<delete>") #'dired-do-delete)
-			(local-set-key (kbd "<C-delete>") #'dired-flag-file-deletion)
-			(local-set-key (kbd "C-S-r") #'dired-do-find-regexp-and-replace)
-			(local-set-key (kbd "C-r") #'dired-do-rename)
-			(local-set-key (kbd "C-m") #'dired-mark)
-			(local-set-key (kbd "<return>") #'dired-find-file)
-			(local-set-key (kbd "<mouse-1>") #'dired-find-file)
-			(local-set-key (kbd "C-M-r") #'dired-do-rename-regexp)
-			(local-set-key (kbd "C-S-v") #'dired-do-rename)
-			(local-set-key (kbd "C-p") #'dired-do-print)
-			(local-set-key (kbd "C-i") #'image-dired)
-			(local-set-key (kbd "C-u") #'dired-unmark)
-			(local-set-key (kbd "C-S-u") #'dired-unmark-all-marks)
-			(local-set-key (kbd "C-m") #'dired-mark)
-			(local-set-key (kbd "C-v") #'dired-do-rename)
-			(local-set-key (kbd "C-S-f") #'dired-do-find-regexp)
-			(local-set-key (kbd "C-S-u") #'dired-unmark-all-files)
-			(local-set-key (kbd "M-`") #'shell-instead-dired)
-			(local-set-key (kbd "C-~") #'dired-do-shell-command)
-			(local-set-key (kbd "C-`") #'dired-do-async-shell-command)
-			(local-set-key (kbd "C-s") #'dired-do-compress)
-			(local-set-key (kbd "C-b") #'diredp-do-bookmark)
-
-			(local-set-key (kbd "M-p") #'counsel-projectile-switch-project)))
+(evil-define-key 'normal dired-mode-map (kbd "n") #'find-file)
+(evil-define-key 'normal dired-mode-map (kbd "N") #'dired-create-directory)
+(evil-define-key 'normal dired-mode-map (kbd "g") #'dired-goto-file)
+(evil-define-key 'normal dired-mode-map (kbd "G") #'dired-goto-subdir)
+(evil-define-key 'normal dired-mode-map (kbd "c") #'dired-do-copy)
+(evil-define-key 'normal dired-mode-map (kbd "<down>") #'dired-next-line)
+(evil-define-key 'normal dired-mode-map (kbd "<up>") #'dired-previous-line)
+(evil-define-key 'normal dired-mode-map (kbd "<delete>") #'dired-do-delete)
+(evil-define-key 'normal dired-mode-map (kbd "<C-delete>") #'dired-flag-file-deletion)
+(evil-define-key 'normal dired-mode-map (kbd "C-r") #'dired-do-find-regexp-and-replace)
+(evil-define-key 'normal dired-mode-map (kbd "r") #'dired-do-rename)
+(evil-define-key 'normal dired-mode-map (kbd "m") #'dired-mark)
+(evil-define-key 'normal dired-mode-map (kbd "<return>") #'dired-find-file)
+(evil-define-key 'normal dired-mode-map (kbd "<mouse-1>") #'dired-find-file)
+(evil-define-key 'normal dired-mode-map (kbd "R") #'dired-do-rename-regexp)
+(evil-define-key 'normal dired-mode-map (kbd "v") #'dired-do-rename)
+(evil-define-key 'normal dired-mode-map (kbd "p") #'dired-do-print)
+(evil-define-key 'normal dired-mode-map (kbd "i") #'image-dired)
+(evil-define-key 'normal dired-mode-map (kbd "u") #'dired-unmark)
+(evil-define-key 'normal dired-mode-map (kbd "U") #'dired-unmark-all-marks)
+(evil-define-key 'normal dired-mode-map (kbd "C-v") #'dired-do-rename)
+(evil-define-key 'normal dired-mode-map (kbd "f") #'dired-do-find-regexp)
+(evil-define-key 'normal dired-mode-map (kbd "~") #'shell-instead-dired)
+(evil-define-key 'normal dired-mode-map (kbd "C-~") #'dired-do-shell-command)
+(evil-define-key 'normal dired-mode-map (kbd "C-`") #'dired-do-async-shell-command)
+(evil-define-key 'normal dired-mode-map (kbd "s") #'dired-do-compress)
+(evil-define-key 'normal dired-mode-map (kbd "b") #'diredp-do-bookmark)
 
 (setq delete-by-moving-to-trash t)
 
@@ -171,14 +167,12 @@
 
 (use-package dired-filter
   :ensure t
-  :config (add-hook 'dired-mode-hook
-					(lambda ()
-					  (local-set-key (kbd "M-f") #'dired-filter-load-saved-filters))))
+  :config
+  (evil-define-key 'normal dired-mode-map (kbd "F") #'dired-filter-load-saved-filters))
 (use-package dired-subtree
   :ensure t
-  :config (add-hook 'dired-mode-hook
-					(lambda ()
-					  (local-set-key (kbd "<SPC>") #'dired-subtree-toggle))))
+  :config
+  (evil-define-key 'normal dired-mode-map (kbd "<SPC>") #'dired-subtree-toggle))
 ;;git
 (use-package dired-k
   :ensure t
@@ -276,10 +270,8 @@
 (el-get-bundle tumme
   :url "http://repo.or.cz/emacs.git/blob_plain/HEAD:/lisp/image-dired.el")
 (load "~/.emacs.d/el-get/tumme/image-dired")
-(add-hook 'dired-mode-hook
-		  (lambda ()
-			(local-set-key (kbd "C-o") #'image-dired)
-			(local-set-key (kbd "C-S-o") #'image-dired-display-thumbs)))
+(evil-define-key 'normal dired-mode-map (kbd "o") #'image-dired)
+(evil-define-key 'normal dired-mode-map (kbd "O") #'image-dired-display-thumbs)
 (add-hook 'image-mode-hook
 		  (lambda ()
 			(local-set-key (kbd "<SPC>") nil)
@@ -338,19 +330,20 @@
 			(local-set-key (kbd "z") nil)
 			(local-set-key (kbd "<") nil)
 			(local-set-key (kbd ">") nil)
-			(local-set-key (kbd "<DEL>") nil)
-
-			(local-set-key (kbd "<C-right>") #'image-next-file)
-			(local-set-key (kbd "<up>") #'image-scroll-up)
-			(local-set-key (kbd "<down>") #'image-scroll-down)
-			(local-set-key (kbd "<C-left>") #'image-previous-file)
-			(local-set-key (kbd "+") #'imagex-sticky-zoom-in)
-			(local-set-key (kbd "-") #'imagex-sticky-zoom-out)
-			(local-set-key (kbd "C-s") #'imagex-sticky-save-image)
-			(local-set-key (kbd "*") #'imagex-sticky-maximize)
-			(local-set-key (kbd ",") #'imagex-sticky-rotate-left)
-			(local-set-key (kbd ".") #'imagex-sticky-rotate-right)
-			(local-set-key (kbd "/") #'imagex-sticky-restore-original)))
+			(local-set-key (kbd "<DEL>") nil)))
+(evil-define-key 'normal image-mode-map (kbd "<C-right>") #'image-next-file)
+(evil-define-key 'normal image-mode-map (kbd "<up>") #'image-scroll-up)
+(evil-define-key 'normal image-mode-map (kbd "<down>") #'image-scroll-down)
+(evil-define-key 'normal image-mode-map (kbd "<C-left>") #'image-previous-file)
+(evil-define-key 'normal image-mode-map (kbd ".") #'image-next-file)
+(evil-define-key 'normal image-mode-map (kbd ",") #'image-previous-file)
+(evil-define-key 'normal image-mode-map (kbd "+") #'imagex-sticky-zoom-in)
+(evil-define-key 'normal image-mode-map (kbd "-") #'imagex-sticky-zoom-out)
+(evil-define-key 'normal image-mode-map (kbd "s") #'imagex-sticky-save-image)
+(evil-define-key 'normal image-mode-map (kbd "*") #'imagex-sticky-maximize)
+(evil-define-key 'normal image-mode-map (kbd "<") #'imagex-sticky-rotate-left)
+(evil-define-key 'normal image-mode-map (kbd ">") #'imagex-sticky-rotate-right)
+(evil-define-key 'normal image-mode-map (kbd "/") #'imagex-sticky-restore-original)
 (use-package image+
   :ensure t
   :config (eval-after-load 'image '(require 'image+))
@@ -472,17 +465,15 @@
 			(local-set-key (kbd "M-q") nil)
 			(local-set-key (kbd "+") nil)
 			(local-set-key (kbd "C-n") nil)
-			(local-set-key (kbd "C-p") nil)
-
-			(local-set-key (kbd "C-m") #'archive-mark)
-			(local-set-key (kbd "C-r") #'archive-rename-entry)
-			(local-set-key (kbd "C-S-u") #'archive-unmark-all-files)
-			(local-set-key (kbd "C-k") #'archive-flag-deleted)
-			(local-set-key (kbd "C-M-z") #'archive-undo)
-			(local-set-key (kbd "C-u") #'archive-unflag)
-			(local-set-key (kbd "<delete>") #'dired-do-delete)
-			(local-set-key (kbd "<C-delete>") #'archive-flag-deleted)))
-
+			(local-set-key (kbd "C-p") nil)))
+(evil-define-key 'normal archive-mode-map (kbd "m") #'archive-mark)
+(evil-define-key 'normal archive-mode-map (kbd "r") #'archive-rename-entry)
+(evil-define-key 'normal archive-mode-map (kbd "U") #'archive-unmark-all-files)
+(evil-define-key 'normal archive-mode-map (kbd "k") #'archive-flag-deleted)
+(evil-define-key 'normal archive-mode-map (kbd "z") #'archive-undo)
+(evil-define-key 'normal archive-mode-map (kbd "u") #'archive-unflag)
+(evil-define-key 'normal archive-mode-map (kbd "<delete>") #'dired-do-delete)
+(evil-define-key 'normal archive-mode-map (kbd "<C-delete>") #'archive-flag-deleted)
 (add-hook 'tar-mode-hook
 		  (lambda ()
 			(local-set-key (kbd "<") nil)
@@ -596,18 +587,17 @@
 			(local-set-key (kbd "M-q") nil)
 			(local-set-key (kbd "+") nil)
 			(local-set-key (kbd "C-n") nil)
-			(local-set-key (kbd "C-p") nil)
-
-			(local-set-key (kbd "C-S-c") #'tar-copy)
-			(local-set-key (kbd "C-n") #'tar-new-entry)
-			(local-set-key (kbd "C-r") #'tar-rename-entry)
-			(local-set-key (kbd "C-u") #'tar-unflag)
-			(local-set-key (kbd "C-S-u") #'tar-clear-modification-flags)
-			(local-set-key (kbd "C-k") #'tar-flag-deleted)
-			(local-set-key (kbd "C-s") #'tar-untar-buffer)
-			(local-set-key (kbd "C-M-s") #'tar-expunge)
-			(local-set-key (kbd "<delete>") #'tar-expunge)
-			(local-set-key (kbd "<C-delete>") #'tar-flag-deleted)))
+			(local-set-key (kbd "C-p") nil)))
+(evil-define-key 'normal tar-mode-map (kbd "c") #'tar-copy)
+(evil-define-key 'normal tar-mode-map (kbd "n") #'tar-new-entry)
+(evil-define-key 'normal tar-mode-map (kbd "r") #'tar-rename-entry)
+(evil-define-key 'normal tar-mode-map (kbd "u") #'tar-unflag)
+(evil-define-key 'normal tar-mode-map (kbd "U") #'tar-clear-modification-flags)
+(evil-define-key 'normal tar-mode-map (kbd "k") #'tar-flag-deleted)
+(evil-define-key 'normal tar-mode-map (kbd "s") #'tar-untar-buffer)
+(evil-define-key 'normal tar-mode-map (kbd "S") #'tar-expunge)
+(evil-define-key 'normal tar-mode-map (kbd "<delete>") #'tar-expunge)
+(evil-define-key 'normal tar-mode-map (kbd "<C-delete>") #'tar-flag-deleted)
 ;; (use-package peep-dired
 ;;   :ensure t)
 ;;speedbar
@@ -642,7 +632,4 @@
 ;;   :bind (("M-s" . neotree-toggle)))
 (use-package dired-sidebar
   :ensure t
-  :bind (("M-S-d" . dired-sidebar-toggle-with-current-directory))
-  :config (add-hook 'dired-mode-hook
-					(lambda ()
-					  (local-set-key (kbd "M-S-d") #'dired-sidebar-toggle-sidebar))))
+  :config (define-key evil-normal-state-map (kbd "D") 'dired-sidebar-toggle-with-current-directory))

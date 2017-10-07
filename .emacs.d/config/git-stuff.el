@@ -105,7 +105,7 @@
 					  (local-set-key (kbd ":Y") nil)
 					  (local-set-key (kbd ":Z") nil)
 
-					  (local-set-key (kbd "C-S-q") #'kill-this-buffer)
+					  (local-set-key (kbd "q") #'kill-this-buffer)
 					  (local-set-key (kbd "/") #'magit-popup-help)
 					  (local-set-key (kbd "c") #'magit-commit-popup)
 					  (local-set-key (kbd "p") #'magit-push-popup)
@@ -145,7 +145,7 @@
   :bind ("M-t" . git-timemachine)
   :config   (define-key git-timemachine-mode-map (kbd ",") #'git-timemachine-show-previous-revision)
   (define-key git-timemachine-mode-map (kbd ".") #'git-timemachine-show-next-revision)
-  (define-key git-timemachine-mode-map (kbd "C-q") #'git-timemachine-quit)
+  (define-key git-timemachine-mode-map (kbd "q") #'git-timemachine-quit)
   (define-key git-timemachine-mode-map (kbd "n") nil)
   (define-key git-timemachine-mode-map (kbd "p") nil)
   (define-key git-timemachine-mode-map (kbd "b") nil)

@@ -10,8 +10,7 @@
 (use-package beacon
   :ensure t
   :config (defalias 'cursor-blink 'beacon-blink)
-  (defalias 'caret-blink 'beacon-blink)
-  :bind (("<s-f1>" . beacon-blink)))
+  (defalias 'caret-blink 'beacon-blink))
 ;;indent
 (use-package indent-guide
   :ensure t

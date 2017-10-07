@@ -5,4 +5,4 @@
   (defalias 'brainfuck-debug 'bfbuilder-debug)
   (add-to-list 'auto-mode-alist '("\\.bf$" . bfbuilder-mode))
   (add-to-list 'auto-mode-alist '("\\.brainfuck$" . bfbuilder-mode))
-  (define-key bfbuilder-mode-map (kbd "<M-f1>") 'bfbuilder-debug))
+  (evil-define-key 'normal conf-space-mode-map (kbd "<f1>") 'bfbuilder-debug))
