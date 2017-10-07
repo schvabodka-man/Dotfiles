@@ -5,15 +5,15 @@ set -g theme_display_date yes
 set -g theme_color_scheme dark
 set -g theme_display_hg yes
 #Homes!
-set -x JAVA_HOME '/usr/share/java'
-set -x GRADLE_HOME '/usr/share/gradle'
-set -x GROOVY_HOME '/usr/share/groovy'
+set -x JAVA_HOME (which java)
+set -x GRADLE_HOME (which gradle)
+set -x GROOVY_HOME (which groovy)
+set -x SCALA_HOME (which scala)
 set -x GOPATH '/home/user/Go'
 set -x LGOBIN '/home/user/Go/bin'
 set -x ANDROID_HOME '/home/user/Android/Sdk'
 set -x EDITOR "emacsclient -c"
 set -x BROWSER "qutebrowser"
-set -x PKG_CONFIG_PATH '/usr/lib/pkgconfig'
 #colored man
 set -x  LESS_TERMCAP_mb (tput bold; tput setaf 1)
 set -x LESS_TERMCAP_md (tput bold; tput setaf 2)

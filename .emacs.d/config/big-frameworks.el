@@ -15,7 +15,9 @@
   :config (define-key evil-normal-state-map (kbd "o") 'counsel-find-file)
   (define-key evil-normal-state-map (kbd ";") 'counsel-M-x)
   (define-key evil-normal-state-map (kbd "b") 'counsel-bookmark)
-  (define-key evil-normal-state-map (kbd "f") 'counsel-grep))
+  (define-key evil-normal-state-map (kbd "f") 'counsel-grep)
+  (define-key evil-normal-state-map (kbd "c") 'counsel-colors-emacs)
+  (define-key evil-normal-state-map (kbd "C") 'counsel-colors-web))
 ;;kinda slow so i prefer counsel ag and grep
 ;; (use-package swiper
 ;;   :ensure t
