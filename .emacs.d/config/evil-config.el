@@ -11,6 +11,9 @@
   :config (evil-mode 1)
   (setq evil-move-beyond-eol t)
   (setq evil-move-cursor-back nil)
+  (setq evil-visual-state-cursor '(box "purple"))
+  (setq evil-normal-state-cursor '(box "white"))
+  (setq evil-insert-state-cursor '((bar . 2) "green"))
   ;; УДОЛИЛ
   (define-key evil-motion-state-map (kbd "a") nil)
   (define-key evil-visual-state-map (kbd "a") nil)
@@ -170,7 +173,8 @@
   (define-key evil-normal-state-map (kbd "k") 'evil-delete-char)
   (define-key evil-normal-state-map (kbd "v") 'evil-paste-before)
   (define-key evil-normal-state-map (kbd "s") 'indent-and-save)
-  (define-key evil-visual-state-map (kbd "c") 'evil-yank)
+  (define-key evil-visual-state-map (kbd "c") 'counsel-colors-emacs)
+  (define-key evil-visual-state-map (kbd "C") 'counsel-colors-web)
   (define-key evil-normal-state-map (kbd "S") 'save-buffer)
   (define-key evil-visual-state-map (kbd "K") 'evil-delete-backward-char)
   (define-key evil-normal-state-map (kbd "y") 'put-file-name-on-clipboard)
@@ -222,10 +226,7 @@
   (define-key evil-motion-state-map (kbd "C-v") nil)
   (define-key evil-motion-state-map (kbd "M-.") nil)
   (define-key evil-motion-state-map (kbd "C-e") nil)
-  (define-key ivy-minibuffer-map (kbd "C-v") 'evil-paste-before)
-  (setq evil-visual-state-cursor '(box "purple"))
-  (setq evil-normal-state-cursor '(box "white"))
-  (setq evil-insert-state-cursor '((bar . 2) "green")))
+  (define-key ivy-minibuffer-map (kbd "C-v") 'evil-paste-before))
 (use-package key-chord
   :ensure t
   :config (key-chord-mode 1)

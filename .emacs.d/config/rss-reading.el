@@ -237,6 +237,7 @@
   (evil-define-key 'normal elfeed-search-mode-map (kbd "o") 'elfeed-search-browse-url)
   (evil-define-key 'normal elfeed-search-mode-map (kbd "t") 'elfeed-search-tag-all)
   (evil-define-key 'normal elfeed-search-mode-map (kbd "T") 'elfeed-search-untag-all)
+  (evil-define-key 'normal elfeed-search-mode-map (kbd "<return>") 'elfeed-search-show-entry)
 
   (evil-define-key 'normal elfeed-show-mode-map (kbd "r") #'elfeed-show-refresh)
   (evil-define-key 'normal elfeed-show-mode-map (kbd "o") #'elfeed-show-visit)
