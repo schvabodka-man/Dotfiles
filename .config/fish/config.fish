@@ -29,6 +29,10 @@ set -x LESS_TERMCAP_ZV (tput rsubm)
 set -x LESS_TERMCAP_ZO (tput ssupm)
 set -x LESS_TERMCAP_ZW (tput rsupm)
 set -x GROFF_NO_SGR 1
+set -x FZF_DEFAULT_OPTS "--preview '/usr/bin/src-hilite-lesspipe.sh {}' \
+--bind 'enter:execute(emacsclient -c {})+abort,\
+ctrl-y:execute(echo {} | xclip -selection clipboard)+abort,\
+ctrl-c:execute(cat {} | xclip -selection clipboard)+abort,\'"
 
 #shell bookmarks
 if test -e ~/.fishmarks/marks.fish
@@ -160,13 +164,10 @@ if test -e /bin/pgcli
 end
 
 if test -e ~/bin/fzf/bin/fzf
-	alias fzf "~/bin/fzf/bin/fzf --preview '/usr/bin/src-hilite-lesspipe.sh {}'"
+	alias fzf "~/bin/fzf/bin/fzf"
 	alias search 'fzf'
 end
 
-function fuzzy
-	emacsclient -c (exec ~/bin/fzf/bin/fzf --preview '/usr/bin/src-hilite-lesspipe.sh {}')
-end
 #aliases for creating projects
 alias project 'touch .projectile'
 function project-js
