@@ -167,7 +167,6 @@
   (define-key evil-normal-state-map (kbd "S") 'save-buffer)
   (define-key evil-visual-state-map (kbd "K") 'evil-delete-backward-char)
   (define-key evil-normal-state-map (kbd "y") 'put-file-name-on-clipboard)
-  (evil-define-key 'normal conf-space-mode-map (kbd "s") 'save-buffer)
   (define-key evil-normal-state-map (kbd ".") 'evil-forward-section-begin)
   (define-key evil-normal-state-map (kbd ",") 'evil-backward-section-begin)
   (define-key evil-normal-state-map (kbd ">") 'evil-forward-section-end)
@@ -213,10 +212,12 @@
   (evil-define-key 'visual emacs-lisp-mode-map (kbd "E") 'eval-buffer)
   (evil-define-key 'visual emacs-lisp-mode-map (kbd "e") 'eval-region)
 
-  (define-key evil-insert-state-map (kbd "S-<up>") 'evil-visual-state)
-  (define-key evil-insert-state-map (kbd "S-<down>") 'evil-visual-state)
-  (define-key evil-insert-state-map (kbd "S-<left>") 'evil-visual-state)
-  (define-key evil-insert-state-map (kbd "S-<right>") 'evil-visual-state)
+  ;; (define-key evil-insert-state-map (kbd "S-<up>") 'evil-visual-state)
+  ;; (define-key evil-insert-state-map (kbd "S-<down>") 'evil-visual-state)
+  ;; (define-key evil-insert-state-map (kbd "S-<left>") 'evil-visual-state)
+  ;; (define-key evil-insert-state-map (kbd "S-<right>") 'evil-visual-state)
+
+  (evil-define-key 'normal conf-space-mode-map (kbd "s") 'save-buffer)
 
   (define-key evil-motion-state-map (kbd "C-z") nil)
   (define-key evil-motion-state-map (kbd "C-v") nil)
@@ -226,8 +227,16 @@
   :ensure t
   :config (key-chord-mode 1)
   (setq key-chord-one-key-delay 0.4)
-  (key-chord-define evil-normal-state-map "kl" 'evil-delete-whole-line)
+  (key-chord-define evil-normal-state-map "kl" 'my-delete-line-backward)
+  (key-chord-define evil-normal-state-map "kL" 'my-delete-line)
+  (key-chord-define evil-normal-state-map "kb" 'my-delete-line-backward)
+  (key-chord-define evil-normal-state-map "ks" 'my-delete-line-backward)
+  (key-chord-define evil-normal-state-map "kh" 'my-delete-line-backward)
+  (key-chord-define evil-normal-state-map "ke" 'my-delete-line)
   (key-chord-define evil-normal-state-map "ka" 'evil-delete-buffer)
-  (key-chord-define evil-normal-state-map "kw" 'evil-delete-backward-word))
-
+  (key-chord-define evil-normal-state-map "kw" 'my-backward-delete-word)
+  (key-chord-define evil-normal-state-map "kW" 'my-delete-word))
+(use-package vimrc-mode
+  :ensure t
+  :config (add-to-list 'auto-mode-alist '("\\.ideavim\\(rc\\)?\\'" . vimrc-mode)))
 ;;; evil-config.el ends here

@@ -98,4 +98,6 @@
 			  (local-set-key (kbd ">") #'pdf-history-forward)
 			  (local-set-key (kbd "C-g") #'pdf-view-goto-label)
 			  )))
+(use-package djvu
+  :ensure t)
 ;;; document-viewers.el ends here

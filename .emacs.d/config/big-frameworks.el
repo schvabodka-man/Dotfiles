@@ -66,15 +66,16 @@
   (setq company-idle-delay 0.2)
   (delete 'company-dabbrev company-backends)
   (delete 'company-ispell company-backends)
-  (delete '(company-dabbrev-code company-keywords) company-backends)
-  (define-key evil-insert-state-map (kbd "<tab>") 'company-complete))
+  (setq company-require-match nil)
+  ;; (define-key evil-insert-state-map (kbd "<tab>") 'company-abort)
+  (delete '(company-dabbrev-code company-dabbrev company-keywords) company-backends)
+  (define-key evil-insert-state-map (kbd "<C-tab>") 'company-complete))
 ;;snippets
 (use-package yasnippet
   :pin melpa-stable
   :ensure t
   :init (yas-global-mode 1)
   :config
-  (define-key evil-insert-state-map (kbd "<C-tab>") 'company-yasnippet)
   (defalias 'snippet 'yas-expand)
   ;;i found this on the stackoverflow
   (defvar company-mode/enable-yas t

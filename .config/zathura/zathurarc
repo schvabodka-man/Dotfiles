@@ -25,6 +25,12 @@ map = zoom default
 map ; focus_inputbar :
 map . navigate next
 map , navigate previous
+map G follow
+map g goto
+map q quit
+map f search forward
+map F search backward
+map r reload
 map <C-Left> navigate previous
 map <C-Right> navigate next
 map <S-Left> scroll full-left
