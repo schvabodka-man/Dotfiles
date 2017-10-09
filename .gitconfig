@@ -24,6 +24,8 @@ load = stash apply
 l = load
 #list all files in current branch
 ls = "!fish -c \"git ls-tree -r (git rev-parse --abbrev-ref HEAD)\" -"
+search = "!fish -c \"git ls-tree -r (git rev-parse --abbrev-ref HEAD) --name-only | fzf\" -"
+find = search
 lsa = ls #just in case
 list = ls
 #squash latest commits in one

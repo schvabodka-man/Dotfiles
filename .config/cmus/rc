@@ -198,7 +198,6 @@ bind common R update-cache
 bind common I win-add-q
 bind common mlb_click_selected win-activate
 bind common backspace win-remove
-bind common [ toggle follow
 bind common delete win-remove
 bind common down win-down
 bind common end win-bottom
@@ -219,6 +218,7 @@ bind common r add ~/Music
 bind common right seek +5
 bind common tab win-next
 bind common up win-up
+bind common [ toggle follow
 bind common ] toggle continue
 bind common ' toggle shuffle
 bind common \ toggle repeat

@@ -32,7 +32,7 @@ set -x GROFF_NO_SGR 1
 set -x FZF_DEFAULT_OPTS "--preview '/usr/bin/src-hilite-lesspipe.sh {}' \
 --bind 'enter:execute(emacsclient -c {})+abort,\
 ctrl-y:execute(echo {} | xclip -selection clipboard)+abort,\
-ctrl-c:execute(cat {} | xclip -selection clipboard)+abort,\'"
+ctrl-c:execute(cat {} | xclip -selection clipboard)+abort'"
 
 #shell bookmarks
 if test -e ~/.fishmarks/marks.fish
