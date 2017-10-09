@@ -205,7 +205,8 @@ bind common enter win-activate
 bind common g push filter
 bind common G push live-filter
 bind common f search-start
-bind common F search-start
+bind common F search-b-start
+bind common y echo {}
 bind common home win-top
 bind common left seek -5
 bind common mouse_scroll_down win-down
@@ -213,7 +214,7 @@ bind common mouse_scroll_up win-up
 bind common i win-add-p
 bind common page_down win-page-down
 bind common page_up win-page-up
-bind common q quit -c
+bind common q quit -i
 bind common r add ~/Music
 bind common right seek +5
 bind common tab win-next
