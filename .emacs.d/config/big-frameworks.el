@@ -6,7 +6,8 @@
   (setq ivy-height 20)
   (setq ivy-initial-inputs-alist nil)
   (setq ivy-use-virtual-buffers t)
-  :config (define-key evil-normal-state-map (kbd "C-w") 'ivy-switch-buffer))
+  :config (define-key evil-normal-state-map (kbd "C-w") 'ivy-switch-buffer)
+  (define-key ivy-minibuffer-map (kbd "C-v") 'evil-paste-before))
 (use-package counsel
   :ensure t
   :after ivy
@@ -16,8 +17,9 @@
   (define-key evil-normal-state-map (kbd ";") 'counsel-M-x)
   (define-key evil-normal-state-map (kbd "b") 'counsel-bookmark)
   (define-key evil-normal-state-map (kbd "f") 'counsel-grep)
-  (define-key evil-normal-state-map (kbd "c") 'counsel-colors-emacs)
-  (define-key evil-normal-state-map (kbd "C") 'counsel-colors-web))
+  ;; (define-key evil-normal-state-map (kbd "c") 'counsel-colors-emacs)
+  ;; (define-key evil-normal-state-map (kbd "C") 'counsel-colors-web)
+  )
 ;;kinda slow so i prefer counsel ag and grep
 ;; (use-package swiper
 ;;   :ensure t
@@ -65,14 +67,14 @@
   (delete 'company-dabbrev company-backends)
   (delete 'company-ispell company-backends)
   (delete '(company-dabbrev-code company-keywords) company-backends)
-  :bind ("<C-tab>" . company-complete))
+  (define-key evil-insert-state-map (kbd "<tab>") 'company-complete))
 ;;snippets
 (use-package yasnippet
   :pin melpa-stable
   :ensure t
   :init (yas-global-mode 1)
-  :bind ("<C-iso-lefttab>" . company-yasnippet)
   :config
+  (define-key evil-insert-state-map (kbd "<C-tab>") 'company-yasnippet)
   (defalias 'snippet 'yas-expand)
   ;;i found this on the stackoverflow
   (defvar company-mode/enable-yas t

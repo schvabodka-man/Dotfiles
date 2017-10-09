@@ -83,7 +83,7 @@
 ;;multiple workspaces and tabbing
 (load "~/.emacs.d/config/windowing-config")
 ;;music
-(load "~/.emacs.d/config/emms-config")
+;; (load "~/.emacs.d/config/emms-config")
 ;;spell checking
 (load "~/.emacs.d/config/syntax-gram-checking")
 ;;gnus shit not in .gnusrc
@@ -343,7 +343,7 @@
  '(spaceline-evil-emacs ((t (:background "SkyBlue2" :foreground "black" :inherit (quote mode-line)))))
  '(spaceline-evil-insert ((t (:background "chartreuse3" :foreground "black" :inherit (quote mode-line)))))
  '(spaceline-evil-motion ((t (:background "plum3" :foreground "black" :inherit (quote mode-line)))))
- '(spaceline-evil-normal ((t (:background "white" :foreground "black" :inherit (quote mode-line)))))
+ '(spaceline-evil-normal ((t (:background "red" :foreground "black" :inherit (quote mode-line)))))
  '(spaceline-evil-replace ((t (:background "chocolate" :foreground "white" :inherit (quote mode-line)))))
  '(spaceline-evil-visual ((t (:background "purple" :foreground "#FFFFFF" :inherit (quote mode-line)))))
  '(spaceline-flycheck-error ((t (:distant-foreground "orange red" :foreground "red"))))

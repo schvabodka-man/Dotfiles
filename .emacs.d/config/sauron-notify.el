@@ -14,4 +14,6 @@
   :commands (sauron-toggle-hide-show)
   :config (setq sauron-separate-frame nil)
   (setq sauron-hide-mode-line t))
+(use-package github-notifier
+  :ensure t)
 ;;; sauron-notify.el ends here

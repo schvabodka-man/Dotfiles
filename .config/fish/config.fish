@@ -1,7 +1,7 @@
 #disable greeting
 set fish_greeting ""
 #Powerline theming
-set -g theme_display_date yes
+set -g theme_display_date no
 set -g theme_color_scheme dark
 set -g theme_display_hg yes
 #Homes!
@@ -34,6 +34,8 @@ set -x GROFF_NO_SGR 1
 if test -e ~/.fishmarks/marks.fish
 	. ~/.fishmarks/marks.fish
 end
+
+source ~/.config/fish/panel.fish
 
 if test -e ~/.local/share/icons-in-terminal/icons.fish
 	source ~/.local/share/icons-in-terminal/icons.fish
@@ -157,6 +159,14 @@ if test -e /bin/pgcli
 	alias psql 'pgcli'
 end
 
+if test -e ~/bin/fzf/bin/fzf
+	alias fzf "~/bin/fzf/bin/fzf --preview '/usr/bin/src-hilite-lesspipe.sh {}'"
+	alias search 'fzf'
+end
+
+function fuzzy
+	emacsclient -c (exec ~/bin/fzf/bin/fzf --preview '/usr/bin/src-hilite-lesspipe.sh {}')
+end
 #aliases for creating projects
 alias project 'touch .projectile'
 function project-js
@@ -246,28 +256,35 @@ function git-squash
 	git commit -m 'Squashed last $argv commits'
 end
 
-set -U fish_key_bindings fish_vi_key_bindings
+set -U fish_key_bindings fish_default_key_bindings
 
 function nothing
 end
 
 function fish_user_key_bindings
-	bind / __fish_toggle_comment_commandline
-	bind s sudope
-	bind -m insert \t force-repaint
-	bind -m insert -k backspace backward-delete-char
-	bind -k backspace backward-delete-char
-	bind -M insert -m default \e force-repaint
 
-	bind k backward-delete-char
-	bind K delete-char
-	bind kw backward-kill-bigword
-	bind kW kill-bigword
-	bind kb backward-kill-line
-	bind ks backward-kill-line
-	bind kh backward-kill-line
-	bind ke kill-line
+	# bind / __fish_toggle_comment_commandline
+	bind \ms sudope
 
+	bind \ck backward-kill-line
+	bind \ek kill-line
+
+	bind [H beginning-of-line
+	bind [F end-of-line
+
+	# bind -m insert \t force-repaint
+	# bind -m insert -k backspace backward-delete-char
+	# bind -k backspace backward-delete-char
+	# bind -M insert -m default \e force-repaint
+
+	# # bind k backward-delete-char
+	# bind K delete-char
+	# bind kw backward-kill-bigword
+	# bind kW kill-bigword
+	# bind kb backward-kill-line
+	# bind ks backward-kill-line
+	# bind kh backward-kill-line
+	# bind ke kill-line
 	bind -e d
 	bind -e D
 	bind -e dw
@@ -277,29 +294,20 @@ function fish_user_key_bindings
 	bind -e dh
 	bind -e de
 
-	bind \[^? backward-kill-bigword
-	bind -m insert \[^? backward-kill-bigword
+	bind \x08 backward-kill-bigword
 	bind \[3\;5~ kill-bigword
-	bind -m insert \[3\;5~ kill-bigword
 
 	#new line
-	bind -M insert \e\n commandline\ -i\ \\n
-	bind -M insert \e\r commandline\ -i\ \\n
+	bind \e\n commandline\ -i\ \\n
+	bind \e\r commandline\ -i\ \\n
 
 	#unbind useless shit
 	bind -e \cu
-
-	bind -e \e\n
-	bind -e \e\r
-
 	bind -e \cs
 	bind -e \e\[H
 	bind -e \e\[F
 	bind -e \e\[1\~
 	bind -e \e\[4\~
-	bind -e \e\[A
-	bind -e \e\[B
-	bind -e \ck
 	bind -e \cy
 	bind -e \ed
 	bind -e \cd
@@ -468,3 +476,5 @@ function fish_user_key_bindings
 	bind -e -M insert \eb
 	bind -e -M insert \ef
 end
+
+# trap 'tmux kill-session' EXIT

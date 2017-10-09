@@ -11,10 +11,9 @@
   :config (evil-mode 1)
   (setq evil-move-beyond-eol t)
   (setq evil-move-cursor-back nil)
-  (setq evil-visual-state-cursor '(box "purple"))
-  (setq evil-normal-state-cursor '(box "white"))
+  (setq evil-visual-state-cursor '((bar . 2) "purple"))
+  (setq evil-normal-state-cursor '((bar . 2) "red"))
   (setq evil-insert-state-cursor '((bar . 2) "green"))
-
   (define-key evil-motion-state-map (kbd "a") nil)
   (define-key evil-motion-state-map (kbd "b") nil)
   (define-key evil-visual-state-map (kbd "b") nil)
@@ -145,8 +144,10 @@
   (define-key evil-normal-state-map (kbd "q") 'kill-this-buffer)
   (define-key evil-normal-state-map (kbd "S-q") 'kill-buffer)
   (define-key evil-normal-state-map (kbd "<escape>") 'escape-key-work)
-  (define-key evil-normal-state-map (kbd "<home>") 'beginning-of-line)
-  (define-key evil-normal-state-map (kbd "<end>") 'end-of-line)
+  (define-key evil-normal-state-map (kbd "<home>") 'beginning-of-visual-line)
+  (define-key evil-normal-state-map (kbd "<end>") 'end-of-visual-line)
+  (define-key evil-visual-state-map (kbd "<home>") 'beginning-of-visual-line)
+  (define-key evil-visual-state-map (kbd "<end>") 'end-of-visual-line)
   (define-key evil-normal-state-map (kbd "C-<left>") 'left-word)
   (define-key evil-normal-state-map (kbd "C-<right>") 'right-word)
   (define-key evil-normal-state-map (kbd "/") 'comment-line)
@@ -156,7 +157,8 @@
   (define-key evil-normal-state-map (kbd "M-<down>") 'windmove-down)
   (define-key evil-normal-state-map (kbd "M-<left>") 'windmove-left)
   (define-key evil-normal-state-map (kbd "M-<right>") 'windmove-right)
-  (define-key evil-normal-state-map (kbd "C-<backspace>") 'ivy-backward-kill-word)
+  (define-key evil-normal-state-map (kbd "C-<backspace>") 'my-backward-delete-word)
+  (define-key evil-normal-state-map (kbd "C-<delete>") 'my-delete-word)
   (define-key evil-normal-state-map (kbd "B") 'bookmark-set)
   (define-key evil-normal-state-map (kbd "V") 'evil-paste-after)
   (define-key evil-normal-state-map (kbd "k") 'evil-delete-char)
@@ -166,12 +168,21 @@
   (define-key evil-visual-state-map (kbd "K") 'evil-delete-backward-char)
   (define-key evil-normal-state-map (kbd "y") 'put-file-name-on-clipboard)
   (evil-define-key 'normal conf-space-mode-map (kbd "s") 'save-buffer)
-  (evil-define-key 'normal yaml-mode-map (kbd "s") 'put-file-name-on-clipboard)
   (define-key evil-normal-state-map (kbd ".") 'evil-forward-section-begin)
   (define-key evil-normal-state-map (kbd ",") 'evil-backward-section-begin)
   (define-key evil-normal-state-map (kbd ">") 'evil-forward-section-end)
   (define-key evil-normal-state-map (kbd "<") 'evil-backward-section-end)
 
+  (define-key evil-normal-state-map (kbd "S-<down>") 'scroll-up-line)
+  (define-key evil-normal-state-map (kbd "S-<up>") 'scroll-down-line)
+
+
+  (define-key evil-normal-state-map (kbd "c") 'evil-visual-block)
+
+  (define-key evil-normal-state-map (kbd "<up>") 'evil-previous-visual-line)
+  (define-key evil-normal-state-map (kbd "<down>") 'evil-next-visual-line)
+  (define-key evil-visual-state-map (kbd "<up>") 'evil-previous-visual-line)
+  (define-key evil-visual-state-map (kbd "<down>") 'evil-next-visual-line)
   (define-key evil-normal-state-map (kbd "C-<up>") 'evil-previous-line-first-non-blank)
   (define-key evil-normal-state-map (kbd "C-<down>") 'evil-next-line-first-non-blank)
   (define-key evil-visual-state-map (kbd "C-<up>") 'evil-previous-line-first-non-blank)
@@ -184,13 +195,11 @@
   (define-key evil-visual-state-map (kbd "k") 'evil-delete)
   (define-key evil-visual-state-map (kbd "K") 'evil-delete-backward-char)
   (define-key evil-visual-state-map (kbd "SPC") 'evil-normal-state)
-  (define-key evil-visual-state-map (kbd "V") 'evil-paste-after)
-  (define-key evil-visual-state-map (kbd "v") 'evial-paste-before)
   (define-key evil-visual-state-map (kbd "x") 'clipboard-kill-region)
 
   (define-key evil-visual-state-map (kbd "/") 'comment-line)
 
-  (define-key evil-insert-state-map (kbd "C-<backspce>") 'ivy-backward-kill-word)
+  (define-key evil-insert-state-map (kbd "C-<backspace>") 'my-backward-delete-word)
   (define-key evil-insert-state-map (kbd "C-<left>") 'left-word)
   (define-key evil-insert-state-map (kbd "C-<right>") 'right-word)
 
@@ -212,8 +221,7 @@
   (define-key evil-motion-state-map (kbd "C-z") nil)
   (define-key evil-motion-state-map (kbd "C-v") nil)
   (define-key evil-motion-state-map (kbd "M-.") nil)
-  (define-key evil-motion-state-map (kbd "C-e") nil)
-  (define-key ivy-minibuffer-map (kbd "C-v") 'evil-paste-before))
+  (define-key evil-motion-state-map (kbd "C-e") nil))
 (use-package key-chord
   :ensure t
   :config (key-chord-mode 1)

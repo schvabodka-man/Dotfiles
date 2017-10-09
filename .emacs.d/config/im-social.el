@@ -25,7 +25,7 @@
 (evil-define-key 'normal erc-mode-map (kbd "r") #'erc-channel-names)
 (evil-define-key 'normal erc-mode-map (kbd "o") #'erc-cmd-QUERY)
 (evil-define-key 'normal erc-mode-map (kbd "O") #'erc-join-channel)
-(evil-define-key 'insert erc-mode-map (kbd "<return>") #'erc-send-line)
+(evil-define-key 'normal erc-mode-map (kbd "<return>") #'erc-send-line)
 
 (add-hook 'erc-mode-hook
 		  (lambda ()
