@@ -1,3 +1,89 @@
+unbind browser .
+unbind browser backspace
+unbind browser enter
+unbind browser i
+unbind browser r
+unbind browser space
+unbind browser u
+unbind common !
+unbind common "
+unbind common '
+unbind common +
+unbind common ,
+unbind common -
+unbind common .
+unbind common 1
+unbind common 2
+unbind common 3
+unbind common 4
+unbind common 5
+unbind common 6
+unbind common 7
+unbind common =
+unbind common C
+unbind common D
+unbind common E
+unbind common F
+unbind common G
+unbind common I
+unbind common L
+unbind common M
+unbind common N
+unbind common P
+unbind common R
+unbind common U
+unbind common [
+unbind common \
+unbind common ]
+unbind common ^B
+unbind common ^C
+unbind common ^E
+unbind common ^F
+unbind common ^L
+unbind common ^R
+unbind common ^Y
+unbind common a
+unbind common b
+unbind common backspace
+unbind common c
+unbind common delete
+unbind common down
+unbind common e
+unbind common end
+unbind common enter
+unbind common f
+unbind common g
+unbind common h
+unbind common home
+unbind common i
+unbind common j
+unbind common k
+unbind common l
+unbind common left
+unbind common m
+unbind common mouse_scroll_down
+unbind common mouse_scroll_up
+unbind common n
+unbind common o
+unbind common p
+unbind common page_down
+unbind common page_up
+unbind common q
+unbind common r
+unbind common right
+unbind common s
+unbind common space
+unbind common t
+unbind common tab
+unbind common u
+unbind common up
+unbind common v
+unbind common x
+unbind common y
+unbind common z
+unbind common {
+unbind common }
+
 set aaa_mode=artist
 set altformat_current= %F
 set altformat_playlist= %f%= %d
@@ -98,9 +184,7 @@ bind browser . toggle show_hidden
 bind browser backspace browser-up
 bind browser enter win-activate
 bind browser r win-update
-bind common + vol +10%
 bind common , seek -
-bind common - vol -10%
 bind common . seek +1m
 bind common 1 view tree
 bind common 2 view sorted
@@ -109,40 +193,35 @@ bind common 4 view playlist
 bind common 5 view filters
 bind common 6 view browser
 bind common 7 view settings
-bind common A win-add-p
-bind common F toggle follow
+bind common " toggle follow
 bind common R update-cache
-bind common [ player-prev
-bind common \ player-pause
-bind common ] player-next
-bind common a win-add-q
+bind common I win-add-q
+bind common mlb_click_selected win-activate
 bind common backspace win-remove
-bind common c toggle follow
+bind common [ toggle follow
 bind common delete win-remove
 bind common down win-down
 bind common end win-bottom
 bind common enter win-activate
-bind common f push filter
-bind common g search-start
+bind common g push filter
+bind common G push live-filter
+bind common f search-start
+bind common F search-start
 bind common home win-top
 bind common left seek -5
 bind common mouse_scroll_down win-down
 bind common mouse_scroll_up win-up
-bind common p win-add-p
+bind common i win-add-p
 bind common page_down win-page-down
 bind common page_up win-page-up
-bind common q quit
+bind common q quit -c
 bind common r add ~/Music
 bind common right seek +5
 bind common tab win-next
 bind common up win-up
-bind common v toggle continue
-bind common x toggle shuffle
-bind common z toggle repeat
-bind common { win-page-up
-bind common | player-stop
-bind common } win-page-down
-fset 2814=artist="2814"
+bind common ] toggle continue
+bind common ' toggle shuffle
+bind common \ toggle repeat
 fset acid-jazz=genre="Acid Jazz"
 fset alac=filename="*.m4fincha"
 fset ambient=genre="* Ambient"
