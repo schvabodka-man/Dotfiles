@@ -20,7 +20,7 @@
   (defalias 'multi-eshell-previous 'multi-eshell-go-back)
   :bind ("M-~" . multi-eshell))
 (evil-define-key 'normal eshell-mode-map (kbd "<return>") 'eshell-send-input)
-(evil-define-key 'normal eshell-mode-map (kbd "C-c") 'eshell-copy-old-input)
+(evil-define-key 'normal eshell-mode-map (kbd "y") 'eshell-copy-old-input)
 (evil-define-key 'normal eshell-mode-map (kbd "C-k") 'eshell-kill-input)
 (evil-define-key 'insert eshell-mode-map (kbd "<return>") 'eshell-send-input)
 ;;bookmarks for eshell

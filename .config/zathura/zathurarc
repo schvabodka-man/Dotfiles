@@ -9,10 +9,12 @@ set notification-error-bg "#ff0000"
 set notification-error-fg "#FFFFFF"
 set notification-warning-bg "#e3ff00"
 set notification-warning-fg "#FFFFFF"
-set highlight-color "#000000"
-set highlight-active-color "#ff0000"
+set highlight-color "#FFFFFF"
+set highlight-active-color "#ffffff"
 set completion-bg "#000000"
 set completion-fg "#FFFFFF"
+set completion-highlight-bg "#FFFFFF"
+set completion-highlight-fg "#000000"
 set notification-bg "#00ff30"
 set notification-fg "#000000"
 set recolor "true"
@@ -25,12 +27,10 @@ map = zoom default
 map ; focus_inputbar :
 map . navigate next
 map , navigate previous
-map G follow
-map g goto
+map g follow
 map q quit
-map f search forward
-map F search backward
-map r reload
+map f focus_inputbar /
+map F focus_inputbar ?
 map <C-Left> navigate previous
 map <C-Right> navigate next
 map <S-Left> scroll full-left
