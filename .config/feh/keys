@@ -4,7 +4,6 @@ toggle_aliasing
 toggle_filenames
 remove
 delete
-toggle_info 
 toggle_keep_vp
 toggle_pointer
 size_to_image
@@ -19,28 +18,29 @@ scroll_right_page
 scroll_up_page 
 scroll_down_page 
 
-flip C-Up
-mirror C-Down
-orient_3 C-Left
-orient_1 C-Right
+flip S-Up
+mirror S-Down
+orient_3 S-Left
+orient_1 S-Right
 
-toggle_fullscreen f
-toggle_menu i 
+toggle_menu semicolon
 
-next_img bracketright
-prev_img bracketleft
+next_img period
+prev_img comma
 zoom_fit equal
 zoom_in plus KP_Add
 zoom_out minus KP_Subtract 
+
+toggle_info colon
 
 scroll_left Left
 scroll_right Right
 scroll_up Up
 scroll_down Down
-scroll_left_page S-Left
-scroll_right_page S-Right
-scroll_up_page S-Up Next
-scroll_down_page S-Down Prior
+scroll_left_page C-Left
+scroll_right_page C-Right
+scroll_up_page C-Down Prior
+scroll_down_page C-Up Next
 
 jump_first Home
 jump_last End
