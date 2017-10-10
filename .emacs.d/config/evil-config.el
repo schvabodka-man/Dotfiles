@@ -226,7 +226,7 @@
 (use-package key-chord
   :ensure t
   :config (key-chord-mode 1)
-  (setq key-chord-one-key-delay 0.4)
+  (setq key-chord-one-key-delay 0.5)
   (key-chord-define evil-normal-state-map "kl" 'my-delete-line-backward)
   (key-chord-define evil-normal-state-map "kL" 'my-delete-line)
   (key-chord-define evil-normal-state-map "kb" 'my-delete-line-backward)
@@ -236,7 +236,15 @@
   (key-chord-define evil-normal-state-map "ka" 'evil-delete-buffer)
   (key-chord-define evil-normal-state-map "kw" 'my-backward-delete-word)
   (key-chord-define evil-normal-state-map "kW" 'my-delete-word))
+(use-package evil-mc
+  :ensure t
+  :config (global-evil-mc-mode 1)
+  (define-key evil-normal-state-map (kbd "[") 'evil-mc-make-cursor-move-prev-line)
+  (define-key evil-normal-state-map (kbd "]") 'evil-mc-make-cursor-move-next-line)
+  (define-key evil-normal-state-map (kbd "\\") 'evil-mc-undo-all-cursors)
+  (define-key evil-normal-state-map (kbd "C") 'evil-mc-make-cursor-here))
 (use-package vimrc-mode
   :ensure t
   :config (add-to-list 'auto-mode-alist '("\\.ideavim\\(rc\\)?\\'" . vimrc-mode)))
+
 ;;; evil-config.el ends here

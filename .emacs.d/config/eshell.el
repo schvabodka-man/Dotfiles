@@ -68,5 +68,5 @@
 (setenv "LGOBIN" (shell-command-to-string "echo $LGOBIN"))
 (setenv "SCALA_HOME" (shell-command-to-string "echo $SCALA_HOME"))
 (setenv "ANDROID_HOME" (shell-command-to-string "echo $ANDROID_HOME"))
-
+(setenv "TERM" "xterm-256color")
 ;;; eshell ends here

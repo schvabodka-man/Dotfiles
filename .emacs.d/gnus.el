@@ -2,19 +2,19 @@
 ;;; Commentary:
 ;;; MUH GNUS
 ;;; Code:
-(setq nnml-directory "~/Email")
-(setq message-directory "~/Email")
+(setq nnml-directory "~/Mail")
+(setq message-directory "~/Mail")
 (setq gnus-agent-synchronize-flags t)
 
 (setq gnus-always-read-dribble-file t)
-(setq gnus-dribble-directory "~/Email")
-(setq gnus-home-directory "~/Email")
+(setq gnus-dribble-directory "~/Mail")
+(setq gnus-home-directory "~/Mail")
 
 (setq gnus-asynchronous t)
 
-(setq mail-source-directory "~/Email")
+(setq mail-source-directory "~/Mail")
 
-(setq message-auto-save-directory "~/Mail/drafts")
+(setq message-auto-save-directory "~/Mail/offline/drafts")
 (setq smtpmail-debug-info t)
 
 (setq user-mail-address "scvhapps@gmail.com"

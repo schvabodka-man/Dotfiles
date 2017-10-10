@@ -246,7 +246,7 @@
  '(org-agenda-confirm-kill t)
  '(package-selected-packages
    (quote
-	(flycheck-kotlin inf-groovy groovy-imports org-ehtml nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
+	(evil-multiedit evil-mc offlineimap xterm-color flycheck-kotlin inf-groovy groovy-imports org-ehtml nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
  '(paradox-github-token t)
  '(popwin:adjust-other-windows nil)
  '(projectile-globally-ignored-directories

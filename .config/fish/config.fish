@@ -270,8 +270,8 @@ function fish_user_key_bindings
 	bind \ck backward-kill-line
 	bind \ek kill-line
 
-	bind [H beginning-of-line
-	bind [F end-of-line
+	bind [1~ beginning-of-line
+	bind [4~ end-of-line
 
 	# bind -m insert \t force-repaint
 	# bind -m insert -k backspace backward-delete-char
@@ -478,4 +478,7 @@ function fish_user_key_bindings
 	bind -e -M insert \ef
 end
 
+function fish_title
+	true
+end
 # trap 'tmux kill-session' EXIT
