@@ -3,11 +3,12 @@
   :config (projectile-global-mode)
   (setq projectile-indexing-method 'native)
   (setq projectile-enable-caching t)
+  (global-set-key (kbd "C-M-r") 'projectile-replace-regexp)
   (defalias 'project-add 'projectile-add-known-project))
 (use-package counsel-projectile
   :ensure t
-  :config (setq projectile-completion-system 'default)
-  (define-key evil-normal-state-map (kbd "p") 'counsel-projectile-find-file)
-  (define-key evil-normal-state-map (kbd "P") 'counsel-projectile-find-dir)
-  (define-key evil-normal-state-map (kbd "F") 'counsel-projectile-ag)
-  (key-chord-define evil-normal-state-map (kbd "op") 'counsel-projectile-switch-project))
+  :bind (("C-S-o" . counsel-projectile-switch-project)
+		 ("C-p" . counsel-projectile-find-file)
+		 ("C-S-p" . counsel-projectile-find-dir)
+		 ("C-S-f" . counsel-projectile-ag))
+  :config (setq projectile-completion-system 'default))

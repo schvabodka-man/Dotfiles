@@ -1,10 +1,10 @@
 (use-package drag-stuff
   :ensure t
   :config (drag-stuff-global-mode 1)
-  (define-key evil-normal-state-map (kbd "S-<up>") 'drag-stuff-up)
-  (define-key evil-normal-state-map (kbd "S-<down>") 'drag-stuff-down)
-  (define-key evil-normal-state-map (kbd "S-<left>") 'drag-stuff-left)
-  (define-key evil-normal-state-map (kbd "S-<right>") 'drag-stuff-right))
+  :bind (("<C-up>" . drag-stuff-up)
+		 ("<C-down>" . drag-stuff-down)
+		 ("<C-M-left>" . drag-stuff-left)
+		 ("<C-M-right>" . drag-stuff-right)))
 (use-package dumb-jump
   :ensure t
   :config (defalias 'jump-to-definition 'dumb-jump-go)
@@ -14,11 +14,13 @@
   (setq dumb-jump-selector 'ivy)
   (setq dumb-jump-aggressive nil)
   ;;(setq dumb-jump-use-visible-window nil)
-  :config (define-key evil-normal-state-map (kbd "j") 'dumb-jump-go)
-  (define-key evil-normal-state-map (kbd "J") 'dumb-jump-back))
+  :bind (("C-j" . dumb-jump-go)
+		 ("C-S-j" . dumb-jump-back)))
 (use-package avy
   :ensure t
-  :config (define-key evil-normal-state-map (kbd "g") 'avy-goto-word-0))
+  :bind (("C-g" . avy-goto-word-0)
+		 ;; ("C-S-g" . avy-goto-line)
+		 ))
 (use-package highlight-parentheses
   :ensure t
   :config (global-highlight-parentheses-mode t))

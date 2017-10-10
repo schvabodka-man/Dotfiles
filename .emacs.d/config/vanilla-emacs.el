@@ -2,19 +2,21 @@
   (interactive)
   (keyboard-escape-quit)
   (company-abort))
-;; (global-set-key (kbd "<backspace>") 'backward-delete-char)
-;; (global-set-key (kbd "<home>") 'beginning-of-buffer)
-;; (global-set-key (kbd "<end>") 'end-of-buffer)
+(global-set-key (kbd "<backspace>") 'backward-delete-char)
+(global-set-key (kbd "C-<home>") 'beginning-of-buffer)
+(global-set-key (kbd "C-<end>") 'end-of-buffer)
 (global-set-key (kbd "<escape>") 'escape-key-work)
-;; (global-set-key (kbd "M-;") 'execute-extended-command)
-;; (global-set-key (kbd "C-S-q") 'kill-buffer)
-;; (global-set-key (kbd "C-<home>") 'beginning-of-line)
-;; (global-set-key (kbd "C-<end>") 'end-of-line)
-;; (global-set-key (kbd "C-<left>") 'left-word)
-;; (global-set-key (kbd "C-<right>") 'right-word)
-;; (global-set-key (kbd "C-/") 'comment-line)
-;; (global-set-key (kbd "M-,") 'customize-group)
-;; (global-set-key (kbd "C-a") 'mark-whole-buffer)
+(global-set-key (kbd "C-S-q") 'kill-buffer)
+(global-set-key (kbd "C-M-f") 'list-matching-lines)
+(global-set-key (kbd "<home>") 'beginning-of-line)
+(global-set-key (kbd "<end>") 'end-of-line)
+(global-set-key (kbd "C-<left>") 'left-word)
+(global-set-key (kbd "C-<right>") 'right-word)
+(global-set-key (kbd "M-x") nil)
+(global-set-key (kbd "C-S-g") 'goto-line)
+(global-set-key (kbd "C-/") 'comment-line)
+(global-set-key (kbd "C-,") 'customize-group)
+(global-set-key (kbd "C-a") 'mark-whole-buffer)
 ;; windows controls
 (global-set-key (kbd "M-n") (lambda ()
 							  (interactive)
@@ -29,13 +31,12 @@
 (global-set-key (kbd "M-<left>") 'windmove-left)
 (global-set-key (kbd "M-<right>") 'windmove-right)
 (global-set-key (kbd "M-q") 'delete-window)
-(global-set-key (kbd "M-x") nil)
-;; (global-set-key (kbd "C-q") 'kill-this-buffer)
+(global-set-key (kbd "C-q") 'kill-this-buffer)
 ;; (global-set-key (kbd "TAB") 'self-insert-command)
 ;;redone backspace and del
-;; (global-set-key (kbd "C-<backspace>") 'ivy-backward-kill-word)
+(global-set-key (kbd "C-<backspace>") 'ivy-backward-kill-word)
 ;;bookmark set
-;; (global-set-key (kbd "M-B") 'bookmark-set)
+(global-set-key (kbd "M-B") 'bookmark-set)
 ;;opening new scratch buffer
 (defun make-new-buffer ()
   (interactive)
@@ -50,18 +51,18 @@
   (interactive)
   (indent-region (point-min) (point-max)))
 (defalias 'beautify 'indent-all)
-;; (global-set-key (kbd "C-b") 'indent-buffers)
+(global-set-key (kbd "C-b") 'indent-buffers)
 (defun indent-and-save ()
   (interactive)
   (indent-buffers)
   (save-buffer))
-;; (global-set-key (kbd "C-s") 'indent-and-save)
-;; (add-hook 'conf-space-mode-hook
-;; 		  (lambda ()
-;; 			(local-set-key (kbd "C-s") #'save-buffer)))
-;; (add-hook 'yaml-mode-hook
-;; 		  (lambda ()
-;; 			(local-set-key (kbd "C-s") #'save-buffer)))
+(global-set-key (kbd "C-s") 'indent-and-save)
+(add-hook 'conf-space-mode-hook
+		  (lambda ()
+			(local-set-key (kbd "C-s") #'save-buffer)))
+(add-hook 'yaml-mode-hook
+		  (lambda ()
+			(local-set-key (kbd "C-s") #'save-buffer)))
 (defun put-file-name-on-clipboard ()
   (interactive)
   (let ((filename (if (equal major-mode 'dired-mode)
@@ -72,17 +73,20 @@
 		(insert filename)
 		(clipboard-kill-region (point-min) (point-max)))
 	  (message filename))))
-;; (global-set-key (kbd "C-y") 'put-file-name-on-clipboard)
-(defun ctrl-l-line-select ()
-  (interactive)
-  (move-beginning-of-line nil)
-  (set-mark (point))
-  (activate-mark)
-  (move-end-of-line nil))
+(global-set-key (kbd "C-y") 'put-file-name-on-clipboard)
+
+(global-set-key (kbd "C-l")
+				(defun ctrl-l-line-select ()
+				  (interactive)
+				  (move-beginning-of-line nil)
+				  (set-mark (point))
+				  (activate-mark)
+				  (move-end-of-line nil)))
 
 (defun kill-other-buffers ()
   (interactive)
   (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
+(global-set-key (kbd "C-S-M-q") 'kill-other-buffers)
 ;;fast aliases
 (defalias 'open-in-browser 'browse-url-of-file)
 (defalias 'browser-preview 'browse-url-of-file)
@@ -122,8 +126,8 @@
 (global-set-key (kbd "M-z") 'winner-undo)
 (global-set-key (kbd "M-Z") 'winner-redo)
 ;;cua mode
-;;(cua-mode t)
-;;(setq cua-auto-tabify-rectangles nil)
+(cua-mode t)
+(setq cua-auto-tabify-rectangles nil)
 (electric-indent-mode)
 ;;pretty symbols
 (defalias 'beautiful-symbols-mode 'prettify-symbols-mode)
@@ -158,7 +162,10 @@
 ;;backups and auto saves. no cluttering
 (setq backup-directory-alist '(("." . "~/.emacs.d/Backup")))
 (setq auto-save-file-name-transforms `((".*" "~/.emacs.d/Autosave" t)))
-;;run without promt yes or no. From here https://emacs.stackexchange.com/questions/19077/how-to-programmatically-answer-yes-to-those-commands-that-prompt-for-a-decisio
+(define-key emacs-lisp-mode-map (kbd "C-S-e") #'eval-buffer)
+(define-key emacs-lisp-mode-map (kbd "C-e") #'eval-region)
+;;run without promt yes or no. From here 
+;;https://emacs.stackexchange.com/questions/19077/how-to-programmatically-answer-yes-to-those-commands-that-prompt-for-a-decisio
 (defmacro my/with-advice (adlist &rest body)
   "Execute BODY with temporary advice in ADLIST.
 
@@ -185,41 +192,4 @@ This includes both `y-or-n-p' and `yes-or-no-p'."
 	  ((#'y-or-n-p    :override (lambda (prompt) t))
 	   (#'yes-or-no-p :override (lambda (prompt) t)))
 	(apply function args)))
-
-;;from ergo emacs site
-(defun my-delete-word (arg)
-  "Delete characters forward until encountering the end of a word.
-With argument, do this that many times.
-This command does not push text to `kill-ring'."
-  (interactive "p")
-  (delete-region
-   (point)
-   (progn
-     (forward-word arg)
-     (point))))
-
-(defun my-backward-delete-word (arg)
-  "Delete characters backward until encountering the beginning of a word.
-With argument, do this that many times.
-This command does not push text to `kill-ring'."
-  (interactive "p")
-  (my-delete-word (- arg)))
-
-(defun my-delete-line ()
-  "Delete text from current position to end of line char.
-This command does not push text to `kill-ring'."
-  (interactive)
-  (delete-region
-   (point)
-   (progn (end-of-line 1) (point)))
-  (delete-char 1))
-
-(defun my-delete-line-backward ()
-  "Delete text between the beginning of the line to the cursor position.
-This command does not push text to `kill-ring'."
-  (interactive)
-  (let (p1 p2)
-    (setq p1 (point))
-    (beginning-of-line 1)
-    (setq p2 (point))
-    (delete-region p1 p2)))
+(global-set-key (kbd "<C-SPC>") 'cua-rectangle-mark-key)

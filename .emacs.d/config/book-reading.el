@@ -10,8 +10,8 @@
   :ensure t
   :config
   (define-key ereader-mode-map (kbd "g") nil)
-  (evil-define-key 'normal ereader-mode-map (kbd "C-g") 'ereader-goto-chapter)
-  (evil-define-key 'normal ereader-mode-map (kbd "G") 'ereader-follow-link))
+  (define-key ereader-mode-map (kbd "C-g") 'ereader-goto-chapter)
+  (define-key ereader-mode-map (kbd "C-S-g") 'ereader-follow-link))
 (defun bread-mode()
   (interactive)
   (sgml-mode)

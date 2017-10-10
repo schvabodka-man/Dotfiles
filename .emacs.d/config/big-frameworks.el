@@ -1,3 +1,9 @@
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(eval-when-compile
+  (require 'use-package))
+(package-refresh-contents)
 ;;usable with some packages that don't use helm stuff
 (use-package ivy
   :ensure t
@@ -6,20 +12,17 @@
   (setq ivy-height 20)
   (setq ivy-initial-inputs-alist nil)
   (setq ivy-use-virtual-buffers t)
-  :config (define-key evil-normal-state-map (kbd "C-w") 'ivy-switch-buffer)
-  (define-key ivy-minibuffer-map (kbd "C-v") 'evil-paste-before))
+  :bind (("C-M-w" . ivy-switch-buffer)))
 (use-package counsel
   :ensure t
   :after ivy
   :pin melpa-stable
-  :bind (("C-h C-k" . counsel-descbinds))
-  :config (define-key evil-normal-state-map (kbd "o") 'counsel-find-file)
-  (define-key evil-normal-state-map (kbd ";") 'counsel-M-x)
-  (define-key evil-normal-state-map (kbd "b") 'counsel-bookmark)
-  (define-key evil-normal-state-map (kbd "f") 'counsel-grep)
-  ;; (define-key evil-normal-state-map (kbd "c") 'counsel-colors-emacs)
-  ;; (define-key evil-normal-state-map (kbd "C") 'counsel-colors-web)
-  )
+  :bind (("C-;" . counsel-M-x)
+		 ("C-o" . counsel-find-file)
+		 ("C-b" . counsel-bookmark)
+		 ;; ("C-S-f" . counsel-ag)
+		 ("C-f" . counsel-grep)
+		 ("C-h C-k" . counsel-descbinds)))
 ;;kinda slow so i prefer counsel ag and grep
 ;; (use-package swiper
 ;;   :ensure t
@@ -66,15 +69,14 @@
   (setq company-idle-delay 0.2)
   (delete 'company-dabbrev company-backends)
   (delete 'company-ispell company-backends)
-  (setq company-require-match nil)
-  ;; (define-key evil-insert-state-map (kbd "<tab>") 'company-abort)
-  (delete '(company-dabbrev-code company-dabbrev company-keywords) company-backends)
-  (define-key evil-insert-state-map (kbd "<C-tab>") 'company-complete))
+  (delete '(company-dabbrev-code company-keywords) company-backends)
+  :bind ("<C-tab>" . company-complete))
 ;;snippets
 (use-package yasnippet
   :pin melpa-stable
   :ensure t
   :init (yas-global-mode 1)
+  :bind ("<C-iso-lefttab>" . company-yasnippet)
   :config
   (defalias 'snippet 'yas-expand)
   ;;i found this on the stackoverflow

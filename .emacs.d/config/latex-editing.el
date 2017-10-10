@@ -21,10 +21,10 @@
 										  :help "Run latexmk on file")
 										TeX-command-list)))
   (add-hook 'TeX-mode-hook '(lambda () (setq TeX-command-default "latexmk")))
-  (evil-define-key 'normal 'TeX-mode-map (kbd "<f2>") #'TeX-command-run-all)
-  (evil-define-key 'normal 'LaTeX-mode-map (kbd "<f2>") #'TeX-command-run-all)
-  (evil-define-key 'normal 'TeX-mode-map (kbd "l") #'ctrl-l-line-select)
-  (evil-define-key 'normal 'LaTeX-mode-map (kbd "l") #'ctrl-l-line-select))
+  (define-key 'TeX-mode-map (kbd "<f2>") #'TeX-command-run-all)
+  (define-key 'LaTeX-mode-map (kbd "<f2>") #'TeX-command-run-all)
+  (define-key 'TeX-mode-map (kbd "C-l") #'ctrl-l-line-select)
+  (define-key 'LaTeX-mode-map (kbd "C-l") #'ctrl-l-line-select))
 (use-package reftex
   :commands turn-on-reftex
   :init
@@ -39,9 +39,10 @@
   :config (add-to-list 'company-backends 'company-bibtex))
 (use-package latex-preview-pane
   :ensure t
-  :config (evil-define-key 'normal TeX-mode-map (kbd "<f1>") #'latex-preview-pane-mode)
-  (evil-define-key 'normal LaTeX-mode-map (kbd "<f1>") #'latex-preview-pane-mode)
-  (evil-define-key 'normal doc-view-mode-map (kbd "r") #'latex-preview-pane-update))
+  :config (define-key TeX-mode-map (kbd "<f1>") #'latex-preview-pane-mode)
+  (define-key LaTeX-mode-map (kbd "<f1>") #'latex-preview-pane-mode)
+  (define-key doc-view-mode-map (kbd "M-r") #'latex-preview-pane-update)
+  (define-key doc-view-mode-map (kbd "C-S-o") #'projectile-switch-project))
 ;; (use-package company-math
 ;;   :ensure t
 ;;   :config (add-to-list 'company-backends 'company-math-symbols-unicode)

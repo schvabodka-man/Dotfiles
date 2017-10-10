@@ -80,8 +80,8 @@
   (purpose-x-magit-single-on))
 (use-package ivy-purpose
   :ensure t
-  :config (define-key evil-normal-state-map (kbd "w") 'ivy-purpose-switch-buffer-with-some-purpose)
-  (define-key evil-normal-state-map (kbd "W") 'ivy-purpose-switch-buffer-with-purpose))
+  :bind (("C-w" . ivy-purpose-switch-buffer-with-some-purpose)
+		 ("C-S-w" . ivy-purpose-switch-buffer-with-purpose)))
 ;; (use-package golden-ratio
 ;;   :ensure t
 ;;   :config (golden-ratio-mode 1)

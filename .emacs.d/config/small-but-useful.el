@@ -1,9 +1,10 @@
 (use-package restclient
   :ensure t
   :config
-  (evil-define-key 'normal restclient-mode-map (kbd "<f1>") 'restclient-http-send-current-stay-in-window)
-  (evil-define-key 'normal restclient-mode-map (kbd ".") 'restclient-jump-next)
-  (evil-define-key 'normal restclient-mode-map (kbd ",") 'restclient-jump-prev)
+  (add-hook 'restclient-mode-hook
+			(lambda () (local-set-key (kbd "<M-f1>") #'restclient-http-send-current-stay-in-window)
+			  (local-set-key (kbd "C-.") #'restclient-jump-next)
+			  (local-set-key (kbd "C-,") #'restclient-jump-prev)))
   (defalias 'restclient 'restclient-mode)
   (defalias 'rest 'restclient-mode)
   (defalias 'restapi 'restclient-mode)
@@ -13,19 +14,20 @@
 ;;links hinting
 (use-package link-hint
   :ensure t
+  :bind (("M-g" . link-hint-open-link)
+		 ("M-S-g" . link-hint-copy-link))
   :config (defalias 'link-open 'link-hint-open-link)
-  (defalias 'link-copy 'link-hint-copy-link)
-  (define-key evil-normal-state-map (kbd "G") 'link-hint-open-link))
+  (defalias 'link-copy 'link-hint-copy-link))
 ;; (use-package minimap
 ;;   :ensure t
 ;;   :config
 ;;   (global-set-key (kbd "C-M-s") 'minimap-mode))
 ;;it must be by default in emacs
-;; (use-package multiple-cursors
-;;   :ensure t
-;;   :config
-;;   (global-set-key (kbd "C-S-<down>") 'mc/mark-next-like-this)
-;;   (global-set-key (kbd "C-S-<up>") 'mc/mark-previous-like-this))
+(use-package multiple-cursors
+  :ensure t
+  :config
+  (global-set-key (kbd "C-S-<down>") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C-S-<up>") 'mc/mark-previous-like-this))
 ;;local bookmarks for buffer
 ;; (use-package bm
 ;;   :ensure t

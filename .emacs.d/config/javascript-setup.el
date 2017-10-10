@@ -17,8 +17,8 @@
   :ensure t
   :after js2-mode
   :config (add-hook 'js2-mode-hook #'js2-refactor-mode)
-  (evil-define-key 'normal js2-refactor-mode-map (kbd "C-r") 'js2r-rename-var)
-  (evil-define-key 'normal js2-refactor-mode-map (kbd "C-k") 'js2r-kill)  
+  (define-key js2-refactor-mode-map (kbd "<S-<f1>") 'js2r-rename-var)
+  (define-key js2-refactor-mode-map (kbd "C-k") 'js2r-kill)  
   (defalias 'js-rename 'js2r-rename-var)
   (defalias 'js-log 'js2r-log-this)
   (defalias 'js-extract-function 'js2r-extract-function)
@@ -64,14 +64,7 @@
   :ensure t)
 (use-package web-beautify
   :ensure t
-  :config
-
-  (evil-define-key 'normal js2-mode-map (kbd "s") '(lambda ()
-													 (web-beautify-js)
-													 (save-buffer)))
-  (evil-define-key 'normal json-mode-map (kbd "s") '(lambda ()
-													  (web-beautify-js)
-													  (save-buffer)))
+  :config (define-key js2-mode-map (kbd "C-b") 'web-beautify-js)
   (defun web-beautify-based-on-mode ()
 	(if (string-match ".html" (buffer-file-name))
 		(progn
@@ -79,9 +72,8 @@
 	(if (string-match ".css" (buffer-file-name))
 		(progn
 		  (web-beautify-css))))
-  (evil-define-key 'normal web-mode-map (kbd "s") '(lambda ()
-													 (web-beautify-based-on-mode)
-													 (save-buffer))))
+  (define-key web-mode-map (kbd "C-b") '(lambda () (interactive) (web-beautify-based-on-mode)))
+  (define-key json-mode-map (kbd "C-b") 'web-beautify-js))
 ;; (use-package tern
 ;;   :ensure t)
 (use-package company-tern
@@ -90,9 +82,10 @@
   (add-hook 'js2-mode-hook 'tern-mode)
   (define-key tern-mode-keymap (kbd "M-.") nil)
   (define-key tern-mode-keymap (kbd "M-,") nil)
-  (evil-define-key 'normal tern-mode-keymap (kbd "d") #'tern-get-docs))
+  (define-key tern-mode-keymap (kbd "C-d") #'tern-get-docs)
+  (define-key tern-mode-keymap (kbd "C-j") #'tern-find-definition))
 (use-package jquery-doc
   :ensure t
   :config (jquery-doc-fetch-and-generate-data)
   (add-to-list 'company-backends 'company-jquery)
-  (evil-define-key 'normal js2-mode-map (kbd "C-d") #'jquery-doc))
+  (define-key js2-mode-map (kbd "C-M-d") #'jquery-doc))

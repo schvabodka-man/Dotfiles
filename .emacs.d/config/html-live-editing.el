@@ -9,9 +9,7 @@
   :ensure t
   :config
   (defalias 'emmet 'emmet-expand-yas)
-  (evil-define-key 'normal nxml-mode-map (kbd "e") 'emmet-expand-yas)
-  (evil-define-key 'normal html-mode-map (kbd "e") 'emmet-expand-yas)
-  (evil-define-key 'normal web-mode-map (kbd "e") 'emmet-expand-yas))
+  (global-set-key (kbd "C-e") 'emmet-expand-yas))
 (use-package company-web
   :ensure t
   :config

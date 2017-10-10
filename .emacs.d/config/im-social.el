@@ -22,13 +22,11 @@
 (defalias 'irc 'social)
 (defalias 'chat 'social)
 (defalias 'messenger 'social)
-(evil-define-key 'normal erc-mode-map (kbd "r") #'erc-channel-names)
-(evil-define-key 'normal erc-mode-map (kbd "o") #'erc-cmd-QUERY)
-(evil-define-key 'normal erc-mode-map (kbd "O") #'erc-join-channel)
-(evil-define-key 'normal erc-mode-map (kbd "<return>") #'erc-send-line)
-
 (add-hook 'erc-mode-hook
 		  (lambda ()
+			(local-set-key (kbd "M-r") #'erc-channel-names)
+			(local-set-key (kbd "C-o") #'erc-cmd-QUERY)
+			(local-set-key (kbd "C-S-o") #'erc-join-channel)
 			(local-set-key (kbd "M-n") (lambda ()
 										 (interactive)
 										 (split-window-horizontally)
