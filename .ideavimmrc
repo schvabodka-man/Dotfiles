@@ -1,9 +1,0 @@
-nnoremap f :action Find<CR>
-nnoremap , :action FindNext<CR>
-nnoremap . :action FindPrevious<CR>
-nnoremap Z :action $Redo<CR>
-nnoremap z :action $Undo<CR>
-
-nnoremap j :action GotoClass<CR>
-nnoremap J :action GotoFile<CR>
-nnoremap d :action QuickJavaDoc<CR>
