@@ -5,6 +5,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 \usepackage{hyperref}
+\usepackage[T2A]{fontenc}
 
 \title{$1}
 

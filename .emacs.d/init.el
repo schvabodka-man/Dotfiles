@@ -213,8 +213,10 @@
    (quote
 	(Custom-mode org-agenda-mode cfw:calendar-mode minibuffer-inactive-mode eshell-mode shell-mode emms-playlist-mode)))
  '(highlight-thing-what-thing (quote word))
- '(hl-paren-background-colors (quote ("white")))
- '(hl-paren-colors (quote ("magenta" "yellow" "VioletRed1" "medium orchid")))
+ '(hl-paren-background-colors nil)
+ '(hl-paren-colors
+   (quote
+	("magenta" "green" "yellow" "dodger blue" "spring green" "deep pink")))
  '(httpd-port 8088)
  '(js2-highlight-level 3)
  '(js2-idle-timer-delay 0.1)
@@ -239,7 +241,7 @@
  '(org-agenda-confirm-kill t)
  '(package-selected-packages
    (quote
-	(flycheck-kotlin inf-groovy groovy-imports org-ehtml nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
+	(dired-toggle-sudo flycheck-kotlin inf-groovy groovy-imports org-ehtml nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
  '(paradox-github-token t)
  '(popwin:adjust-other-windows nil)
  '(projectile-globally-ignored-directories
@@ -317,6 +319,7 @@
  '(eshell-git-prompt-powerline-not-clean-face ((t (:background "indian red" :foreground "black"))))
  '(highlight ((t (:background "#FFFFFF" :foreground "#000000"))))
  '(highlight-thing ((t (:inherit (quote hi-white)))))
+ '(hl-paren-face ((t (:underline t))) t)
  '(link ((t (:foreground "cyan1"))))
  '(minimap-active-region-background ((t (:background "#0e1112"))))
  '(minimap-font-face ((t (:height 30 :family "Fira Mono"))))

@@ -192,4 +192,24 @@ This includes both `y-or-n-p' and `yes-or-no-p'."
 	  ((#'y-or-n-p    :override (lambda (prompt) t))
 	   (#'yes-or-no-p :override (lambda (prompt) t)))
 	(apply function args)))
-(global-set-key (kbd "<C-SPC>") 'cua-rectangle-mark-key)
+(global-set-key (kbd "<C-SPC>") 'cua-rectangle-mark-mode)
+
+(defun sudo-edit (&optional arg)
+  "Edit currently visited file as root.
+
+With a prefix ARG prompt for a file to visit.
+Will also prompt for a file to visit if current
+buffer is not visiting a file."
+  (interactive "P")
+  (if (or arg (not buffer-file-name))
+      (find-file (concat "/sudo:root@localhost:"
+                         (ido-read-file-name "Find file(as root): ")))
+    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
+(global-set-key (kbd "C-M-o") 'sudo-edit)
+(defalias 'su-edit 'sudo-edit)
+(defalias 'root-edit 'sudo-edit)
+(defalias 'superuser-edit 'sudo-edit)
+(defalias 'edit-sudo 'sudo-edit)
+(defalias 'edit-su 'sudo-edit)
+(defalias 'edit-root 'sudo-edit)
+(defalias 'edit-superuser 'sudo-edit)

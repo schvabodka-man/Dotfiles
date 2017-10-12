@@ -257,6 +257,12 @@ function git-squash
 	git commit -m 'Squashed last $argv commits'
 end
 
+function zip
+	for arg in argv
+		/bin/zip -r $arg.zip $arg
+	end
+end
+
 set -U fish_key_bindings fish_default_key_bindings
 
 function nothing

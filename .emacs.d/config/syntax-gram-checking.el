@@ -6,7 +6,8 @@
 ;;   (define-key flyspell-mode-map (kbd "C-'") 'flyspell-correct-previous-word-generic))
 (use-package flyspell-correct-ivy
   :ensure t
-  :config (define-key flyspell-mode-map (kbd "C-\\") 'flyspell-correct-previous-word-generic))
+  :config (define-key flyspell-mode-map (kbd "C-'") 'flyspell-correct-previous-word-generic)
+  (define-key flyspell-mode-map (kbd "C-;") 'counsel-M-x))
 (setq flyspell-issue-message-flag nil)
 (setq flyspell-issue-welcome-flag nil)
 (mapcar (lambda (mode-hook) (add-hook mode-hook 'flyspell-prog-mode))

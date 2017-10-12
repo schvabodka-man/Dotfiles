@@ -644,3 +644,11 @@
   :config (add-hook 'dired-mode-hook
 					(lambda ()
 					  (local-set-key (kbd "M-S-d") #'dired-sidebar-toggle-sidebar))))
+(use-package dired-toggle-sudo
+  :ensure t
+  :config (defalias 'dired-root 'dired-toggle-sudo)
+  (defalias 'dired-su 'dired-toggle-sudo)
+  (defalias 'dired-superuser 'dired-toggle-sudo)
+  (add-hook 'dired-mode-hook
+			(lambda ()
+			  (local-set-key (kbd "<f1>") #'dired-toggle-sudo))))
