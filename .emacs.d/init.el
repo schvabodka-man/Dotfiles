@@ -351,3 +351,5 @@
  '(weather-metno-entry ((t (:inherit font-lock-variable-name-face :foreground "deep sky blue")))))
 (put 'dired-find-alternate-file 'disabled nil)
 ;;; init.el ends here
+(put 'upcase-region 'disabled nil)
+(put 'scroll-left 'disabled nil)

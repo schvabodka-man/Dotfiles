@@ -34,6 +34,7 @@ unbind common R
 unbind common U
 unbind common [
 unbind common \
+unbind common ?
 unbind common ]
 unbind common ^B
 unbind common ^C
@@ -204,8 +205,8 @@ bind common end win-bottom
 bind common enter win-activate
 bind common g push filter
 bind common G push live-filter
-bind common f search-start
-bind common F search-b-start
+bind common f search-next
+bind common F search-prev
 bind common y echo {}
 bind common home win-top
 bind common left seek -5

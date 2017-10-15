@@ -76,7 +76,6 @@
   :pin melpa-stable
   :ensure t
   :init (yas-global-mode 1)
-  :bind ("<C-iso-lefttab>" . company-yasnippet)
   :config
   (defalias 'snippet 'yas-expand)
   ;;i found this on the stackoverflow

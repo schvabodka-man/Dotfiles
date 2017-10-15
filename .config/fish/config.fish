@@ -33,6 +33,7 @@ set -x FZF_DEFAULT_OPTS "--preview '/usr/bin/src-hilite-lesspipe.sh {}' \
 --bind 'enter:execute(emacsclient -c {})+abort,\
 ctrl-y:execute(echo {} | xclip -selection clipboard)+abort,\
 ctrl-c:execute(cat {} | xclip -selection clipboard)+abort'"
+set -x PATH ~/.cargo/bin/ $PATH
 
 #shell bookmarks
 if test -e ~/.fishmarks/marks.fish
@@ -109,6 +110,10 @@ alias j "z"
 #better work with standart unix utils
 if test -e /bin/alder
 	alias tree 'alder'
+end
+
+if test -e ~/.cargo/bin/fd
+	alias find '~/.cargo/bin/fd -H -I'
 end
 
 if test -e /bin/pycp
@@ -196,6 +201,8 @@ alias xrdb-merge 'xrdb -merge ~/.Xresources'
 alias move 'mv'
 alias copy 'cp'
 alias lsa 'ls -a'
+alias lsl 'ls -l --block-size=M'
+
 alias emacs 'emacsclient -nw'
 alias emacs-daemon '/usr/bin/emacs --daemon'
 
@@ -265,33 +272,17 @@ end
 
 set -U fish_key_bindings fish_default_key_bindings
 
+alias wifi-list "nmcli dev wifi list"
+alias wifi-connect "nmcli dev wifi connect"
+alias wifi-ls "wifi-list"
+alias wifi-on "nmcli radio wifi on"
+alias wifi-off "nmcli radio wifi off"
+
 function nothing
 end
 
 function fish_user_key_bindings
 
-	# bind / __fish_toggle_comment_commandline
-	bind \ms sudope
-
-	bind \ck backward-kill-line
-	bind \ek kill-line
-
-	bind [1~ beginning-of-line
-	bind [4~ end-of-line
-
-	# bind -m insert \t force-repaint
-	# bind -m insert -k backspace backward-delete-char
-	# bind -k backspace backward-delete-char
-	# bind -M insert -m default \e force-repaint
-
-	# # bind k backward-delete-char
-	# bind K delete-char
-	# bind kw backward-kill-bigword
-	# bind kW kill-bigword
-	# bind kb backward-kill-line
-	# bind ks backward-kill-line
-	# bind kh backward-kill-line
-	# bind ke kill-line
 	bind -e d
 	bind -e D
 	bind -e dw
@@ -300,13 +291,6 @@ function fish_user_key_bindings
 	bind -e ds
 	bind -e dh
 	bind -e de
-
-	bind \x08 backward-kill-bigword
-	bind \[3\;5~ kill-bigword
-
-	#new line
-	bind \e\n commandline\ -i\ \\n
-	bind \e\r commandline\ -i\ \\n
 
 	#unbind useless shit
 	bind -e \cu
@@ -328,6 +312,20 @@ function fish_user_key_bindings
 	bind -e -k npage
 	bind -e \e\<
 	bind -e \e\>
+
+	bind -e \ca
+	bind -e \ce
+	bind -e \ey
+	bind -e \b
+	bind -e \cf
+	bind -e \cb
+	bind -e \ct
+	bind -e \ec
+	bind -e \et
+	bind -e \eu
+	bind -e \e
+	bind -e \eb
+	bind -e \ef
 
 	bind -e -M visual '$'
 	bind -e -M visual 'g$'
@@ -482,6 +480,42 @@ function fish_user_key_bindings
 	bind -e -M insert \ec
 	bind -e -M insert \eb
 	bind -e -M insert \ef
+
+	bind \ms sudope
+
+	bind \ck backward-kill-line
+	bind \ek kill-line
+
+	bind [1~ beginning-of-line
+	bind [4~ end-of-line
+
+	bind \x08 backward-kill-bigword
+	bind \[3\;5~ kill-bigword
+
+	#new line
+	bind \e\n commandline\ -i\ \\n
+	bind \e\r commandline\ -i\ \\n
+
+	#i don't want to change keycodes in st config
+	bind \x1b\x4f\x44 backward-word
+	bind \x1b\x4f\x43 forward-word
+	bind \[1\;5D backward-word
+	bind \[1\;5C forward-word
+
+	bind \x1b\x2f __fish_toggle_comment_commandline
+
+	# bind -m insert \t force-repaint
+	# bind -m insert -k backspace backward-delete-char
+	# bind -k backspace backward-delete-char
+	# bind -M insert -m default \e force-repaint
+	# # bind k backward-delete-char
+	# bind K delete-char
+	# bind kw backward-kill-bigword
+	# bind kW kill-bigword
+	# bind kb backward-kill-line
+	# bind ks backward-kill-line
+	# bind kh backward-kill-line
+	# bind ke kill-line
 end
 
 function fish_title

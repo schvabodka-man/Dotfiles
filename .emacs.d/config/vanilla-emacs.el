@@ -32,9 +32,14 @@
 (global-set-key (kbd "M-<right>") 'windmove-right)
 (global-set-key (kbd "M-q") 'delete-window)
 (global-set-key (kbd "C-q") 'kill-this-buffer)
+
+(global-set-key (kbd "M-u") nil)
+(global-set-key (kbd "M-l") nil)
+
+(global-set-key (kbd "C-\\") 'upcase-region)
+(global-set-key (kbd "C-S-\\") 'downcase-region)
+
 ;; (global-set-key (kbd "TAB") 'self-insert-command)
-;;redone backspace and del
-(global-set-key (kbd "C-<backspace>") 'ivy-backward-kill-word)
 ;;bookmark set
 (global-set-key (kbd "M-B") 'bookmark-set)
 ;;opening new scratch buffer
@@ -213,3 +218,45 @@ buffer is not visiting a file."
 (defalias 'edit-su 'sudo-edit)
 (defalias 'edit-root 'sudo-edit)
 (defalias 'edit-superuser 'sudo-edit)
+
+(defun my-delete-word (arg)
+  "Delete characters forward until encountering the end of a word.
+With argument, do this that many times.
+This command does not push text to `kill-ring'."
+  (interactive "p")
+  (delete-region
+   (point)
+   (progn
+     (forward-word arg)
+     (point))))
+
+(defun my-backward-delete-word (arg)
+  "Delete characters backward until encountering the beginning of a word.
+With argument, do this that many times.
+This command does not push text to `kill-ring'."
+  (interactive "p")
+  (my-delete-word (- arg)))
+
+(defun my-delete-line ()
+  "Delete text from current position to end of line char.
+This command does not push text to `kill-ring'."
+  (interactive)
+  (delete-region
+   (point)
+   (progn (end-of-line 1) (point)))
+  (delete-char 1))
+
+(defun my-delete-line-backward ()
+  "Delete text between the beginning of the line to the cursor position.
+This command does not push text to `kill-ring'."
+  (interactive)
+  (let (p1 p2)
+    (setq p1 (point))
+    (beginning-of-line 1)
+    (setq p2 (point))
+    (delete-region p1 p2)))
+
+(global-set-key (kbd "C-k") 'my-delete-line-backward) 
+(global-set-key (kbd "C-S-k") 'my-delete-line)
+(global-set-key (kbd "<C-delete>") 'my-delete-word)
+(global-set-key (kbd "<C-backspace>") 'my-backward-delete-word)

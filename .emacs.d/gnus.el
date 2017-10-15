@@ -70,12 +70,12 @@
 
 (setq gnus-article-mode-hook
       '(lambda ()
-		 (local-set-key (kbd "S-n") #'gnus-article-reply-with-original)
-		 (local-set-key (kbd "n") #'gnus-article-mail)
+		 (local-set-key (kbd "n") #'gnus-article-reply-with-original)
+		 (local-set-key (kbd "N") #'gnus-article-mail)
 		 (local-set-key (kbd "/") #'gnus-article-describe-briefly)
 		 (local-set-key (kbd "<C-RET>") #'gnus-article-show-summary)
 		 (local-set-key (kbd "<pageup>") #'gnus-article-prev-page)
-		 (local-set-key (kbd "C-S-q") #'kill-gnus)
+		 (local-set-key (kbd "C-M-q") #'kill-gnus)
 		 (local-set-key (kbd "C-w") #'ivy-purpose-switch-buffer-with-purpose)
 		 (local-set-key (kbd "w") #'ivy-purpose-switch-buffer-with-some-purpose)
 		 (local-set-key (kbd "<pagedown>") #'gnus-article-next-page)))
@@ -98,7 +98,7 @@
 		 (local-set-key (kbd "n") #'gnus-group-mail)
 		 (local-set-key (kbd "C-r") #'gnus-group-restart)
 		 (local-set-key (kbd "C-w") #'ivy-purpose-switch-buffer-with-purpose)
-		 (local-set-key (kbd "C-S-q") #'kill-gnus)
+		 (local-set-key (kbd "C-M-q") #'kill-gnus)
 		 (local-set-key (kbd "w") #'ivy-purpose-switch-buffer-with-some-purpose)
 		 (local-set-key (kbd "C-S-f") #'gnus-group-make-nnir-group)
 		 (local-set-key (kbd "u") #'gnus-group-unmark-group)
@@ -116,7 +116,7 @@
 		 (local-set-key (kbd "C-w") #'ivy-purpose-switch-buffer-with-purpose)
 		 (local-set-key (kbd "w") #'ivy-purpose-switch-buffer-with-some-purpose)
 
-		 (local-set-key (kbd "C-S-q") #'kill-gnus)
+		 (local-set-key (kbd "C-M-q") #'kill-gnus)
 		 (local-set-key (kbd "<C-left>") #'gnus-summary-prev-article)
 		 (local-set-key (kbd "<C-right>") #'gnus-summary-next-article)
 		 (local-set-key (kbd "<C-S-left>") #'gnus-summary-prev-unread-article)
@@ -146,7 +146,7 @@
 (add-hook 'message-mode-hook (lambda ()
 							   (local-set-key (kbd "M-i") #'mml-attach-file)
 							   (local-set-key (kbd "M-k") #'message-dont-send)
-							   (local-set-key (kbd "C-S-q") #'message-dont-send)))
+							   (local-set-key (kbd "C-M-q") #'message-dont-send)))
 
 (defalias 'send-email 'message-send-and-exit)
 (defalias 'send-message 'message-send-and-exit)
