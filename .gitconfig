@@ -33,11 +33,17 @@ list = ls
 #squash latest commits in one
 squash = "!sh -c \"git rebase -i HEAD~$@\" -"
 #view history of current branch
-history = "!fish -c \"git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --max-count=50 --full-history --since=2.weeks (git rev-parse --abbrev-ref HEAD) -- \" -"
-history-file = "!fish -c \"git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --max-count=50 --full-history --since=2.weeks (git rev-parse --abbrev-ref HEAD) -- $@ \" -"
+history = "!fish -c \"git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --reverse --abbrev-commit --max-count=50 --full-history --since=2.weeks (git rev-parse --abbrev-ref HEAD) -- \" -"
+history-file = "!fish -c \"git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --reverse --abbrev-commit --max-count=50 --full-history --since=2.weeks (git rev-parse --abbrev-ref HEAD) -- $@ \" -"
 file-history = history-file
 file-log = history-file
 log-file = history-file
+log-all = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+history-all = log-all
+all-history = log-all
+all-log = log-all
+branches-history = log-all
+history-branches = log-all
 #moving one head at time
 undo = reset --hard HEAD~1
 redo = reset --hard HEAD@{1}
@@ -49,3 +55,30 @@ back = undo
 goto = reset --hard
 jump = goto
 g = goto
+#list tags
+tag-ls = log --no-walk --tags --decorate --format=format:'%C(red)%h%C(reset) %C(yellow)%d%C(reset) %C(bold green)%s' --decorate=full
+#yes, i do like shitload of aliases
+tags = tag-ls
+tags-ls = tag-ls
+tag-list = tag-ls
+tags-list = tag-ls
+ls-tag = tag-ls
+list-tag = tag-ls
+ls-tags = tag-ls
+list-tags = tag-ls
+#list branches
+branch-ls = branch --list -a -vv
+branch-list = branch-ls
+ls-branch = branch-ls
+list-branch = branch-ls
+branches = branch-ls
+branches-remote = branch --list -r -vv
+branch-ls-remote = branches-remote
+branch-list-remote = branches-remote
+ls-branch-remote = branches-remote
+list-branch-remote = branches-remote
+branches-local = branch -vv
+branch-ls-local = branches-local
+branch-list-local = branches-local
+ls-branch-local = branches-local
+list-branch-local = branches-local

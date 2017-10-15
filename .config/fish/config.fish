@@ -272,8 +272,16 @@ end
 
 set -U fish_key_bindings fish_default_key_bindings
 
-alias wifi-list "nmcli dev wifi list"
-alias wifi-connect "nmcli dev wifi connect"
+function wifi-list
+	nmcli dev wifi rescan > /dev/null
+	nmcli dev wifi list
+end
+
+function wifi-connect
+	nmcli dev wifi rescan > /dev/null
+	nmcli dev wifi connect $argv
+end
+
 alias wifi-ls "wifi-list"
 alias wifi-on "nmcli radio wifi on"
 alias wifi-off "nmcli radio wifi off"
