@@ -12,7 +12,7 @@ a = add
 d = diff
 b = checkout -b
 m = merge
-p = "!sh -c \"git push -u origin (git rev-parse --abbrev-ref HEAD)\" -"
+p = "!fish -c \"git push -u origin (git rev-parse --abbrev-ref HEAD)\" -"
 pm = push -u origin master
 #tags
 t = "!sh -c \"git tag -a $@ -m \"Version $@\" \" -"
