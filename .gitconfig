@@ -5,6 +5,7 @@ name = schvabodka-man
 helper = /home/user/bin/pass-git-helper/pass-git-helper
 [core]
 autocrlf = input
+excludesfile = /home/user/.gitignore_global
 [alias]
 c = "!fish -c \"git commit -a -m \"$@\"\" -"
 a = add
@@ -35,7 +36,7 @@ squash = "!sh -c \"git rebase -i HEAD~$@\" -"
 #view history of current branch
 history = "!fish -c \"git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --full-history (git rev-parse --abbrev-ref HEAD) -- \" -"
 history-file = "!fish -c \"git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --full-history (git rev-parse --abbrev-ref HEAD) -- $@ \" -"
-history-file-all = "!fish -c \"git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --full-history (git rev-parse --abbrev-ref HEAD) -- $@ \" -"
+history-file-all = "!fish -c \"git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --full-history --all $@ \" -"
 file-history = history-file
 file-log = history-file
 log-file = history-file

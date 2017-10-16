@@ -21,14 +21,13 @@
 		 ("C-o" . counsel-find-file)
 		 ("C-b" . counsel-bookmark)
 		 ;; ("C-S-f" . counsel-ag)
-		 ("C-f" . counsel-grep)
+		 ;; ("C-f" . counsel-grep)
 		 ("C-h C-k" . counsel-descbinds)))
-;;kinda slow so i prefer counsel ag and grep
-;; (use-package swiper
-;;   :ensure t
-;;   :pin melpa-stable
-;;   :after ivy
-;;   :bind (("C-f" . swiper)))
+(use-package swiper
+  :ensure t
+  :pin melpa-stable
+  :after ivy
+  :bind (("C-f" . swiper)))
 ;;el-get
 (use-package el-get
   :pin melpa
