@@ -11,7 +11,7 @@ a = add
 d = diff
 b = checkout -b
 m = merge
-p = push -u origin
+p = "!sh -c \"git push -u origin (git rev-parse --abbrev-ref HEAD)\" -"
 pm = push -u origin master
 #tags
 t = "!sh -c \"git tag -a $@ -m \"Version $@\" \" -"
@@ -33,11 +33,15 @@ list = ls
 #squash latest commits in one
 squash = "!sh -c \"git rebase -i HEAD~$@\" -"
 #view history of current branch
-history = "!fish -c \"git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --reverse --abbrev-commit --max-count=50 --full-history --since=2.weeks (git rev-parse --abbrev-ref HEAD) -- \" -"
-history-file = "!fish -c \"git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --reverse --abbrev-commit --max-count=50 --full-history --since=2.weeks (git rev-parse --abbrev-ref HEAD) -- $@ \" -"
+history = "!fish -c \"git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --full-history (git rev-parse --abbrev-ref HEAD) -- \" -"
+history-file = "!fish -c \"git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --full-history (git rev-parse --abbrev-ref HEAD) -- $@ \" -"
+history-file-all = "!fish -c \"git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --full-history (git rev-parse --abbrev-ref HEAD) -- $@ \" -"
 file-history = history-file
 file-log = history-file
 log-file = history-file
+file-history-all = history-file-all
+file-log-all = history-file-all
+log-file-all = history-file-all
 log-all = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 history-all = log-all
 all-history = log-all
@@ -82,3 +86,4 @@ branch-ls-local = branches-local
 branch-list-local = branches-local
 ls-branch-local = branches-local
 list-branch-local = branches-local
+gui = "!fish -c \"git-smart-gui $@\" -"
