@@ -32,7 +32,7 @@ ls = "!fish -c \"git ls-tree -r (git rev-parse --abbrev-ref HEAD)\" -"
 lsa = ls #just in case
 list = ls
 #squash latest commits in one
-squash = "!sh -c \"git rebase -i HEAD~$@\" -"
+squash = "!sh -c \"git stash save && git rebase -i HEAD~$@\" -"
 #view history of current branch
 history = "!fish -c \"git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --full-history (git rev-parse --abbrev-ref HEAD) -- \" -"
 history-file = "!fish -c \"git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --full-history (git rev-parse --abbrev-ref HEAD) -- $@ \" -"
@@ -50,14 +50,14 @@ all-log = log-all
 branches-history = log-all
 history-branches = log-all
 #moving one head at time
-undo = reset --hard HEAD~1
-redo = reset --hard HEAD@{1}
+undo = !git stash save && git reset --hard HEAD~1
+redo = !git stash save && reset --hard HEAD@{1}
 prev = undo
 previous = undo
 next = redo
 back = undo
 #same ones
-goto = reset --hard
+goto = "!sh -c \"git stash save && git reset --hard $@\" -"
 jump = goto
 g = goto
 #list tags
