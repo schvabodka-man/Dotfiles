@@ -18,7 +18,8 @@
   (defalias 'multi-eshell-next 'multi-eshell-switch)
   (defalias 'multi-eshell-prev 'multi-eshell-go-back)
   (defalias 'multi-eshell-previous 'multi-eshell-go-back)
-  :bind (("C-~" . multi-eshell)))
+  ;; :bind (("M-~'" . multi-eshell))
+  )
 ;;bookmarks for eshell
 (el-get-bundle eshell-bmk
   :url "https://gist.githubusercontent.com/kkatsuyuki/fa930411a86169c3bb1f03337d4af280/raw/be5bcc2e519a3ab9e67ea0f5238a3e0b75b0084e/eshell-bmk.el"
@@ -54,7 +55,6 @@
 	(set-window-dedicated-p currentbuf nil)
 	(set-window-buffer currentbuf newbuf)
 	(shell newbuf)))
-(global-set-key (kbd "M-~") 'new-shell)
 (setenv "JAVA_HOME" "/usr/lib/jvm/java")
 (setenv "GRADLE_HOME" "/usr/share/gradle")
 (setenv "GOPATH" "/home/user/Go")

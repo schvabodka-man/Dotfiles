@@ -128,12 +128,12 @@
   (if (file-exists-p  "/usr/local/bin/emacsclient")
 	  (setq magit-emacsclient-executable "/usr/local/bin/emacsclient")
 	(setq magit-emacsclient-executable (executable-find "emacsclient"))))
-(use-package magithub
-  :after magit
-  :ensure t
-  :config (magithub-feature-autoinject t)
-  :config (add-hook 'magit-mode-hook (lambda ()
-									   (local-set-key (kbd "g") #'magithub-dispatch-popup))))
+;; (use-package magithub
+;;   :after magit
+;;   :ensure t
+;;   :config (magithub-feature-autoinject t)
+;;   :config (add-hook 'magit-mode-hook (lambda ()
+;;									   (local-set-key (kbd "g") #'magithub-dispatch-popup))))
 (use-package git-gutter-fringe
   :ensure t
   :config (set-face-foreground 'git-gutter-fr:modified "yellow")
@@ -142,22 +142,22 @@
   (global-git-gutter-mode +1))
 (use-package git-timemachine
   :ensure t
-  :bind ("M-t" . git-timemachine)
+  ;; :bind ("M-t" . git-timemachine)
   :config   (define-key git-timemachine-mode-map (kbd ",") #'git-timemachine-show-previous-revision)
   (define-key git-timemachine-mode-map (kbd ".") #'git-timemachine-show-next-revision)
-  (define-key git-timemachine-mode-map (kbd "C-q") #'git-timemachine-quit)
+  (define-key git-timemachine-mode-map (kbd "q") #'git-timemachine-quit)
+  (defalias 'git-history 'git-timemachine)
+  (defalias 'git-log 'git-timemachine)
   (define-key git-timemachine-mode-map (kbd "n") nil)
   (define-key git-timemachine-mode-map (kbd "p") nil)
-  (define-key git-timemachine-mode-map (kbd "b") nil)
-  (define-key git-timemachine-mode-map (kbd "q") nil))
-(use-package git-messenger
-  :ensure t
-  :commands git-messenger:popup-message
-  :bind (("C-M-t" . git-messenger:popup-message))
-  :config (setq git-messenger:show-detail t))
+  (define-key git-timemachine-mode-map (kbd "b") nil))
+;; (use-package git-messenger
+;;   :ensure t
+;;   :commands git-messenger:popup-message
+;;   :config (setq git-messenger:show-detail t))
 (use-package git-link
   :ensure t
-  :bind ("C-M-u" . git-link))
+  :bind ("C-M-y" . git-link))
 (add-hook 'with-editor-mode-hook
 		  (lambda ()
 			(local-set-key (kbd "C-s") #'with-editor-finish)

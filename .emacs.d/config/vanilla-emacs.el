@@ -134,6 +134,11 @@
 (cua-mode t)
 (setq cua-auto-tabify-rectangles nil)
 (electric-indent-mode)
+;;vim like selection
+(transient-mark-mode 1)
+(global-set-key (kbd "<M-SPC>") 'cua-rectangle-mark-mode)
+(global-set-key (kbd "<C-SPC>") 'cua-set-mark)
+;;nice selection
 ;;pretty symbols
 (defalias 'beautiful-symbols-mode 'prettify-symbols-mode)
 (defalias 'beautiful-characters-mode 'prettify-symbols-mode)
@@ -197,7 +202,6 @@ This includes both `y-or-n-p' and `yes-or-no-p'."
 	  ((#'y-or-n-p    :override (lambda (prompt) t))
 	   (#'yes-or-no-p :override (lambda (prompt) t)))
 	(apply function args)))
-(global-set-key (kbd "<C-SPC>") 'cua-rectangle-mark-mode)
 
 (defun sudo-edit (&optional arg)
   "Edit currently visited file as root.

@@ -258,7 +258,7 @@
  '(symon-mode t)
  '(symon-monitors
    (quote
-	(symon-linux-network-rx-monitor symon-linux-network-tx-monitor time-date)))
+	(symon-linux-network-rx-monitor symon-linux-network-tx-monitor time-date wifi eth-monitor)))
  '(symon-sparkline-thickness 1)
  '(symon-sparkline-type (quote plain))
  '(undo-tree-auto-save-history t)
