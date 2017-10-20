@@ -7,6 +7,8 @@
 
 (global-set-key (kbd "M-d") 'dired)
 
+(set-face-foreground 'dired-directory "white")
+
 (add-hook 'dired-mode-hook
 		  (lambda ()
 			(local-set-key (kbd "<") nil)
@@ -133,6 +135,8 @@
 			(local-set-key (kbd "C-r") #'dired-do-find-regexp-and-replace)
 			(local-set-key (kbd "r") #'dired-do-rename)
 			(local-set-key (kbd "m") #'dired-mark)
+			(local-set-key (kbd "a") #'dired-toggle-marks)
+			(local-set-key (kbd "M") #'dired-mark-files-regexp)
 			(local-set-key (kbd "<return>") #'dired-find-file)
 			(local-set-key (kbd "<mouse-1>") #'dired-find-file)
 			(local-set-key (kbd "R") #'dired-do-rename-regexp)
@@ -140,7 +144,7 @@
 			(local-set-key (kbd "C-p") #'dired-do-print)
 			(local-set-key (kbd "i") #'image-dired)
 			(local-set-key (kbd "u") #'dired-unmark)
-			(local-set-key (kbd "S-u") #'dired-unmark-all-marks)
+			(local-set-key (kbd "U") #'dired-unmark-all-marks)
 			(local-set-key (kbd "C-S-f") #'dired-do-find-regexp)
 			(local-set-key (kbd "C-S-u") #'dired-unmark-all-files)
 			(local-set-key (kbd "`") #'shell-instead-dired)
@@ -164,6 +168,10 @@
 (defalias 'ch-group 'dired-do-chgrp)
 (defalias 'zip 'dired-do-compress)
 (defalias 'compress-file 'dired-do-compress)
+
+(use-package diredful
+  :ensure t
+  :config (diredful-mode 1))
 
 (use-package dired-filter
   :ensure t

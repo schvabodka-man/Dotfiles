@@ -7,7 +7,7 @@
 ;;usable with some packages that don't use helm stuff
 (use-package ivy
   :ensure t
-  :pin melpa-stable
+  :pin melpa
   :init (ivy-mode)
   (setq ivy-height 20)
   (setq ivy-initial-inputs-alist nil)

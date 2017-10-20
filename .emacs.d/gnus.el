@@ -12,6 +12,9 @@
 
 (setq gnus-asynchronous t)
 
+(setq gnus-use-cache t)
+(setq gnus-cache-directory "~/Email/cache")
+
 (setq mail-source-directory "~/Email")
 
 (setq message-auto-save-directory "~/Mail/drafts")
@@ -125,8 +128,8 @@
 		 (local-set-key (kbd ".") #'gnus-summary-next-article)
 		 (local-set-key (kbd "<") #'gnus-summary-prev-unread-article)
 		 (local-set-key (kbd ">") #'gnus-summary-next-unread-article)
-		 (local-set-key (kbd "<up>") #'gnus-summary-prev-article)
-		 (local-set-key (kbd "<down>") #'gnus-summary-next-article)
+		 (local-set-key (kbd "<up>") #'previous-line)
+		 (local-set-key (kbd "<down>") #'next-line)
 		 (local-set-key (kbd "<S-up>") #'gnus-summary-prev-unread-article)
 		 (local-set-key (kbd "<S-down>") #'gnus-summary-next-unread-article)
 		 (local-set-key (kbd "N") #'gnus-summary-reply)

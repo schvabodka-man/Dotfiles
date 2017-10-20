@@ -196,6 +196,16 @@ alias project-javascript 'project-js'
 alias javascript-project 'project-js'
 alias js-project 'project-js'
 
+#currently only for scala
+function project-android
+	touch .projectile
+	echo -n "Api level: "
+	read apilevel
+	echo -n "App name: "
+	read appname
+	sbt "gen-android android-$apilevel com.scvh.apps $appname"
+end
+
 #moar useful aliases
 alias xrdb-merge 'xrdb -merge ~/.Xresources'
 alias move 'mv'
@@ -300,6 +310,15 @@ end
 alias wifi-ls "wifi-list"
 alias wifi-on "nmcli radio wifi on"
 alias wifi-off "nmcli radio wifi off"
+
+alias music-import 'import-music'
+
+function weather
+	curl wttr.in/"uzhgorod"
+end
+alias forecast 'weather'
+
+alias screenshot 'scrot'
 
 function nothing
 end
@@ -544,4 +563,3 @@ end
 function fish_title
 	true
 end
-# trap 'tmux kill-session' EXIT

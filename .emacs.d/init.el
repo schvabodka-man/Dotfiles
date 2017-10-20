@@ -103,6 +103,8 @@
 (load "~/.emacs.d/config/im-social")
 ;;sauron
 (load "~/.emacs.d/config/sauron-notify")
+;;regex
+(load "~/.emacs.d/config/regex-builder")
 ;;byte compile everything
 (defun byte-compile-init-dir ()
   "Byte-compile all your dotfiles."
