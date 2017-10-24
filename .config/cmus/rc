@@ -12,6 +12,7 @@ unbind common +
 unbind common ,
 unbind common -
 unbind common .
+unbind common ,
 unbind common 1
 unbind common 2
 unbind common 3
@@ -53,6 +54,7 @@ unbind common e
 unbind common end
 unbind common enter
 unbind common f
+unbind common F
 unbind common g
 unbind common h
 unbind common home
@@ -185,8 +187,8 @@ bind browser . toggle show_hidden
 bind browser backspace browser-up
 bind browser enter win-activate
 bind browser r win-update
-bind common , seek -
-bind common . seek +1m
+bind common { seek -
+bind common } seek +1m
 bind common 1 view tree
 bind common 2 view sorted
 bind common 3 view queue
@@ -205,8 +207,8 @@ bind common end win-bottom
 bind common enter win-activate
 bind common g push filter
 bind common G push live-filter
-bind common f search-next
-bind common F search-prev
+bind common , search-next
+bind common . search-prev
 bind common y echo {}
 bind common home win-top
 bind common left seek -5

@@ -3,11 +3,11 @@
   (package-install 'use-package))
 (eval-when-compile
   (require 'use-package))
-(package-refresh-contents)
-;;usable with some packages that don't use helm stuff
+(if (internet-up-p)
+	(package-refresh-contents))
 (use-package ivy
   :ensure t
-  :pin melpa
+  :pin melpa-stable
   :init (ivy-mode)
   (setq ivy-height 20)
   (setq ivy-initial-inputs-alist nil)
@@ -17,17 +17,17 @@
   :ensure t
   :after ivy
   :pin melpa-stable
-  :bind (("C-;" . counsel-M-x)
+  :bind (("M-x" . counsel-M-x)
 		 ("C-o" . counsel-find-file)
 		 ("C-b" . counsel-bookmark)
 		 ;; ("C-S-f" . counsel-ag)
-		 ;; ("C-f" . counsel-grep)
+		 ("C-f" . counsel-grep)
 		 ("C-h C-k" . counsel-descbinds)))
-(use-package swiper
-  :ensure t
-  :pin melpa-stable
-  :after ivy
-  :bind (("C-f" . swiper)))
+;; (use-package swiper
+;;   :ensure t
+;;   :pin melpa-stable
+;;   :after ivy
+;;   :bind (("C-f" . swiper)))
 ;;el-get
 (use-package el-get
   :pin melpa
@@ -69,7 +69,7 @@
   (delete 'company-dabbrev company-backends)
   (delete 'company-ispell company-backends)
   (delete '(company-dabbrev-code company-keywords) company-backends)
-  :bind ("<C-tab>" . company-complete))
+  :bind ("<tab>" . company-complete))
 ;;snippets
 (use-package yasnippet
   :pin melpa-stable

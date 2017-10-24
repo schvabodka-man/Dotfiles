@@ -20,9 +20,13 @@
 						 ("melpa" . "http://melpa.org/packages/")
 						 ("SC"   . "http://joseito.republika.pl/sunrise-commander/")))
 (package-initialize)
-(load "~/.emacs.d/config/big-frameworks")
-;;keybindings
+(defun clean-elc-files ()
+  (shell-command "/bin/rm ~/.emacs.d/*.elc")
+  (shell-command "/bin/rm ~/.emacs.d/config/*.elc"))
+(clean-elc-files)
 (load "~/.emacs.d/config/vanilla-emacs")
+;;keybindings
+(load "~/.emacs.d/config/big-frameworks")
 ;;for editing fish scripts
 (load "~/.emacs.d/config/shell-scripting")
 ;;undo redo
@@ -243,7 +247,7 @@
  '(org-agenda-confirm-kill t)
  '(package-selected-packages
    (quote
-	(dired-toggle-sudo flycheck-kotlin inf-groovy groovy-imports org-ehtml nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
+	(conkeror-minor-mode dired-toggle-sudo flycheck-kotlin inf-groovy groovy-imports org-ehtml nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
  '(paradox-github-token t)
  '(popwin:adjust-other-windows nil)
  '(projectile-globally-ignored-directories

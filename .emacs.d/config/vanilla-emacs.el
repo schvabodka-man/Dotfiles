@@ -264,3 +264,8 @@ This command does not push text to `kill-ring'."
 (global-set-key (kbd "C-S-k") 'my-delete-line)
 (global-set-key (kbd "<C-delete>") 'my-delete-word)
 (global-set-key (kbd "<C-backspace>") 'my-backward-delete-word)
+
+;;from this thread https://emacs.stackexchange.com/questions/7653/elisp-code-to-check-for-internet-connection
+(defun internet-up-p (&optional host)
+  (= 0 (call-process "ping" nil nil nil "-c" "1" "-W" "1" 
+					 (if host host "www.google.com"))))

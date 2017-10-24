@@ -140,6 +140,7 @@
 			(local-set-key (kbd "<return>") #'dired-find-file)
 			(local-set-key (kbd "<mouse-1>") #'dired-find-file)
 			(local-set-key (kbd "R") #'dired-do-rename-regexp)
+			(local-set-key (kbd "M-r") #'revert-buffer)
 			(local-set-key (kbd "v") #'dired-do-rename)
 			(local-set-key (kbd "C-p") #'dired-do-print)
 			(local-set-key (kbd "i") #'image-dired)
@@ -177,7 +178,7 @@
   :ensure t
   :config (add-hook 'dired-mode-hook
 					(lambda ()
-					  (local-set-key (kbd "F") #'dired-filter-load-saved-filters))))
+					  (local-set-key (kbd "M-f") #'dired-filter-load-saved-filters))))
 (use-package dired-subtree
   :ensure t
   :config (add-hook 'dired-mode-hook
@@ -648,10 +649,10 @@
 ;;   :bind (("M-s" . neotree-toggle)))
 (use-package dired-sidebar
   :ensure t
-  :bind (("M-S-d" . dired-sidebar-toggle-with-current-directory))
+  :bind (("C-M-d" . dired-sidebar-toggle-with-current-directory))
   :config (add-hook 'dired-mode-hook
 					(lambda ()
-					  (local-set-key (kbd "M-S-d") #'dired-sidebar-toggle-sidebar))))
+					  (local-set-key (kbd "C-M-d") #'dired-sidebar-toggle-sidebar))))
 (use-package dired-toggle-sudo
   :ensure t
   :config (defalias 'dired-root 'dired-toggle-sudo)

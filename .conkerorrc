@@ -1,0 +1,95 @@
+download_buffer_automatic_open_target = OPEN_NEW_BUFFER_BACKGROUND;
+can_kill_last_buffer = false;
+url_completion_use_history = true;
+url_completion_use_bookmarks = true;
+
+remove_hook("mode_line_hook", mode_line_adder(clock_widget));
+
+require("favicon");
+add_hook("mode_line_hook", mode_line_adder(buffer_icon_widget), true);
+read_buffer_show_icons = true;
+
+add_hook("mode_line_hook", mode_line_adder(loading_count_widget), true);
+
+load_paths.unshift("chrome://conkeror-contrib/content/");
+require("mode-line-buttons.js");
+mode_line_add_buttons(standard_mode_line_buttons, true);
+
+define_key(help_buffer_keymap, "M-q", "kill-current-buffer");
+define_key(help_buffer_keymap, "M-Q", "kill-buffer");
+define_key(help_buffer_keymap, "M-f", "isearch-forward");
+define_key(help_buffer_keymap, "M-F", "isearch-backward");
+define_key(help_buffer_keymap, "M-left", "buffer-previous");
+define_key(help_buffer_keymap, "M-right", "buffer-next");
+define_key(help_buffer_keymap, "M-S-left", "buffer-move-backward");
+define_key(help_buffer_keymap, "M-S-right", "buffer-move-forward");
+define_key(help_buffer_keymap, "M-w", "switch-to-buffer");
+
+define_key(content_buffer_normal_keymap, "M-left", "buffer-previous");
+define_key(content_buffer_normal_keymap, "M-right", "buffer-next");
+define_key(content_buffer_normal_keymap, "M-S-left", "buffer-move-backward");
+define_key(content_buffer_normal_keymap, "M-S-right", "buffer-move-forward");
+define_key(content_buffer_normal_keymap, "M-w", "switch-to-buffer");
+define_key(content_buffer_normal_keymap, "M-f", "isearch-forward");
+define_key(content_buffer_normal_keymap, "M-F", "isearch-backward");
+define_key(content_buffer_normal_keymap, "M-s", "save-page");
+define_key(content_buffer_normal_keymap, "M-S", "save");
+define_key(content_buffer_normal_keymap, "M-o", "find-url");
+define_key(content_buffer_normal_keymap, "M-O", "find-url-new-buffer");
+define_key(content_buffer_normal_keymap, "C-M-o", "find-alternate-url");
+define_key(content_buffer_normal_keymap, "M-q", "kill-current-buffer");
+define_key(content_buffer_normal_keymap, "M-Q", "kill-buffer");
+define_key(content_buffer_normal_keymap, "C-M-q", "kill-other-buffers");
+define_key(content_buffer_normal_keymap, "M-return", "make-window");
+define_key(content_buffer_normal_keymap, "M-S-return", "find-url-new-window");
+define_key(content_buffer_normal_keymap, "C-left", "back");
+define_key(content_buffer_normal_keymap, "C-right", "forward");
+define_key(content_buffer_normal_keymap, "M-y", "copy");
+define_key(content_buffer_normal_keymap, "M-r", "reload");
+define_key(content_buffer_normal_keymap, "M-R", "stop-loading");
+define_key(content_buffer_normal_keymap, "M-~", "shell-command-on-url");
+define_key(content_buffer_normal_keymap, "M-`", "shell-command-on-file");
+define_key(content_buffer_normal_keymap, "M-g", "follow");
+define_key(content_buffer_normal_keymap, "M-G", "follow-new-buffer-background");
+define_key(content_buffer_normal_keymap, "C-M-g", "follow-new-buffer-background");
+define_key(content_buffer_normal_keymap, ",", "isearch-continue-backward");
+define_key(content_buffer_normal_keymap, ".", "isearch-continue-forward");
+define_key(content_buffer_normal_keymap, "C-c", "kill-ring-save");
+
+define_key(text_keymap, "C-v", "yank");
+define_key(text_keymap, "C-x", "kill-region");
+define_key(text_keymap, "C-z", "cmd_undo");
+define_key(text_keymap, "C-Z", "cmd_redo");
+define_key(text_keymap, "C-\\", "upcase_word");
+define_key(text_keymap, "C-|", "downcase_word");
+define_key(text_keymap, "C-a", "cmd_selectAll");
+define_key(text_keymap, "C-c", "kill-ring-save");
+
+define_key(content_buffer_textarea_keymap, "C-v", "yank");
+define_key(content_buffer_textarea_keymap, "C-x", "kill-region");
+define_key(content_buffer_textarea_keymap, "C-z", "cmd_undo");
+define_key(content_buffer_textarea_keymap, "C-Z", "cmd_redo");
+define_key(content_buffer_textarea_keymap, "C-\\", "upcase_word");
+define_key(content_buffer_textarea_keymap, "C-|", "downcase_word");
+define_key(content_buffer_textarea_keymap, "C-a", "cmd_selectAll");
+define_key(content_buffer_textarea_keymap, "C-c", "kill-ring-save");
+
+define_key(content_buffer_textarea_keymap, "C-home", "beginning-of-first-line");
+define_key(content_buffer_textarea_keymap, "C-end", "end-of-first-line");
+define_key(content_buffer_textarea_keymap, "home", "beginning-of-line");
+define_key(content_buffer_textarea_keymap, "end", "end-of-line");
+
+require("session.js");
+
+session_auto_save_auto_load = true;
+session_auto_save_auto_load_fn = session_auto_save_load_window_current;
+
+require("new-tabs.js");
+// require("tab-bar.js");
+
+session_pref("xpinstall.whitelist.required", false);
+user_pref("extensions.checkCompatibility", false);
+
+session_pref("general.useragent.compatMode.firefox", true);
+
+add_hook("mode_line_hook", mode_line_adder(downloads_status_widget));

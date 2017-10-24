@@ -52,4 +52,6 @@
   :config (global-whitespace-cleanup-mode t))
 (use-package tldr
   :ensure t
-  :config (tldr-update-docs))
+  :config
+  (if (internet-up-p)
+	  (tldr-update-docs)))

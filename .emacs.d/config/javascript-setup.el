@@ -83,9 +83,17 @@
   (define-key tern-mode-keymap (kbd "M-.") nil)
   (define-key tern-mode-keymap (kbd "M-,") nil)
   (define-key tern-mode-keymap (kbd "C-d") #'tern-get-docs)
-  (define-key tern-mode-keymap (kbd "C-j") #'tern-find-definition))
+  ;; (define-key tern-mode-keymap (kbd "C-j") #'tern-find-definition)
+  )
 (use-package jquery-doc
   :ensure t
   :config (jquery-doc-fetch-and-generate-data)
   (add-to-list 'company-backends 'company-jquery)
-  (define-key js2-mode-map (kbd "C-M-d") #'jquery-doc))
+  (define-key js2-mode-map (kbd "C-S-d") #'jquery-doc))
+(use-package conkeror-minor-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist (cons (rx ".conkerorrc" eos) 'js2-mode))
+  (add-hook 'js2-mode-hook (lambda ()
+							 (when (string-match "conkeror" (buffer-file-name))
+							   (conkeror-minor-mode 1)))))
