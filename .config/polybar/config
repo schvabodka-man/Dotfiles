@@ -5,19 +5,20 @@ margin-bottom = 5
 [bar/Bar]
 botton = false
 dock = false
-wm-restack = true
 width = 100%
 height = 17
+padding-left = 0
+padding-right = 0
 
-modules-left = i3 volume keyboard wireless-network date music
+modules-left = i3 volume keyboard wireless-network date
 
-font-0 = FiraMono:size=9
+font-0 = Roboto Mono for Powerline:size=11
 font-1 = FontAwesome:size=9;-2
 
-background = #cc0e1112
+background = #0e1112
 foreground = #FFFFFF
 
-underline-size = 2.5
+underline-size = 0
 
 [module/i3]
 type = internal/i3
@@ -38,58 +39,37 @@ interval = 1.0
 date = %d.%m
 time = %H:%M:%S
 label = %date% %time%
-label-underline = #ff0000
+label-background = #32cd32
+label-foreground = #000000
+format-suffix            = 
+format-suffix-background = #0e1112
+format-suffix-foreground = #32cd32
 
 [module/volume]
 type = internal/volume
 label-volume =  %percentage%
 label-muted =  0
-label-volume-underline = #00ff0a
-label-mutedp-underline = #00ff0a
+label-volume-background = #00ff00
+label-mutedp-background = #00ff00
+label-volume-foreground = #000000
+label-mutedp-foreground = #000000
+format-volume-suffix            = 
+format-volume-suffix-background = #ffd600
+format-volume-suffix-foreground = #00ff00
+format-mutedp-suffix            = 
+format-mutedp-suffix-background = #ffd600
+format-mutedp-suffix-foreground = #00ff00
 
 [module/keyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
 blacklist-1 = scroll lock
 label-layout = %layout%
-format =   <label-layout> <label-indicator>
-format-underline = #ffd600
-
-[module/meetup]
-type = custom/script
-exec = ~/.config/fish/panel/meetup.fish
-format-underline = #f200ff
-tail = true
-
-[module/calendar]
-type = custom/script
-exec = ~/.config/fish/panel/calendar.fish
-format-underline = #00ff0a
-tail = true
-
-[module/todo]
-type = custom/script
-exec = ~/.config/fish/panel/todo.fish
-format-underline = #00ff0a
-tail = true
-
-[module/weather]
-type = custom/script
-exec = ~/.config/fish/panel/weather.fish
-format-underline = #ff0000
-interval = 7200
-
-[module/music]
-type = custom/script
-exec = ~/.config/fish/panel/music.fish
-format-underline = #f200ff
-tail = true
-
-[module/news]
-type = custom/script
-exec = ~/.config/fish/panel/rss.fish
-format-underline = #ff0000
-interval = 60
+format = %{B#ffd600}   <label-layout> <label-indicator>
+format-foreground = #000000
+format-suffix = 
+format-suffix-background = #ff0000
+format-suffix-foreground = #ffd600
 
 #[module/battery]
 #type = internal/battery
@@ -107,22 +87,23 @@ interval = 60
 #label-charging = %percentage%
 #label-discharging = %percentage%
 
-[module/github]
-type = internal/github
-token = ${file:/home/user/.config/github/access.token}
-label =  %notifications%
-label-underline = #00ffe0
-empty-notifications = true
-
 [module/wireless-network]
 type = internal/network
 interface = wlo1
 label-connected = %essid%
 label-disconnected = 0 —
+format-connected-background = #ff0000
+format-disconnected-background = #ff0000
+format-connected-foreground = #000000
+format-disconnected-foreground = #000000
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #00ffe0
 format-disconnected = <label-disconnected>
-format-disconnected-underline = #00ffe0
+format-disconnected-suffix = 
+format-disconnected-suffix-background = #00ff7f
+format-disconnected-suffix-foreground = #ff0000
+format-connected-suffix = 
+format-connected-suffix-background = #32cd32
+format-connected-suffix-foreground = #ff0000
 ramp-signal-0 = 0
 ramp-signal-1 = 1
 ramp-signal-2 = 2

@@ -18,8 +18,8 @@
   :after ivy
   :pin melpa-stable
   :bind (("M-x" . counsel-M-x)
-		 ("C-o" . counsel-find-file)
-		 ("C-b" . counsel-bookmark)
+		 ("M-o" . counsel-find-file)
+		 ("M-b" . counsel-bookmark)
 		 ;; ("C-S-f" . counsel-ag)
 		 ("C-f" . counsel-grep)
 		 ("C-h C-k" . counsel-descbinds)))

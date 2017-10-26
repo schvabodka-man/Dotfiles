@@ -54,7 +54,7 @@
 ;;docker
 (load "~/.emacs.d/config/docker-integration")
 ;;monitoring
-(load "~/.emacs.d/config/system-monitoring")
+;; (load "~/.emacs.d/config/system-monitoring")
 ;;books
 (load "~/.emacs.d/config/book-reading")
 ;;brainfuck unironically. i like brainfuck because of its simplicity

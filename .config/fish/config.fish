@@ -5,10 +5,7 @@ set -g theme_display_date no
 set -g theme_color_scheme dark
 set -g theme_display_hg yes
 #Homes!
-set -x JAVA_HOME (which java)
-set -x GRADLE_HOME (which gradle)
-set -x GROOVY_HOME (which groovy)
-set -x SCALA_HOME (which scala)
+set -x JAVA_HOME '/usr/lib/jvm/java-1.8.0-openjdk'
 set -x GOPATH '/home/user/Go'
 set -x LGOBIN '/home/user/Go/bin'
 set -x ANDROID_HOME '/home/user/Android/Sdk'
@@ -35,12 +32,11 @@ ctrl-y:execute(echo {} | xclip -selection clipboard)+abort,\
 ctrl-c:execute(cat {} | xclip -selection clipboard)+abort'"
 set -x PATH ~/.cargo/bin/ $PATH
 
-#shell bookmarks
+source ~/.config/fish/panel.fish
+
 if test -e ~/.fishmarks/marks.fish
 	. ~/.fishmarks/marks.fish
 end
-
-source ~/.config/fish/panel.fish
 
 if test -e ~/.local/share/icons-in-terminal/icons.fish
 	source ~/.local/share/icons-in-terminal/icons.fish
@@ -69,7 +65,6 @@ if test -e ~/bin/up/up.fish
 end
 
 if test -e ~/bin/transfersh/transfer.fish
-	source ~/bin/up/up.fish
 	source ~/bin/transfersh/transfer.fish
 	alias upload 'transfer'
 end
@@ -168,10 +163,8 @@ if test -e /bin/pgcli
 	alias psql 'pgcli'
 end
 
-if test -e ~/bin/fzf/bin/fzf
-	alias fzf "~/bin/fzf/bin/fzf"
-	alias search 'fzf'
-end
+alias fzf "~/bin/fzf/bin/fzf"
+alias search 'fzf'
 
 #aliases for creating projects
 alias project 'touch .projectile'
@@ -295,7 +288,6 @@ function zip
 	end
 end
 
-set -U fish_key_bindings fish_default_key_bindings
 
 function wifi-list
 	nmcli dev wifi rescan > /dev/null
@@ -320,19 +312,9 @@ alias forecast 'weather'
 
 alias screenshot 'scrot'
 
-function nothing
-end
+set -U fish_key_bindings fish_default_key_bindings
 
 function fish_user_key_bindings
-
-	bind -e d
-	bind -e D
-	bind -e dw
-	bind -e dW
-	bind -e db
-	bind -e ds
-	bind -e dh
-	bind -e de
 
 	#unbind useless shit
 	bind -e \cu
@@ -369,42 +351,9 @@ function fish_user_key_bindings
 	bind -e \eb
 	bind -e \ef
 
-	bind -e -M visual '$'
-	bind -e -M visual 'g$'
-	bind -e -M visual \e\[F
-	bind -e -M visual '^'
-	bind -e -M visual 0
-	bind -e -M visual 'g^'
-	bind -e -M visual \e\[H
-
-	bind -e -M insert \ck
-	bind -e -M insert \cy
-	bind -e -M insert \e\#
-	bind -e -M insert \n
-	bind -e -m insert \n
-
-	bind -e -M visual b
-	bind -e -M visual B
-	bind -e -M visual ge
-	bind -e -M visual gE
-	bind -e -M visual w
-	bind -e -M visual W
-	bind -e -M visual e
-	bind -e -M visual E
-
-	bind -e -k up
-	bind -e -k down
-	bind -e -M visual -k up
-	bind -e -M visual -k down
-	bind -e -M insert -k up
-	bind -e -M insert -k down
-
 	bind -e :q
 	bind -e h
 	bind -e l
-	bind -e -m insert I
-	bind -e -m insert a
-	bind -e -m insert A
 	bind -e gg
 	bind -e G
 	bind -e '$'
@@ -443,9 +392,6 @@ function fish_user_key_bindings
 	bind -e ygE
 	bind -e j
 	bind -e b
-	#unbind i and v
-	bind -e -m visual v
-	bind -e -m insert i
 
 	bind -e '~'
 	bind -e f
@@ -475,53 +421,6 @@ function fish_user_key_bindings
 	bind -e 'd^'
 	bind -e dge
 	bind -e dgE
-
-	bind -e -M insert \cd
-	bind -e -M insert -k f1
-	bind -e -M insert \eh
-	bind -e -M insert \ep
-
-	bind -e -M insert \cl
-	bind -e -M insert \cc
-	bind -e -M insert \cu
-	bind -e -M insert \cw
-
-	bind -e -m insert S
-	bind -e -m insert cc
-	bind -e -m insert C
-	bind -e -m insert 'c$'
-	bind -e -m insert 'c^'
-	bind -e -m insert cw
-	bind -e -m insert cW
-	bind -e -m insert ciw
-	bind -e -m insert ciW
-	bind -e -m insert caw
-	bind -e -m insert caW
-	bind -e -m insert ce
-	bind -e -m insert cE
-	bind -e -m insert cb
-	bind -e -m insert cB
-	bind -e -m insert cge
-	bind -e -m insert cgE
-	bind -e -M insert \cx
-
-	bind -e -M insert \cp
-	bind -e -M insert \cn
-	bind -e \cp
-	bind -e \cn
-
-	bind -e -M insert \ca
-	bind -e -M insert \ce
-	bind -e -M insert \ey
-	bind -e -M insert \b
-	bind -e -M insert \cf
-	bind -e -M insert \cb
-	bind -e -M insert \ct
-	bind -e -M insert \et
-	bind -e -M insert \eu
-	bind -e -M insert \ec
-	bind -e -M insert \eb
-	bind -e -M insert \ef
 
 	bind \ms sudope
 
