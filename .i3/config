@@ -5,7 +5,7 @@ set $mod Mod4
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec ~/bin/st/st -e "tmux"
+bindsym $mod+Return exec xfce4-terminal -x "tmux"
 
 #Rofi
 bindcode $mod+47 exec rofi -show drun -hide-scrollbar -fullscreen
@@ -132,7 +132,7 @@ exec --no-startup-id dropbox
 #compositing
 exec --no-startup-id compton -CGb
 #panel
-exec --no-startup-id polybar Bar
+exec --no-startup-id ~/.config/dzen2/dzen2.sh
 #emacs
 exec --no-startup-id emacs --daemon
 #tmux

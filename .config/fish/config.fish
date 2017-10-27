@@ -32,12 +32,6 @@ ctrl-y:execute(echo {} | xclip -selection clipboard)+abort,\
 ctrl-c:execute(cat {} | xclip -selection clipboard)+abort'"
 set -x PATH ~/.cargo/bin/ $PATH
 
-source ~/.config/fish/panel.fish
-
-if test -e ~/.fishmarks/marks.fish
-	. ~/.fishmarks/marks.fish
-end
-
 if test -e ~/.local/share/icons-in-terminal/icons.fish
 	source ~/.local/share/icons-in-terminal/icons.fish
 end
@@ -70,9 +64,59 @@ if test -e ~/bin/transfersh/transfer.fish
 end
 
 if test -e /usr/local/bin/grc
-	source ~/.config/fish/grc-cleaned.fish
-else if test -e /bin/grc
-	source ~/.config/fish/grc-cleaned.fish
+	or test -e /bin/grc
+	alias cvs 'grc cvs'
+	alias df 'grc df'
+	alias dnf 'grc dnf'
+	alias dig 'grc dig'
+	alias gcc 'grc gcc'
+	alias g++ 'grc g++'
+	alias ifconfig 'grc ifconfig'
+	alias make 'grc make'
+	alias mount 'grc mount'
+	alias mtr 'grc mtr'
+	alias netstat 'grc netstat'
+	alias ping 'grc ping'
+	alias ps 'grc ps'
+	alias tail 'grc tail'
+	alias traceroute 'grc traceroute'
+	alias wdiff 'grc wdiff'
+	alias blkid 'grc blkid'
+	alias du 'grc du'
+	alias dnf 'grc dnf'
+	alias docker 'grc docker'
+	alias docker-machine 'grc docker-machine'
+	alias env 'grc env'
+	alias id 'grc id'
+	# alias ip 'grc ip'
+	alias iostat 'grc iostat'
+	alias last 'grc last'
+	alias lsattr 'grc lsattr'
+	alias lsblk 'grc lsblk'
+	alias lspci 'grc lspci'
+	alias lsmod 'grc lsmod'
+	alias lsof 'grc lsof'
+	alias getfacl 'grc getfacl'
+	alias getsebool 'grc getsebool'
+	alias ulimit 'grc ulimit'
+	alias uptime 'grc uptime'
+	alias nmap 'grc nmap'
+	alias fdisk 'grc fdisk'
+	alias findmnt 'grc findmnt'
+	alias free 'grc free'
+	alias semanage 'grc semanage'
+	alias sar 'grc sar'
+	alias ss 'grc ss'
+	alias sysctl 'grc sysctl'
+	alias systemctl 'grc systemctl'
+	alias stat 'grc stat'
+	alias showmount 'grc showmount'
+	alias tune2fs 'grc tune2fs'
+	alias tcpdump 'grc tcpdump'
+	alias tune2fs 'grc tune2fs'
+	alias vmstat 'grc vmstat'
+	alias w 'grc w'
+	alias who 'grc who'
 end
 
 # Custom alias for listing files when moving to directory
@@ -288,7 +332,6 @@ function zip
 	end
 end
 
-
 function wifi-list
 	nmcli dev wifi rescan > /dev/null
 	nmcli dev wifi list
@@ -311,6 +354,15 @@ end
 alias forecast 'weather'
 
 alias screenshot 'scrot'
+
+alias lock 'i3lock -c "0e1112"'
+alias desktop-lock 'lock'
+alias lock-desktop 'lock'
+
+#without sourcing works faster
+function tmux-alternative-right
+	echo "#[fg=colour126,bg=default] #[fg=default,bg=colour126] #H"
+end
 
 set -U fish_key_bindings fish_default_key_bindings
 

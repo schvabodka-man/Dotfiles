@@ -25,9 +25,9 @@ news() {
 	local unreadcounter=$(/bin/cat ~/.elfeed/index | /bin/grep unread | wc -l)
 	if [ $unreadcounter -gt 0 ]
 	then
-		echo "^fn(FontAwesome-11)^fn(DroidSansMono-12)  $unreadcounter"
+		echo "^fn(FontAwesome-11)^fn(DroidSansMono-13)  $unreadcounter"
 	else
-		echo "^fn(FontAwesome-11)^fn(DroidSansMono-12)  —"
+		echo "^fn(FontAwesome-11)^fn(DroidSansMono-13)  —"
 	fi
 }
 
@@ -35,9 +35,9 @@ webip() {
 	local ip=$(/bin/dig +short myip.opendns.com @resolver1.opendns.com)
 	if [[ $ip =~ [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3} ]]
 	then
-		echo "^fn(FontAwesome-11)^fn(DroidSansMono-12) $ip"
+		echo "^fn(FontAwesome-11)^fn(DroidSansMono-13) $ip"
 	else
-		echo "^fn(FontAwesome-11)^fn(DroidSansMono-12) —"
+		echo "^fn(FontAwesome-11)^fn(DroidSansMono-13) —"
 	fi
 }
 
@@ -46,9 +46,9 @@ localip() {
 	if [[ $hostname =~ 192. ]]
 	then
 		local ip=$(hostname -I | perl -n -e '/(192.[0-9]+.[0-9]+.[0-9]+)/ && print "$1\n"')
-		echo "^fn(FontAwesome-11)^fn(DroidSansMono-12) $ip"
+		echo "^fn(FontAwesome-11)^fn(DroidSansMono-13) $ip"
 	else
-		echo "^fn(FontAwesome-11)^fn(DroidSansMono-12) —"
+		echo "^fn(FontAwesome-11)^fn(DroidSansMono-13) —"
 	fi
 }
 
@@ -59,15 +59,15 @@ cmusformatted() {
 	local stat=$(cmus-remote -Q 2>/dev/null | grep status | perl -n -e '/status (.+)/ && print "$1\n"')
 	if [ $stat == "stopped" ]
 	then
-		echo "^fn(FontAwesome-11)^fn(DroidSansMono-12) $artist — $number. $track"
+		echo "^fn(FontAwesome-11)^fn(DroidSansMono-13) $artist — $number. $track"
 	elif [ $stat == "playing" ]
 	then
-		echo "^fn(FontAwesome-11)^fn(DroidSansMono-12)  $artist — $number. $track"
+		echo "^fn(FontAwesome-11)^fn(DroidSansMono-13)  $artist — $number. $track"
 	elif [ $stat == "paused" ]
 	then
-		echo "^fn(FontAwesome-11)^fn(DroidSansMono-12) $artist — $number. $track"
+		echo "^fn(FontAwesome-11)^fn(DroidSansMono-13) $artist — $number. $track"
 	else
-		echo "^fn(FontAwesome-11)^fn(DroidSansMono-12) —"
+		echo "^fn(FontAwesome-11)^fn(DroidSansMono-13) —"
 	fi
 }
 
@@ -78,18 +78,15 @@ generated_output() {
 		local news=$(news)
 		local webipt=$(webip)
 		local localip=$(localip)
-		local cmus=$(cmusformatted)
 		local text=""
 
-		text+="^fg(#ffffff)^fn(DroidSansMono-12) ^bg(#b22222) ^fn(FontAwesome-11)^fn(DroidSansMono-12)$meetup ^fn(powerlinesymbols-12)^fg(#b22222)^bg(#8b008b)"
-		text+="^fg(#ffffff)^bg(#8b008b)^fn(DroidSansMono-12)$weather ^fn(powerlinesymbols-12)^fg(#8b008b)^bg(#7cfc00)"
-		text+="^fg(#000000)^bg(#7cfc00)$news^fn(powerlinesymbols-12)^fg(#7cfc00)^bg(#f08080)"
-		text+="^fg(#000000)^bg(#ff4500)$localip^fn(powerlinesymbols-12)^fg(#ff4500)^bg(#20b2aa)"
-		text+="^fg(#000000)^bg(#20b2aa)$webipt^fn(powerlinesymbols-12)^fg(#20b2aa)^bg(#f08080)"
-		text+="^fg(#000000)^bg(#f08080)$cmus^fn(powerlinesymbols-12)^fg(#f08080)^bg(#0e1112)"
+		text+="^fg(#b22222)^bg(#0e1112)^fn(powerlinesymbols-12)^fg(#ffffff)^bg(#b22222)^fn(FontAwesome-11)^fn(DroidSansMono-13)$meetup"	text+="^fg(#8b008b)^bg(#b22222)^fn(powerlinesymbols-12)^fg(#ffffff)^bg(#8b008b)^fn(DroidSansMono-13)$weather "
+		text+="^fg(#7cfc00)^bg(#8b008b)^fn(powerlinesymbols-12)^fg(#000000)^bg(#7cfc00)$news"
+		text+="^fg(#ff4500)^bg(#7cfc00)^fn(powerlinesymbols-12)^fg(#000000)^bg(#ff4500)$localip"
+		text+="^fg(#20b2aa)^bg(#ff4500)^fn(powerlinesymbols-12)^fg(#000000)^bg(#20b2aa)$webipt"
 		echo $text
 
-		sleep 10
+		sleep 5
 	done
 }
 
@@ -97,15 +94,18 @@ fast_dzen() {
 	while :; do
 		local layout=$(layout)
 		local time=$(date +'%a %m-%d %H:%M:%S')
+		local cmus=$(cmusformatted)
 		local text=""
 
-		text+="^fg(#000000)^bg(#ffff00)$layout^fn(powerlinesymbols-12)^fg(#ffff00)^bg(#ff69b4)"
-		text+="^fg(#000000)^bg(#ff69b4)^fn(DroidSansMono-12) ^fn(FontAwesome-11)^fn(DroidSansMono-12) $time ^fn(powerlinesymbols-12)^fg(#ff69b4)^bg(#0e1112)"
+		text+="^p(0)^fg(#000000)^bg(#ffff00)$layout^fn(powerlinesymbols-12)^fg(#ffff00)^bg(#ff69b4)"
+		text+="^fg(#000000)^bg(#ff69b4)^fn(DroidSansMono-13) ^fn(FontAwesome-11)^fn(DroidSansMono-13) $time ^fn(powerlinesymbols-12)^fg(#ff69b4)^bg(#b22222)"
+		text+="^fg(#FFFFFF)^bg(#b22222)$cmus^fn(powerlinesymbols-12)^fg(#b22222)^bg(#0e1112)"
+
+
 		echo $text
 
 		sleep 1
 	done
 }
 
-fast_dzen | dzen2 -dock -h 17 -ta l -fg "#FFFFFF" -bg "#0e1112"
-# generated_output | dzen2 -dock -h 17 -ta l -fg "#FFFFFF" -bg "#0e1112"
+fast_dzen | dzen2 -dock -h 15 -ta l -fg "#FFFFFF" -bg "#0e1112" & generated_output | dzen2 -dock -y 1600 -h 15 -ta r -fg "#FFFFFF" -bg "#0e1112"

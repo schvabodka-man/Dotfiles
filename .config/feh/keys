@@ -39,8 +39,8 @@ scroll_up Up
 scroll_down Down
 scroll_left_page C-Left
 scroll_right_page C-Right
-scroll_up_page C-Down Prior
-scroll_down_page C-Up Next
+scroll_up_page C-Up Prior
+scroll_down_page C-Down Next
 
 jump_first Home
 jump_last End

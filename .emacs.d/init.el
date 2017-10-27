@@ -54,7 +54,7 @@
 ;;docker
 (load "~/.emacs.d/config/docker-integration")
 ;;monitoring
-;; (load "~/.emacs.d/config/system-monitoring")
+(load "~/.emacs.d/config/system-monitoring")
 ;;books
 (load "~/.emacs.d/config/book-reading")
 ;;brainfuck unironically. i like brainfuck because of its simplicity
@@ -109,6 +109,8 @@
 (load "~/.emacs.d/config/sauron-notify")
 ;;regex
 (load "~/.emacs.d/config/regex-builder")
+;;integration with some desktop stuff
+(load "~/.emacs.d/config/desktop-integration")
 ;;byte compile everything
 (defun byte-compile-init-dir ()
   "Byte-compile all your dotfiles."
