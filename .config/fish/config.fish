@@ -32,10 +32,6 @@ ctrl-y:execute(echo {} | xclip -selection clipboard)+abort,\
 ctrl-c:execute(cat {} | xclip -selection clipboard)+abort'"
 set -x PATH ~/.cargo/bin/ $PATH
 
-if test -e ~/.local/share/icons-in-terminal/icons.fish
-	source ~/.local/share/icons-in-terminal/icons.fish
-end
-
 if test -e ~/bin/pip-fish/pip.fish
 	source ~/bin/pip-fish/pip.fish
 end
@@ -166,13 +162,7 @@ end
 
 alias cat 'bcat'
 
-if test -e ~/bin/ls-icons/binary/bin/ls
-	alias ls '~/bin/ls-icons/binary/bin/ls --color'
-end
-
-if test -e ~/bin/ls-icons/binary/bin/dir
-	alias dir '~/bin/ls-icons/binary/bin/dir --color'
-end
+alias ls 'colorls'
 
 if test -e /bin/colordiff
 	alias diff 'colordiff'
@@ -194,6 +184,38 @@ function git
 		/bin/git $argv
 	end
 end
+
+function aria
+	~/bin/aria2rpc/aria2rpc addUri $argv -d ~/Downloads
+end
+alias download "aria"
+alias aria2 "aria"
+alias aria-list "~/bin/aria2rpc/aria2rpc tellActive"
+alias aria2-list "aria-list"
+alias download-list "aria-list"
+alias downloads-list "aria-list"
+alias downloads "aria-list"
+alias aria-pause "~/bin/aria2rpc/aria2rpc pause"
+alias aria2-pause "aria-pause"
+alias download-pause "aria-pause"
+alias aria-stop "~/bin/aria2rpc/aria2rpc remove"
+alias aria2-stop "aria-stop"
+alias download-stop "aria-stop"
+alias aria-remove "aria-stop"
+alias aria2-remove "aria-remove"
+alias download-remove "aria-remove"
+alias aria-status "~/bin/aria2rpc/aria2rpc tellStatus"
+alias aria2-status "aria-status"
+alias download-status "aria-status"
+alias aria-unpause "~/bin/aria2rpc/aria2rpc tellUnpause"
+alias aria2-unpause "aria-unpause"
+alias download-unpause "aria-unpause"
+alias aria-resume "aria-unpause"
+alias aria2-resume "aria-resume"
+alias download-resume "aria-resume"
+alias aria-resume "aria-unpause"
+alias aria2-continue "aria-continue"
+alias download-continue "aria-continue"
 
 #sql wrappers
 if test -e /bin/mycli

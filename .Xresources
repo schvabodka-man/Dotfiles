@@ -22,5 +22,8 @@ rofi.padding: 300
 rofi.line-margin: 0
 rofi.separator-style: none
 
+dzen2.foreground: #ffffff
+dzen2.background: #0e1112
+
 Emacs.font: Fira Mono 12
 

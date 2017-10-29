@@ -41,6 +41,18 @@ webip() {
 	fi
 }
 
+wififormatted() {
+	if /bin/nmcli dev wifi list | grep -v "SSID" | grep "^\*" > /dev/null
+	then
+		#little bit of overhead but who cares, it's a shell script anyway
+		local wifiname=$(/bin/nmcli dev wifi list | grep -v "SSID" | perl -n -e '/\* +(\w+) +\w+ +\d+ +\d+ \w+\/\w+ +\d+ +(\W+)/ && print "$1\n"')
+		local bars=$(/bin/nmcli dev wifi list | grep -v "SSID" | perl -n -e '/\* +(\w+) +\w+ +\d+ +\d+ \w+\/\w+ +\d+ +(\W+)/ && print "$2\n"')
+		echo "^fn(DroidSansMono-13) $bars $wifiname"
+	else
+		echo "^fn(FontAwesome-11)^fn(DroidSansMono-13) —"
+	fi
+}
+
 localip() {
 	local hostname=$(hostname -I)
 	if [[ $hostname =~ 192. ]]
@@ -71,19 +83,45 @@ cmusformatted() {
 	fi
 }
 
+volumelevel() {
+	local result=$(amixer get Master)
+	local soundstate=$(echo $result | perl -n -e '/\[(\w+)\]/ && print "$1\n"' | head -n 1)
+	local volume=$(echo $result | perl -n -e '/(\d+%)/ && print "$1\n"' | head -n 1)
+	local volumeNumber=$(echo $volume | tr -d "%")
+	if [ $soundstate == "on" ]
+	then
+		if [ $volumeNumber -ge 50 ]
+		then
+			echo "^fn(FontAwesome-11)^fn(DroidSansMono-13) $volume"
+		else
+			echo "^fn(FontAwesome-11)^fn(DroidSansMono-13) $volume"
+		fi
+	else
+		echo "^fn(FontAwesome-11)^fn(DroidSansMono-13)MUTE — $volume"
+	fi
+}
+
+downloads_aria() {
+	local number=$(~/bin/aria2rpc/aria2rpc tellActive | grep gid | wc -l)
+	echo "^fn(FontAwesome-11)^fn(DroidSansMono-13) $number"
+}
+
 generated_output() {
 	while :; do
 		local meetup=$(meetup)
 		local weather=$(weather)
-		local news=$(news)
 		local webipt=$(webip)
 		local localip=$(localip)
+		local wifi=$(wififormatted)
+		local aria=$(downloads_aria)
+
 		local text=""
 
-		text+="^fg(#b22222)^bg(#0e1112)^fn(powerlinesymbols-12)^fg(#ffffff)^bg(#b22222)^fn(FontAwesome-11)^fn(DroidSansMono-13)$meetup"	text+="^fg(#8b008b)^bg(#b22222)^fn(powerlinesymbols-12)^fg(#ffffff)^bg(#8b008b)^fn(DroidSansMono-13)$weather "
-		text+="^fg(#7cfc00)^bg(#8b008b)^fn(powerlinesymbols-12)^fg(#000000)^bg(#7cfc00)$news"
-		text+="^fg(#ff4500)^bg(#7cfc00)^fn(powerlinesymbols-12)^fg(#000000)^bg(#ff4500)$localip"
+		text+="^fg(#ffff00)^bg(#0e1112)^fn(powerlinesymbols-12)^fg(#000000)^bg(#ffff00)$aria"
+		text+="^fg(#ff69b4)^bg(#ffff00)^fn(powerlinesymbols-12)^fg(#000000)^bg(#ff69b4)$wifi"	text+="^fg(#b22222)^bg(#ff69b4)^fn(powerlinesymbols-12)^fg(#ffffff)^bg(#b22222)^fn(FontAwesome-11)^fn(DroidSansMono-13)$meetup"	text+="^fg(#8b008b)^bg(#b22222)^fn(powerlinesymbols-12)^fg(#ffffff)^bg(#8b008b)^fn(DroidSansMono-13)$weather "
+		text+="^fg(#ff4500)^bg(#8b008b)^fn(powerlinesymbols-12)^fg(#000000)^bg(#ff4500)$localip"
 		text+="^fg(#20b2aa)^bg(#ff4500)^fn(powerlinesymbols-12)^fg(#000000)^bg(#20b2aa)$webipt"
+
 		echo $text
 
 		sleep 5
@@ -95,17 +133,17 @@ fast_dzen() {
 		local layout=$(layout)
 		local time=$(date +'%a %m-%d %H:%M:%S')
 		local cmus=$(cmusformatted)
+		local volume=$(volumelevel)
 		local text=""
 
 		text+="^p(0)^fg(#000000)^bg(#ffff00)$layout^fn(powerlinesymbols-12)^fg(#ffff00)^bg(#ff69b4)"
 		text+="^fg(#000000)^bg(#ff69b4)^fn(DroidSansMono-13) ^fn(FontAwesome-11)^fn(DroidSansMono-13) $time ^fn(powerlinesymbols-12)^fg(#ff69b4)^bg(#b22222)"
-		text+="^fg(#FFFFFF)^bg(#b22222)$cmus^fn(powerlinesymbols-12)^fg(#b22222)^bg(#0e1112)"
-
+		text+="^fg(#FFFFFF)^bg(#b22222)$cmus^fn(powerlinesymbols-12)^fg(#b22222)^bg(#20b2aa)"
+		text+="^fg(#000000)^bg(#20b2aa)$volume^fn(powerlinesymbols-12)^fg(#20b2aa)^bg(#0e1112)"
 
 		echo $text
-
 		sleep 1
 	done
 }
 
-fast_dzen | dzen2 -dock -h 15 -ta l -fg "#FFFFFF" -bg "#0e1112" & generated_output | dzen2 -dock -y 1600 -h 15 -ta r -fg "#FFFFFF" -bg "#0e1112"
+fast_dzen | dzen2 -dock -h 15 -ta l & generated_output | dzen2 -dock -y 1600 -h 15 -ta r

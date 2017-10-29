@@ -135,5 +135,8 @@ exec --no-startup-id compton -CGb
 exec --no-startup-id ~/.config/dzen2/dzen2.sh
 #emacs
 exec --no-startup-id emacs --daemon
+exec --no-startup-id emacs --daemon=news -q -l ~/.emacs.d.news/init.el
 #tmux
 exec --no-startup-id tmux source ~/.config/tmux/tmux.conf
+#aria daemon
+exec --no-startup-id aria2c --daemon=true --enable-rpc --rpc-listen-all -j50 -D

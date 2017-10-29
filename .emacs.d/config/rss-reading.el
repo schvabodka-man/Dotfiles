@@ -231,8 +231,6 @@
   (define-key elfeed-show-mode-map (kbd "+") nil)
   (define-key elfeed-show-mode-map (kbd "-") nil)
 
-  (define-key elfeed-search-mode-map (kbd "M-r") #'elfeed-update)
-  (define-key elfeed-search-mode-map (kbd "M-S-r") #'elfeed-update-feed)
   (define-key elfeed-search-mode-map (kbd "M-f") #'elfeed-search-live-filter)
   (define-key elfeed-search-mode-map (kbd "M-y") #'elfeed-search-yank)
   (define-key elfeed-search-mode-map (kbd "M-o") #'elfeed-search-browse-url)
