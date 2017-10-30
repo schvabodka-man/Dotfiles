@@ -217,6 +217,9 @@ alias aria-resume "aria-unpause"
 alias aria2-continue "aria-continue"
 alias download-continue "aria-continue"
 
+alias calc 'octave-cli'
+alias calculator 'octave-cli'
+
 #sql wrappers
 if test -e /bin/mycli
 	alias mysql 'mycli'

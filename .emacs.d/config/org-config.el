@@ -118,13 +118,13 @@
 			(local-set-key (kbd "<return>") #'org-agenda-goto)
 			(local-set-key (kbd "M-f") #'org-agenda-filter-by-tag)
 			(local-set-key (kbd "C-S-f") #'org-agenda-filter-by-regexp)
-			(local-set-key (kbd "C-a") #'org-attach)
+			(local-set-key (kbd "M-i") #'org-attach)
 			(local-set-key (kbd "C-e") #'org-agenda-archive)
 			(local-set-key (kbd "C-m") #'org-agenda-bulk-mark)
 			(local-set-key (kbd "C-S-m") #'org-agenda-bulk-mark-all)
 			(local-set-key (kbd "C-u") #'org-agenda-bulk-unmark)
 			(local-set-key (kbd "C-S-u") #'org-agenda-bulk-unmark-all)
-			(local-set-key (kbd "C-S-z") #'org-agenda-redo)))
+			(local-set-key (kbd "M-z") #'org-agenda-redo)))
 ;;diary
 (use-package org-journal
   :ensure t
@@ -191,8 +191,8 @@
   :ensure t
   :config (defalias 'cal 'cfw:open-org-calendar)
   (defalias 'calendar-org 'cfw:open-org-calendar))
-(use-package bbdb
-  :ensure t)
-(use-package counsel-bbdb
-  :ensure t)
+(el-get-bundle org-contacts
+  :url "http://orgmode.org/w/?p=org-mode.git;a=blob_plain;f=contrib/lisp/org-contacts.el")
+(require 'org-contacts)
+(setq org-contacts-files (list "~/Dropbox/Org/Contacts/Contacts.org"))
 ;;; org-config.el ends here

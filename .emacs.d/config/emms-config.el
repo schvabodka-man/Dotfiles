@@ -57,7 +57,7 @@
   (define-key emms-browser-mode-map (kbd "M-6") #'emms-browse-by-performer)
   (define-key emms-browser-mode-map (kbd "C-f") #'emms-browser-search-by-title)
   (define-key emms-browser-mode-map (kbd "C-p") #'emms-browser-display-playlist)
-  (define-key emms-browser-mode-map (kbd "M-S-f") #'emms-browser-search-by-album)
+  (define-key emms-browser-mode-map (kbd "C-S-f") #'emms-browser-search-by-album)
   (define-key emms-browser-mode-map (kbd "M-f") #'emms-browser-search-by-artist)
   (define-key emms-browser-mode-map (kbd "C-S-M-f") #'emms-browser-search-by-composer)
   (define-key emms-browser-mode-map (kbd "<return>") #'emms-browser-add-tracks)

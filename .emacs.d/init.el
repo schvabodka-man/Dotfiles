@@ -111,6 +111,8 @@
 (load "~/.emacs.d/config/regex-builder")
 ;;integration with some desktop stuff
 (load "~/.emacs.d/config/desktop-integration")
+;;calculator
+(load "~/.emacs.d/config/calculators")
 ;;byte compile everything
 (defun byte-compile-init-dir ()
   "Byte-compile all your dotfiles."
