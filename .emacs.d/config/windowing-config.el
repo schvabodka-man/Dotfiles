@@ -70,6 +70,8 @@
   (add-to-list 'purpose-user-mode-purposes '(tex-mode . latex))
   (add-to-list 'purpose-user-mode-purposes '(LaTeX-mode . latex))
   (add-to-list 'purpose-user-mode-purposes '(TeX-mode . latex))
+  (add-to-list 'purpose-user-mode-purposes '(emms-playlist-mode . emms))
+  (add-to-list 'purpose-user-mode-purposes '(emms-browser-mode . emms))
   (add-to-list 'purpose-user-regexp-purposes '("*Group*" . email))
   (add-to-list 'purpose-user-regexp-purposes '("*Article .+" . email))
   (add-to-list 'purpose-user-regexp-purposes '("*Summary .+" . email))

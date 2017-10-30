@@ -80,7 +80,7 @@
 ;;multiple workspaces and tabbing
 (load "~/.emacs.d/config/windowing-config")
 ;;music
-;; (load "~/.emacs.d/config/emms-config")
+(load "~/.emacs.d/config/emms-config")
 ;;spell checking
 (load "~/.emacs.d/config/syntax-gram-checking")
 ;;gnus shit not in .gnusrc
@@ -197,6 +197,8 @@
 	  (omit)))))
  '(diredp-image-preview-in-tooltip 300)
  '(diredp-image-show-this-file-use-frame-flag t)
+ '(emms-mode-line-mode-line-function nil)
+ '(emms-mode-line-titlebar-function (quote ignore))
  '(ensime-company-idle-delay 0.1)
  '(ensime-graphical-tooltips t)
  '(ensime-search-interface (quote helm))

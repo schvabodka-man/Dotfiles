@@ -139,4 +139,6 @@ exec --no-startup-id emacs --daemon=news -q -l ~/.emacs.d.news/init.el
 #tmux
 exec --no-startup-id tmux source ~/.config/tmux/tmux.conf
 #aria daemon
-exec --no-startup-id aria2c --daemon=true --enable-rpc --rpc-listen-all -j50 -D
+# exec --no-startup-id aria2c --daemon=true --enable-rpc --rpc-listen-all -j50 -D
+#transmission daemon
+exec --no-startup-id transmission-daemon -T --download-dir ~/Downloads

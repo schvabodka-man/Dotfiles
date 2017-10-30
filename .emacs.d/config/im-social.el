@@ -14,14 +14,14 @@
 	  erc-log-write-after-insert t)
 (setq erc-hide-timestamps t)
 (setq erc-log-insert-log-on-open t)
-(defun social ()
-  "Connect to IM networks using bitlbee."
-  (interactive)
-  (erc :server "localhost" :port 6667 :nick "scvh"))
-(defalias 'im 'social)
-(defalias 'irc 'social)
-(defalias 'chat 'social)
-(defalias 'messenger 'social)
+;; (defun social ()
+;;   "Connect to IM networks using bitlbee."
+;;   (interactive)
+;;   (erc :server "localhost" :port 6667 :nick "scvh"))
+;; (defalias 'im 'social)
+;; (defalias 'irc 'social)
+;; (defalias 'chat 'social)
+;; (defalias 'messenger 'social)
 (add-hook 'erc-mode-hook
 		  (lambda ()
 			(local-set-key (kbd "M-r") #'erc-channel-names)
@@ -79,5 +79,5 @@
 			 (string= "&bitlbee" (buffer-name)))
 	(erc-message "PRIVMSG" (concat "&bitlbee " "identify " "scvh " bitlbee-pass))
 	(erc-message "PRIVMSG" (concat "&bitlbee " "yes"))))
-(add-hook 'erc-join-hook 'bitlbee-identify)
+;; (add-hook 'erc-join-hook 'bitlbee-identify)
 ;;; im-social.el ends here
