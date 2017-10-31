@@ -1,7 +1,7 @@
 #!/bin/bash
 
 layout() {
-	local layout=$(setxkbmap -print | grep xkb_symbols | awk '{print $4}' | awk -F"+" '{print $2}')
+	local layout=$(~/bin/xkblayout-state/xkblayout-state print "%s")
 	echo "^fn(FontAwesome-11)^fn(DroidSansMono-12) $layout"
 }
 meetup() {
@@ -50,6 +50,34 @@ wififormatted() {
 		echo "^fn(DroidSansMono-13) $bars $wifiname"
 	else
 		echo "^fn(FontAwesome-11)^fn(DroidSansMono-13) —"
+	fi
+}
+
+battery() {
+	local batt=$(upower -i $(upower -e | grep BAT))
+	local state=$(echo $batt | perl -n -e '/state: +(\w+)/ && print "$1\n"')
+	local percentage=$(echo $batt | perl -n -e '/percentage: +(.+)% capacity/ && print "$1\n"')
+	if [ $state == "charging" ]
+	then
+		local time=$(echo $batt | perl -n -e '/time to full: +(.+) percentage/ && print "$1\n"')
+		echo "^bg(#32cd32)^fg(#000000)^bg(#32cd32)^fn(DroidSansMono-13)⚡ $percentage% $time^fn(powerlinesymbols-12)^fg(#32cd32)^bg(#0e1112)"
+	else
+		local time=$(echo $batt | perl -n -e '/time to empty: +(.+) percentage/ && print "$1\n"')
+		if [ $percentage -ge 85 ]
+		then
+			echo "^bg(#32cd32)^fg(#000000)^bg(#32cd32)^fn(FontAwesome-11)^fn(DroidSansMono-13) $percentage% $time^fn(powerlinesymbols-12)^fg(#32cd32)^bg(#0e1112)"
+		elif [ $percentage -ge 75 ]
+		then
+			echo "^bg(#32cd32)^fg(#000000)^bg(#32cd32)^fn(FontAwesome-11)^fn(DroidSansMono-13) $percentage% $time^fn(powerlinesymbols-12)^fg(#32cd32)^bg(#0e1112)"
+		elif [ $percentage -ge 50 ]
+		then
+			echo "^bg(#ffff00)^fg(#000000)^bg(#ffff00)^fn(FontAwesome-11)^fn(DroidSansMono-13) $percentage% $time^fn(powerlinesymbols-12)^fg(#ffff00)^bg(#0e1112)"
+		elif [ $percentage -ge 25 ]
+		then
+			echo "^bg(#b22222)^fg(#FFFFFF)^bg(#b22222)^fn(FontAwesome-11)^fn(DroidSansMono-13) $percentage% $time^fn(powerlinesymbols-12)^fg(#b22222)^bg(#0e1112)"
+		else
+			echo "^bg(#b22222)^fg(#FFFFFF)^bg(#b22222)^fn(FontAwesome-11)^fn(DroidSansMono-13) $percentage% $time^fn(powerlinesymbols-12)^fg(#b22222)^bg(#0e1112)"
+		fi
 	fi
 }
 
@@ -134,13 +162,14 @@ fast_dzen() {
 		local time=$(date +'%a %m-%d %H:%M:%S')
 		local cmus=$(cmusformatted)
 		local volume=$(volumelevel)
+		local battery=$(battery)
 		local text=""
 
 		text+="^p(0)^fg(#000000)^bg(#ffff00)$layout^fn(powerlinesymbols-12)^fg(#ffff00)^bg(#ff69b4)"
 		text+="^fg(#000000)^bg(#ff69b4)^fn(DroidSansMono-13) ^fn(FontAwesome-11)^fn(DroidSansMono-13) $time ^fn(powerlinesymbols-12)^fg(#ff69b4)^bg(#b22222)"
 		text+="^fg(#FFFFFF)^bg(#b22222)$cmus^fn(powerlinesymbols-12)^fg(#b22222)^bg(#20b2aa)"
-		text+="^fg(#000000)^bg(#20b2aa)$volume^fn(powerlinesymbols-12)^fg(#20b2aa)^bg(#0e1112)"
-
+		text+="^fg(#000000)^bg(#20b2aa)$volume^fn(powerlinesymbols-12)^fg(#20b2aa)"
+		text+="$battery"
 		echo $text
 		sleep 1
 	done

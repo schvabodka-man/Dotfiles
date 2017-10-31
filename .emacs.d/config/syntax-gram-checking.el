@@ -23,16 +23,20 @@
 ;; 								 (interactive)
 ;; 								 (ispell-change-dictionary "english")))
 ;; (global-set-key (kbd "<C-f3>") 'ispell-change-dictionary)
-(defalias 'dictionary 'ispell-change-dictionary)
-(defalias 'language 'ispell-change-dictionary)
+;; (defalias 'dictionary 'ispell-change-dictionary)
+;; (defalias 'language 'ispell-change-dictionary)
+;; (defalias 'lang 'ispell-change-dictionary)
 ;;language guessing
-;; (use-package guess-language
-;;   :ensure t
-;;   :config (setq guess-language-languages '(en ru))
-;;   (setq guess-language-langcodes
-;;   '((en . ("en_US" "English"))
-;;     (ru . ("ru_RU" "Russian"))))
-;;   (setq guess-language-min-paragraph-length 10)
-;;   (add-hook 'text-mode-hook (lambda () (guess-language-mode 1)))
-;;   (add-hook 'prog-mode-hook (lambda () (guess-language-mode 1))))
-
+(use-package guess-language
+  :ensure t
+  :bind ("s-l" . guess-language)
+  :config (setq guess-language-languages '(en ru))
+  (setq guess-language-langcodes
+		'((en . ("en_US" "English"))
+		  (ru . ("ru_RU" "Russian"))))
+  (setq guess-language-min-paragraph-length 10)
+  (add-hook 'text-mode-hook (lambda () (guess-language-mode 1)))
+  (add-hook 'prog-mode-hook (lambda () (guess-language-mode 1)))
+  (defalias 'dictionary 'guess-language)
+  (defalias 'language 'guess-language)
+  (defalias 'lang 'guess-language))

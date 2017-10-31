@@ -24,7 +24,7 @@
 (defalias 'org-time 'org-time-stamp)
 (add-hook 'org-mode-hook
 		  (lambda ()
-			(local-set-key (kbd "C-t") #'org-time-stamp)
+			(local-set-key (kbd "C-S-i") #'org-time-stamp)
 			;; (local-set-key (kbd "M-i") #'org-wiki-insert)
 			;; (local-set-key (kbd "M-S-i") #'org-wiki-assert-insert)
 			(local-set-key (kbd "M-f") #'deft-find-file)
@@ -147,9 +147,17 @@
   (defalias 'board-save 'org-board-new)
   (defalias 'link-new 'org-board-new)
   (defalias 'link-save 'org-board-new)
+  (defalias 'link-add 'org-board-new)
+  (defalias 'url-save 'org-board-new)
+  (defalias 'uri-save 'org-board-new)
+  (defalias 'url-new 'org-board-new)
+  (defalias 'uri-new 'org-board-new)
+  (defalias 'url-add 'org-board-new)
+  (defalias 'uri-add 'org-board-new)
   (defalias 'board-open 'org-board-open)
   (defalias 'board-diff 'org-board-diff)
-  (defalias 'board-archive 'org-board-archive))
+  (defalias 'board-archive 'org-board-archive)
+  (add-hook 'org-mode-hook (lambda () (local-set-key (kbd "M-i") #'org-board-new))))
 ;;some search improvements for org mode
 (use-package deft
   :ensure t
