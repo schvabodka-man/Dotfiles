@@ -72,9 +72,9 @@ battery() {
 		elif [ $percentage -ge 50 ]
 		then
 			echo "^bg(#ffff00)^fg(#000000)^bg(#ffff00)^fn(FontAwesome-11)^fn(DroidSansMono-13) $percentage% $time^fn(powerlinesymbols-12)^fg(#ffff00)^bg(#0e1112)"
-		elif [ $percentage -ge 25 ]
+		elif [ $percentage -ge 20 ]
 		then
-			echo "^bg(#b22222)^fg(#FFFFFF)^bg(#b22222)^fn(FontAwesome-11)^fn(DroidSansMono-13) $percentage% $time^fn(powerlinesymbols-12)^fg(#b22222)^bg(#0e1112)"
+			echo "^bg(#ffff00)^fg(#000000)^bg(#ffff00)^fn(FontAwesome-11)^fn(DroidSansMono-13) $percentage% $time^fn(powerlinesymbols-12)^fg(#ffff00)^bg(#0e1112)"
 		else
 			echo "^bg(#b22222)^fg(#FFFFFF)^bg(#b22222)^fn(FontAwesome-11)^fn(DroidSansMono-13) $percentage% $time^fn(powerlinesymbols-12)^fg(#b22222)^bg(#0e1112)"
 		fi
@@ -134,6 +134,12 @@ downloads_aria() {
 	echo "^fn(FontAwesome-11)^fn(DroidSansMono-13) $number"
 }
 
+email() {
+	cd ~/Email/Gmail/INBOX/new
+	local gmail=$(/bin/ls | wc -l)
+	echo "^fn(FontAwesome-11)^fn(DroidSansMono-13) $gmail"
+}
+
 generated_output() {
 	while :; do
 		local meetup=$(meetup)
@@ -142,10 +148,12 @@ generated_output() {
 		local localip=$(localip)
 		local wifi=$(wififormatted)
 		local aria=$(downloads_aria)
+		local email=$(email)
 
 		local text=""
 
-		text+="^fg(#ffff00)^bg(#0e1112)^fn(powerlinesymbols-12)^fg(#000000)^bg(#ffff00)$aria"
+		text+="^fg(#32cd32)^bg(#0e1112)^fn(powerlinesymbols-12)^fg(#000000)^bg(#32cd32)$email"
+		text+="^fg(#ffff00)^bg(#32cd32)^fn(powerlinesymbols-12)^fg(#000000)^bg(#ffff00)$aria"
 		text+="^fg(#ff69b4)^bg(#ffff00)^fn(powerlinesymbols-12)^fg(#000000)^bg(#ff69b4)$wifi"	text+="^fg(#b22222)^bg(#ff69b4)^fn(powerlinesymbols-12)^fg(#ffffff)^bg(#b22222)^fn(FontAwesome-11)^fn(DroidSansMono-13)$meetup"	text+="^fg(#8b008b)^bg(#b22222)^fn(powerlinesymbols-12)^fg(#ffffff)^bg(#8b008b)^fn(DroidSansMono-13)$weather "
 		text+="^fg(#ff4500)^bg(#8b008b)^fn(powerlinesymbols-12)^fg(#000000)^bg(#ff4500)$localip"
 		text+="^fg(#20b2aa)^bg(#ff4500)^fn(powerlinesymbols-12)^fg(#000000)^bg(#20b2aa)$webipt"

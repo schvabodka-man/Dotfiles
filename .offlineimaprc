@@ -1,0 +1,23 @@
+[general]
+accounts = gmail
+maxsyncaccounts = 1
+autorefresh = 5
+ui = ttyui
+quick = 25
+pythonfile = ~/.offlineimap.py
+
+[Account gmail]
+localrepository = gmail-local
+remoterepository = gmail-remote
+status_backend = sqlite
+
+[Repository gmail-local]
+type = Maildir
+localfolders = ~/Email/Gmail/
+
+[Repository gmail-remote]
+type = Gmail
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-bundle.crt
+remoteuser = scvhapps@gmail.com 
+remotepasseval = mailpasswd("email/google/scvhapps@gmail.com")

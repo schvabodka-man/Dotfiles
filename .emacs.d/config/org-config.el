@@ -15,6 +15,7 @@
 							 "~/Dropbox/Org/Agenda/Diary"))
 (setq org-archive-location "~/Dropbox/Org/Wiki/Agenda/Archive/todo.org::* TASKS")
 (setq org-support-shift-select t)
+(setq org-startup-with-inline-images t)
 (defalias 'todo 'org-todo-list)
 (defalias 'agenda 'org-agenda-list)
 (defalias 'year 'org-agenda-year-view)
@@ -203,4 +204,5 @@
   :url "http://orgmode.org/w/?p=org-mode.git;a=blob_plain;f=contrib/lisp/org-contacts.el")
 (require 'org-contacts)
 (setq org-contacts-files (list "~/Dropbox/Org/Contacts/Contacts.org"))
+(defalias 'contacts 'org-contacts)
 ;;; org-config.el ends here

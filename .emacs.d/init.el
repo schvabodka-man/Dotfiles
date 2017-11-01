@@ -65,8 +65,8 @@
 (load "~/.emacs.d/config/javascript-setup")
 ;;project management
 (load "~/.emacs.d/config/projects-management.el")
-;;yaml mode
-(load "~/.emacs.d/config/yaml-editing")
+;;python stuff
+(load "~/.emacs.d/config/python")
 ;;beautiful dashboard on startup
 (load "~/.emacs.d/config/dashboard-startup")
 ;;jvm shit for memelords
@@ -254,7 +254,7 @@
  '(org-agenda-confirm-kill t)
  '(package-selected-packages
    (quote
-	(guess-language conkeror-minor-mode dired-toggle-sudo flycheck-kotlin inf-groovy groovy-imports org-ehtml nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
+	(py-autopep8 steam top-mode guess-language conkeror-minor-mode dired-toggle-sudo flycheck-kotlin inf-groovy groovy-imports org-ehtml nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
  '(paradox-github-token t)
  '(popwin:adjust-other-windows nil)
  '(projectile-globally-ignored-directories

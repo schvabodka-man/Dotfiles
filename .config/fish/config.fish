@@ -118,7 +118,9 @@ end
 # Custom alias for listing files when moving to directory
 function cd
 	builtin cd $argv
-	ls -a
+	if test (/bin/ls -a | wc -l) -lt 300
+		lsa
+	end
 end
 
 #docker shitty aliases
@@ -395,7 +397,6 @@ function fish_user_key_bindings
 
 	#unbind useless shit
 	bind -e \cu
-	bind -e \cs
 	bind -e \e\[H
 	bind -e \e\[F
 	bind -e \e\[1\~
@@ -499,8 +500,6 @@ function fish_user_key_bindings
 	bind -e dge
 	bind -e dgE
 
-	bind \ms sudope
-
 	bind \ck backward-kill-line
 	bind \ek kill-line
 
@@ -521,19 +520,6 @@ function fish_user_key_bindings
 	bind \[1\;5C forward-word
 
 	bind \x1b\x2f __fish_toggle_comment_commandline
-
-	# bind -m insert \t force-repaint
-	# bind -m insert -k backspace backward-delete-char
-	# bind -k backspace backward-delete-char
-	# bind -M insert -m default \e force-repaint
-	# # bind k backward-delete-char
-	# bind K delete-char
-	# bind kw backward-kill-bigword
-	# bind kW kill-bigword
-	# bind kb backward-kill-line
-	# bind ks backward-kill-line
-	# bind kh backward-kill-line
-	# bind ke kill-line
 end
 
 function fish_title

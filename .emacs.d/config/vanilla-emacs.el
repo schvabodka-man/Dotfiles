@@ -324,3 +324,16 @@ This command does not push text to `kill-ring'."
   (local-set-key (kbd "x") nil)
   (local-set-key (kbd "y") nil)
   (local-set-key (kbd "z") nil))
+;;auto indent copypasted
+(dolist (command '(yank yank-pop))
+  (eval `(defadvice ,command (after indent-region activate)
+		   (and (not current-prefix-arg)
+				(member major-mode '(emacs-lisp-mode lisp-mode
+													 clojure-mode    scheme-mode
+													 haskell-mode    ruby-mode
+													 rspec-mode      python-mode
+													 c-mode          c++-mode
+													 objc-mode       latex-mode
+													 plain-tex-mode))
+				(let ((mark-even-if-inactive transient-mark-mode))
+				  (indent-region (region-beginning) (region-end) nil))))))
