@@ -234,8 +234,8 @@
   (define-key elfeed-search-mode-map (kbd "M-f") #'elfeed-search-live-filter)
   (define-key elfeed-search-mode-map (kbd "M-y") #'elfeed-search-yank)
   (define-key elfeed-search-mode-map (kbd "M-o") #'elfeed-search-browse-url)
-  (define-key elfeed-search-mode-map (kbd "m") #'elfeed-search-tag-all)
-  (define-key elfeed-search-mode-map (kbd "u") #'elfeed-search-untag-all)
+  (define-key elfeed-search-mode-map (kbd "C-S-t") #'elfeed-search-tag-all)
+  (define-key elfeed-search-mode-map (kbd "C-S-u") #'elfeed-search-untag-all)
 
   (define-key elfeed-show-mode-map (kbd "M-r") #'elfeed-show-refresh)
   (define-key elfeed-show-mode-map (kbd "M-o") #'elfeed-show-visit)
@@ -273,7 +273,7 @@
 	'((t :foreground "#ff0000"))
 	"Marks a starred Elfeed entry.")
   (push '(starred elfeed-search-starred-title-face) elfeed-search-face-alist)
-  (define-key elfeed-search-mode-map (kbd "s") #'bjm/elfeed-star)
+  (define-key elfeed-search-mode-map (kbd "C-s") #'bjm/elfeed-star)
   (define-key elfeed-search-mode-map (kbd "C-M-s") #'bjm/elfeed-unstar))
 
 (use-package elfeed-org

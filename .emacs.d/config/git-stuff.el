@@ -166,9 +166,9 @@
 ;;   :config (setq git-messenger:show-detail t))
 (use-package git-link
   :ensure t
-  :bind ("C-M-y" . git-link))
-(add-hook 'with-editor-mode-hook
+  :config
+  (add-hook 'with-editor-mode-hook
 		  (lambda ()
 			(local-set-key (kbd "C-s") #'with-editor-finish)
-			(local-set-key (kbd "C-c C-c") nil)))
+			(local-set-key (kbd "C-c C-c") nil))))
 ;;; git-stuff.el ends here

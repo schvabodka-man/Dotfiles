@@ -13,6 +13,7 @@
 (global-set-key (kbd "C-<left>") 'left-word)
 (global-set-key (kbd "C-<right>") 'right-word)
 (global-set-key (kbd "M-x") nil)
+(define-key prog-mode-map (kbd "<return>") 'newline-and-indent)
 (global-set-key (kbd "C-S-g") 'goto-line)
 (global-set-key (kbd "C-/") 'comment-line)
 ;; (global-set-key (kbd "C-,") 'customize-group)
@@ -111,7 +112,7 @@
 (electric-pair-mode)
 (setq suggest-key-bindings nil)
 (setq browse-url-browser-function 'browse-url-generic
-	  browse-url-generic-program "qutebrowser")
+	  browse-url-generic-program "vivaldi")
 ;; killing messages buffer
 (kill-buffer "*Messages*")
 (setq initial-scratch-message nil)
@@ -337,3 +338,5 @@ This command does not push text to `kill-ring'."
 													 plain-tex-mode))
 				(let ((mark-even-if-inactive transient-mark-mode))
 				  (indent-region (region-beginning) (region-end) nil))))))
+;;ssh instead of some old crap
+(setq tramp-default-method "ssh")

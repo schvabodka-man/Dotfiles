@@ -24,11 +24,6 @@
 ;;   :config
 ;;   (global-set-key (kbd "C-M-s") 'minimap-mode))
 ;;it must be by default in emacs
-(use-package multiple-cursors
-  :ensure t
-  :config
-  (global-set-key (kbd "C-S-<down>") 'mc/mark-next-like-this)
-  (global-set-key (kbd "C-S-<up>") 'mc/mark-previous-like-this))
 ;;local bookmarks for buffer
 ;; (use-package bm
 ;;   :ensure t

@@ -135,7 +135,7 @@ downloads_aria() {
 }
 
 email() {
-	cd ~/Email/Gmail/INBOX/new
+	cd ~/Maildir/Gmail/INBOX/new
 	local gmail=$(/bin/ls | wc -l)
 	echo "^fn(FontAwesome-11)^fn(DroidSansMono-13) $gmail"
 }

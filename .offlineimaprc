@@ -13,7 +13,7 @@ status_backend = sqlite
 
 [Repository gmail-local]
 type = Maildir
-localfolders = ~/Email/Gmail/
+localfolders = ~/Maildir/Gmail
 
 [Repository gmail-remote]
 type = Gmail

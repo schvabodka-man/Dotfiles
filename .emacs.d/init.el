@@ -54,7 +54,7 @@
 ;;docker
 (load "~/.emacs.d/config/docker-integration")
 ;;monitoring
-(load "~/.emacs.d/config/system-monitoring")
+;; (load "~/.emacs.d/config/system-monitoring")
 ;;books
 (load "~/.emacs.d/config/book-reading")
 ;;brainfuck unironically. i like brainfuck because of its simplicity
@@ -83,8 +83,9 @@
 (load "~/.emacs.d/config/emms-config")
 ;;spell checking
 (load "~/.emacs.d/config/syntax-gram-checking")
-;;gnus shit not in .gnusrc
+;;emails, gnus is obsolete and replaced by mu4e for me
 (load "~/.emacs.d/config/gnus-init")
+(load "~/.emacs.d/config/mu4e-config")
 ;;eshell
 (load "~/.emacs.d/config/eshell")
 ;;packages
@@ -254,7 +255,7 @@
  '(org-agenda-confirm-kill t)
  '(package-selected-packages
    (quote
-	(py-autopep8 steam top-mode guess-language conkeror-minor-mode dired-toggle-sudo flycheck-kotlin inf-groovy groovy-imports org-ehtml nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
+	(flycheck-popup-tip py-autopep8 steam top-mode guess-language conkeror-minor-mode dired-toggle-sudo flycheck-kotlin inf-groovy groovy-imports org-ehtml nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
  '(paradox-github-token t)
  '(popwin:adjust-other-windows nil)
  '(projectile-globally-ignored-directories

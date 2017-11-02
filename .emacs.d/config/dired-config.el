@@ -648,10 +648,10 @@
 ;;   :bind (("M-s" . neotree-toggle)))
 (use-package dired-sidebar
   :ensure t
-  :bind (("C-M-d" . dired-sidebar-toggle-with-current-directory))
+  :bind (("M-s" . dired-sidebar-toggle-with-current-directory))
   :config (add-hook 'dired-mode-hook
 					(lambda ()
-					  (local-set-key (kbd "C-M-d") #'dired-sidebar-toggle-sidebar))))
+					  (local-set-key (kbd "M-s") #'dired-sidebar-toggle-sidebar))))
 (use-package dired-toggle-sudo
   :ensure t
   :config (defalias 'dired-root 'dired-toggle-sudo)
