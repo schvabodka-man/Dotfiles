@@ -252,6 +252,7 @@
  '(multi-eshell-name "*eshell*")
  '(multi-eshell-shell-function (quote (eshell)))
  '(neo-theme (quote icons))
+ '(nlinum-highlight-current-line t)
  '(org-agenda-confirm-kill t)
  '(package-selected-packages
    (quote
@@ -337,6 +338,7 @@
  '(link ((t (:foreground "cyan1"))))
  '(minimap-active-region-background ((t (:background "#0e1112"))))
  '(minimap-font-face ((t (:height 30 :family "Fira Mono"))))
+ '(nlinum-current-line ((t (:foreground "yellow"))))
  '(perspeen-selected-face ((t (:background "DarkGoldenRod1" :foreground "Black" :weight bold))))
  '(perspeen-tab--header-line-active ((t (:inherit mode-line :background "DarkGoldenrod1" :foreground "black"))))
  '(popup-tip-face ((t (:background "black" :foreground "white"))))

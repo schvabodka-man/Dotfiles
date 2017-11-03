@@ -24,7 +24,11 @@
   (define-key 'TeX-mode-map (kbd "<f2>") #'TeX-command-run-all)
   (define-key 'LaTeX-mode-map (kbd "<f2>") #'TeX-command-run-all)
   (define-key 'TeX-mode-map (kbd "C-l") #'ctrl-l-line-select)
-  (define-key 'LaTeX-mode-map (kbd "C-l") #'ctrl-l-line-select))
+  (define-key 'LaTeX-mode-map (kbd "C-l") #'ctrl-l-line-select)
+  (define-key 'LaTeX-mode-map (kbd "<return>") 'newline-and-indent)
+  (define-key 'TeX-mode-map (kbd "<return>") 'newline-and-indent)
+  (define-key 'latex-mode-map (kbd "<return>") 'newline-and-indent)
+  (define-key 'tex-mode-map (kbd "<return>") 'newline-and-indent))
 (use-package reftex
   :commands turn-on-reftex
   :init

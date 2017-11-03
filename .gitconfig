@@ -8,7 +8,7 @@ autocrlf = input
 excludesfile = /home/user/.gitignore_global
 [alias]
 c = "!fish -c \"git commit -a -m \"$@\"\" -"
-a = add
+a = add -f
 d = diff
 b = checkout -b
 m = merge

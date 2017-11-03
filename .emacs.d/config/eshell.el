@@ -3,6 +3,14 @@
 ;;; MUH ESHELL
 ;;; Code:
 (setq eshell-banner-message "")
+(add-hook 'eshell-mode-hook
+		  (lambda ()
+			(local-set-key (kbd "<C-up>") #'eshell-previous-matching-input-from-input)
+			(local-set-key (kbd "<C-down>") #'eshell-next-matching-input-from-input)
+			(local-set-key (kbd "<up>") #'previous-line)
+			(local-set-key (kbd "<down>") #'next-line)
+			(local-set-key (kbd "<tab>") #'company-complete)
+			(local-set-key (kbd "M-c") #'Eshell-interrupt-process)))
 (use-package eshell-z
   :ensure t)
 (use-package eshell-up
@@ -10,6 +18,9 @@
 (use-package eshell-git-prompt
   :ensure t
   :init (eshell-git-prompt-use-theme 'powerline))
+;; (use-package eshell-did-you-mean
+;;   :ensure t
+;;   :config (eshell-did-you-mean-setup))
 (use-package multi-eshell
   :ensure t
   :config (defalias 'eshell-next 'multi-eshell-switch)

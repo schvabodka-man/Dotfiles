@@ -5,13 +5,15 @@
 (use-package java-snippets
   :ensure t)
 (use-package kotlin-mode
-  :ensure t)
+  :ensure t
+  :config (define-key kotlin-mode-map (kbd "<return>") 'newline-and-indent))
 ;; (use-package flycheck-kotlin
 ;;   :ensure t
 ;;   :config (flycheck-kotlin-setup))
 (use-package groovy-mode
   :ensure t
-  :config (add-to-list 'auto-mode-alist '("\\.gradle\\'" . groovy-mode)))
+  :config (add-to-list 'auto-mode-alist '("\\.gradle\\'" . groovy-mode))
+  (define-key groovy-mode-map (kbd "<return>") 'newline-and-indent))
 (use-package groovy-imports
   :ensure t
   :config (setq groovy-imports-find-block-function 'groovy-imports-find-place-sorted-block)

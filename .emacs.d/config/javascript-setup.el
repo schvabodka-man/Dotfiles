@@ -1,6 +1,7 @@
 (use-package web-mode
   :ensure t
   :config
+  (define-key web-mode-map (kbd "<return>") 'newline-and-indent)
   (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
@@ -12,7 +13,8 @@
   (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode)))
 (use-package js2-mode
   :ensure t
-  :config (add-to-list 'auto-mode-alist (cons (rx ".js" eos) 'js2-mode)))
+  :config (add-to-list 'auto-mode-alist (cons (rx ".js" eos) 'js2-mode))
+  (define-key js2-mode-map (kbd "<return>") 'newline-and-indent))
 (use-package js2-refactor
   :ensure t
   :after js2-mode
@@ -61,7 +63,8 @@
 ;;   (defalias 'js-repl 'indium-switch-to-repl-buffer)
 ;;   (defalias 'javascript-repl 'indium-switch-to-repl-buffer))
 (use-package  json-mode
-  :ensure t)
+  :ensure t
+  :config (define-key json-mode-map (kbd "<return>") 'newline-and-indent))
 (use-package web-beautify
   :ensure t
   :config (define-key js2-mode-map (kbd "C-b") 'web-beautify-js)

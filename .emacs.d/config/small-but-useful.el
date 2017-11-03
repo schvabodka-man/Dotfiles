@@ -19,6 +19,14 @@
 		 ("M-S-g" . link-hint-copy-link))
   :config (defalias 'link-open 'link-hint-open-link)
   (defalias 'link-copy 'link-hint-copy-link))
+(use-package multiple-cursors
+  :ensure t
+  :config
+  (define-key mc/keymap (kbd "<return>") #'newline-and-indent)
+  (define-key mc/keymap (kbd "<escape>") #'multiple-cursors-mode)
+  (global-set-key (kbd "<C-S-down>") 'mc/mark-next-like-this)
+  (global-set-key (kbd "<C-S-up>") 'mc/mark-previous-like-this)
+  )
 ;; (use-package minimap
 ;;   :ensure t
 ;;   :config

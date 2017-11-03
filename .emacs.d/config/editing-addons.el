@@ -32,11 +32,3 @@
 (use-package nlinum
   :ensure t
   :config (global-nlinum-mode t))
-(use-package multiple-cursors
-  :ensure t
-  :config
-  (define-key mc/keymap (kbd "<return>") #'newline-and-indent)
-  (define-key mc/keymap (kbd "<escape>") #'multiple-cursors-mode)
-  ;;(global-set-key (kbd "C-\") 'mc/mark-next-like-this)
-  ;;(global-set-key (kbd "C-|") 'mc/mark-previous-like-this)
-)

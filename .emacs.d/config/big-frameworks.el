@@ -65,6 +65,7 @@
   :init (add-hook 'after-init-hook 'global-company-mode)
   :config (setq company-dabbrev-downcase 0)
   (setq company-idle-delay 0.2)
+  (setq company-require-match nil)
   (delete 'company-dabbrev company-backends)
   (delete 'company-ispell company-backends)
   (delete '(company-dabbrev-code company-keywords) company-backends)
