@@ -324,7 +324,9 @@ This command does not push text to `kill-ring'."
   (local-set-key (kbd "w") nil)
   (local-set-key (kbd "x") nil)
   (local-set-key (kbd "y") nil)
-  (local-set-key (kbd "z") nil))
+  (local-set-key (kbd "z") nil)
+  (local-set-key (kbd "]") nil)
+  (local-set-key (kbd "[") nil))
 ;;auto indent copypasted
 (dolist (command '(yank yank-pop))
   (eval `(defadvice ,command (after indent-region activate)

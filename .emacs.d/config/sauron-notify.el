@@ -13,5 +13,5 @@
   :init (sauron-start-hidden)
   :commands (sauron-toggle-hide-show)
   :config (setq sauron-separate-frame nil)
-  (setq sauron-hide-mode-line t))
+  (setq sauron-hide-mode-line nil))
 ;;; sauron-notify.el ends here

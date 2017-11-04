@@ -55,7 +55,7 @@
 			(local-set-key (kbd "C-S-u") #'mu4e-mark-unmark-all)
 			(local-set-key (kbd "C-u") #'mu4e-headers-mark-for-unmark)
 			(local-set-key (kbd "C-k")  #'mu4e-headers-mark-for-trash)
-			(local-set-key (kbd "RET") #'mu4e-headers-view-message)
+			(local-set-key (kbd "<return>") #'mu4e-headers-view-message)
 			(local-set-key (kbd "<delete>") #'mu4e-headers-mark-for-trash)
 			(local-set-key (kbd "<deletechar>") #'mu4e-headers-mark-for-trash)
 			(local-set-key (kbd "C-S-r") #'mu4e-headers-mark-for-unread)
@@ -104,6 +104,13 @@
 			(local-set-key (kbd ">") #'mu4e-view-headers-next-unread)
 			(local-set-key (kbd "<delete>") #'mu4e-view-mark-for-trash)
 			(local-set-key (kbd "<deletechar>") #'mu4e-view-mark-for-trash)))
+(add-hook 'mu4e-index-updated-hook (lambda ()
+									 (sauron-add-event
+									  'mu4e
+									  3
+									  "Email arrived!"
+									  '(lambda ()
+										 (mu4e)))))
 (use-package mu4e-alert
   :ensure t
   :config (mu4e-alert-set-default-style 'libnotify)

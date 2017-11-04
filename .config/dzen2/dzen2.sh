@@ -140,6 +140,11 @@ email() {
 	echo "^fn(FontAwesome-11)^fn(DroidSansMono-13) $gmail"
 }
 
+emms() {
+	local track=$(emacsclient --eval "(emms-show)" | tr -d "\"")
+	echo $track
+}
+
 generated_output() {
 	while :; do
 		local meetup=$(meetup)
@@ -168,14 +173,13 @@ fast_dzen() {
 	while :; do
 		local layout=$(layout)
 		local time=$(date +'%a %m-%d %H:%M:%S')
-		local cmus=$(cmusformatted)
+		# local music=$(emms)
 		local volume=$(volumelevel)
 		local battery=$(battery)
 		local text=""
 
 		text+="^p(0)^fg(#000000)^bg(#ffff00)$layout^fn(powerlinesymbols-12)^fg(#ffff00)^bg(#ff69b4)"
-		text+="^fg(#000000)^bg(#ff69b4)^fn(DroidSansMono-13) ^fn(FontAwesome-11)^fn(DroidSansMono-13) $time ^fn(powerlinesymbols-12)^fg(#ff69b4)^bg(#b22222)"
-		text+="^fg(#FFFFFF)^bg(#b22222)$cmus^fn(powerlinesymbols-12)^fg(#b22222)^bg(#20b2aa)"
+		text+="^fg(#000000)^bg(#ff69b4)^fn(DroidSansMono-13) ^fn(FontAwesome-11)^fn(DroidSansMono-13) $time ^fn(powerlinesymbols-12)^fg(#ff69b4)^bg(#20b2aa)"
 		text+="^fg(#000000)^bg(#20b2aa)$volume^fn(powerlinesymbols-12)^fg(#20b2aa)"
 		text+="$battery"
 		echo $text

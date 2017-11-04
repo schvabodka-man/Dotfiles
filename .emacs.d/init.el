@@ -77,15 +77,10 @@
 (load "~/.emacs.d/config/very-large-files")
 ;;really good query replace
 (load "~/.emacs.d/config/improved-replace")
-;;multiple workspaces and tabbing
-(load "~/.emacs.d/config/windowing-config")
 ;;music
 (load "~/.emacs.d/config/emms-config")
 ;;spell checking
 (load "~/.emacs.d/config/syntax-gram-checking")
-;;emails, gnus is obsolete and replaced by mu4e for me
-(load "~/.emacs.d/config/gnus-init")
-(load "~/.emacs.d/config/mu4e-config")
 ;;eshell
 (load "~/.emacs.d/config/eshell")
 ;;packages
@@ -114,6 +109,13 @@
 (load "~/.emacs.d/config/desktop-integration")
 ;;calculator
 (load "~/.emacs.d/config/calculators")
+;;emails, gnus is obsolete and replaced by mu4e for me
+(load "~/.emacs.d/config/gnus-init")
+(load "~/.emacs.d/config/mu4e-config")
+;;web
+(load "~/.emacs.d/config/web-browsing")
+;;multiple workspaces and tabbing
+(load "~/.emacs.d/config/windowing-config")
 ;;byte compile everything
 (defun byte-compile-init-dir ()
   "Byte-compile all your dotfiles."
@@ -281,6 +283,8 @@
  '(vlf-forbidden-modes-list
    (quote
 	(archive-mode tar-mode jka-compr git-commit-mode image-mode doc-view-mode doc-view-mode-maybe pdf-view-mode ebrowse-tree-mode)))
+ '(w3m-default-display-inline-images t)
+ '(w3m-treat-image-size nil)
  '(yahoo-weather-location "Uzhhorod")
  '(yahoo-weather-mode t))
 
@@ -342,6 +346,10 @@
  '(perspeen-selected-face ((t (:background "DarkGoldenRod1" :foreground "Black" :weight bold))))
  '(perspeen-tab--header-line-active ((t (:inherit mode-line :background "DarkGoldenrod1" :foreground "black"))))
  '(popup-tip-face ((t (:background "black" :foreground "white"))))
+ '(q4/gray-face ((t (:foreground "dim gray"))))
+ '(q4/greentext-face ((t (:foreground "lawn green"))))
+ '(q4/id-face ((t (:foreground "yellow"))))
+ '(q4/quote-face ((t (:foreground "magenta"))))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "green"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "spring green"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "deep sky blue"))))
@@ -362,6 +370,18 @@
  '(spaceline-modified ((t (:background "SkyBlue2" :foreground "black" :inherit (quote mode-line)))))
  '(spaceline-read-only ((t (:background "plum3" :foreground "black" :inherit (quote mode-line)))))
  '(spaceline-unmodified ((t (:background "DarkGoldenrod2" :foreground "black" :inherit (quote mode-line)))))
+ '(w3m-arrived-anchor ((t (:foreground "MediumOrchid2"))))
+ '(w3m-current-anchor ((t (:foreground "cyan" :underline t :weight bold))))
+ '(w3m-form-button ((t (:background "white" :foreground "black"))))
+ '(w3m-form-button-mouse ((t (:background "red" :foreground "black"))))
+ '(w3m-form-button-pressed ((t (:background "MediumOrchid2" :foreground "black" :box (:line-width 2 :style pressed-button)))))
+ '(w3m-tab-background ((t nil)))
+ '(w3m-tab-mouse ((t (:background "Gray75" :foreground "white"))))
+ '(w3m-tab-selected ((t (:background "white" :foreground "black"))))
+ '(w3m-tab-selected-retrieving ((t (:background "white" :foreground "red"))))
+ '(w3m-tab-unselected ((t (:background "black" :foreground "white"))))
+ '(w3m-tab-unselected-retrieving ((t (:background "black" :foreground "orange red"))))
+ '(w3m-tab-unselected-unseen ((t nil)))
  '(weather-metno-date ((t (:inherit header-line :foreground "lawn green"))))
  '(weather-metno-date-range ((t (:inherit font-lock-function-name-face :foreground "lawn green"))))
  '(weather-metno-entry ((t (:inherit font-lock-variable-name-face :foreground "deep sky blue")))))
