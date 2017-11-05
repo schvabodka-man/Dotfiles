@@ -7,8 +7,8 @@
   (defalias 'project-add 'projectile-add-known-project))
 (use-package counsel-projectile
   :ensure t
-  :bind (("M-S-o" . counsel-projectile-switch-project)
-		 ("M-p" . counsel-projectile-find-file)
-		 ("M-S-p" . counsel-projectile-find-dir)
+  :bind (("C-M-o" . counsel-projectile-switch-project)
+		 ("C-p" . counsel-projectile-find-file)
+		 ("C-M-p" . counsel-projectile-find-dir)
 		 ("C-S-f" . counsel-projectile-ag))
   :config (setq projectile-completion-system 'default))

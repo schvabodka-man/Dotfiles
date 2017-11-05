@@ -118,7 +118,8 @@
   (define-key emms-playlist-mode-map (kbd "\"") #'emms-toggle-repeat-playlist)
 
   (require 'emms-playing-time)
-  (emms-playing-time 0)
+  (emms-playing-time 1)
+  ;; (emms-mode-line-enable)
 
   (defun kill-emms ()
 	(interactive)

@@ -31,11 +31,10 @@ alias project-javascript project-js
 alias javascript-project project-js
 alias js-project project-js
 
-
-alias term terminator
-alias terminal terminator 
-alias console terminator 
-alias terminator terminator 
+alias term xfce4-terminal -x "tmux"
+alias terminal xfce4-terminal -x "tmux" 
+alias console xfce4-terminal -x "tmux"
+alias terminator xfce4-terminal -x "tmux" 
 
 alias xrdb-merge xrdb -merge ~/.Xresources
 alias rofi-cache-clear rm ~/.cache/rofi-3.runcache
@@ -71,3 +70,8 @@ alias uptime grc uptime $*
 alias sysctl grc sysctl $*
 alias systemctl grc systemctl $*
 alias who grc who $*
+
+alias screencast-asciinema asciinema rec -w4 $*
+alias asciinema-screencast asciinema rec -w4 $*
+alias record-asciinema asciinema rec -w4 $*
+alias asciinema-record asciinema rec -w4 $*

@@ -42,7 +42,7 @@
 
 ;; (global-set-key (kbd "TAB") 'self-insert-command)
 ;;bookmark set
-(global-set-key (kbd "M-B") 'bookmark-set)
+(global-set-key (kbd "C-M-b") 'bookmark-set)
 ;;opening new scratch buffer
 (defun make-new-buffer ()
   (interactive)

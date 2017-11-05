@@ -7,9 +7,6 @@
 (use-package kotlin-mode
   :ensure t
   :config (define-key kotlin-mode-map (kbd "<return>") 'newline-and-indent))
-;; (use-package flycheck-kotlin
-;;   :ensure t
-;;   :config (flycheck-kotlin-setup))
 (use-package groovy-mode
   :ensure t
   :config (add-to-list 'auto-mode-alist '("\\.gradle\\'" . groovy-mode))
@@ -38,10 +35,22 @@
 (use-package grails-mode
   :ensure t
   :config (add-hook 'groovy-mode-hook 'grails-mode))
-(use-package gradle-mode
-  :ensure t)
 (use-package autodisass-java-bytecode
   :ensure t)
+(el-get-bundle maven-pom-mode
+  :url "https://github.com/m0smith/maven-pom-mode.git")
+(load "~/.emacs.d/el-get/maven-pom-mode/maven-pom-mode")
+(add-hook 'nxml-mode-hook (lambda ()
+							(when (string= (file-name-base buffer-file-name))
+							  (maven-pom-mode))))
+(define-key maven-pom-mode-map (kbd "M-i") #'maven-pom-add-dependency)
+(define-key maven-pom-mode-map (kbd "C-S-i") #'maven-pom-insert-dependency-xml)
+(define-key maven-pom-mode-map (kbd "C-c d") nil)
+;; (use-package flycheck-kotlin
+;;   :ensure t
+;;   :config (flycheck-kotlin-setup))
+;; (use-package gradle-mode
+;;   :ensure t)
 ;; (use-package meghanada
 ;;   :ensure t
 ;;   :config
@@ -123,13 +132,12 @@
 ;;   (define-key ensime-mode-map (kbd "C-j") #'ensime-edit-definition)
 ;;   (define-key ensime-mode-map (kbd "C-S-j") #'ensime-pop-find-definition-stack)
 ;;   (define-key ensime-mode-map (kbd "M-r") #'ensime-refactor-diff-rename)
-;;   (define-key ensime-mode-map (kbd "C-e") #'ensime-inf-eval-buffer)
+;;   (define-key ensime-mode-map (kbd "C-S-e") #'ensime-inf-eval-buffer)
 ;;   (define-key ensime-mode-map (kbd "C-d") #'ensime-show-doc-for-symbol-at-point)
-;;   (define-key ensime-mode-map (kbd "C-S-e") #'ensime-inf-eval-region)
-;;   (define-key ensime-mode-map (kbd "M-p") #'projectile-switch-project)
-;;   (define-key ensime-mode-map (kbd "C-S-i") #'ensime-refactor-diff-organize-imports)
-;;   (define-key ensime-mode-map (kbd "<tab>") #'self-insert-command)
-;;   (define-key ensime-mode-map (kbd "<C-tab>") #'ensime-company-complete-or-indent)
+;;   (define-key ensime-mode-map (kbd "C-e") #'ensime-inf-eval-region)
+;;   (define-key ensime-mode-map (kbd "C-S-o") #'projectile-switch-project)
+;;   (define-key ensime-mode-map (kbd "C-p") #'projectile-find-file)
+;;   (define-key ensime-mode-map (kbd "<tab>") #'ensime-company-complete-or-indent)
 ;;   (define-key ensime-mode-map (kbd "M-i") #'ensime-import-type-at-point))
 ;; (use-package sbt-mode
 ;;   :ensure t
@@ -137,21 +145,22 @@
 ;; (use-package scala-mode
 ;;   :ensure t
 ;;   :pin melpa)
-;; (use-package android-mode
-;;   :ensure t
-;;   :config (add-hook 'java-mode-hook 'android-mode)
-;;   (add-hook 'scala-mode-hook 'android-mode))
-(el-get-bundle maven-pom-mode
-  :url "https://github.com/m0smith/maven-pom-mode.git")
-(load "~/.emacs.d/el-get/maven-pom-mode/maven-pom-mode")
-(add-hook 'nxml-mode-hook (lambda ()
-							(when (string= (file-name-base buffer-file-name))
-							  (maven-pom-mode))))
-(define-key maven-pom-mode-map (kbd "M-i") #'maven-pom-add-dependency)
-(define-key maven-pom-mode-map (kbd "C-S-i") #'maven-pom-insert-dependency-xml)
-(define-key maven-pom-mode-map (kbd "C-c d") nil)
+;; ;; (use-package android-mode
+;; ;;   :ensure t
+;; ;;   :config (add-hook 'java-mode-hook 'android-mode)
+;; ;;   (add-hook 'scala-mode-hook 'android-mode))
 ;; (el-get-bundle jdibug
 ;;   :url "https://github.com/udalrich/jdibug.git")
 ;; (add-to-list 'load-path "~/.emacs.d/el-get/jdibug")
 ;; (require 'jdibug)
 ;; (require 'jdibug-ui)
+;; (use-package eclim
+;;   :ensure t
+;;   :config (setq eclimd-autostart nil)
+;;   (global-eclim-mode)
+;;   (custom-set-variables
+;;    '(eclim-eclipse-dirs '("~/bin/eclipse"))
+;;    '(eclim-executable "~/bin/eclipse/eclim")))
+;; (use-package company-emacs-eclim
+;;   :ensure t
+;;   :config (company-emacs-eclim-setup))

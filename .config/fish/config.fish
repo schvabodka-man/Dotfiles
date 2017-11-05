@@ -226,6 +226,11 @@ alias download-continue "aria-continue"
 alias calc 'octave-cli'
 alias calculator 'octave-cli'
 
+alias screencast-asciinema "asciinema rec -w4"
+alias asciinema-screencast "screencast-asciinema"
+alias record-asciinema "screencast-asciinema"
+alias asciinema-record "screencast-asciinema"
+
 #sql wrappers
 if test -e /bin/mycli
 	alias mysql 'mycli'

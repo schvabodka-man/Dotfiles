@@ -18,8 +18,8 @@
   :after ivy
   :pin melpa-stable
   :bind (("M-x" . counsel-M-x)
-		 ("M-o" . counsel-find-file)
-		 ("M-b" . counsel-bookmark)
+		 ("C-o" . counsel-find-file)
+		 ("C-b" . counsel-bookmark)
 		 ;; ("C-S-f" . counsel-ag)
 		 ("C-h C-k" . counsel-descbinds)))
 (use-package swiper
@@ -92,8 +92,10 @@
   :init (global-flycheck-mode))
 (use-package flycheck-popup-tip
   :ensure t
-  :config (with-eval-after-load 'flycheck
-			'(add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode)))
+  :after flycheck
+  :config (add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode))
 (use-package hydra
   :ensure t
   :pin melpa-stable)
+(use-package s
+  :ensure t)
