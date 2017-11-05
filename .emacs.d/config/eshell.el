@@ -10,7 +10,7 @@
 			(local-set-key (kbd "<up>") #'previous-line)
 			(local-set-key (kbd "<down>") #'next-line)
 			(local-set-key (kbd "<tab>") #'company-complete)
-			(local-set-key (kbd "M-c") #'Eshell-interrupt-process)))
+			(local-set-key (kbd "M-c") #'eshell-interrupt-process)))
 (use-package eshell-z
   :ensure t)
 (use-package eshell-up

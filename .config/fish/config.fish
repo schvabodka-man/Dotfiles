@@ -146,6 +146,10 @@ if test -e ~/Go/bin/gopm
 	alias gopm '~/Go/bin/gopm'
 end
 
+if test -e ~/.sdkman/candidates/leiningen/current/bin/lein
+	alias lein ~/.sdkman/candidates/leiningen/current/bin/lein
+end
+
 alias j "z"
 
 #better work with standart unix utils

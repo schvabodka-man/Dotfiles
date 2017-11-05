@@ -75,3 +75,5 @@ alias screencast-asciinema asciinema rec -w4 $*
 alias asciinema-screencast asciinema rec -w4 $*
 alias record-asciinema asciinema rec -w4 $*
 alias asciinema-record asciinema rec -w4 $*
+
+alias lein ~/.sdkman/candidates/leiningen/current/bin/lein $*

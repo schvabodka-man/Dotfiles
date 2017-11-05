@@ -146,6 +146,7 @@
  '(bbdb-file-remote nil)
  '(ccm-step-delay 0)
  '(ccm-step-size 1)
+ '(cider-lein-command "~/.sdkman/candidates/leiningen/current/bin/lein")
  '(company-auto-complete-chars (quote (46)))
  '(company-fish-shell-modes (quote (fish-mode)))
  '(company-minimum-prefix-length 1)
@@ -256,7 +257,7 @@
  '(org-agenda-confirm-kill t)
  '(package-selected-packages
    (quote
-	(flycheck-popup-tip py-autopep8 steam top-mode guess-language conkeror-minor-mode dired-toggle-sudo flycheck-kotlin inf-groovy groovy-imports org-ehtml nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
+	(cider flycheck-popup-tip py-autopep8 steam top-mode guess-language conkeror-minor-mode dired-toggle-sudo flycheck-kotlin inf-groovy groovy-imports org-ehtml nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
  '(paradox-github-token t)
  '(popwin:adjust-other-windows nil)
  '(projectile-globally-ignored-directories
@@ -297,6 +298,7 @@
  '(cfw:face-grid ((t (:foreground "white"))))
  '(cfw:face-toolbar ((t (:foreground "white"))))
  '(cfw:face-toolbar-button-off ((t (:foreground "white" :weight bold))))
+ '(cider-fringe-good-face ((t (:foreground "chartreuse"))))
  '(company-preview ((t (:foreground "gold"))))
  '(company-preview-common ((t (:inherit company-preview))))
  '(company-preview-search ((t (:inherit company-preview))))

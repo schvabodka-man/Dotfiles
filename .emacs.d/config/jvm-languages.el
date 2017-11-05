@@ -1,51 +1,55 @@
 ;;; jvm-languages --- JVM dev
 ;;; Commentary:
 ;;; Code:
+(use-package cider
+  :ensure t
+  :pin melpa-stable)
+(use-package autodisass-java-bytecode
+  :ensure t)
 (add-to-list 'auto-mode-alist '("\\.aj\\'" . java-mode))
 (use-package java-snippets
   :ensure t)
 (use-package kotlin-mode
   :ensure t
   :config (define-key kotlin-mode-map (kbd "<return>") 'newline-and-indent))
+(use-package scala-mode
+  :ensure t
+  :pin melpa)
 (use-package groovy-mode
   :ensure t
   :config (add-to-list 'auto-mode-alist '("\\.gradle\\'" . groovy-mode))
   (define-key groovy-mode-map (kbd "<return>") 'newline-and-indent))
-(use-package groovy-imports
-  :ensure t
-  :config (setq groovy-imports-find-block-function 'groovy-imports-find-place-sorted-block)
-  (define-key groovy-mode-map (kbd "M-i") 'groovy-imports-add-import)
-  (define-key groovy-mode-map (kbd "C-S-i") 'groovy-imports-add-import-dwim)
-  (define-key groovy-mode-map (kbd "C-M-i") 'groovy-imports-scan-file)
-  (setq groovy-imports-save-buffer-after-import-added nil)
-  (add-hook 'groovy-mode-hook 'groovy-imports-scan-file))
-(use-package inf-groovy
-  :ensure t
-  :config (add-hook 'groovy-mode-hook 'inferior-groovy-mode)
-  (add-hook 'groovy-mode-hook 'inferior-groovy-mode)
-  (define-key inferior-groovy-mode-map (kbd "<f1>") 'switch-to-groovy)
-  (define-key inferior-groovy-mode-map (kbd "<C-f1>") 'run-groovy)
-  (define-key inferior-groovy-mode-map (kbd "C-e") 'groovy-send-region)
-  (define-key inferior-groovy-mode-map (kbd "C-S-e") 'groovy-send-region-and-go)
-  (define-key inferior-groovy-mode-map (kbd "M-i") 'groovy-imports-add-import)
-  (define-key inferior-groovy-mode-map (kbd "C-S-i") 'groovy-imports-add-import-dwim)
-  (define-key inferior-groovy-mode-map (kbd "C-M-i") 'groovy-imports-scan-file)
-  (defalias 'groovy-repl-run 'run-groovy)
-  (defalias 'groovy-repl 'switch-to-groovy))
-(use-package grails-mode
-  :ensure t
-  :config (add-hook 'groovy-mode-hook 'grails-mode))
-(use-package autodisass-java-bytecode
-  :ensure t)
-(el-get-bundle maven-pom-mode
-  :url "https://github.com/m0smith/maven-pom-mode.git")
-(load "~/.emacs.d/el-get/maven-pom-mode/maven-pom-mode")
-(add-hook 'nxml-mode-hook (lambda ()
-							(when (string= (file-name-base buffer-file-name))
-							  (maven-pom-mode))))
-(define-key maven-pom-mode-map (kbd "M-i") #'maven-pom-add-dependency)
-(define-key maven-pom-mode-map (kbd "C-S-i") #'maven-pom-insert-dependency-xml)
-(define-key maven-pom-mode-map (kbd "C-c d") nil)
+
+;; (use-package groovy-imports
+;;   :ensure t
+;;   :config (setq groovy-imports-find-block-function 'groovy-imports-find-place-sorted-block)
+;;   (define-key groovy-mode-map (kbd "M-i") 'groovy-imports-add-import)
+;;   (define-key groovy-mode-map (kbd "C-S-i") 'groovy-imports-add-import-dwim)
+;;   (define-key groovy-mode-map (kbd "C-M-i") 'groovy-imports-scan-file)
+;;   (setq groovy-imports-save-buffer-after-import-added nil)
+;;   (add-hook 'groovy-mode-hook 'groovy-imports-scan-file))
+;; (use-package inf-groovy
+;;   :ensure t
+;;   :config (add-hook 'groovy-mode-hook 'inferior-groovy-mode)
+;;   (add-hook 'groovy-mode-hook 'inferior-groovy-mode)
+;;   (define-key inferior-groovy-mode-map (kbd "<f1>") 'switch-to-groovy)
+;;   (define-key inferior-groovy-mode-map (kbd "<C-f1>") 'run-groovy)
+;;   (define-key inferior-groovy-mode-map (kbd "C-e") 'groovy-send-region)
+;;   (define-key inferior-groovy-mode-map (kbd "C-S-e") 'groovy-send-region-and-go)
+;;   (define-key inferior-groovy-mode-map (kbd "M-i") 'groovy-imports-add-import)
+;;   (define-key inferior-groovy-mode-map (kbd "C-S-i") 'groovy-imports-add-import-dwim)
+;;   (define-key inferior-groovy-mode-map (kbd "C-M-i") 'groovy-imports-scan-file)
+;;   (defalias 'groovy-repl-run 'run-groovy)
+;;   (defalias 'groovy-repl 'switch-to-groovy))
+;; (use-package grails-mode
+;;   :ensure t
+;;   :config (add-hook 'groovy-mode-hook 'grails-mode))
+;; (el-get-bundle maven-pom-mode
+;;   :url "https://github.com/m0smith/maven-pom-mode.git")
+;; (load "~/.emacs.d/el-get/maven-pom-mode/maven-pom-mode")
+;; (define-key maven-pom-mode-map (kbd "M-i") #'maven-pom-add-dependency)
+;; (define-key maven-pom-mode-map (kbd "C-S-i") #'maven-pom-insert-dependency-xml)
+;; (define-key maven-pom-mode-map (kbd "C-c d") nil)
 ;; (use-package flycheck-kotlin
 ;;   :ensure t
 ;;   :config (flycheck-kotlin-setup))
@@ -140,9 +144,6 @@
 ;;   (define-key ensime-mode-map (kbd "<tab>") #'ensime-company-complete-or-indent)
 ;;   (define-key ensime-mode-map (kbd "M-i") #'ensime-import-type-at-point))
 ;; (use-package sbt-mode
-;;   :ensure t
-;;   :pin melpa)
-;; (use-package scala-mode
 ;;   :ensure t
 ;;   :pin melpa)
 ;; ;; (use-package android-mode

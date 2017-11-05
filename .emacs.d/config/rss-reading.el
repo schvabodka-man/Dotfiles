@@ -248,7 +248,8 @@
   (defun elfeed-mark-all-read ()
 	(interactive)
 	(elfeed-untag elfeed-search-entries 'unread)
-	(elfeed-search-update :force))
+	(elfeed-search-update :force)
+	(elfeed-db-save))
   (define-key elfeed-search-mode-map (kbd "R") #'elfeed-mark-all-read)
   ;;from here http://pragmaticemacs.com/emacs/star-and-unstar-articles-in-elfeed/
   (defun bjm/elfeed-star ()
