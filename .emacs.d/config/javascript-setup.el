@@ -1,16 +1,3 @@
-(use-package web-mode
-  :ensure t
-  :config
-  (define-key web-mode-map (kbd "<return>") 'newline-and-indent)
-  (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode)))
 (use-package js2-mode
   :ensure t
   :config (add-to-list 'auto-mode-alist (cons (rx ".js" eos) 'js2-mode))
@@ -67,18 +54,24 @@
   :config (define-key json-mode-map (kbd "<return>") 'newline-and-indent))
 (use-package web-beautify
   :ensure t
-  :config (define-key js2-mode-map (kbd "C-b") 'web-beautify-js)
+  :config (define-key js2-mode-map (kbd "C-s") '(lambda () (interactive) (web-beautify-js)
+												  (save-buffer)))
   (defun web-beautify-based-on-mode ()
+	(interactive)
 	(if (string-match ".html" (buffer-file-name))
 		(progn
 		  (web-beautify-html)))
 	(if (string-match ".css" (buffer-file-name))
 		(progn
 		  (web-beautify-css))))
-  (define-key web-mode-map (kbd "C-b") '(lambda () (interactive) (web-beautify-based-on-mode)))
-  (define-key json-mode-map (kbd "C-b") 'web-beautify-js))
-;; (use-package tern
-;;   :ensure t)
+  (define-key web-mode-map (kbd "C-s") '(lambda () (interactive) (web-beautify-based-on-mode)
+										  (save-buffer)))
+  (define-key json-mode-map (kbd "C-s") '(lambda ()
+										   (interactive)
+										   (web-beautify-js)
+										   (save-buffer))))
+(use-package tern
+  :ensure t)
 (use-package company-tern
   :ensure t
   :config (add-to-list 'company-backends 'company-tern)

@@ -4,6 +4,8 @@
 (use-package cider
   :ensure t
   :pin melpa-stable)
+(use-package clojure-snippets
+  :ensure t)
 (use-package autodisass-java-bytecode
   :ensure t)
 (add-to-list 'auto-mode-alist '("\\.aj\\'" . java-mode))

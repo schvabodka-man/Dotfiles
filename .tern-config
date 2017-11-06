@@ -1,0 +1,16 @@
+{
+	"libs": [
+		"browser",
+		"jquery",
+		"express",
+		"prism",
+		"ecma5",
+		"ecma6"
+	],
+	"plugins": {
+		"doc_comment": null,
+		"node": {},
+		"es_modules": {}
+	},
+	"ecmaVersion": 6
+}

@@ -29,7 +29,7 @@
   (defalias 'multi-eshell-next 'multi-eshell-switch)
   (defalias 'multi-eshell-prev 'multi-eshell-go-back)
   (defalias 'multi-eshell-previous 'multi-eshell-go-back)
-  :bind (("M-~" . multi-eshell)))
+  :bind (("M-`" . multi-eshell)))
 ;;bookmarks for eshell
 (el-get-bundle eshell-bmk
   :url "https://gist.githubusercontent.com/kkatsuyuki/fa930411a86169c3bb1f03337d4af280/raw/be5bcc2e519a3ab9e67ea0f5238a3e0b75b0084e/eshell-bmk.el"
@@ -65,9 +65,8 @@
 	(set-window-dedicated-p currentbuf nil)
 	(set-window-buffer currentbuf newbuf)
 	(shell newbuf)))
-(setenv "JAVA_HOME" "/usr/lib/jvm/java")
-(setenv "GRADLE_HOME" "/usr/share/gradle")
+(add-hook 'eshell-preoutput-filter-functions 'ansi-color-filter-apply)
 (setenv "GOPATH" "/home/user/Go")
-(setenv "BROWSER" "luakit")
-(setenv "ANDROID_HOME" "/home/user/Android/Sdk")
+(setenv "BROWSER" "vivaldi")
+(setenv "TERM" "xterm-256color")
 ;;; eshell ends here

@@ -1,5 +1,20 @@
+(use-package web-mode
+  :ensure t
+  :config
+  (define-key web-mode-map (kbd "<return>") 'newline-and-indent)
+  (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode)))
 (use-package  simple-httpd
-  :ensure t)
+  :ensure t
+  :config (httpd-stop)
+  (httpd-start))
 (use-package impatient-mode
   :ensure t
   :after simple-httpd

@@ -257,17 +257,18 @@ function project-js
 	touch .projectile
 	touch .tern-project
 	touch .csswatcher
-	echo "{
-	\"libs\": [
-	\"browser\",
-	\"jquery\",
-	\"express\",
-	\"prism\"
-	],
-	\"plugins\": {
-	\"node\": {}
-	}
-	}" >> .tern-project
+	echo "{	}" >> .tern-project
+	# echo "{
+	# \"libs\": [
+	# \"browser\",
+	# \"jquery\",
+	# \"express\",
+	# \"prism\"
+	# ],
+	# \"plugins\": {
+	# \"node\": {}
+	# }
+	# }" >> .tern-project
 end
 alias project-javascript 'project-js'
 alias javascript-project 'project-js'
