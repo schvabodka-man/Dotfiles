@@ -342,3 +342,8 @@ This command does not push text to `kill-ring'."
 				  (indent-region (region-beginning) (region-end) nil))))))
 ;;ssh instead of some old crap
 (setq tramp-default-method "ssh")
+;;scroll speed
+(setq scroll-step 1)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+(setq mouse-wheel-progressive-speed nil)
+(setq mouse-wheel-follow-mouse 't)

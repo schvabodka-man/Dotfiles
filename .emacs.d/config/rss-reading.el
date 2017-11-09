@@ -237,6 +237,14 @@
   (define-key elfeed-search-mode-map (kbd "C-S-t") #'elfeed-search-tag-all)
   (define-key elfeed-search-mode-map (kbd "C-S-u") #'elfeed-search-untag-all)
 
+  (defun elfeed-kill-and-save ()
+	(interactive)
+	(kill-this-buffer)
+	(elfeed-db-save))
+
+  (define-key elfeed-show-mode-map (kbd "C-q") #'elfeed-kill-and-save)
+  (define-key elfeed-search-mode-map (kbd "C-q") #'elfeed-kill-and-save)
+
   (define-key elfeed-show-mode-map (kbd "M-r") #'elfeed-show-refresh)
   (define-key elfeed-show-mode-map (kbd "M-o") #'elfeed-show-visit)
   (define-key elfeed-show-mode-map (kbd "M-y") #'elfeed-show-yank)

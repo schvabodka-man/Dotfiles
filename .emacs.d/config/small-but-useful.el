@@ -59,3 +59,6 @@
   :config
   (if (internet-up-p)
 	  (tldr-update-docs)))
+(use-package smooth-scrolling
+  :ensure t
+  :config (smooth-scrolling-mode 1))

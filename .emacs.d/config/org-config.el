@@ -23,17 +23,16 @@
 (defalias 'week 'org-agenda-week-view)
 (defalias 'day 'org-agenda-day-view)
 (defalias 'org-time 'org-time-stamp)
-(add-hook 'org-mode-hook
-		  (lambda ()
-			(local-set-key (kbd "C-S-i") #'org-time-stamp)
-			;; (local-set-key (kbd "M-i") #'org-wiki-insert)
-			;; (local-set-key (kbd "M-S-i") #'org-wiki-assert-insert)
-			(local-set-key (kbd "M-f") #'deft-find-file)
-			(local-set-key (kbd "M-S-f") #'deft)
-			(local-set-key (kbd "<S-left>") nil)
-			(local-set-key (kbd "<S-right>") nil)
-			(local-set-key (kbd "<S-up>") nil)
-			(local-set-key (kbd "<S-down>") nil)))
+
+(define-key org-mode-map (kbd "C-t") 'org-time-stamp)
+(define-key org-mode-map (kbd "M-\\") 'org-shiftright)
+(define-key org-mode-map (kbd "M-f") 'deft-find-file)
+(define-key org-mode-map (kbd "M-S-f") 'deft)
+(define-key org-mode-map (kbd "<S-left>") nil)
+(define-key org-mode-map (kbd "<S-right>") nil)
+(define-key org-mode-map (kbd "<S-up>") nil)
+(define-key org-mode-map (kbd "<S-down>") nil)
+
 (add-hook 'org-agenda-mode-hook
 		  (lambda ()
 			(local-set-key (kbd "<") nil)

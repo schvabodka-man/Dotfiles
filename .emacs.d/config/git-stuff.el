@@ -168,7 +168,10 @@
   :ensure t
   :config
   (add-hook 'with-editor-mode-hook
-		  (lambda ()
-			(local-set-key (kbd "C-s") #'with-editor-finish)
-			(local-set-key (kbd "C-c C-c") nil))))
+			(lambda ()
+			  (local-set-key (kbd "C-s") #'with-editor-finish)
+			  (local-set-key (kbd "C-c C-c") nil))))
+(use-package git-auto-commit-mode
+  :ensure t
+  :config (add-hook 'org-mode-hook 'git-auto-commit-mode))
 ;;; git-stuff.el ends here

@@ -24,7 +24,7 @@ set adjust-open "width"
 map - zoom in
 map + zoom out
 map = zoom default
-map ; focus_inputbar :
+map <M-x> focus_inputbar :
 map . navigate next
 map , navigate previous
 map g follow

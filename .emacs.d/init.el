@@ -213,6 +213,7 @@
  '(frames-only-mode-use-window-functions
    (quote
 	(report-emacs-bug checkdoc-show-diagnostics checkdoc)))
+ '(gac-shell-and " ; ")
  '(git-messenger:use-magit-popup t)
  '(global-centered-cursor-mode nil)
  '(global-undo-tree-mode t)
