@@ -7,7 +7,6 @@
 (global-set-key (kbd "C-<end>") 'end-of-buffer)
 (global-set-key (kbd "<escape>") 'escape-key-work)
 (global-set-key (kbd "C-S-q") 'kill-buffer)
-(global-set-key (kbd "C-M-f") 'list-matching-lines)
 (global-set-key (kbd "<home>") 'beginning-of-line)
 (global-set-key (kbd "<end>") 'end-of-line)
 (define-key emacs-lisp-mode-map (kbd "<return>") 'newline-and-indent)
@@ -33,6 +32,7 @@
 (global-set-key (kbd "M-<right>") 'windmove-right)
 (global-set-key (kbd "M-q") 'delete-window)
 (global-set-key (kbd "C-q") 'kill-this-buffer)
+(global-set-key (kbd "M-r") 'revert-buffer)
 
 (global-set-key (kbd "M-u") nil)
 (global-set-key (kbd "M-l") nil)

@@ -128,6 +128,7 @@
 			(local-set-key (kbd "M-g") #'dired-goto-file)
 			(local-set-key (kbd "M-S-g") #'dired-goto-subdir)
 			(local-set-key (kbd "M-c") #'dired-do-copy)
+			(local-set-key (kbd "C-M-c") #'dired-do-copy-regexp)
 			(local-set-key (kbd "<down>") #'dired-next-line)
 			(local-set-key (kbd "<up>") #'dired-previous-line)
 			(local-set-key (kbd "<delete>") #'dired-do-delete)
@@ -142,6 +143,7 @@
 			(local-set-key (kbd "C-S-r") #'dired-do-rename-regexp)
 			(local-set-key (kbd "M-r") #'revert-buffer)
 			(local-set-key (kbd "C-p") #'dired-do-print)
+			(local-set-key (kbd "M-z") #'dired-undo)
 			(local-set-key (kbd "C-i") #'image-dired)
 			(local-set-key (kbd "C-u") #'dired-unmark)
 			(local-set-key (kbd "C-S-u") #'dired-unmark-all-marks)
@@ -152,6 +154,9 @@
 			(local-set-key (kbd "C-`") #'dired-do-async-shell-command)
 			(local-set-key (kbd "C-s") #'dired-do-compress)
 			(local-set-key (kbd "C-b") #'diredp-do-bookmark)))
+
+(add-hook 'dired-mode-hook (lambda ()
+							 (smooth-scrolling-mode 0)))
 
 (setq delete-by-moving-to-trash t)
 

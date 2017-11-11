@@ -85,7 +85,7 @@
 			  (local-set-key (kbd "M-g") #'pdf-links-action-perform)
 			  (local-set-key (kbd "<home>") #'pdf-view-first-page)
 			  (local-set-key (kbd "<end>") #'pdf-view-last-page)
-			  (local-set-key (kbd "C-e") #'pdf-virtual-edit-mode)
+			  (local-set-key (kbd "M-i") #'pdf-virtual-edit-mode)
 			  (local-set-key (kbd "<C-left>") #'pdf-view-previous-page-command)
 			  (local-set-key (kbd "<C-right>") #'pdf-view-next-page-command)
 			  (local-set-key (kbd "<C-S-left>") #'pdf-history-backward)

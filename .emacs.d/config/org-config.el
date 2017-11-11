@@ -24,15 +24,17 @@
 (defalias 'day 'org-agenda-day-view)
 (defalias 'org-time 'org-time-stamp)
 
-(define-key org-mode-map (kbd "C-t") 'org-time-stamp)
-(define-key org-mode-map (kbd "M-\\") 'org-shiftright)
-(define-key org-mode-map (kbd "M-f") 'deft-find-file)
-(define-key org-mode-map (kbd "M-S-f") 'deft)
-(define-key org-mode-map (kbd "<S-left>") nil)
-(define-key org-mode-map (kbd "<S-right>") nil)
-(define-key org-mode-map (kbd "<S-up>") nil)
-(define-key org-mode-map (kbd "<S-down>") nil)
-
+(add-hook 'org-mode-hook
+		  (lambda ()
+			(local-set-key (kbd "C-t") 'org-time-stamp)
+			(local-set-key (kbd "M-\\") 'org-shiftright)
+			(local-set-key (kbd "M-f") 'deft-find-file)
+			(local-set-key (kbd "M-S-f") 'deft)
+			(local-set-key (kbd "<S-left>") nil)
+			(local-set-key (kbd "<S-right>") nil)
+			(local-set-key (kbd "<S-up>") nil)
+			(local-set-key (kbd "<S-down>") nil)
+			))
 (add-hook 'org-agenda-mode-hook
 		  (lambda ()
 			(local-set-key (kbd "<") nil)
@@ -120,11 +122,13 @@
 			(local-set-key (kbd "C-S-f") #'org-agenda-filter-by-regexp)
 			(local-set-key (kbd "M-i") #'org-attach)
 			(local-set-key (kbd "C-e") #'org-agenda-archive)
+			(local-set-key (kbd "M-\\") #'org-agenda-todo)
 			(local-set-key (kbd "C-m") #'org-agenda-bulk-mark)
 			(local-set-key (kbd "C-S-m") #'org-agenda-bulk-mark-all)
 			(local-set-key (kbd "C-u") #'org-agenda-bulk-unmark)
 			(local-set-key (kbd "C-S-u") #'org-agenda-bulk-unmark-all)
-			(local-set-key (kbd "M-z") #'org-agenda-redo)))
+			(local-set-key (kbd "M-z") #'org-agenda-undo)
+			(local-set-key (kbd "M-Z") #'org-agenda-redo)))
 ;;diary
 (use-package org-journal
   :ensure t
@@ -143,43 +147,31 @@
 ;;like pinboard 
 (use-package org-board
   :ensure t
-  :config (defalias 'board-new 'org-board-new)
-  (defalias 'board-save 'org-board-new)
-  (defalias 'link-new 'org-board-new)
-  (defalias 'link-save 'org-board-new)
-  (defalias 'link-add 'org-board-new)
-  (defalias 'url-save 'org-board-new)
-  (defalias 'uri-save 'org-board-new)
-  (defalias 'url-new 'org-board-new)
-  (defalias 'uri-new 'org-board-new)
-  (defalias 'url-add 'org-board-new)
-  (defalias 'uri-add 'org-board-new)
-  (defalias 'board-open 'org-board-open)
-  (defalias 'board-diff 'org-board-diff)
-  (defalias 'board-archive 'org-board-archive)
-  (add-hook 'org-mode-hook (lambda () (local-set-key (kbd "M-i") #'org-board-new))))
+  :config 
+  (defalias 'org-board-save 'org-board-new)
+  (defalias 'org-link-new 'org-board-new)
+  (defalias 'org-link-save 'org-board-new)
+  (defalias 'org-link-add 'org-board-new)
+  (defalias 'org-url-save 'org-board-new)
+  (defalias 'org-uri-save 'org-board-new)
+  (defalias 'org-url-new 'org-board-new)
+  (defalias 'org-uri-new 'org-board-new)
+  (defalias 'org-url-add 'org-board-new)
+  (defalias 'org-uri-add 'org-board-new)
+  (add-hook 'org-mode-hook (lambda () (local-set-key (kbd "C-S-i") #'org-board-new))))
 ;;some search improvements for org mode
 (use-package deft
   :ensure t
+  :bind ("C-M-f" . deft-find-file)
   :config (setq deft-extensions '("txt" "org" "md"))
   (setq deft-directory "~/Dropbox/Org/")
   (setq deft-recursive t)
-  (defalias 'wiki 'deft-find-file)
-  (defalias 'org-wiki-find 'deft)
-  (defalias 'org-wiki-find-files 'deft-find-file)
-  (defalias 'wiki-find 'deft)
-  (defalias 'wiki-find-files 'deft-find-file)
-  (defalias 'org-wiki-search-files 'deft-find-file)
-  (defalias 'wiki-search 'deft)
-  (defalias 'wiki-search-files 'deft-find-file))
-;; (use-package helm-org-rifle
-;;   :ensure t
-;;   :config (define-key org-mode-map (kbd "C-f") 'helm-org-rifle-current-buffer)
-;;   (define-key org-mode-map (kbd "C-S-f") 'helm-org-rifle)
-;;   (defalias 'org-mode-search-current-buffer 'helm-org-rifle-current-buffer)
-;;   (defalias 'org-mode-search 'helm-org-rifle)
-;;   (defalias 'mode-search-current-buffer 'helm-org-rifle-current-buffer)
-;;   (defalias 'mode-search 'helm-org-rifle))
+  (defalias 'org-find 'deft)
+  (defalias 'org-find-files 'deft-find-file)
+  (defalias 'org-find-files 'deft-find-file)
+  (defalias 'org-search-file 'deft-find-file)
+  (defalias 'org-search 'deft)
+  (defalias 'org-search-files 'deft-find-file))
 (use-package calfw
   :ensure t
   :config (add-hook 'cfw:calendar-mode-hook

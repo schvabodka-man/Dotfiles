@@ -11,4 +11,11 @@
   (shell-command "i3lock -c \"0e1112\""))
 (defalias 'desktop-lock 'lock)
 (defalias 'lock-desktop 'lock)
+(defun reboot ()
+  (interactive)
+  (shell-command "/sbin/reboot"))
+(defun poweroff ()
+  (interactive)
+  (shell-command "/sbin/poweroff"))
+(defalias 'power-off 'poweroff)
 ;;; desktop-integration.el ends here

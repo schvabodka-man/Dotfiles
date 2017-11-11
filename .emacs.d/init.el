@@ -168,7 +168,7 @@
 	  (extension "mp4" "wmv" "avi" "flv" "mkv" "3gp" "rm" "ogv" "mov" "webm")
 	  (omit))
 	 ("Music"
-	  (extension "mp3" "flac" "alac" "wav" "wv" "ape" "ogg" "midi" "aac")
+	  (extension "mp3" "flac" "alac" "wav" "wv" "ape" "ogg" "midi" "aac" "opus")
 	  (omit))
 	 ("Java"
 	  (extension "aj" "java" "jsp")

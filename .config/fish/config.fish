@@ -172,7 +172,15 @@ end
 
 alias cat 'bcat'
 
-alias ls 'colorls'
+function ls
+	if test -e ~/bin/ls-icons/binary/bin/ls
+		~/bin/ls-icons/binary/bin/ls $argv
+	else if test -e /usr/local/bin/colorls
+		colorls $argv
+	else
+		/bin/ls $argv
+	end
+end
 
 if test -e /bin/colordiff
 	alias diff 'colordiff'
