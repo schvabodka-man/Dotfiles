@@ -128,11 +128,6 @@ function docker-kill
 	docker rm $argv > /dev/null
 end
 
-alias steam 'flatpak run com.valvesoftware.Steam'
-alias skype 'flatpak run com.skype.Client'
-alias ppsspp 'flatpak run org.ppsspp.PPSSPP'
-alias retroarch 'flatpak run org.libretro.RetroArch'
-
 if test -e /bin/cloc
 	alias sloc 'cloc'
 end
@@ -241,6 +236,10 @@ alias screencast-asciinema "asciinema rec -w4"
 alias asciinema-screencast "screencast-asciinema"
 alias record-asciinema "screencast-asciinema"
 alias asciinema-record "screencast-asciinema"
+alias record "screencast"
+alias record-microphone "screencast-microphone"
+alias record-with-microphone "screencast-microphone"
+alias screencast-with-microphone "screencast-microphone"
 
 #sql wrappers
 if test -e /bin/mycli
@@ -298,21 +297,21 @@ alias copy 'cp'
 alias lsa 'ls -a'
 alias lsl 'ls -l --block-size=M'
 
-alias emacs 'emacsclient -nw'
+alias emacs 'emacsclient -c'
 alias emacs-daemon '/usr/bin/emacs --daemon'
 
 #pandoc macro
 function html-to-pdf
-	pandoc -S (echo $argv | perl -n -e '/(.+)\./ && print "$1\n"').html -o (echo $argv | perl -n -e '/(.+)\./ && print "$1\n"').pdf
+	pandoc -S $argv -o (echo $argv | perl -n -e '/(.+)\./ && print "$1\n"').pdf
 end
 function html-to-docx
-	pandoc -S (echo $argv | perl -n -e '/(.+)\./ && print "$1\n"').html -o (echo $argv | perl -n -e '/(.+)\./ && print "$1\n"').docx
+	pandoc -S $argv -o (echo $argv | perl -n -e '/(.+)\./ && print "$1\n"').docx
 end
 function markdown-to-pdf
-	pandoc -S (echo $argv | perl -n -e '/(.+)\./ && print "$1\n"').md -o (echo $argv | perl -n -e '/(.+)\./ && print "$1\n"').pdf
+	pandoc -S $argv -o (echo $argv | perl -n -e '/(.+)\./ && print "$1\n"').pdf
 end
 function markdown-to-docx
-	pandoc -S (echo $argv | perl -n -e '/(.+)\./ && print "$1\n"').md -o (echo $argv | perl -n -e '/(.+)\./ && print "$1\n"').docx
+	pandoc -S $argv -o (echo $argv | perl -n -e '/(.+)\./ && print "$1\n"').docx
 end
 alias html-to-doc 'html-to-docx'
 alias markdown-to-doc 'markdown-to-docx'
