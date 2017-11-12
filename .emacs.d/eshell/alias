@@ -76,6 +76,12 @@ alias asciinema-screencast asciinema rec -w4 $*
 alias record-asciinema asciinema rec -w4 $*
 alias asciinema-record asciinema rec -w4 $*
 
+# alias screencast fish -c "screencast $*"
+# alias record fish -c "screencast $*"
+# alias record-microphone fish -c "screencast-microphone $*"
+# alias record-with-microphone fish -c "screencast-microphone $*"
+# alias screencast-with-microphone fish -c "screencast-microphone $*"
+
 alias lein ~/.sdkman/candidates/leiningen/current/bin/lein $*
 
 alias aria-local ~/bin/aria2rpc/aria2rpc addUri $* -d ~/Downloads

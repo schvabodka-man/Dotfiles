@@ -1,12 +1,3 @@
-(use-package rainbow-mode
-  :ensure t
-  :init (add-hook 'prog-mode-hook 'rainbow-mode)
-  (add-hook 'text-mode-hook 'rainbow-mode))
-(use-package rainbow-delimiters
-  :ensure t
-  :after rainbow-mode
-  :init (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-  (add-hook 'text-mode-hook 'rainbow-delimiters-mode))
 ;;icons
 (use-package all-the-icons
   :ensure t)

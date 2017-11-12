@@ -347,3 +347,5 @@ This command does not push text to `kill-ring'."
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 (setq mouse-wheel-progressive-speed nil)
 (setq mouse-wheel-follow-mouse 't)
+;;focus follows mouse
+(setq mouse-autoselect-window t)

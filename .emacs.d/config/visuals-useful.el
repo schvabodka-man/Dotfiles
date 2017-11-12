@@ -12,7 +12,17 @@
   :config (defalias 'cursor-blink 'beacon-blink)
   (defalias 'caret-blink 'beacon-blink)
   :bind (("<s-f1>" . beacon-blink)))
+;; nice parenthesis
+(use-package rainbow-mode
+  :ensure t
+  :init (add-hook 'prog-mode-hook 'rainbow-mode)
+  (add-hook 'text-mode-hook 'rainbow-mode))
+(use-package rainbow-delimiters
+  :ensure t
+  :after rainbow-mode
+  :init (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+  (add-hook 'text-mode-hook 'rainbow-delimiters-mode))
 ;;indent
 (use-package indent-guide
   :ensure t
-  :init (indent-guide-global-mode))
+  :config (indent-guide-global-mode))

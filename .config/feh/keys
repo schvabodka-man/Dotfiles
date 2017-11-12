@@ -1,5 +1,4 @@
 toggle_pause
-save_filelist
 toggle_aliasing
 toggle_filenames
 remove
@@ -17,16 +16,21 @@ scroll_left_page
 scroll_right_page
 scroll_up_page 
 scroll_down_page 
+save_filelist
 
-flip S-Up
-mirror S-Down
-orient_3 S-Left
-orient_1 S-Right
+save_image C-s
+reload_image 1-r
+toggle_actions 1-x
+
+flip braceright
+mirror braceleft
+orient_3 comma
+orient_1 period
 
 toggle_menu semicolon
 
-next_img period
-prev_img comma
+next_img C-Right
+prev_img C-Left
 zoom_fit equal
 zoom_in plus KP_Add
 zoom_out minus KP_Subtract 
@@ -37,10 +41,6 @@ scroll_left Left
 scroll_right Right
 scroll_up Up
 scroll_down Down
-scroll_left_page C-Left
-scroll_right_page C-Right
-scroll_up_page C-Up Prior
-scroll_down_page C-Down Next
 
 jump_first Home
 jump_last End

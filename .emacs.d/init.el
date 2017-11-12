@@ -39,6 +39,7 @@
 (load "~/.emacs.d/config/org-config")
 ;;rice
 (load "~/.emacs.d/config/visuals-rice")
+(load "~/.emacs.d/config/visuals-useful")
 ;;google services
 (load "~/.emacs.d/config/google-botnet")
 ;;useless
@@ -369,7 +370,7 @@
  '(spaceline-flycheck-error ((t (:foreground "red"))))
  '(spaceline-flycheck-info ((t (:foreground "deep sky blue"))))
  '(spaceline-flycheck-warning ((t (:foreground "yellow"))))
- '(spaceline-highlight-face ((t (:background "DarkGoldenrod2" :foreground "black" :inherit (quote mode-line)))))
+ '(spaceline-highlight-face ((t (:background "green" :foreground "black" :inherit (quote mode-line)))))
  '(spaceline-modified ((t (:background "SkyBlue2" :foreground "black" :inherit (quote mode-line)))))
  '(spaceline-read-only ((t (:background "plum3" :foreground "black" :inherit (quote mode-line)))))
  '(spaceline-unmodified ((t (:background "DarkGoldenrod2" :foreground "black" :inherit (quote mode-line)))))

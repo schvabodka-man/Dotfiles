@@ -27,10 +27,10 @@ map = zoom default
 map <M-x> focus_inputbar :
 map . navigate next
 map , navigate previous
-map g follow
-map q quit
-map f focus_inputbar /
-map F focus_inputbar ?
+map <M-g> follow
+map <C-q> quit
+map <C-f> focus_inputbar /
+map <C-F> focus_inputbar ?
 map <C-Left> navigate previous
 map <C-Right> navigate next
 map <S-Left> scroll full-left

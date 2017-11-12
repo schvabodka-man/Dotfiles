@@ -89,11 +89,19 @@
     (position 597 303))
 (session-info "toplevel"
     (factory-entry "gimp-keyboard-shortcuts-dialog")
-    (position 309 197)
+    (position 307 195)
     (size 462 643))
 (session-info "toplevel"
     (factory-entry "gimp-preferences-dialog")
     (position 122 0))
+(session-info "toplevel"
+    (factory-entry "gimp-file-open-dialog")
+    (position 187 46)
+    (size 780 616))
+(session-info "toplevel"
+    (factory-entry "gimp-file-save-dialog")
+    (position 474 246)
+    (size 780 629))
 
 (hide-docks no)
 (single-window-mode yes)
