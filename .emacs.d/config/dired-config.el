@@ -173,39 +173,56 @@
 (defalias 'zip 'dired-do-compress)
 (defalias 'compress-file 'dired-do-compress)
 
+(autoload 'dired-async-mode "dired-async.el" nil t)
+(dired-async-mode 1)
+
+(el-get-bundle tumme
+  :url "http://repo.or.cz/emacs.git/blob_plain/HEAD:/lisp/image-dired.el")
+(load "~/.emacs.d/el-get/tumme/image-dired")
+(add-hook 'dired-mode-hook
+		  (lambda ()
+			(local-set-key (kbd "C-i") #'image-dired)))
+
 (use-package diredful
   :ensure t
+  :pin melpa
   :config (diredful-mode 1))
 
 (use-package dired-filter
   :ensure t
+  :pin melpa
   :config (add-hook 'dired-mode-hook
 					(lambda ()
 					  (local-set-key (kbd "M-f") #'dired-filter-load-saved-filters))))
 (use-package dired-subtree
   :ensure t
+  :pin melpa
   :config (add-hook 'dired-mode-hook
 					(lambda ()
 					  (local-set-key (kbd "<SPC>") #'dired-subtree-toggle))))
 ;;git
 (use-package dired-k
   :ensure t
+  :pin melpa
   :config (add-hook 'dired-initial-position-hook 'dired-k)
   (add-hook 'dired-after-readin-hook #'dired-k-no-revert))
 ;;one buffer per dired
 (el-get-bundle joseph-single-dired
   :url "https://www.emacswiki.org/emacs/download/joseph-single-dired.el")
 (eval-after-load 'dired '(progn (require 'joseph-single-dired)))
-(use-package async
-  :ensure t)
-(autoload 'dired-async-mode "dired-async.el" nil t)
-(dired-async-mode 1)
-(el-get-bundle tumme
-  :url "http://repo.or.cz/emacs.git/blob_plain/HEAD:/lisp/image-dired.el")
-(load "~/.emacs.d/el-get/tumme/image-dired")
-(add-hook 'dired-mode-hook
-		  (lambda ()
-			(local-set-key (kbd "C-i") #'image-dired-display-thumbs)))
+
+(use-package image+
+  :ensure t
+  :pin melpa
+  :config (eval-after-load 'image '(require 'image+))
+  (eval-after-load 'image+ '(imagex-global-sticky-mode 1))
+  (eval-after-load 'image+ '(imagex-auto-adjust-mode 1)))
+
+(el-get-bundle image-dired+
+  :url "https://raw.githubusercontent.com/mhayashi1120/Emacs-image-diredx/master/image-dired%2B.el")
+(load "~/.emacs.d/el-get/image-dired+/image-dired_2B")
+(eval-after-load 'image-dired+ '(image-diredx-async-mode 1))
+
 (add-hook 'image-mode-hook
 		  (lambda ()
 			(local-set-key (kbd "<SPC>") nil)
@@ -276,12 +293,8 @@
 			(local-set-key (kbd "*") #'imagex-sticky-maximize)
 			(local-set-key (kbd ",") #'imagex-sticky-rotate-left)
 			(local-set-key (kbd ".") #'imagex-sticky-rotate-right)
-			(local-set-key (kbd "=") #'imagex-sticky-restore-original)))
-(use-package image+
-  :ensure t
-  :config (eval-after-load 'image '(require 'image+))
-  (eval-after-load 'image+ '(imagex-global-sticky-mode 1))
-  (eval-after-load 'image+ '(imagex-auto-adjust-mode 1)))
+			(local-set-key (kbd "=") #'imagex-sticky-restore-original)
+			))
 (add-hook 'archive-mode-hook
 		  (lambda ()
 			(local-set-key (kbd "<") nil)
@@ -531,19 +544,29 @@
 			(local-set-key (kbd "RET") #'tar-untar-buffer)
 			(local-set-key (kbd "<delete>") #'tar-expunge)
 			(local-set-key (kbd "<C-delete>") #'tar-flag-deleted)))
-;; (use-package peep-dired
-;;   :ensure t)
 (use-package dired-sidebar
   :ensure t
+  :pin melpa
   :bind (("M-s" . dired-sidebar-toggle-with-current-directory))
   :config (add-hook 'dired-mode-hook
 					(lambda ()
 					  (local-set-key (kbd "M-s") #'dired-sidebar-toggle-sidebar))))
 (use-package dired-toggle-sudo
   :ensure t
+  :pin melpa
   :config (defalias 'dired-root 'dired-toggle-sudo)
   (defalias 'dired-su 'dired-toggle-sudo)
   (defalias 'dired-superuser 'dired-toggle-sudo)
   (add-hook 'dired-mode-hook
 			(lambda ()
 			  (local-set-key (kbd "<f1>") #'dired-toggle-sudo))))
+(use-package peep-dired
+  :ensure t
+  :pin melpa
+  :config
+  (setq peep-dired-cleanup-on-disable t)
+  (setq peep-dired-cleanup-eagerly nil)
+  (setq peep-dired-enable-on-directories t)
+  (add-hook 'dired-mode-hook
+			(lambda ()
+			  (local-set-key (kbd "M-\\") #'peep-dired))))

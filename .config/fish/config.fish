@@ -163,6 +163,7 @@ end
 
 if test -e /bin/trash-put
 	alias rm 'trash-put'
+	alias trash-ls 'trash-list'
 end
 
 alias cat 'bcat'

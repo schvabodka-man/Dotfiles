@@ -89,7 +89,7 @@
 ;;dired
 (load "~/.emacs.d/config/dired-config")
 ;;realgud
-(load "~/.emacs.d/config/realgud-debugger")
+;; (load "~/.emacs.d/config/realgud-debugger")
 ;;finances
 (load "~/.emacs.d/config/finance-managing")
 ;;LaTeX
@@ -117,6 +117,8 @@
 (load "~/.emacs.d/config/web-browsing")
 ;;multiple workspaces and tabbing
 (load "~/.emacs.d/config/windowing-config")
+;;contacts
+(load "~/.emacs.d/config/contacts")
 ;;byte compile everything
 (defun byte-compile-init-dir ()
   "Byte-compile all your dotfiles."
@@ -259,7 +261,7 @@
  '(org-agenda-confirm-kill t)
  '(package-selected-packages
    (quote
-	(cider flycheck-popup-tip py-autopep8 steam top-mode guess-language conkeror-minor-mode dired-toggle-sudo flycheck-kotlin inf-groovy groovy-imports org-ehtml nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
+	(ranger peep-dired cider flycheck-popup-tip py-autopep8 steam top-mode guess-language conkeror-minor-mode dired-toggle-sudo flycheck-kotlin inf-groovy groovy-imports org-ehtml nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
  '(paradox-github-token t)
  '(popwin:adjust-other-windows nil)
  '(projectile-globally-ignored-directories

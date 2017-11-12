@@ -1,6 +1,8 @@
 alias cd.. eshell-up $_
 alias .. eshell-up $_
 alias lsa ls -a $*
+alias rm trash-put $*
+alias trash-ls trash-list $*
 alias move mv $*
 alias copy cp $*
 alias dired dired $pwd & kill-this-buffer

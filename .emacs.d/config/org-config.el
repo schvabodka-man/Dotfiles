@@ -2,14 +2,6 @@
 ;;; Commentary:
 ;;; MUH ORG-MODE
 ;;; Code:
-;;wiki!
-;; (el-get-bundle org-wiki
-;;   :url "https://raw.githubusercontent.com/caiorss/org-wiki/master/org-wiki.el"
-;;   :description "Emacs' desktop wiki built with org-mode"
-;;   :features org-wiki)
-;; (require 'org-wiki)
-;; (setq org-wiki-location "~/Dropbox/Org/Wiki")
-;; (defalias 'wiki 'org-wiki-index)
 (setq org-agenda-files (list "~/Dropbox/Org/Agenda/Todo"
 							 "~/Dropbox/Org/Agenda/Util"
 							 "~/Dropbox/Org/Agenda/Diary"))
@@ -132,6 +124,7 @@
 ;;diary
 (use-package org-journal
   :ensure t
+  :pin melpa-stable
   :config
   (setq org-journal-dir (expand-file-name "/home/user/Dropbox/Org/Agenda/Diary"))
   (setq org-journal-date-format '"<%Y-%m-%d %a>")
@@ -141,12 +134,15 @@
 ;;nice org mode bullets
 (use-package org-bullets
   :ensure t
+  :pin melpa-stable
   :init (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 (use-package org-download
-  :ensure t)
+  :ensure t
+  :pin melpa-stable)
 ;;like pinboard 
 (use-package org-board
   :ensure t
+  :pin melpa-stable
   :config 
   (defalias 'org-board-save 'org-board-new)
   (defalias 'org-link-new 'org-board-new)
@@ -162,6 +158,7 @@
 ;;some search improvements for org mode
 (use-package deft
   :ensure t
+  :pin melpa-stable
   :bind ("C-M-f" . deft-find-file)
   :config (setq deft-extensions '("txt" "org" "md"))
   (setq deft-directory "~/Dropbox/Org/")
@@ -174,6 +171,7 @@
   (defalias 'org-search-files 'deft-find-file))
 (use-package calfw
   :ensure t
+  :pin melpa-stable
   :config (add-hook 'cfw:calendar-mode-hook
 					(lambda () (local-set-key (kbd "d") #'cfw:change-view-day)
 					  (local-set-key (kbd "w") #'cfw:change-view-week)
@@ -189,11 +187,7 @@
 					  (local-set-key (kbd "C-<down>") #'cfw:navi-next-item-command)))) 
 (use-package calfw-org
   :ensure t
+  :pin melpa-stable
   :config (defalias 'cal 'cfw:open-org-calendar)
   (defalias 'calendar-org 'cfw:open-org-calendar))
-(el-get-bundle org-contacts
-  :url "http://orgmode.org/w/?p=org-mode.git;a=blob_plain;f=contrib/lisp/org-contacts.el")
-(require 'org-contacts)
-(setq org-contacts-files (list "~/Dropbox/Org/Contacts/Contacts.org"))
-(defalias 'contacts 'org-contacts)
-;;; org-config.el ends here
+;; org-config.el ends here

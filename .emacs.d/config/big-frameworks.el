@@ -101,9 +101,15 @@
 (use-package flycheck-popup-tip
   :ensure t
   :after flycheck
+  :pin melpa-stable
   :config (add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode))
 (use-package hydra
   :ensure t
   :pin melpa-stable)
 (use-package s
-  :ensure t)
+  :ensure t
+  :pin melpa-stable)
+(use-package async
+  :ensure t
+  ;; :pin melpa-stable
+  )
