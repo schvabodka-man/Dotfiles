@@ -47,11 +47,11 @@
   (define-key LaTeX-mode-map (kbd "<f1>") #'latex-preview-pane-mode)
   (define-key doc-view-mode-map (kbd "M-r") #'latex-preview-pane-update)
   (define-key doc-view-mode-map (kbd "C-S-o") #'projectile-switch-project))
-;; (use-package company-math
-;;   :ensure t
-;;   :config (add-to-list 'company-backends 'company-math-symbols-unicode)
-;;   (add-to-list 'company-backends 'company-math-symbols-latex)
-;;   (add-to-list 'company-backends 'company-latex-commands))
+(use-package company-math
+  :ensure t
+  :config (add-to-list 'company-backends 'company-math-symbols-unicode)
+  (add-to-list 'company-backends 'company-math-symbols-latex)
+  (add-to-list 'company-backends 'company-latex-commands))
 (use-package magic-latex-buffer
   :ensure t
   :config (add-hook 'latex-mode-hook 'magic-latex-buffer)
