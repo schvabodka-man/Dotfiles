@@ -420,6 +420,7 @@ function fish_user_key_bindings
 	bind -e \cy
 	bind -e \ed
 	bind -e \cd
+	bind -e \cs
 	bind -e -k
 	bind -e \eh
 	bind -e \ep
@@ -518,6 +519,7 @@ function fish_user_key_bindings
 
 	bind \ck backward-kill-line
 	bind \ek kill-line
+	bind \es sudope
 
 	bind [1~ beginning-of-line
 	bind [4~ end-of-line
