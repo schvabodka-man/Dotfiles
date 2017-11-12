@@ -321,22 +321,17 @@ alias md-to-docx 'markdown-to-docx'
 alias md-to-pdf 'markdown-to-pdf'
 
 #gpg
-function export-key
+function gpg-export-key
 	gpg2 --export-secret-key $argv --armor > $argv.asc
 end
-alias gpg-export-key 'export-key'
 
-function encrypt
+function gpg-encrypt
 	gpg2 -e -r $argv[1] $argv[2]
 end
-alias gpg-encrypt 'encrypt'
-alias gpg2-encrypt 'encrypt'
 
-function decrypt
+function gpg-decrypt
 	gpg2 -d $argv
 end
-alias gpg-decrypt 'decrypt'
-alias gpg2-decrypt 'decrypt'
 
 #tmux
 function tmux-new
