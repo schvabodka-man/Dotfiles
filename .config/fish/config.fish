@@ -4,15 +4,15 @@ set fish_greeting ""
 set -g theme_display_date no
 set -g theme_color_scheme dark
 set -g theme_display_hg yes
+set -g theme_display_cmd_duration yes
+set -g theme_show_exit_status yes
 #Homes!
-set -x JAVA_HOME '/usr/lib/jvm/java-1.8.0-openjdk'
 set -x GOPATH '/home/user/Go'
 set -x LGOBIN '/home/user/Go/bin'
-set -x ANDROID_HOME '/home/user/Android/Sdk'
 set -x EDITOR "emacsclient -c"
 set -x BROWSER "qutebrowser"
 #colored man
-set -x  LESS_TERMCAP_mb (tput bold; tput setaf 1)
+set -x LESS_TERMCAP_mb (tput bold; tput setaf 1)
 set -x LESS_TERMCAP_md (tput bold; tput setaf 2)
 set -x LESS_TERMCAP_me (tput sgr0)
 set -x LESS_TERMCAP_so (tput bold; tput setaf 1; tput setab 7)
@@ -52,11 +52,6 @@ if test -e ~/bin/up/up.fish
 	source ~/bin/up/up.fish
 	alias cd.. 'up' #priceless
 	alias .. 'up'
-end
-
-if test -e ~/bin/transfersh/transfer.fish
-	source ~/bin/transfersh/transfer.fish
-	alias upload 'transfer'
 end
 
 if test -e /usr/local/bin/grc
@@ -117,9 +112,7 @@ end
 # Custom alias for listing files when moving to directory
 function cd
 	builtin cd $argv
-	if test (/bin/ls -a | wc -l) -lt 300
-		lsa
-	end
+	ls
 end
 
 #docker shitty aliases
@@ -199,11 +192,7 @@ function git
 	end
 end
 
-function aria-local
-	~/bin/aria2rpc/aria2rpc addUri $argv -d ~/Downloads
-end
-alias download-local "aria-local"
-alias aria2-local "download-local"
+alias download "uget"
 alias aria-list-local "~/bin/aria2rpc/aria2rpc tellActive"
 alias aria2-list-local "aria-list-local"
 alias download-list-local "aria-list-local"
@@ -401,11 +390,6 @@ alias screenshot 'scrot'
 alias lock 'i3lock -c "0e1112"'
 alias desktop-lock 'lock'
 alias lock-desktop 'lock'
-
-#without sourcing works faster
-function tmux-alternative-right
-	echo "#[fg=colour126,bg=default] #[fg=default,bg=colour126] #H"
-end
 
 set -U fish_key_bindings fish_default_key_bindings
 

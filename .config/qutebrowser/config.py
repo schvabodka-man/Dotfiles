@@ -28,6 +28,7 @@ config.bind('<PgDown>', 'scroll-page 0 0.5')
 config.bind('<Ctrl-PgUp>', 'scroll-page 0 -0.25')
 config.bind('<Ctrl-PgDown>', 'scroll-page 0 0.25')
 
+config.bind('<Mod1-w>', 'set-cmd-text :buffer')
 config.bind('<Mod1-enter>', 'open -t')
 config.bind('<Mod1-return>', 'open -t')
 config.bind('<Mod1-q>', 'tab-close')
@@ -167,7 +168,7 @@ c.content.headers.user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleW
 
 c.colors.completion.even.bg = "#0e1112"
 c.colors.completion.odd.bg = "#0e1112"
-c.colors.completion.category.fg = "white"
+c.colors.completion.category.fg = "black"
 c.colors.completion.category.bg = "#00ff00"
 c.colors.completion.category.border.top = "#00ff00"
 c.colors.completion.category.border.bottom = c.colors.completion.category.border.top
@@ -213,12 +214,12 @@ c.colors.hints.fg = "black"
 c.colors.hints.bg = "white"
 c.colors.hints.match.fg = "red"
 c.colors.downloads.bar.bg = "#0e1112"
-c.colors.downloads.start.fg = "white"
-c.colors.downloads.start.bg = "blue"
-c.colors.downloads.stop.fg = "black"
+c.colors.downloads.start.fg = "#ffffff"
+c.colors.downloads.start.bg = "#0000aa"
+c.colors.downloads.stop.fg = "#ffffff"
 c.colors.downloads.stop.bg = "#00aa00"
-c.colors.downloads.error.fg = "white"
-c.colors.downloads.error.bg = "red"
+c.colors.downloads.error.fg = "#ffffff"
+c.colors.downloads.error.bg = "#bb0000"
 c.colors.keyhint.fg = "#FFFFFF"
 c.colors.keyhint.suffix.fg = "#FFFF00"
 c.colors.keyhint.bg = "#bb0000"
@@ -235,6 +236,7 @@ c.colors.prompts.fg = "white"
 c.colors.prompts.bg = "blue"
 c.colors.prompts.selected.bg = "#308cc6"
 
+# yep lots of them are doubles
 c.url.searchengines = {
     "DEFAULT": "https://duckduckgo.com/?q={}",
     "searx": "https://www.startpage.com/rvd/search?prf=17bd2e91c907bb6f95ed6e54877571f7?query={}",
@@ -252,6 +254,7 @@ c.url.searchengines = {
     "youtube": "https://hooktube.com/results?search_query={}",
     "amazon": "https://www.amazon.com/s/ref=nb_sb_noss?field-keywords={}",
     "ebay": "https://www.ebay.com/sch/i.html?_nkw={}",
+    "biqle": "https://biqle.ru/video/{}",
     "piratebay": "https://thepiratebay.org/search/{}/0/99/0",
     "thepiratebay": "https://thepiratebay.org/search/{}/0/99/0",
     "lor": "https://www.linux.org.ru/search.jsp?q={}&range=ALL&interval=ALL&user=&_usertopic=on",
@@ -261,8 +264,18 @@ c.url.searchengines = {
     "copr": "https://copr.fedorainfracloud.org/coprs/fulltext/?fulltext={}",
     "archpackages": "https://www.archlinux.org/packages/?sort=&q={}&maintainer=&flagged=",
     "arch-packages": "https://www.archlinux.org/packages/?sort=&q={}&maintainer=&flagged=",
+    "archpackage": "https://www.archlinux.org/packages/?sort=&q={}&maintainer=&flagged=",
+    "arch-package": "https://www.archlinux.org/packages/?sort=&q={}&maintainer=&flagged=",
+    "rpmfind": "https://www.rpmfind.net/linux/rpm2html/search.php?query={}",
+    "rpmpackage": "https://www.rpmfind.net/linux/rpm2html/search.php?query={}",
+    "rpmpackages": "https://www.rpmfind.net/linux/rpm2html/search.php?query={}",
+    "rpm-find": "https://www.rpmfind.net/linux/rpm2html/search.php?query={}",
+    "rpm-package": "https://www.rpmfind.net/linux/rpm2html/search.php?query={}",
+    "rpm-packages": "https://www.rpmfind.net/linux/rpm2html/search.php?query={}",
     "debian-packages": "https://packages.debian.org/search?suite=default&section=all&arch=any&searchon=names&keywords={}",
     "debianpackages": "https://packages.debian.org/search?suite=default&section=all&arch=any&searchon=names&keywords={}",
+    "debian-package": "https://packages.debian.org/search?suite=default&section=all&arch=any&searchon=names&keywords={}",
+    "debianpackage": "https://packages.debian.org/search?suite=default&section=all&arch=any&searchon=names&keywords={}",
     "lurk": "http://lurkmore.to/index.php?title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F%3ASearch&profile=default&search={}&fulltext=Search",
     "lurkmore": "http://lurkmore.to/index.php?title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F%3ASearch&profile=default&search={}&fulltext=Search",
     "лурк": "http://lurkmore.to/index.php?title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F%3ASearch&profile=default&search={}&fulltext=Search",

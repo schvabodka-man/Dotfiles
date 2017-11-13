@@ -134,6 +134,11 @@ downloads_aria() {
 	echo "^fn(FontAwesome-11)^fn(DroidSansMono-13) $number"
 }
 
+downloads_aria_raspberry() {
+	local number=$(~/bin/aria2rpc/aria2rpc --server 192.168.2.125 tellActive | grep gid | wc -l)
+	echo "^fn(FontAwesome-11)^fn(DroidSansMono-13) $number"
+}
+
 email() {
 	cd ~/Maildir/Gmail/INBOX/new
 	local gmail=$(/bin/ls | wc -l)

@@ -154,12 +154,12 @@
   (defalias 'org-uri-new 'org-board-new)
   (defalias 'org-url-add 'org-board-new)
   (defalias 'org-uri-add 'org-board-new)
-  (add-hook 'org-mode-hook (lambda () (local-set-key (kbd "C-S-i") #'org-board-new))))
+  (add-hook 'org-mode-hook (lambda () (local-set-key (kbd "C-M-i") #'org-board-new))))
 ;;some search improvements for org mode
 (use-package deft
   :ensure t
   :pin melpa-stable
-  :bind ("C-M-f" . deft-find-file)
+  :bind ("C-M-f" . deft)
   :config (setq deft-extensions '("txt" "org" "md"))
   (setq deft-directory "~/Dropbox/Org/")
   (setq deft-recursive t)
@@ -168,7 +168,8 @@
   (defalias 'org-find-files 'deft-find-file)
   (defalias 'org-search-file 'deft-find-file)
   (defalias 'org-search 'deft)
-  (defalias 'org-search-files 'deft-find-file))
+  (defalias 'org-search-files 'deft-find-file)
+  (deft-setup))
 (use-package calfw
   :ensure t
   :pin melpa-stable

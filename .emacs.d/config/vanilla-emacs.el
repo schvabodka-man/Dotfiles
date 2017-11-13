@@ -349,3 +349,12 @@ This command does not push text to `kill-ring'."
 (setq mouse-wheel-follow-mouse 't)
 ;;focus follows mouse
 (setq mouse-autoselect-window t)
+;;resizing windows
+(global-set-key (kbd "s-C-<right>") 'shrink-window-horizontally)
+(global-set-key (kbd "s-C-<left>") 'enlarge-window-horizontally)
+(global-set-key (kbd "s-C-<down>") 'shrink-window)
+(global-set-key (kbd "s-C-<up>") 'enlarge-window)
+(defalias 'resize-window-right 'shrink-window-horizontally)
+(defalias 'resize-window-left 'enlarge-window-horizontally)
+(defalias 'resize-window-down 'shrink-window)
+(defalias 'resize-window-up 'enlarge-window)

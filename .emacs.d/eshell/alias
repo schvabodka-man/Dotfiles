@@ -81,9 +81,7 @@ alias asciinema-record asciinema rec -w4 $*
 
 alias lein ~/.sdkman/candidates/leiningen/current/bin/lein $*
 
-alias aria-local ~/bin/aria2rpc/aria2rpc addUri $* -d ~/Downloads
-alias download-local aria-local $*
-alias aria2-local download-local $*
+alias download-local uget $*
 alias aria-list-local ~/bin/aria2rpc/aria2rpc tellActive $*
 alias aria2-list-local aria-list-local $*
 alias download-list-local aria-list-local $*
