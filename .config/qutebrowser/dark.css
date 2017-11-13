@@ -1,0 +1,86 @@
+*,
+div,
+pre,
+body,
+input,
+span,
+td,
+tr,
+p {
+    background-color: #0e1112 !important;
+    /* background-image: none !important; */
+    color: #ffffff !important;
+    box-shadow: none !important;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    background-color: #0e1112 !important;
+    color: #ffffff !important;
+}
+
+textarea {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+a {
+    color: #00bfff !important;
+}
+
+a:hover,
+a:focus {
+    color: #ff0000 !important;
+}
+
+a:visited {
+    color: #a020f0 !important;
+}
+
+img {
+    opacity: 1;
+}
+
+button {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+button:hover {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+
+/* github */
+
+.btn {
+    color: #000000 !important;
+}
+
+.btn:hover {
+    color: #ff0000 !important;
+}
+
+
+/* reddit */
+
+.sidebox {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+
+/* duckduck */
+
+#search_form_input {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+#search_form_input_homepage {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}

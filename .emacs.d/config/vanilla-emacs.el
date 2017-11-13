@@ -112,7 +112,7 @@
 (electric-pair-mode)
 (setq suggest-key-bindings nil)
 (setq browse-url-browser-function 'browse-url-generic
-	  browse-url-generic-program "vivaldi")
+	  browse-url-generic-program "qutebrowser")
 ;; killing messages buffer
 (kill-buffer "*Messages*")
 (setq initial-scratch-message nil)

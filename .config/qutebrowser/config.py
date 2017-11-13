@@ -2,8 +2,11 @@ c.bindings.default = {}
 
 config.bind('<Ctrl-Shift-m>', 'spawn mpv {url}')
 config.bind('<Ctrl-m>', 'hint links spawn mpv {hint-url}')
+config.bind('<Ctrl-Shift-p>', 'spawn zathura {url}')
+config.bind('<Ctrl-p>', 'hint links spawn zathura {hint-url}')
 
 config.bind('<Ctrl-s>', 'hint all download')
+config.bind('<Ctrl-Shift-s>', 'hint links spawn uget-gtk {hint-url}')
 
 config.bind('<Ctrl-o>', 'set-cmd-text -s :open')
 config.bind('<Ctrl-Shift-o>', 'set-cmd-text -s :open -t')
@@ -27,8 +30,8 @@ config.bind('<Ctrl-PgDown>', 'scroll-page 0 0.25')
 
 config.bind('<Mod1-enter>', 'open -t')
 config.bind('<Mod1-return>', 'open -t')
-config.bind('<Ctrl-q>', 'tab-close')
-config.bind('<Ctrl-Shift-q>', 'tab-close -o')
+config.bind('<Mod1-q>', 'tab-close')
+config.bind('<Mod1-Shift-q>', 'tab-close -o')
 config.bind('<Mod1-r>', 'reload')
 config.bind('<Mod1-Shift-r>', 'reload -f')
 config.bind('<Mod1-t>', 'stop')
@@ -121,13 +124,31 @@ config.bind('<Ctrl-right>', 'move-to-next-word', mode="caret")
 config.bind('<Ctrl-Shift-left>', 'move-to-start-of-word', mode="caret")
 config.bind('<Ctrl-Shift-right>', 'move-to-end-of-word', mode="caret")
 config.bind('<Shift-down>', 'scroll down', mode="caret")
-config.bind('<Shoift-up>', 'scroll up', mode="caret")
-config.bind('<Shoift-left>', 'scroll left', mode="caret")
-config.bind('<Shoift-right>', 'scroll right', mode="caret")
+config.bind('<Shift-up>', 'scroll up', mode="caret")
+config.bind('<Shift-left>', 'scroll left', mode="caret")
+config.bind('<Shift-right>', 'scroll right', mode="caret")
+
+config.bind('<Ctrl-enter>', 'open-editor', mode="insert")
+config.bind('<Ctrl-return>', 'open-editor', mode="insert")
 
 c.tabs.favicons.show = True
 c.auto_save.session = True
-# c.editor.command = ["emacsclient -c", {file}]
+
+c.content.webgl = False
+c.content.pdfjs = True
+c.content.xss_auditing = True
+c.scrolling.bar = False
+
+
+c.content.javascript.can_access_clipboard = False
+c.content.javascript.can_close_tabs = False
+c.content.javascript.can_open_tabs_automatically = False
+c.content.local_content_can_access_file_urls = False
+
+c.content.user_stylesheets = ["dark.css"]
+
+c.editor.command = ["emacsclient -c", "{}"]
+c.confirm_quit = ["downloads"]
 
 c.fonts.completion.category = "11pt monospace"
 c.fonts.completion.entry = "11pt monospace"
@@ -138,46 +159,48 @@ c.fonts.keyhint = "11pt monospace"
 c.fonts.messages.error = "11pt monospace"
 c.fonts.messages.info = "11pt monospace"
 c.fonts.messages.warning = "11pt monospace"
-# c.fonts.promts = "11pt monospace"
 c.fonts.statusbar = "11pt monospace"
 c.fonts.tabs = "11pt monospace"
+c.fonts.monospace = "Fira Mono"
 
 c.content.headers.user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36'
 
-c.colors.completion.fg = "white"
-c.colors.completion.bg = "#0e1112"
 c.colors.completion.even.bg = "#0e1112"
 c.colors.completion.odd.bg = "#0e1112"
 c.colors.completion.category.fg = "white"
-c.colors.completion.category.bg = "green"
-c.colors.completion.category.border.top = "green"
+c.colors.completion.category.bg = "#00ff00"
+c.colors.completion.category.border.top = "#00ff00"
 c.colors.completion.category.border.bottom = c.colors.completion.category.border.top
 c.colors.completion.item.selected.fg = "black"
 c.colors.completion.item.selected.bg = "white"
 c.colors.completion.item.selected.border.top = "white"
 c.colors.completion.item.selected.border.bottom = c.colors.completion.item.selected.border.top
 c.colors.completion.match.fg = "red"
-c.colors.completion.scrollbar.fg = c.colors.completion.fg
-c.colors.completion.scrollbar.bg = c.colors.completion.bg
-c.colors.statusbar.fg = "white"
-c.colors.statusbar.bg = "#0e1112"
+c.colors.completion.scrollbar.fg = "white"
+c.colors.completion.scrollbar.bg = "#0e1112"
+c.colors.statusbar.normal.fg = "white"
+c.colors.statusbar.normal.bg = "#0e1112"
+c.colors.statusbar.private.fg = "black"
+c.colors.statusbar.private.bg = "white"
+c.colors.statusbar.command.private.fg = "black"
+c.colors.statusbar.command.private.bg = "white"
 c.colors.statusbar.insert.fg = "#000000"
-c.colors.statusbar.insert.bg = "green"
-c.colors.statusbar.command.fg = c.colors.completion.fg
-c.colors.statusbar.command.bg = c.colors.completion.bg
+c.colors.statusbar.insert.bg = "#00ff00"
+c.colors.statusbar.command.fg = "white"
+c.colors.statusbar.command.bg = "#0e1112"
 c.colors.statusbar.caret.fg = "#000000"
 c.colors.statusbar.caret.bg = "purple"
 c.colors.statusbar.progress.bg = "white"
-c.colors.statusbar.url.fg = c.colors.statusbar.fg
-c.colors.statusbar.url.success.fg = "white"
-c.colors.statusbar.url.success.https.fg = "lime"
+c.colors.statusbar.url.fg = c.colors.statusbar.command.fg
+c.colors.statusbar.url.success.http.fg = "#ffff00"
+c.colors.statusbar.url.success.https.fg = "#00ff00"
 c.colors.statusbar.url.error.fg = "orange"
-c.colors.statusbar.url.warn.fg = "yellow"
+c.colors.statusbar.url.warn.fg = "#ffff00"
 c.colors.statusbar.url.hover.fg = "aqua"
 c.colors.tabs.odd.fg = "white"
 c.colors.tabs.odd.bg = "#0e1112"
 c.colors.tabs.even.fg = "white"
-c.colors.tabs.even.bg = "#000000"
+c.colors.tabs.even.bg = "#0e1112"
 c.colors.tabs.selected.odd.fg = "black"
 c.colors.tabs.selected.odd.bg = "white"
 c.colors.tabs.selected.even.fg = c.colors.tabs.selected.odd.fg
@@ -229,6 +252,8 @@ c.url.searchengines = {
     "youtube": "https://hooktube.com/results?search_query={}",
     "amazon": "https://www.amazon.com/s/ref=nb_sb_noss?field-keywords={}",
     "ebay": "https://www.ebay.com/sch/i.html?_nkw={}",
+    "piratebay": "https://thepiratebay.org/search/{}/0/99/0",
+    "thepiratebay": "https://thepiratebay.org/search/{}/0/99/0",
     "lor": "https://www.linux.org.ru/search.jsp?q={}&range=ALL&interval=ALL&user=&_usertopic=on",
     "linuxorgru": "https://www.linux.org.ru/search.jsp?q={}&range=ALL&interval=ALL&user=&_usertopic=on",
     "linux-org-ru": "https://www.linux.org.ru/search.jsp?q={}&range=ALL&interval=ALL&user=&_usertopic=on",

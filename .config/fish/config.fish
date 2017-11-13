@@ -10,7 +10,7 @@ set -x GOPATH '/home/user/Go'
 set -x LGOBIN '/home/user/Go/bin'
 set -x ANDROID_HOME '/home/user/Android/Sdk'
 set -x EDITOR "emacsclient -c"
-set -x BROWSER "vivaldi"
+set -x BROWSER "qutebrowser"
 #colored man
 set -x  LESS_TERMCAP_mb (tput bold; tput setaf 1)
 set -x LESS_TERMCAP_md (tput bold; tput setaf 2)
