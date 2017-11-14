@@ -59,7 +59,7 @@
     (gimp-toolbox
         (side right)
         (book
-            (current-page 3)
+            (current-page 1)
             (dockable "gimp-tool-options"
                 (tab-style automatic)
                 (aux-info
@@ -86,7 +86,7 @@
                     (show-button-bar "true"))))))
 (session-info "toplevel"
     (factory-entry "gimp-image-new-dialog")
-    (position 597 303))
+    (position 591 297))
 (session-info "toplevel"
     (factory-entry "gimp-keyboard-shortcuts-dialog")
     (position 307 195)

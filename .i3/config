@@ -113,12 +113,9 @@ client.focused_inactive #FFFFFF #FFFFFF #FFFFFF #FFFFFF
 hide_edge_borders smart
 
 #media keys
-bindsym XF86AudioRaiseVolume exec ~/.config/fish/volume/increase_volume.fish
-bindsym XF86AudioLowerVolume exec ~/.config/fish/volume/decrease_volume.fish
-bindsym XF86AudioMute exec ~/.config/fish/volume/mute.fish
-bindsym XF86AudioNext exec cmus-remote -n
-bindsym XF86AudioPrev exec cmus-remote -r
-bindsym XF86AudioPlay exec cmus-remote -u
+bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+
+bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%-
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 
 #gaps
 #gaps inner 5
@@ -139,8 +136,8 @@ exec --no-startup-id emacs --daemon=news -q -l ~/.emacs.d.news/init.el
 #tmux
 exec --no-startup-id tmux source ~/.config/tmux/tmux.conf
 #aria daemon
-exec --no-startup-id aria2c --daemon=true --enable-rpc --rpc-listen-all -j50 -D --save-session-interval=120
-#transmission daemon
+exec --no-startup-id aria2c --daemon=true --enable-rpc --rpc-listen-all -j50 -D --save-session-interval=120 --dir=~/Downloads --conf-path=~/.config/aria2/aria2.conf
+ #transmission daemon
 exec --no-startup-id transmission-daemon -T --download-dir ~/Downloads
 #offlineimap
 exec --no-startup-id python3 ~/bin/offlineimap-daemon/offlineimap-daemon.py

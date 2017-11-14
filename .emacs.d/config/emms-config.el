@@ -9,11 +9,9 @@
   (emms-default-players)
   (setq emms-source-file-default-directory "~/Music/")
 
-  (global-set-key (kbd "<f6>") 'emms-previous)
-  (global-set-key (kbd "<f8>") 'emms-next)
-  (global-set-key (kbd "<C-S-f8>") 'emms-repeat-playlist)
-  (global-set-key (kbd "<f7>") 'emms-pause)
-  (global-set-key (kbd "<S-f7>") 'emms-stop)
+  (global-set-key (kbd "<XF86AudioPrev>") 'emms-previous)
+  (global-set-key (kbd "<XF86AudioNext>") 'emms-next)
+  (global-set-key (kbd "<XF86AudioPlay>") 'emms-pause)
 
   (defalias 'emms 'emms-smart-browse)
   (defalias 'music 'emms-smart-browse)
@@ -136,7 +134,10 @@
 	(interactive)
 	(emms-stop)
 	(emms-pause))
-  (global-set-key (kbd "<S-f8>") 'emms-replay-track))
+  ;; (global-set-key (kbd "<S-f8>") 'emms-replay-track)
+  ;; (global-set-key (kbd "<C-S-f8>") 'emms-repeat-playlist)
+  ;; (global-set-key (kbd "<S-f7>") 'emms-stop)
+  )
 (use-package emms-info-mediainfo
   :ensure t
   :config (add-to-list 'emms-info-functions #'emms-info-mediainfo)

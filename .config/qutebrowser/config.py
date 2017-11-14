@@ -129,17 +129,21 @@ config.bind('<Shift-up>', 'scroll up', mode="caret")
 config.bind('<Shift-left>', 'scroll left', mode="caret")
 config.bind('<Shift-right>', 'scroll right', mode="caret")
 
+config.bind('<M-\>', 'config-cycle content.javascript.enabled')
+
 config.bind('<Ctrl-enter>', 'open-editor', mode="insert")
 config.bind('<Ctrl-return>', 'open-editor', mode="insert")
 
 c.tabs.favicons.show = True
 c.auto_save.session = True
+c.auto_save.interval = 5000
 
 c.content.webgl = False
 c.content.pdfjs = True
 c.content.xss_auditing = True
 c.scrolling.bar = False
 
+c.content.developer_extras = True
 
 c.content.javascript.can_access_clipboard = False
 c.content.javascript.can_close_tabs = False

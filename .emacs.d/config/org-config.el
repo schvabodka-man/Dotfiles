@@ -132,10 +132,10 @@
   (setq org-journal-file-format '"%Y-%m-%d.org")
   (defalias 'now 'org-journal-new-entry))
 ;;nice org mode bullets
-(use-package org-bullets
-  :ensure t
-  :pin melpa-stable
-  :init (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+;; (use-package org-bullets
+;;   :ensure t
+;;   :pin melpa-stable
+;;   :init (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 (use-package org-download
   :ensure t
   :pin melpa-stable)

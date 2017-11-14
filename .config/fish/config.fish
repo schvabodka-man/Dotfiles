@@ -219,6 +219,32 @@ alias aria2-continue-local "aria-unpause-local"
 alias aria2-continue-local "aria-unpause-local"
 alias download-continue-local "aria-unpause-local"
 
+alias aria-list "~/bin/aria2rpc/aria2rpc --server 192.168.2.125 tellActive"
+alias aria2-list "aria-list"
+alias download-list "aria-list"
+alias downloads-list "aria-list"
+alias downloads "aria-list"
+alias aria-pause "~/bin/aria2rpc/aria2rpc --server 192.168.2.125 pause"
+alias aria2-pause "aria-pause"
+alias download-pause "aria-pause"
+alias aria-stop "~/bin/aria2rpc/aria2rpc --server 192.168.2.125 remove"
+alias aria2-stop "aria-stop"
+alias download-stop "aria-stop"
+alias aria-remove "aria-stop"
+alias aria-status "~/bin/aria2rpc/aria2rpc --server 192.168.2.125 tellStatus"
+alias aria2-status "aria-status"
+alias download-status "aria-status"
+alias aria-unpause "~/bin/aria2rpc/aria2rpc --server 192.168.2.125 tellUnpause"
+alias aria2-unpause "aria-unpause"
+alias download-unpause "aria-unpause"
+alias aria-resume "aria-unpause"
+alias aria2-resume "aria-unpause"
+alias download-resume "aria-unpause"
+alias aria-resume "aria-unpause"
+alias aria2-continue "aria-unpause"
+alias aria2-continue "aria-unpause"
+alias download-continue "aria-unpause"
+
 alias calc 'octave-cli'
 alias calculator 'octave-cli'
 
@@ -390,6 +416,8 @@ alias screenshot 'scrot'
 alias lock 'i3lock -c "0e1112"'
 alias desktop-lock 'lock'
 alias lock-desktop 'lock'
+
+alias forecast 'weather'
 
 set -U fish_key_bindings fish_default_key_bindings
 
