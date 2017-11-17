@@ -135,9 +135,11 @@ exec --no-startup-id emacs --daemon
 exec --no-startup-id emacs --daemon=news -q -l ~/.emacs.d.news/init.el
 #tmux
 exec --no-startup-id tmux source ~/.config/tmux/tmux.conf
+#ssh agent
+exec --no-startup-id ssh-agent
 #aria daemon
-exec --no-startup-id aria2c --daemon=true --enable-rpc --rpc-listen-all -j50 -D --save-session-interval=120 --dir=~/Downloads --conf-path=~/.config/aria2/aria2.conf
- #transmission daemon
-exec --no-startup-id transmission-daemon -T --download-dir ~/Downloads
+# exec --no-startup-id aria2c --daemon --enable-rpc --rpc-listen-all --continue=true --save-session-interval=120 --dir=/home/user/Downloads --no-conf=true --save-session=/home/user/aria2/session --input-file=/home/user/aria2/session
+#ssh fs
+# exec --no-startup-id sshfs pi@192.168.2.125:Data/Share ~/Data/
 #offlineimap
 exec --no-startup-id python3 ~/bin/offlineimap-daemon/offlineimap-daemon.py

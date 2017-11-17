@@ -135,7 +135,7 @@ downloads_aria() {
 }
 
 downloads_aria_raspberry() {
-	local number=$(~/bin/aria2rpc/aria2rpc --server 192.168.2.125 tellActive | grep gid | wc -l)
+	local number=$(~/bin/aria2rpc/aria2rpc --secret $(pass house/server/aria2) --server 192.168.2.125 tellActive | grep gid | wc -l)
 	echo "^fn(FontAwesome-11)^fn(DroidSansMono-13) $number"
 }
 
@@ -157,15 +157,15 @@ generated_output() {
 		local webipt=$(webip)
 		local localip=$(localip)
 		local wifi=$(wififormatted)
-		local aria=$(downloads_aria)
+		# local aria=$(downloads_aria)
 		local aria_server=$(downloads_aria_raspberry)
 		local email=$(email)
 
 		local text=""
 
-		text+="^fg(#ff6347)^bg(#0e1112)^fn(powerlinesymbols-12)^fg(#000000)^bg(#ff6347)$email"
-		text+="^fg(#32cd32)^bg(#ff6347)^fn(powerlinesymbols-12)^fg(#000000)^bg(#32cd32)$aria_server"
-		text+="^fg(#ffff00)^bg(#32cd32)^fn(powerlinesymbols-12)^fg(#000000)^bg(#ffff00)$aria"
+		# text+="^fg(#ff6347)^bg(#0e1112)^fn(powerlinesymbols-12)^fg(#000000)^bg(#ff6347)$email"
+		text+="^fg(#32cd32)^bg(#0e1112)^fn(powerlinesymbols-12)^fg(#000000)^bg(#32cd32)$aria_server"
+		text+="^fg(#ffff00)^bg(#32cd32)^fn(powerlinesymbols-12)^fg(#000000)^bg(#ffff00)$email"
 		text+="^fg(#ff69b4)^bg(#ffff00)^fn(powerlinesymbols-12)^fg(#000000)^bg(#ff69b4)$wifi"	text+="^fg(#b22222)^bg(#ff69b4)^fn(powerlinesymbols-12)^fg(#ffffff)^bg(#b22222)^fn(FontAwesome-11)^fn(DroidSansMono-13)$meetup"
 		# text+="^fg(#8b008b)^bg(#b22222)^fn(powerlinesymbols-12)^fg(#ffffff)^bg(#8b008b)^fn(DroidSansMono-13)$weather "
 		text+="^fg(#ff4500)^bg(#b22222)^fn(powerlinesymbols-12)^fg(#000000)^bg(#ff4500)$localip"

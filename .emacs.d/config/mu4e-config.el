@@ -25,7 +25,7 @@
 				   (smtpmail-smtp-server "smtp.gmail.com")
 				   (smtpmail-smtp-service 587)
 				   (smtpmail-smtp-user "scvhapps")
-				   (smtpmail-auth-credentials (expand-file-name "~/.authinfo.gpg"))
+				   (smtpmail-auth-credentials (shell-command-to-string "pass email/google/scvhapps@gmail.com"))
 				   (mu4e-drafts-folder . "/Gmail/[Gmail].Drafts")
 				   (mu4e-refile-folder . "/Gmail/Archived")
 				   (mu4e-action-tags-header "X-Keywords")
