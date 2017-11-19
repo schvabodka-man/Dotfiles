@@ -57,7 +57,7 @@ end
 if test -e /usr/local/bin/grc
 	or test -e /bin/grc
 	# alias cvs 'grc cvs'
-	# alias df 'grc df'
+	alias df 'grc df'
 	# alias dnf 'grc dnf'
 	alias dig 'grc dig'
 	alias gcc 'grc gcc'
@@ -139,6 +139,8 @@ if test -e ~/.sdkman/candidates/leiningen/current/bin/lein
 end
 
 alias j "z"
+
+alias unmount 'umount'
 
 #better work with standart unix utils
 if test -e /bin/alder
@@ -257,6 +259,9 @@ alias record-microphone "screencast-microphone"
 alias record-with-microphone "screencast-microphone"
 alias screencast-with-microphone "screencast-microphone"
 
+alias copy 'xclip -selection clipboard'
+alias yank 'xclip -selection clipboard'
+
 #sql wrappers
 if test -e /bin/mycli
 	alias mysql 'mycli'
@@ -309,7 +314,6 @@ end
 #moar useful aliases
 alias xrdb-merge 'xrdb -merge ~/.Xresources'
 alias move 'mv'
-alias copy 'cp'
 alias lsa 'ls -a'
 alias lsl 'ls -l --block-size=M'
 
@@ -418,6 +422,8 @@ alias desktop-lock 'lock'
 alias lock-desktop 'lock'
 
 alias forecast 'weather'
+
+alias nas-mount 'sshfs pi@192.168.2.125:Data/Share ~/Data'
 
 set -U fish_key_bindings fish_default_key_bindings
 

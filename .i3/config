@@ -138,7 +138,7 @@ exec --no-startup-id tmux source ~/.config/tmux/tmux.conf
 #ssh agent
 exec --no-startup-id ssh-agent
 #aria daemon
-# exec --no-startup-id aria2c --daemon --enable-rpc --rpc-listen-all --continue=true --save-session-interval=120 --dir=/home/user/Downloads --no-conf=true --save-session=/home/user/aria2/session --input-file=/home/user/aria2/session
+exec --no-startup-id aria2c --daemon --enable-rpc --rpc-listen-all --continue=true --save-session-interval=120 --dir=/home/user/Downloads --no-conf=true --save-session=/home/user/aria2/session --input-file=/home/user/aria2/session --rpc-secret=$(pass device/aria2)
 #ssh fs
 # exec --no-startup-id sshfs pi@192.168.2.125:Data/Share ~/Data/
 #offlineimap

@@ -5,7 +5,7 @@
 	(kill-buffer dired-buffer)
 	(delete-other-windows)))
 
-(global-set-key (kbd "M-d") 'dired)
+(global-set-key (kbd "M-d") 'dired-jump)
 
 (set-face-foreground 'dired-directory "white")
 

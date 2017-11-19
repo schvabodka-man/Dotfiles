@@ -51,7 +51,6 @@
 ;;		 ("C-f" . helm-occur)))
 ;;some libs
 (use-package dash
-  :pin melpa-stable
   :ensure t)
 (use-package cl-lib
   :pin melpa-stable

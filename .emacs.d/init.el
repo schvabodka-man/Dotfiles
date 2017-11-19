@@ -117,7 +117,7 @@
 ;;multiple workspaces and tabbing
 (load "~/.emacs.d/config/windowing-config")
 ;;contacts
-(load "~/.emacs.d/config/contacts")
+;; (load "~/.emacs.d/config/contacts")
 ;;byte compile everything
 (defun byte-compile-init-dir ()
   "Byte-compile all your dotfiles."

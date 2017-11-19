@@ -129,8 +129,6 @@ config.bind('<Shift-up>', 'scroll up', mode="caret")
 config.bind('<Shift-left>', 'scroll left', mode="caret")
 config.bind('<Shift-right>', 'scroll right', mode="caret")
 
-config.bind('<M-\>', 'config-cycle content.javascript.enabled')
-
 config.bind('<Ctrl-enter>', 'open-editor', mode="insert")
 config.bind('<Ctrl-return>', 'open-editor', mode="insert")
 
@@ -140,10 +138,14 @@ c.auto_save.interval = 5000
 
 c.content.webgl = False
 c.content.pdfjs = True
+c.content.host_blocking.enabled = True
 c.content.xss_auditing = True
 c.scrolling.bar = False
 
 c.content.developer_extras = True
+
+c.downloads.remove_finished = 300
+c.content.cache.maximum_pages = 100
 
 c.content.javascript.can_access_clipboard = False
 c.content.javascript.can_close_tabs = False
@@ -152,8 +154,17 @@ c.content.local_content_can_access_file_urls = False
 
 c.content.user_stylesheets = ["dark.css"]
 
-c.editor.command = ["emacsclient -c", "{}"]
+# c.editor.command = ["emacsclient -c", "{}"]
 c.confirm_quit = ["downloads"]
+
+c.aliases['javascript-toggle'] = 'config-cycle content.javascript.enabled'
+c.aliases['webgl-toggle'] = 'config-cycle content.webgl'
+c.aliases['pdfjs-toggle'] = 'config-cycle content.pdfjs'
+c.aliases['adblock-toggle'] = 'config-cycle content.host_blocking.enabled'
+c.aliases['xss-auditing-toggle'] = 'config-cycle content.xss_auditing'
+c.aliases['userstyle-css-toggle'] = 'config-cycle content.user_stylesheets "dark.css" ""'
+c.aliases['cookies-toggle'] = 'config-cycle content.cookies.accept no-3rdparty never'
+c.aliases['cookies-store-toggle'] = 'config-cycle content.cookies.store'
 
 c.fonts.completion.category = "11pt monospace"
 c.fonts.completion.entry = "11pt monospace"
