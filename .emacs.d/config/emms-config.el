@@ -9,10 +9,6 @@
   (emms-default-players)
   (setq emms-source-file-default-directory "~/Music/")
 
-  (global-set-key (kbd "<XF86AudioPrev>") 'emms-previous)
-  (global-set-key (kbd "<XF86AudioNext>") 'emms-next)
-  (global-set-key (kbd "<XF86AudioPlay>") 'emms-pause)
-
   (defalias 'emms 'emms-smart-browse)
   (defalias 'music 'emms-smart-browse)
   (defalias 'music-pause-play 'emms-pause)

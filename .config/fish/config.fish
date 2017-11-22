@@ -7,7 +7,8 @@ set -g theme_display_hg yes
 set -g theme_display_cmd_duration yes
 set -g theme_show_exit_status yes
 #Homes!
-set -x GOPATH '/home/user/Go'
+set -x user (whoami)
+set -x GOPATH '/home/$user/Go'
 set -x LGOBIN '/home/user/Go/bin'
 set -x EDITOR "emacsclient -c"
 set -x BROWSER "qutebrowser"
@@ -54,60 +55,23 @@ if test -e ~/bin/up/up.fish
 	alias .. 'up'
 end
 
-if test -e /usr/local/bin/grc
-	or test -e /bin/grc
-	# alias cvs 'grc cvs'
-	alias df 'grc df'
-	# alias dnf 'grc dnf'
-	alias dig 'grc dig'
-	alias gcc 'grc gcc'
-	alias g++ 'grc g++'
-	alias ifconfig 'grc ifconfig'
-	alias make 'grc make'
-	alias mount 'grc mount'
-	# alias mtr 'grc mtr'
-	alias netstat 'grc netstat'
-	alias ping 'grc ping'
-	alias ps 'grc ps'
-	# alias tail 'grc tail'
-	# alias traceroute 'grc traceroute'
-	# alias wdiff 'grc wdiff'
-	# alias blkid 'grc blkid'
-	# alias du 'grc du'
-	alias docker 'grc docker'
-	# alias docker-machine 'grc docker-machine'
-	alias env 'grc env'
-	alias id 'grc id'
-	# alias ip 'grc ip'
-	# alias iostat 'grc iostat'
-	# alias last 'grc last'
-	# alias lsattr 'grc lsattr'
-	# alias lsblk 'grc lsblk'
-	# alias lspci 'grc lspci'
-	# alias lsmod 'grc lsmod'
-	# alias lsof 'grc lsof'
-	# alias getfacl 'grc getfacl'
-	# alias getsebool 'grc getsebool'
-	# alias ulimit 'grc ulimit'
-	alias uptime 'grc uptime'
-	# alias nmap 'grc nmap'
-	# alias fdisk 'grc fdisk'
-	# alias findmnt 'grc findmnt'
-	# alias free 'grc free'
-	# alias semanage 'grc semanage'
-	# alias sar 'grc sar'
-	# alias ss 'grc ss'
-	alias sysctl 'grc sysctl'
-	alias systemctl 'grc systemctl'
-	# alias stat 'grc stat'
-	# alias showmount 'grc showmount'
-	# alias tune2fs 'grc tune2fs'
-	# alias tcpdump 'grc tcpdump'
-	# alias tune2fs 'grc tune2fs'
-	# alias vmstat 'grc vmstat'
-	# alias w 'grc w'
-	alias who 'grc who'
-end
+#alias df "/usr/bin/grc df"
+#alias dig "/usr/bin/grc dig"
+#alias gcc "/usr/bin/grc gcc"
+#alias g++ "/usr/bin/grc g++"
+#alias ifconfig "/usr/bin/grc ifconfig"
+#alias make "/usr/bin/grc make"
+#alias mount "/usr/bin/grc mount"
+#alias netstat "/usr/bin/grc netstat"
+#alias ping "/usr/bin/grc ping"
+#alias ps "/usr/bin/grc ps"
+#alias docker "/usr/bin/grc docker"
+#alias env "/usr/bin/grc env"
+#alias id "/usr/bin/grc id"
+#alias uptime "/usr/bin/grc uptime"
+#alias sysctl "/usr/bin/grc sysctl"
+#alias systemctl "/usr/bin/grc systemctl"
+#alias who "/usr/bin/grc who"
 
 # Custom alias for listing files when moving to directory
 function cd
@@ -121,47 +85,30 @@ function docker-kill
 	docker rm $argv > /dev/null
 end
 
-if test -e /bin/cloc
-	alias sloc 'cloc'
-end
+alias sloc 'cloc'
 
-if test -e ~/bin/micro/micro
-	alias micro '~/bin/micro/micro'
-	alias nano 'micro'
-end
+alias micro '~/bin/micro/micro'
+alias nano 'micro'
 
-if test -e ~/Go/bin/gopm
-	alias gopm '~/Go/bin/gopm'
-end
-
-if test -e ~/.sdkman/candidates/leiningen/current/bin/lein
-	alias lein ~/.sdkman/candidates/leiningen/current/bin/lein
-end
+alias gopm '~/Go/bin/gopm'
+alias lein ~/.sdkman/candidates/leiningen/current/bin/lein
 
 alias j "z"
 
 alias unmount 'umount'
 
 #better work with standart unix utils
-if test -e /bin/alder
-	alias tree 'alder'
-end
+alias tree 'alder'
 
 if test -e ~/.cargo/bin/fd
 	alias find '~/.cargo/bin/fd -H -I'
 end
 
-if test -e /bin/pycp
-	alias cp 'pycp'
-	alias mv 'pymv'
-end
+alias cp 'pycp'
+alias mv 'pymv'
 
-if test -e /bin/trash-put
-	alias rm 'trash-put'
-	alias trash-ls 'trash-list'
-end
-
-alias cat 'bcat'
+alias rm 'trash-put'
+alias trash-ls 'trash-list'
 
 function ls
 	if test -e ~/bin/ls-icons/binary/bin/ls
@@ -190,7 +137,7 @@ function git
 	if test -e /bin/hub
 		hub $argv
 	else
-		/bin/git $argv
+		/usr/bin/git $argv
 	end
 end
 
@@ -263,16 +210,11 @@ alias copy 'xclip -selection clipboard'
 alias yank 'xclip -selection clipboard'
 
 #sql wrappers
-if test -e /bin/mycli
-	alias mysql 'mycli'
-end
-
-if test -e /bin/pgcli
-	alias postgres 'pgcli'
-	alias postgresql 'pgcli'
-	alias pgsql 'pgcli'
-	alias psql 'pgcli'
-end
+alias mysql 'mycli'
+alias postgres 'pgcli'
+alias postgresql 'pgcli'
+alias pgsql 'pgcli'
+alias psql 'pgcli'
 
 alias fzf "~/bin/fzf/bin/fzf"
 alias search 'fzf'

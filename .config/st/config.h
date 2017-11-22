@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-char font[] = "Roboto Mono for Powerline:pixelsize=18:antialias=true:autohint=true";
+char font[] = "Roboto Mono for Powerline:pixelsize=16:antialias=true:autohint=true";
 int borderpx = 0;
 
 /*

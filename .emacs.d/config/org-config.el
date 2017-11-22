@@ -2,10 +2,10 @@
 ;;; Commentary:
 ;;; MUH ORG-MODE
 ;;; Code:
-(setq org-agenda-files (list "~/Dropbox/Org/Agenda/Todo"
-							 "~/Dropbox/Org/Agenda/Util"
-							 "~/Dropbox/Org/Agenda/Diary"))
-(setq org-archive-location "~/Dropbox/Org/Wiki/Agenda/Archive/todo.org::* TASKS")
+(setq org-agenda-files (list "~/Org/Agenda/Todo"
+							 "~/Org/Agenda/Util"
+							 "~/Org/Agenda/Diary"))
+(setq org-archive-location "~/Org/Wiki/Agenda/Archive/todo.org::* TASKS")
 (setq org-support-shift-select t)
 (setq org-startup-with-inline-images t)
 (defalias 'todo 'org-todo-list)
@@ -126,7 +126,7 @@
   :ensure t
   :pin melpa-stable
   :config
-  (setq org-journal-dir (expand-file-name "/home/user/Dropbox/Org/Agenda/Diary"))
+  (setq org-journal-dir (expand-file-name "~/Org/Agenda/Diary"))
   (setq org-journal-date-format '"<%Y-%m-%d %a>")
   (setq org-journal-time-format '"<%Y-%m-%d %a %R>")
   (setq org-journal-file-format '"%Y-%m-%d.org")
@@ -136,9 +136,7 @@
 ;;   :ensure t
 ;;   :pin melpa-stable
 ;;   :init (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
-(use-package org-download
-  :ensure t
-  :pin melpa-stable)
+
 ;;like pinboard 
 (use-package org-board
   :ensure t
@@ -155,13 +153,16 @@
   (defalias 'org-url-add 'org-board-new)
   (defalias 'org-uri-add 'org-board-new)
   (add-hook 'org-mode-hook (lambda () (local-set-key (kbd "C-M-i") #'org-board-new))))
+(el-get-bundle org-download
+  :url "https://raw.githubusercontent.com/abo-abo/org-download/master/org-download.el")
+(load "~/.emacs.d/el-get/org-download/org-download")
 ;;some search improvements for org mode
 (use-package deft
   :ensure t
   :pin melpa-stable
   :bind ("C-M-f" . deft)
   :config (setq deft-extensions '("txt" "org" "md"))
-  (setq deft-directory "~/Dropbox/Org/")
+  (setq deft-directory "~/Org/")
   (setq deft-recursive t)
   (defalias 'org-find 'deft)
   (defalias 'org-find-files 'deft-find-file)

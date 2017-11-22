@@ -23,9 +23,9 @@
 ;; (use-package helm-perspeen
 ;;   :ensure t
 ;;   :bind (("M-w" . helm-perspeen)))
-(use-package ace-window
-  :ensure t
-  :bind (("M-w" . ace-window)))
+;; (use-package ace-window
+;;   :ensure t
+;;   :bind (("M-w" . ace-window)))
 (use-package window-purpose
   :ensure t
   :config (purpose-mode)
@@ -97,8 +97,8 @@
   (purpose-x-magit-single-on))
 (use-package ivy-purpose
   :ensure t
-  :bind (("C-w" . ivy-purpose-switch-buffer-with-some-purpose)
-		 ("C-S-w" . ivy-purpose-switch-buffer-with-purpose)))
+  :bind (("M-w" . ivy-purpose-switch-buffer-with-some-purpose)
+		 ("M-S-w" . ivy-purpose-switch-buffer-with-purpose)))
 ;; (use-package golden-ratio
 ;;   :ensure t
 ;;   :config (golden-ratio-mode 1)
@@ -123,9 +123,9 @@
 ;;   :ensure t
 ;;   :config (frames-only-mode))
 ;; (setq pop-up-frames t)
-(use-package centered-window-mode
-  :ensure t
-  :config (centered-window-mode t))
+;; (use-package centered-window-mode
+;;   :ensure t
+;;   :config (centered-window-mode t))
 ;; (use-package popwin
 ;;   :ensure t
 ;;   :config (popwin-mode 1))

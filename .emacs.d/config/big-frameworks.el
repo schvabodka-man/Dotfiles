@@ -12,12 +12,14 @@
   (setq ivy-height 20)
   (setq ivy-initial-inputs-alist nil)
   (setq ivy-use-virtual-buffers t)
-  :bind (("C-M-w" . ivy-switch-buffer)))
+  :bind (("C-M-w" . ivy-switch-buffer))
+  )
 (use-package counsel
   :ensure t
   :after ivy
   :pin melpa-stable
-  :bind (("M-x" . counsel-M-x)
+  :bind (
+		 ("M-x" . counsel-M-x)
 		 ("C-o" . counsel-find-file)
 		 ("C-b" . counsel-bookmark)
 		 ;; ("C-S-f" . counsel-ag)

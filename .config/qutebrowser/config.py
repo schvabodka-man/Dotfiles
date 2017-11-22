@@ -28,7 +28,7 @@ config.bind('<PgDown>', 'scroll-page 0 0.5')
 config.bind('<Ctrl-PgUp>', 'scroll-page 0 -0.25')
 config.bind('<Ctrl-PgDown>', 'scroll-page 0 0.25')
 
-config.bind('<Mod1-w>', 'set-cmd-text :buffer')
+config.bind('<Mod1-b>', 'set-cmd-text :buffer')
 config.bind('<Mod1-enter>', 'open -t')
 config.bind('<Mod1-return>', 'open -t')
 config.bind('<Mod1-q>', 'tab-close')

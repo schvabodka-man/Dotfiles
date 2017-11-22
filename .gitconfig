@@ -2,10 +2,10 @@
 email = scvhapps@gmail.com
 name = schvabodka-man
 [credential]
-helper = /home/user/bin/pass-git-helper/pass-git-helper
+helper = /opt/pass-git-helper/pass-git-helper
 [core]
 autocrlf = input
-excludesfile = /home/user/.gitignore_global
+excludesfile = /etc/gitconfigs/.gitignore_global
 [alias]
 c = "!fish -c \"git commit -a -m \"$@\"\" -"
 a = add -f

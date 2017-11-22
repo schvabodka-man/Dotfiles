@@ -97,7 +97,7 @@
 (defalias 'open-in-browser 'browse-url-of-file)
 (defalias 'browser-preview 'browse-url-of-file)
 ;;look and feel
-(set-default-font "Fura Mono Powerline 12")
+(set-default-font "Fira Mono 12")
 (setq-default cursor-type 'bar) 
 (set-cursor-color "#ffffff") 
 (blink-cursor-mode 0)
@@ -358,3 +358,7 @@ This command does not push text to `kill-ring'."
 (defalias 'resize-window-left 'enlarge-window-horizontally)
 (defalias 'resize-window-down 'shrink-window)
 (defalias 'resize-window-up 'enlarge-window)
+;;backtrace on error
+;;(setq debug-on-error t)
+;;nice frame names
+(setq-default frame-title-format '("%f [%m]"))

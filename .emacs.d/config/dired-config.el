@@ -154,8 +154,8 @@
 			(local-set-key (kbd "C-s") #'dired-do-compress)
 			(local-set-key (kbd "C-b") #'diredp-do-bookmark)))
 
-(add-hook 'dired-mode-hook (lambda ()
-							 (smooth-scrolling-mode 0)))
+;; (add-hook 'dired-mode-hook (lambda ()
+;;							 (smooth-scrolling-mode nil)))
 
 (setq delete-by-moving-to-trash t)
 

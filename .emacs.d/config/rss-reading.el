@@ -12,7 +12,7 @@
   :config
   (defalias 'rss 'elfeed)
   (defalias 'news 'elfeed)
-
+  (setq rmh-elfeed-org-files (list "~/Org/Util/Rss.org"))
   (define-key elfeed-search-mode-map (kbd "<") nil)
   (define-key elfeed-search-mode-map (kbd ">") nil)
   (define-key elfeed-search-mode-map (kbd "A") nil)

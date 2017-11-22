@@ -6,43 +6,43 @@
 
 ;;; Commentary:
 ;;; Code:
-;; (use-package w3m
-;;   :ensure t
-;;   :config (defun w3m-enable-cookies ()
-;;			(interactive)
-;;			(setq w3m-use-cookies t))
-;;   (defun w3m-disable-cookies ()
-;;	(interactive)
-;;	(setq w3m-use-cookies nil))
-;;   (setq w3m-use-cookies nil)
-;;   (defalias 'w3m-cookies-disable 'w3m-disable-cookies)
-;;   (defalias 'w3m-cookies-enable 'w3m-enable-cookies)
-;;   (setq w3m-coding-system 'utf-8
-;;		w3m-file-coding-system 'utf-8
-;;		w3m-file-name-coding-system 'utf-8
-;;		w3m-input-coding-system 'utf-8
-;;		w3m-output-coding-system 'utf-8
-;;		w3m-terminal-coding-system 'utf-8)
-;;   (add-hook 'w3m-mode-hook
-;;			(lambda ()
-;;			  (null-all-bindings)))
-;;   (define-key w3m-mode-map (kbd "<M-return>") #'w3m-create-empty-session)
-;;   (define-key w3m-mode-map (kbd "<C-return>") #'w3m-submit-form)
-;;   (define-key w3m-mode-map (kbd "M-.") #'w3m-tab-next-buffer)
-;;   (define-key w3m-mode-map (kbd "M-,") #'w3m-tab-previous-buffer)
-;;   (define-key w3m-mode-map (kbd "M-S-.") #'w3m-tab-move-right)
-;;   (define-key w3m-mode-map (kbd "M-S-,") #'w3m-tab-move-left)
-;;   (define-key w3m-mode-map (kbd "<S-return>") #'w3m-view-this-url-new-session)
-;;   (define-key w3m-mode-map (kbd "<right>") #'right-char)
-;;   (define-key w3m-mode-map (kbd "<left>") #'left-char)
-;;   (define-key w3m-mode-map (kbd "<up>") #'previous-line)
-;;   (define-key w3m-mode-map (kbd "<down>") #'next-line)
-;;   (define-key w3m-mode-map (kbd "<C-up>") #'w3m-previous-anchor)
-;;   (define-key w3m-mode-map (kbd "<C-down>") #'w3m-next-anchor)
-;;   (define-key w3m-mode-map (kbd "M-o") #'w3m-goto-url)
-;;   (define-key w3m-mode-map (kbd "M-r") #'w3m-reload-this-page)
-;;   (define-key w3m-mode-map (kbd "M-S-r") #'w3m-reload-all-pages)
-;;   (define-key w3m-mode-map (kbd "C-M-o") #'w3m-goto-url-new-session))
+(use-package w3m
+  :ensure t
+  :config (defun w3m-enable-cookies ()
+			(interactive)
+			(setq w3m-use-cookies t))
+  (defun w3m-disable-cookies ()
+	(interactive)
+	(setq w3m-use-cookies nil))
+  (setq w3m-use-cookies nil)
+  (defalias 'w3m-cookies-disable 'w3m-disable-cookies)
+  (defalias 'w3m-cookies-enable 'w3m-enable-cookies)
+  (setq w3m-coding-system 'utf-8
+		w3m-file-coding-system 'utf-8
+		w3m-file-name-coding-system 'utf-8
+		w3m-input-coding-system 'utf-8
+		w3m-output-coding-system 'utf-8
+		w3m-terminal-coding-system 'utf-8)
+  (add-hook 'w3m-mode-hook
+			(lambda ()
+			  (null-all-bindings)))
+  (define-key w3m-mode-map (kbd "<M-return>") #'w3m-create-empty-session)
+  (define-key w3m-mode-map (kbd "<C-return>") #'w3m-submit-form)
+  (define-key w3m-mode-map (kbd "M-.") #'w3m-tab-next-buffer)
+  (define-key w3m-mode-map (kbd "M-,") #'w3m-tab-previous-buffer)
+  (define-key w3m-mode-map (kbd "M-S-.") #'w3m-tab-move-right)
+  (define-key w3m-mode-map (kbd "M-S-,") #'w3m-tab-move-left)
+  (define-key w3m-mode-map (kbd "<S-return>") #'w3m-view-this-url-new-session)
+  (define-key w3m-mode-map (kbd "<right>") #'right-char)
+  (define-key w3m-mode-map (kbd "<left>") #'left-char)
+  (define-key w3m-mode-map (kbd "<up>") #'previous-line)
+  (define-key w3m-mode-map (kbd "<down>") #'next-line)
+  (define-key w3m-mode-map (kbd "<C-up>") #'w3m-previous-anchor)
+  (define-key w3m-mode-map (kbd "<C-down>") #'w3m-next-anchor)
+  (define-key w3m-mode-map (kbd "M-o") #'w3m-goto-url)
+  (define-key w3m-mode-map (kbd "M-r") #'w3m-reload-this-page)
+  (define-key w3m-mode-map (kbd "M-S-r") #'w3m-reload-all-pages)
+  (define-key w3m-mode-map (kbd "C-M-o") #'w3m-goto-url-new-session))
 (el-get-bundle q4
   :url "https://github.com/desvox/q4.git")
 (load "~/.emacs.d/el-get/q4/q4")

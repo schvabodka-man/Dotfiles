@@ -4,7 +4,7 @@
   :features calibre-mode)
 (require 'calibre-mode)
 (setq sql-sqlite-program "/usr/bin/sqlite3")
-(setq calibre-root-dir (expand-file-name "~/Dropbox/Books"))
+(setq calibre-root-dir (expand-file-name "~/Books"))
 (setq calibre-db (concat calibre-root-dir "/metadata.db"))
 ;; (use-package ereader
 ;;   :ensure t

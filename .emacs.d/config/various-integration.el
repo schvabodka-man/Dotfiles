@@ -174,6 +174,6 @@
   :ensure t
   :config (defun steam ()
 			(interactive)
-			(find-file "~/Dropbox/Org/Util/Steam.org"))
+			(find-file "~/Org/Util/Steam.org"))
   (setq steam-username "vasyan6664")
-  (setq steam-logo-dir "~/Dropbox/Org/Util/Steam"))
+  (setq steam-logo-dir "~/Org/Util/Steam"))

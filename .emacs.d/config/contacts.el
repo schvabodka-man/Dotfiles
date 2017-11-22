@@ -9,6 +9,6 @@
 (el-get-bundle org-contacts
   :url "http://orgmode.org/w/?p=org-mode.git;a=blob_plain;f=contrib/lisp/org-contacts.el")
 (load "~/.emacs.d/el-get/org-contacts/org-contacts")
-(setq org-contacts-files (list "~/Dropbox/Org/Contacts/Contacts.org"))
+(setq org-contacts-files (list "~/Org/Contacts/Contacts.org"))
 (defalias 'contacts 'org-contacts)
 ;;; contacts.el ends here

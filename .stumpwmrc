@@ -1,11 +1,161 @@
 (in-package :stumpwm)
 
-(set-prefix-key (kbd "f12"))
+(load-module "ttf-fonts")
+;; (set-font (make-instance 'xft:font :family "Fira Mono" :subfamily "Medium" :size 14))
 
-(setf *mouse-focus-policy* :click)
+(set-prefix-key (kbd "s-X"))
+
+(setf *mouse-focus-policy* :sloppy)
+
+(setq *terminal* "xfce4-terminal -x \"tmux\"")
+(setq *shell-program* "/usr/bin/fish")
+(setq *browser* "qutebrowser")
+(setq *startup-message* "StumpWM loaded!")
+(setf *maxsize-border-width* 2)
+(setf *normal-border-width* 2)
+(setf *window-border-style* :thin)
+(set-msg-border-width 2)
+(set-frame-outline-width 2)
+(set-normal-gravity :center)
+
 (run-shell-command "feh --bg-scale ~/.wallpaper/mac.png")
+(run-shell-command "ssh-agent")
+(run-shell-command "arbtt-capture -r 15")
+(run-shell-command "emacs --daemon=news -q -l ~/.emacs.d.news/init.el")
 (run-shell-command "emacs --daemon")
 
-(define-key *top-map* (kbd "s-r") "reload")
-(define-key *top-map* (kbd "s-RET") "emacsclient -c")
-(define-key *top-map* (kbd "S-s-RET") "xfce4-terminal -x \"tmux\"")
+(defcommand qutebrowser () ()
+  "run qutebrowser"
+  (run-or-raise "qutebrowser" '(:title "qutebrowser")))
+(defcommand palemoon () ()
+  "run qutebrowser"
+  (run-or-raise "palemoon" '(:title "Pale Moon")))
+
+(defcommand steam () ()
+  "run steam"
+  (run-or-raise "steam" '(:title "steam")))
+
+(defcommand xfce4-screenshot () ()
+  "xfce4 screenshot app"
+  (run-or-raise "xfce4-screenshooter" '(:title "xfce4-screenshooter")))
+
+(defcommand volume-inc () ()
+  "increase molume"
+  (run-shell-command "amixer -D pulse sset Master 5%+"))
+(defcommand volume-dec () ()
+  "decrease molume"
+  (run-shell-command "amixer -D pulse sset Master 5%-"))
+(defcommand volume-inc-small () ()
+  "increase volume smally"
+  (run-shell-command "amixer -D pulse sset Master 3%+"))
+(defcommand volume-dec-small () ()
+  "decrease volume smally"
+  (run-shell-command "amixer -D pulse sset Master 3%-"))
+(defcommand volume-toggle () ()
+  "toggle volume"
+  (run-shell-command "pactl set-sink-mute 0 toggle"))
+
+(defcommand next-track () ()
+  "next-track"
+  (run-shell-command "emacsclient --eval \"(emms-next)\""))
+(defcommand prev-track () ()
+  "prev-track"
+  (run-shell-command "emacsclient --eval \"(emms-previous)\""))
+(defcommand play-pause () ()
+  "prev-track"
+  (run-shell-command "emacsclient --eval \"(emms-pause)\""))
+(defcommand repeat-track () ()
+  "repeat track"
+  (run-shell-command "emacsclient --eval \"(emms-replay-track)\""))
+(defcommand repeat-playist () ()
+  "repeat playlist"
+  (run-shell-command "emacsclient --eval \"(emms-repeat-playlist)\""))
+(defcommand stop-track () ()
+  "stop playing"
+  (run-shell-command "emacsclient --eval \"(emms-stop)\""))
+
+(defcommand emacsclient () ()
+  "start emacsclient"
+  (run-shell-command "emacsclient -c"))
+
+(defcommand xfce4-terminal-tmux () ()
+  "start xfc4-terminal"
+  (run-shell-command "xfce4-terminal -x \"tmux\""))
+(defcommand st-tmux () ()
+  "start st-terminal"
+  (run-shell-command "~/bin/st/st -e \"tmux\""))
+
+(defcommand rofi-frames () ()
+  "look frames at rofi"
+  (run-shell-command "rofi -show window -hide-scrollbar -fullscreen"))
+(defcommand rofi-run-app () ()
+  "look frames at rofi"
+  (run-shell-command "rofi -show drun -hide-scrollbar -fullscreen"))
+
+(define-key *top-map* (kbd "XF86AudioLowerVolume") "volume-dec")
+(define-key *top-map* (kbd "XF86AudioRaiseVolume") "volume-inc")
+(define-key *top-map* (kbd "C-F9") "volume-dec-small")
+(define-key *top-map* (kbd "C-F10") "volume-inc-small")
+(define-key *top-map* (kbd "XF86AudioMute") "volume-toggle")
+(define-key *top-map* (kbd "XF86AudioPrev") "prev-track")
+(define-key *top-map* (kbd "XF86AudioNext") "next-track")
+(define-key *top-map* (kbd "XF86AudioPlay") "play-pause")
+(define-key *top-map* (kbd "C-F7") "stop-track")
+(define-key *top-map* (kbd "C-F8") "repeat-track")
+(define-key *top-map* (kbd "C-S-F8") "repeat-playist")
+
+(define-key *top-map* (kbd "SunPrint_Screen") "xfce4-screenshot")
+
+(grename "1")
+(gnewbg "2")
+(gnewbg "3")
+(gnewbg "4")
+(gnewbg "5")
+(gnewbg "6")
+(gnewbg "7")
+(gnewbg "8")
+(gnewbg "9")
+(gnewbg "0")
+
+(define-key *top-map* (kbd "s-1") "gselect 1")
+(define-key *top-map* (kbd "s-2") "gselect 2")
+(define-key *top-map* (kbd "s-3") "gselect 3")
+(define-key *top-map* (kbd "s-4") "gselect 4")
+(define-key *top-map* (kbd "s-5") "gselect 5")
+(define-key *top-map* (kbd "s-6") "gselect 6")
+(define-key *top-map* (kbd "s-7") "gselect 7")
+(define-key *top-map* (kbd "s-8") "gselect 8")
+(define-key *top-map* (kbd "s-9") "gselect 9")
+(define-key *top-map* (kbd "s-0") "gselect 0")
+
+(define-key *top-map* (kbd "s-,") "gprev")
+(define-key *top-map* (kbd "s-.") "gnext")
+(define-key *top-map* (kbd "s--") "groups")
+
+(define-key *top-map* (kbd "s-r") "loadrc")
+(define-key *top-map* (kbd "s-R") "grename")
+(define-key *top-map* (kbd "s-W") "windowlist")
+(define-key *top-map* (kbd "s-w") "rofi-frames")
+(define-key *top-map* (kbd "s-x") "rofi-run-app")
+(define-key *top-map* (kbd "s-n") "hsplit")
+(define-key *top-map* (kbd "s-N") "vsplit")
+(define-key *top-map* (kbd "s-Q") "delete-window")
+(define-key *top-map* (kbd "s-p") "palemoon")
+(define-key *top-map* (kbd "s-s") "steam")
+(define-key *top-map* (kbd "s-q") "remove-split")
+(define-key *top-map* (kbd "s-f") "fullscreen")
+(define-key *top-map* (kbd "s-\\") "balance-frames")
+(define-key *top-map* (kbd "s-RET") "emacsclient")
+(define-key *top-map* (kbd "S-s-RET") "st-tmux")
+(define-key *top-map* (kbd "s-Up") "move-focus up")
+(define-key *top-map* (kbd "s-Down") "move-focus down")
+(define-key *top-map* (kbd "s-Left") "move-focus left")
+(define-key *top-map* (kbd "s-Right") "move-focus Right")
+(define-key *top-map* (kbd "S-s-Up") "move-window up")
+(define-key *top-map* (kbd "S-s-Down") "move-window down")
+(define-key *top-map* (kbd "S-s-Left") "move-window left")
+(define-key *top-map* (kbd "S-s-Right") "move-window Right")
+(define-key *top-map* (kbd "C-s-Up") "resize 0 10")
+(define-key *top-map* (kbd "C-s-Down") "resize 0 -10")
+(define-key *top-map* (kbd "C-s-Left") "resize -10 0")
+(define-key *top-map* (kbd "C-s-Right") "resize 10 0")

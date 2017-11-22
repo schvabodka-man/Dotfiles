@@ -26,7 +26,7 @@
   :ensure t)
 (use-package elfeed-org
   :ensure t
-  :config (setq rmh-elfeed-org-files (list "~/Dropbox/Org/Util/Rss.org"))
+  :config (setq rmh-elfeed-org-files (list "~/Org/Util/Rss.org"))
   (elfeed-org))
 (defun bjm/elfeed-save-db-and-bury ()
   "Wrapper to save the elfeed db to disk before burying buffer"

@@ -14,10 +14,10 @@
 (setq gc-cons-threshold 200000000)
 ;; ;;stuff
 (require 'package)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
 						 ("marmalade" . "http://marmalade-repo.org/packages/")
 						 ("melpa-stable" . "https://stable.melpa.org/packages/")
-						 ("melpa" . "http://melpa.org/packages/")))
+						 ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
 (defun clean-elc-files ()
   (shell-command "/bin/rm ~/.emacs.d/*.elc")
@@ -269,7 +269,7 @@
  '(projectile-globally-ignored-files
    (quote
 	("TAGS" ".gitignore" ".projectile" ".ensime" "mvnw" "gradlew" "gradlew.bat" "mvnw.cmd")))
- '(rmh-elfeed-org-files (quote ("~/Dropbox/Org/Util/Rss.org")))
+ '(rmh-elfeed-org-files (quote ("~/Org/Util/Rss.org")))
  '(send-mail-function (quote smtpmail-send-it))
  '(spaceline-all-the-icons-highlight-file-name t)
  '(sr-speedbar-right-side nil)
