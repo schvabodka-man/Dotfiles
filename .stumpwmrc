@@ -1,0 +1,11 @@
+(in-package :stumpwm)
+
+(set-prefix-key (kbd "f12"))
+
+(setf *mouse-focus-policy* :click)
+(run-shell-command "feh --bg-scale ~/.wallpaper/mac.png")
+(run-shell-command "emacs --daemon")
+
+(define-key *top-map* (kbd "s-r") "reload")
+(define-key *top-map* (kbd "s-RET") "emacsclient -c")
+(define-key *top-map* (kbd "S-s-RET") "xfce4-terminal -x \"tmux\"")
