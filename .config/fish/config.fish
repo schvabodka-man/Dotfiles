@@ -110,23 +110,23 @@ alias mv 'pymv'
 alias rm 'trash-put'
 alias trash-ls 'trash-list'
 
-function ls
-	if test -e ~/bin/ls-icons/binary/bin/ls
-		~/bin/ls-icons/binary/bin/ls $argv
-	else if test -e /usr/local/bin/colorls
-		colorls $argv
-	else
-		/bin/ls $argv
-	end
-end
+# function ls
+#	if test -e ~/bin/ls-icons/binary/bin/ls
+#		~/bin/ls-icons/binary/bin/ls $argv
+#	else if test -e /usr/local/bin/colorls
+#		colorls $argv
+#	else
+#		/bin/ls $argv
+#	end
+# end
 
 if test -e /bin/colordiff
 	alias diff 'colordiff'
 end
 
 function less
-	if test -e /usr/bin/src-hilite-lesspipe.sh
-		/usr/bin/src-hilite-lesspipe.sh $argv | /bin/less -R -N
+	if test -e /usr/share/source-highlight/src-hilite-lesspipe.sh
+		/usr/share/source-highlight/src-hilite-lesspipe.sh $argv | /bin/less -R -N
 	else
 		/bin/less $argv
 	end
@@ -141,33 +141,40 @@ function git
 	end
 end
 
-alias download "uget-gtk"
-# alias aria-list-local "~/bin/aria2rpc/aria2rpc tellActive"
-# alias aria2-list-local "aria-list-local"
-# alias download-list-local "aria-list-local"
-# alias downloads-list-local "aria-list-local"
-# alias downloads-local "aria-list-local"
-# alias aria-pause-local "~/bin/aria2rpc/aria2rpc pause"
-# alias aria2-pause-local "aria-pause-local"
-# alias download-pause-local "aria-pause-local"
-# alias aria-stop-local "~/bin/aria2rpc/aria2rpc remove"
-# alias aria2-stop-local "aria-stop-local"
-# alias download-stop-local "aria-stop-local"
-# alias aria-remove-local "aria-stop-local"
-# alias aria-status-local "~/bin/aria2rpc/aria2rpc tellStatus"
-# alias aria2-status-local "aria-status-local"
-# alias download-status-local "aria-status-local"
-# alias aria-unpause-local "~/bin/aria2rpc/aria2rpc tellUnpause"
-# alias aria2-unpause-local "aria-unpause-local"
-# alias download-unpause-local "aria-unpause-local"
-# alias aria-resume-local "aria-unpause-local"
-# alias aria2-resume-local "aria-unpause-local"
-# alias download-resume-local "aria-unpause-local"
-# alias aria-resume-local "aria-unpause-local"
-# alias aria2-continue-local "aria-unpause-local"
-# alias aria2-continue-local "aria-unpause-local"
-# alias download-continue-local "aria-unpause-local"
+alias download-local "~/bin/aria2rpc/aria2rpc --secret (pass device/aria2) addUri"
+# alias download-torrent-local "~/bin/aria2rpc/aria2rpc --secret (pass device/aria2) addTorrent"
+alias download-metalink-local "~/bin/aria2rpc/aria2rpc --secret (pass device/aria2) addMetalink"
+# alias torrent-download-local "download-torrent-local"
+alias aria-list-local "~/bin/aria2rpc/aria2rpc --secret (pass device/aria2) tellActive"
+alias aria2-list-local "aria-list-local"
+alias download-list-local "aria-list-local"
+alias downloads-list-local "aria-list-local"
+alias downloads-local "aria-list-local"
+alias aria-pause-local "~/bin/aria2rpc/aria2rpc --secret (pass device/aria2) pause"
+alias aria2-pause-local "aria-pause-local"
+alias download-pause-local "aria-pause-local"
+alias aria-stop-local "~/bin/aria2rpc/aria2rpc --secret (pass device/aria2) remove"
+alias aria2-stop-local "aria-stop-local"
+alias download-stop-local "aria-stop-local"
+alias aria-remove-local "aria-stop-local"
+alias aria-status-local "~/bin/aria2rpc/aria2rpc --secret (pass device/aria2) tellStatus"
+alias aria2-status-local "aria-status-local"
+alias download-status-local "aria-status-local"
+alias aria-unpause-local "~/bin/aria2rpc/aria2rpc --secret (pass device/aria2) tellUnpause"
+alias aria2-unpause-local "aria-unpause-local"
+alias download-unpause-local "aria-unpause-local"
+alias aria-resume-local "aria-unpause-local"
+alias aria2-resume-local "aria-unpause-local"
+alias download-resume-local "aria-unpause-local"
+alias aria-resume-local "aria-unpause-local"
+alias aria2-continue-local "aria-unpause-local"
+alias aria2-continue-local "aria-unpause-local"
+alias download-continue-local "aria-unpause-local"
 
+alias download "~/bin/aria2rpc/aria2rpc --secret (pass house/server/aria2) --server 192.168.2.125 addUri"
+# alias download-torrent "~/bin/aria2rpc/aria2rpc --secret (pass house/server/aria2) --server 192.168.2.125 addTorrent"
+alias download-metalink "~/bin/aria2rpc/aria2rpc --secret (pass house/server/aria2) --server 192.168.2.125 addMetalink"
+# alias torrent-download "download-torrent"
 alias aria-list "~/bin/aria2rpc/aria2rpc --secret (pass house/server/aria2) --server 192.168.2.125 tellActive"
 alias aria2-list "aria-list"
 alias download-list "aria-list"
@@ -180,10 +187,10 @@ alias aria-stop "~/bin/aria2rpc/aria2rpc --secret (pass house/server/aria2) --se
 alias aria2-stop "aria-stop"
 alias download-stop "aria-stop"
 alias aria-remove "aria-stop"
-alias aria-status "~/bin/aria2rpc/aria2rpc --server 192.168.2.125 tellStatus"
+alias aria-status "~/bin/aria2rpc/aria2rpc --secret (pass house/server/aria2) --server 192.168.2.125 tellStatus"
 alias aria2-status "aria-status"
 alias download-status "aria-status"
-alias aria-unpause "~/bin/aria2rpc/aria2rpc --server 192.168.2.125 tellUnpause"
+alias aria-unpause "~/bin/aria2rpc/aria2rpc --secret (pass house/server/aria2) --server 192.168.2.125 tellUnpause"
 alias aria2-unpause "aria-unpause"
 alias download-unpause "aria-unpause"
 alias aria-resume "aria-unpause"
@@ -350,6 +357,13 @@ alias wifi-ls "wifi-list"
 alias wifi-on "nmcli radio wifi on"
 alias wifi-off "nmcli radio wifi off"
 
+alias ip-local "hostname -I"
+alias local-ip "ip-local"
+alias global-ip "dig +short myip.opendns.com @resolver1.opendns.com"
+alias ip-global "dig +short myip.opendns.com @resolver1.opendns.com"
+alias ip-web "dig +short myip.opendns.com @resolver1.opendns.com"
+alias web-ip "dig +short myip.opendns.com @resolver1.opendns.com"
+
 alias music-import 'import-music'
 
 function weather
@@ -366,6 +380,10 @@ alias lock-desktop 'lock'
 alias forecast 'weather'
 
 alias nas-mount 'sshfs pi@192.168.2.125:Data/Share ~/Data'
+
+function jetbrains-idea
+	~/.local/share/umake/ide/idea-ultimate/bin/idea.sh
+end
 
 set -U fish_key_bindings fish_default_key_bindings
 

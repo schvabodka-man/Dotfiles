@@ -6,7 +6,7 @@ Xft.autohint: false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
-XTerm*background: #0a0a0a
+XTerm*background: #0e1112
 XTerm*foreground: #FFFFFF
 XTerm*pointerColor: #0CEBBF
 XTerm*faceName: Fixed
@@ -25,5 +25,59 @@ rofi.separator-style: none
 dzen2.foreground: #ffffff
 dzen2.background: #0e1112
 
-Emacs.font: Fira Mono 12
+Emacs.font: Fira Mono for Powerline 12
 
+! special
+*.foreground:   #ffffff
+*.background:   #0e1112
+*.cursorColor:  #ffffff
+
+! black
+*.color0:       #000000
+*.color8:       #373b41
+
+! red
+*.color1:       #ff0000
+*.color9:       #ff6767
+
+! green
+*.color2:       #40fc02
+*.color10:      #4fff5e
+
+! yellow
+*.color3:       #f1ff00
+*.color11:      #e5ff65
+
+! blue
+*.color4:       #028af9
+*.color12:      #6ebcff
+
+! magenta
+*.color5:       #b507ef
+*.color13:      #dd6bff
+
+! cyan
+*.color6:       #00ffde
+*.color14:      #81fcda
+
+! white
+*.color7:       #ffffff
+*.color15:      #ffffff
+
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.scrollBar_floating: false
+URxvt.scrollstyle: plain
+URxvt.internalBorder: 0
+URxvt.borderColor: #0e1112
+URxvt.cursorColor: #ffffff
+
+URxvt.saveLines: 500000
+URxvt.cursorBlink: 0
+
+URxvt.font : xft:Roboto Mono for Powerline-12
+
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: qutebrowser
+URxvt.matcher.button: 1
+URxvt.matcher.pattern.1:  \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]

@@ -145,7 +145,9 @@
 (use-package mu4e-alert
   :ensure t
   :config (mu4e-alert-set-default-style 'libnotify)
-  (add-hook 'after-init-hook #'mu4e-alert-enable-notifications))
+  (add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
+  ;; (add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display))
+  )
 (mu4e-update-index)
 (run-with-idle-timer 180 t (lambda () (mu4e-update-index)))
 ;;; mu4e-config.el ends here

@@ -1,28 +1,85 @@
 (in-package :stumpwm)
 
-(load-module "ttf-fonts")
-;; (set-font (make-instance 'xft:font :family "Fira Mono" :subfamily "Medium" :size 14))
+(set-module-dir "~/stumpwm/contrib")
+
+(load "~/quicklisp/setup.lisp")
+
+;; (ql:quickload :clx-truetype)
+;; (load-module "ttf-fonts")
+
+;; (clx-truetype:cache-fonts)
+;; (clx-truetype:get-font-families)
+;; (clx-truetype:get-font-subfamilies "Fira Mono")
 
 (set-prefix-key (kbd "s-X"))
 
 (setf *mouse-focus-policy* :sloppy)
 
-(setq *terminal* "xfce4-terminal -x \"tmux\"")
+(setq *terminal* "~/bin/st/st -e \"tmux\"")
 (setq *shell-program* "/usr/bin/fish")
 (setq *browser* "qutebrowser")
 (setq *startup-message* "StumpWM loaded!")
-(setf *maxsize-border-width* 2)
-(setf *normal-border-width* 2)
+(setf *maxsize-border-width* 3)
+(setf *normal-border-width* 3)
+(set-focus-color "#7cfc00")
+(set-unfocus-color "#0e1112")
+(set-float-focus-color "#7cfc00")
+(set-float-unfocus-color "#0e1112")
+(set-win-bg-color "#0e1112")
+(gravity :center)
+(setf *transient-border-width* 3)
 (setf *window-border-style* :thin)
 (set-msg-border-width 2)
 (set-frame-outline-width 2)
 (set-normal-gravity :center)
 
-(run-shell-command "feh --bg-scale ~/.wallpaper/mac.png")
+(setf *mode-line-foreground-color* "#FFFFFF")
+(setf *mode-line-border-color* "#0e1112")
+(setf *mode-line-timeout* 15)
+(setf *mode-line-pad-y* 0)
+(setf *mode-line-border-width* 0)
+(setf *mode-line-border-height* 0)
+(setf *mode-line-background-color* "#0e1112")
+(setf *time-modeline-string* "%a %m-%d %H:%M")
+(setf *mode-line-screen-position* :bottom)
+(setf *mode-line-frame-position* :bottom)
+(setf *group-format* "|%n|")
+(setf *window-format* "|%m %n %20t-%10c|")
+
+(setf *screen-mode-line-format*
+	  (list "%d --> %g"))
+
+;; (if (not (head-mode-line (current-head)))
+;; (toggle-mode-line (current-screen) (current-head)))
+
+;;no auto-screensaver
+(run-shell-command "xset s off")
+(run-shell-command "xset s noblank")
+;;disable clicks on synaptic touchpad
+(run-shell-command "synclient TapButton1=0")
+(run-shell-command "synclient TapButton2=0")
+;;kbd layout
+(run-shell-command "setxkbmap -layout us,ru -option grp:alt_caps_toggle")
+;;for emacs fonts
+(run-shell-command "xrdb-merge")
+;;security
 (run-shell-command "ssh-agent")
+(run-shell-command "gpg-agent --daemon --allow-emacs-pinentry --pinentry-program /usr/bin/pinentry-gtk-2")
+;;emacs instances
+(run-shell-command "/usr/bin/emacs --daemon")
+;;wallpaper
+(run-shell-command "feh --bg-scale ~/.wallpaper/mac.png")
+;;time tracker
 (run-shell-command "arbtt-capture -r 15")
-(run-shell-command "emacs --daemon=news -q -l ~/.emacs.d.news/init.el")
-(run-shell-command "emacs --daemon")
+;;bar
+(run-shell-command "~/.config/dzen2/dzen2.sh")
+;;music daemon
+(run-shell-command "mpd")
+;;aria and transmission
+(run-shell-command "transmission-daemon -f -t -u transmission -v (pass device/transmission) -w ~/Downloads")
+(run-shell-command "aria2c --daemon --enable-rpc --rpc-listen-all --continue=true --save-session-interval=120 --dir=/home/$USER/Downloads --no-conf=true --save-session=/home/$USER/aria2/session --input-file=/home/$USER/aria2/session --rpc-secret=(pass device/aria2)")
+;;mail fetching
+(run-shell-command "python3 ~/bin/offlineimap-daemon/offlineimap-daemon.py")
 
 (defcommand qutebrowser () ()
   "run qutebrowser"
@@ -30,14 +87,31 @@
 (defcommand palemoon () ()
   "run qutebrowser"
   (run-or-raise "palemoon" '(:title "Pale Moon")))
+(defcommand jetbrains-idea () ()
+  "run intellij"
+  (run-or-raise "jetbrains-idea" '(:title "Intellij IDEA")))
+(defcommand calibre () ()
+  "run calibre"
+  (run-or-raise "calibre" '(:title "Calibre")))
 
 (defcommand steam () ()
   "run steam"
   (run-or-raise "steam" '(:title "steam")))
 
+(defcommand uget () ()
+  "run uget-gtk"
+  (run-or-raise "uget-gtk" '(:title "uget")))
+(defcommand transmission () ()
+  "run transmission client"
+  (run-or-raise "transmission-remote-gtk" '(:title "Transmission")))
+
 (defcommand xfce4-screenshot () ()
   "xfce4 screenshot app"
   (run-or-raise "xfce4-screenshooter" '(:title "xfce4-screenshooter")))
+
+(defcommand fast-screenshot () ()
+  "fast screenshot"
+  (run-shell-command "~/.config/fish/keybindings/screenshot.fish"))
 
 (defcommand volume-inc () ()
   "increase molume"
@@ -78,12 +152,19 @@
   "start emacsclient"
   (run-shell-command "emacsclient -c"))
 
+(defcommand lock () ()
+  "lock screen"
+  (run-shell-command "lock"))
+
 (defcommand xfce4-terminal-tmux () ()
-  "start xfc4-terminal"
+  "start xfce4-terminal"
   (run-shell-command "xfce4-terminal -x \"tmux\""))
 (defcommand st-tmux () ()
   "start st-terminal"
   (run-shell-command "~/bin/st/st -e \"tmux\""))
+(defcommand urxvt-tmux () ()
+  "start urxvt"
+  (run-shell-command "urxvtc -e tmux"))
 
 (defcommand rofi-frames () ()
   "look frames at rofi"
@@ -94,17 +175,18 @@
 
 (define-key *top-map* (kbd "XF86AudioLowerVolume") "volume-dec")
 (define-key *top-map* (kbd "XF86AudioRaiseVolume") "volume-inc")
-(define-key *top-map* (kbd "C-F9") "volume-dec-small")
-(define-key *top-map* (kbd "C-F10") "volume-inc-small")
+(define-key *top-map* (kbd "C-s-F9") "volume-dec-small")
+(define-key *top-map* (kbd "C-s-F10") "volume-inc-small")
 (define-key *top-map* (kbd "XF86AudioMute") "volume-toggle")
 (define-key *top-map* (kbd "XF86AudioPrev") "prev-track")
 (define-key *top-map* (kbd "XF86AudioNext") "next-track")
 (define-key *top-map* (kbd "XF86AudioPlay") "play-pause")
-(define-key *top-map* (kbd "C-F7") "stop-track")
-(define-key *top-map* (kbd "C-F8") "repeat-track")
-(define-key *top-map* (kbd "C-S-F8") "repeat-playist")
+(define-key *top-map* (kbd "C-s-F7") "stop-track")
+(define-key *top-map* (kbd "C-s-F8") "repeat-track")
+(define-key *top-map* (kbd "C-S-s-F8") "repeat-playist")
 
 (define-key *top-map* (kbd "SunPrint_Screen") "xfce4-screenshot")
+(define-key *top-map* (kbd "C-SunPrint_Screen") "fast-screenshot")
 
 (grename "1")
 (gnewbg "2")
@@ -131,22 +213,29 @@
 (define-key *top-map* (kbd "s-,") "gprev")
 (define-key *top-map* (kbd "s-.") "gnext")
 (define-key *top-map* (kbd "s--") "groups")
+(define-key *top-map* (kbd "s-=") "gmove")
 
-(define-key *top-map* (kbd "s-r") "loadrc")
-(define-key *top-map* (kbd "s-R") "grename")
-(define-key *top-map* (kbd "s-W") "windowlist")
+(define-key *top-map* (kbd "s-p") "qutebrowser")
+(define-key *top-map* (kbd "s-s") "steam")
 (define-key *top-map* (kbd "s-w") "rofi-frames")
 (define-key *top-map* (kbd "s-x") "rofi-run-app")
-(define-key *top-map* (kbd "s-n") "hsplit")
-(define-key *top-map* (kbd "s-N") "vsplit")
-(define-key *top-map* (kbd "s-Q") "delete-window")
-(define-key *top-map* (kbd "s-p") "palemoon")
-(define-key *top-map* (kbd "s-s") "steam")
-(define-key *top-map* (kbd "s-q") "remove-split")
-(define-key *top-map* (kbd "s-f") "fullscreen")
-(define-key *top-map* (kbd "s-\\") "balance-frames")
 (define-key *top-map* (kbd "s-RET") "emacsclient")
 (define-key *top-map* (kbd "S-s-RET") "st-tmux")
+(define-key *top-map* (kbd "s-d") "uget")
+(define-key *top-map* (kbd "s-t") "transmission")
+(define-key *top-map* (kbd "s-i") "jetbrains-idea")
+(define-key *top-map* (kbd "s-l") "lock")
+;; (define-key *top-map* (kbd "s-c") "calibre")
+
+(define-key *top-map* (kbd "s-r") "loadrc")
+(define-key *top-map* (kbd "s-W") "windowlist")
+
+(define-key *top-map* (kbd "s-n") "hsplit")
+(define-key *top-map* (kbd "s-N") "vsplit")
+(define-key *top-map* (kbd "s-q") "delete-window")
+(define-key *top-map* (kbd "s-Q") "remove-split")
+(define-key *top-map* (kbd "s-f") "fullscreen")
+(define-key *top-map* (kbd "s-\\") "balance-frames")
 (define-key *top-map* (kbd "s-Up") "move-focus up")
 (define-key *top-map* (kbd "s-Down") "move-focus down")
 (define-key *top-map* (kbd "s-Left") "move-focus left")

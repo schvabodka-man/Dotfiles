@@ -9,7 +9,6 @@ pythonfile = ~/.offlineimap.py
 [Account gmail]
 localrepository = gmail-local
 remoterepository = gmail-remote
-status_backend = sqlite
 
 [Repository gmail-local]
 type = Maildir
@@ -18,6 +17,6 @@ localfolders = ~/Maildir/Gmail
 [Repository gmail-remote]
 type = Gmail
 ssl = yes
-sslcacertfile = /etc/ssl/certs/ca-bundle.crt
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 remoteuser = scvhapps@gmail.com 
 remotepasseval = mailpasswd("email/google/scvhapps@gmail.com")

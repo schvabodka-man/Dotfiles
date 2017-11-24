@@ -1,0 +1,63 @@
+set hintkeys=qwertyuiopasdfghjklzxcvbnm
+set history=1000
+set editor="/usr/bin/emacsclient -c"
+
+" History
+nnoremap <C-left> <C-o>
+nnoremap <C-right> <C-i>
+
+"
+nnoremap <C-S-o> :tabopen<Space>
+nnoremap <C-o> :open<Space>
+nnoremap <A-Enter> :tabopen<Enter>
+nnoremap <A-S-Enter> :tabduplicate<Enter>
+nnoremap <A-w> :buffers<Enter>
+
+" Navigation
+nnoremap <C-g> f
+nnoremap <C-S-g> F
+
+" Tabs
+nnoremap <A-left> <C-p>
+nnoremap <A-right> <C-n>
+nnoremap <A-q> d
+
+" Reload
+nnoremap <A-r> r
+nnoremap <A-S-r> R
+
+" M-x
+nnoremap <A-x> :
+
+" dev tools
+nnoremap <f2> gF
+
+" zoom
+nnoremap = zi
+nnoremap "-" zo
+
+" search
+nnoremap <C-f> "/"
+nnoremap <C-S-f> "?"
+
+" copy paste
+nnoremap <C-S-y> y
+nnoremap <C-c> Y
+
+" visual
+nnoremap <C-Space> i
+vnoremap <C-Space> i
+caretnoremap <C-Space> v
+
+" insert
+inoremap <C-Enter> <C-t>
+inoremap <C-S-k> <C-k>
+inoremap <C-k> <C-u>
+inoremap <C-v> <S-insert>
+
+" command line
+cmap <Up> <scroll-up-line>
+cmap <Down> <scroll-down-line>
+cmap <PgUp> <scroll-up-page>
+cmap <PgDown> <scroll-down-page>
+cmap <C-c> Y

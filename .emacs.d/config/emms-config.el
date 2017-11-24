@@ -5,9 +5,15 @@
 (use-package emms
   :ensure t
   :config (require 'emms-setup)
+  (require 'emms-player-mpd)
+  (require 'emms-volume)
   (emms-all)
   (emms-default-players)
   (setq emms-source-file-default-directory "~/Music/")
+
+  (add-to-list 'emms-info-functions 'emms-info-mpd)
+  (add-to-list 'emms-player-list 'emms-player-mpd)
+  (setq emms-volume-change-function 'emms-volume-mpd-change)
 
   (defalias 'emms 'emms-smart-browse)
   (defalias 'music 'emms-smart-browse)
@@ -34,11 +40,7 @@
   (defalias 'emms-tag-edit 'emms-tag-editor-edit)
 
   (define-key emms-browser-mode-map (kbd "M-r") #'emms-add-directory-tree)
-  (define-key emms-browser-mode-map (kbd "M-o") #'emms-add-directory-tree)
-  (define-key emms-browser-mode-map (kbd "M-i") #'emms-add-directory-tree)
-  (define-key emms-browser-mode-map (kbd "C-o") #'emms-add-file)
-  (define-key emms-browser-mode-map (kbd "C-S-i") #'emms-add-file)
-  (define-key emms-browser-mode-map (kbd "C-S-o") #'emms-add-playlist)
+  (define-key emms-browser-mode-map (kbd "C-o") #'emms-add-playlist)
   ;; (define-key emms-browser-mode-map (kbd "M-o") #'helm-emms)
   (define-key emms-browser-mode-map (kbd "C-k") #'emms-browser-clear-playlist)
   (define-key emms-browser-mode-map (kbd "C-<delete>") #'emms-browser-clear-playlist)
@@ -88,7 +90,7 @@
   (define-key emms-playlist-mode-map (kbd "C-m") #'emms-mark-forward)
   (define-key emms-playlist-mode-map (kbd "C-S-m") #'emms-mark-forward)
   (define-key emms-playlist-mode-map (kbd "C-M-m") #'emms-mark-regexp)
-  (define-key emms-playlist-mode-map (kbd "C-M-o") #'emms-add-playlist)
+  (define-key emms-playlist-mode-map (kbd "C-o") #'emms-add-playlist)
   (define-key emms-playlist-mode-map (kbd "C-n") #'emms-playlist-new)
   (define-key emms-playlist-mode-map (kbd "C-S-u") #'emms-mark-unmark-all)
   (define-key emms-playlist-mode-map (kbd "C-u") #'emms-mark-unmark-forward)
@@ -112,8 +114,10 @@
   (define-key emms-playlist-mode-map (kbd "\"") #'emms-toggle-repeat-playlist)
 
   (require 'emms-playing-time)
-  (emms-playing-time 1)
+  ;; (emms-playing-time 1)
   ;; (emms-mode-line-enable)
+  (add-hook 'kill-emacs-hook 'emms-player-mpd-stop)
+  (add-hook 'kill-emacs-hook 'emms-player-mpd-disconnect)
 
   (defun kill-emms ()
 	(interactive)
@@ -130,15 +134,12 @@
 	(interactive)
 	(emms-stop)
 	(emms-pause))
-  ;; (global-set-key (kbd "<S-f8>") 'emms-replay-track)
-  ;; (global-set-key (kbd "<C-S-f8>") 'emms-repeat-playlist)
-  ;; (global-set-key (kbd "<S-f7>") 'emms-stop)
-  )
+  (emms-player-mpd-connect))
 (use-package emms-info-mediainfo
   :ensure t
   :config (add-to-list 'emms-info-functions #'emms-info-mediainfo)
   :after emms)
-(use-package emms-player-mpv
-  :ensure t
-  :config (add-to-list 'emms-player-list 'emms-player-mpv)
-  :after emms)
+;; (use-package emms-player-mpv
+;;   :ensure t
+;;   :config (add-to-list 'emms-player-list 'emms-player-mpv)
+;;   :after emms)

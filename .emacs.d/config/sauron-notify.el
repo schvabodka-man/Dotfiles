@@ -9,7 +9,7 @@
 (use-package sauron
   :ensure t
   :pin melpa-stable
-  :bind ("s-\\" . sauron-toggle-hide-show)
+  :bind ("M-=" . sauron-toggle-hide-show)
   :init (sauron-start-hidden)
   :commands (sauron-toggle-hide-show)
   :config (setq sauron-separate-frame nil)

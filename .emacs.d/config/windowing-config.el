@@ -92,6 +92,13 @@
   (add-to-list 'purpose-user-mode-purposes '(q4-mode . 4chan))
   (add-to-list 'purpose-user-mode-purposes '(fb2-mode . books-reading))
   (add-to-list 'purpose-user-mode-purposes '(nov-mode . books-reading))
+  (add-to-list 'purpose-user-mode-purposes '(pdf-view-mode . pdf-documents-reading))
+  (add-to-list 'purpose-user-mode-purposes '(pdf-occur-buffer-mode . pdf-documents-reading))
+  (add-to-list 'purpose-user-mode-purposes '(pdf-isearch-batch-mode . pdf-documents-reading))
+  (add-to-list 'purpose-user-mode-purposes '(pdf-isearch-active-mode . pdf-documents-reading))
+  (add-to-list 'purpose-user-mode-purposes '(pdf-virtual-edit-mode . pdf-documents-reading))
+  (add-to-list 'purpose-user-mode-purposes '(pdf-virtual-view-mode . pdf-documents-reading))
+  (add-to-list 'purpose-user-mode-purposes '(pdf-outline-buffer-mode . pdf-documents-reading))
   (purpose-compile-user-configuration)
   (purpose-x-kill-setup)
   (purpose-x-magit-single-on))
@@ -112,17 +119,6 @@
   ("<M-S-right>" . buf-move-right)
   ("<M-S-up>" . buf-move-up)
   ("<M-S-down>" . buf-move-down))
-;; (use-package sauron
-;;   :ensure t
-;;   :config (setq sauron-separate-frame nil)
-;;   (sauron-start-hidden)
-;;   (sauron-elfeed-start)
-;;   (defalias 'events 'sauron-toggle-hide-show)
-;;   (defalias 'notifications 'sauron-toggle-hide-show))
-;; (use-package frames-only-mode
-;;   :ensure t
-;;   :config (frames-only-mode))
-;; (setq pop-up-frames t)
 ;; (use-package centered-window-mode
 ;;   :ensure t
 ;;   :config (centered-window-mode t))

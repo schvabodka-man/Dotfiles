@@ -19,7 +19,7 @@ config.bind('<,>', 'search-prev')
 config.bind('<.>', 'search-next')
 
 config.bind('<tab>', 'enter-mode insert')
-config.bind('<space>', 'enter-mode caret')
+config.bind('<Ctrl-space>', 'enter-mode caret')
 
 config.bind('<Mod1-x>', 'set-cmd-text :')
 
@@ -28,7 +28,7 @@ config.bind('<PgDown>', 'scroll-page 0 0.5')
 config.bind('<Ctrl-PgUp>', 'scroll-page 0 -0.25')
 config.bind('<Ctrl-PgDown>', 'scroll-page 0 0.25')
 
-config.bind('<Mod1-b>', 'set-cmd-text :buffer')
+config.bind('<Mod1-w>', 'set-cmd-text :buffer')
 config.bind('<Mod1-enter>', 'open -t')
 config.bind('<Mod1-return>', 'open -t')
 config.bind('<Mod1-q>', 'tab-close')
@@ -102,7 +102,7 @@ config.bind('<PgDown>',
             'completion-item-focus next-category', mode='command')
 config.bind('<PgUp>', 'completion-item-focus prev-category', mode='command')
 
-config.bind('<space>', 'toggle-selection', mode="caret")
+config.bind('<Ctrl-space>', 'toggle-selection', mode="caret")
 config.bind('<esc>', 'drop-selection', mode="caret")
 config.bind('<tab>', 'enter-mode insert', mode="caret")
 config.bind('<down>', 'move-to-next-line', mode="caret")

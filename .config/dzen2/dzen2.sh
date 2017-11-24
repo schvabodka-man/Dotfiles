@@ -42,11 +42,11 @@ webip() {
 }
 
 wififormatted() {
-	if /bin/nmcli dev wifi list | grep -v "SSID" | grep "^\*" > /dev/null
+	if nmcli dev wifi list | grep -v "SSID" | grep "^\*" > /dev/null
 	then
 		#little bit of overhead but who cares, it's a shell script anyway
-		local wifiname=$(/bin/nmcli dev wifi list | grep -v "SSID" | perl -n -e '/\* +(\w+) +\w+ +\d+ +\d+ \w+\/\w+ +\d+ +(\W+)/ && print "$1\n"')
-		local bars=$(/bin/nmcli dev wifi list | grep -v "SSID" | perl -n -e '/\* +(\w+) +\w+ +\d+ +\d+ \w+\/\w+ +\d+ +(\W+)/ && print "$2\n"')
+		local wifiname=$(nmcli dev wifi list | grep -v "SSID" | perl -n -e '/\* +(\w+) +\w+ +\d+ +\d+ \w+\/\w+ +\d+ +(\W+)/ && print "$1\n"')
+		local bars=$(nmcli dev wifi list | grep -v "SSID" | perl -n -e '/\* +(\w+) +\w+ +\d+ +\d+ \w+\/\w+ +\d+ +(\W+)/ && print "$2\n"')
 		echo "^fn(DroidSansMono-13) $bars $wifiname"
 	else
 		echo "^fn(FontAwesome-11)^fn(DroidSansMono-13) —"
@@ -60,23 +60,23 @@ battery() {
 	if [ $state == "charging" ]
 	then
 		local time=$(echo $batt | perl -n -e '/time to full: +(.+) percentage/ && print "$1\n"')
-		echo "^bg(#32cd32)^fg(#000000)^bg(#32cd32)^fn(DroidSansMono-13)⚡ $percentage% $time^fn(powerlinesymbols-12)^fg(#32cd32)^bg(#0e1112)"
+		echo "^bg(#32cd32)^fg(#000000)^bg(#32cd32)^fn(DroidSansMono-13)⚡ $percentage% $time^fn(powerlinesymbols-12)^fg(#32cd32)^bg(#ff4500)"
 	else
 		local time=$(echo $batt | perl -n -e '/time to empty: +(.+) percentage/ && print "$1\n"')
 		if [ $percentage -ge 85 ]
 		then
-			echo "^bg(#32cd32)^fg(#000000)^bg(#32cd32)^fn(FontAwesome-11)^fn(DroidSansMono-13) $percentage% $time^fn(powerlinesymbols-12)^fg(#32cd32)^bg(#0e1112)"
+			echo "^bg(#32cd32)^fg(#000000)^bg(#32cd32)^fn(FontAwesome-11)^fn(DroidSansMono-13) $percentage% $time^fn(powerlinesymbols-12)^fg(#32cd32)^bg(#ff4500)"
 		elif [ $percentage -ge 75 ]
 		then
-			echo "^bg(#32cd32)^fg(#000000)^bg(#32cd32)^fn(FontAwesome-11)^fn(DroidSansMono-13) $percentage% $time^fn(powerlinesymbols-12)^fg(#32cd32)^bg(#0e1112)"
+			echo "^bg(#32cd32)^fg(#000000)^bg(#32cd32)^fn(FontAwesome-11)^fn(DroidSansMono-13) $percentage% $time^fn(powerlinesymbols-12)^fg(#32cd32)^bg(#ff4500)"
 		elif [ $percentage -ge 50 ]
 		then
-			echo "^bg(#ffff00)^fg(#000000)^bg(#ffff00)^fn(FontAwesome-11)^fn(DroidSansMono-13) $percentage% $time^fn(powerlinesymbols-12)^fg(#ffff00)^bg(#0e1112)"
+			echo "^bg(#ffff00)^fg(#000000)^bg(#ffff00)^fn(FontAwesome-11)^fn(DroidSansMono-13) $percentage% $time^fn(powerlinesymbols-12)^fg(#ffff00)^bg(#ff4500)"
 		elif [ $percentage -ge 20 ]
 		then
-			echo "^bg(#ffff00)^fg(#000000)^bg(#ffff00)^fn(FontAwesome-11)^fn(DroidSansMono-13) $percentage% $time^fn(powerlinesymbols-12)^fg(#ffff00)^bg(#0e1112)"
+			echo "^bg(#ffff00)^fg(#000000)^bg(#ffff00)^fn(FontAwesome-11)^fn(DroidSansMono-13) $percentage% $time^fn(powerlinesymbols-12)^fg(#ffff00)^bg(#ff4500)"
 		else
-			echo "^bg(#b22222)^fg(#FFFFFF)^bg(#b22222)^fn(FontAwesome-11)^fn(DroidSansMono-13) $percentage% $time^fn(powerlinesymbols-12)^fg(#b22222)^bg(#0e1112)"
+			echo "^bg(#b22222)^fg(#FFFFFF)^bg(#b22222)^fn(FontAwesome-11)^fn(DroidSansMono-13) $percentage% $time^fn(powerlinesymbols-12)^fg(#b22222)^bg(#ff4500)"
 		fi
 	fi
 }
@@ -112,7 +112,7 @@ cmusformatted() {
 }
 
 volumelevel() {
-	local result=$(amixer get Master)
+	local result=$(amixer -D pulse get Master)
 	local soundstate=$(echo $result | perl -n -e '/\[(\w+)\]/ && print "$1\n"' | head -n 1)
 	local volume=$(echo $result | perl -n -e '/(\d+%)/ && print "$1\n"' | head -n 1)
 	local volumeNumber=$(echo $volume | tr -d "%")
@@ -140,8 +140,7 @@ downloads_aria_raspberry() {
 }
 
 email() {
-	cd ~/Maildir/Gmail/INBOX/new
-	local gmail=$(/bin/ls | wc -l)
+	local gmail=$(ls ~/Maildir/Gmail/INBOX/new | wc -l)
 	echo "^fn(FontAwesome-11)^fn(DroidSansMono-13) $gmail"
 }
 
@@ -185,14 +184,17 @@ fast_dzen() {
 		local volume=$(volumelevel)
 		local battery=$(battery)
 		local text=""
+		local email=$(email)
 
 		text+="^p(0)^fg(#000000)^bg(#ffff00)$layout^fn(powerlinesymbols-12)^fg(#ffff00)^bg(#ff69b4)"
 		text+="^fg(#000000)^bg(#ff69b4)^fn(DroidSansMono-13) ^fn(FontAwesome-11)^fn(DroidSansMono-13) $time ^fn(powerlinesymbols-12)^fg(#ff69b4)^bg(#20b2aa)"
 		text+="^fg(#000000)^bg(#20b2aa)$volume^fn(powerlinesymbols-12)^fg(#20b2aa)"
 		text+="$battery"
+		text+="^fg(#000000)^bg(#ff4500)^fn(DroidSansMono-13)$email ^fn(powerlinesymbols-12)^fg(#ff4500)^bg(#0e1112)"
+		# text+="^fg(#ffffff)^bg(#b22222)^fn(DroidSansMono-13)$email ^fn(powerlinesymbols-12)^fg(#b22222)^bg(#0e1112)"
 		echo $text
 		sleep 1
 	done
 }
 
-fast_dzen | dzen2 -dock -h 15 -ta l & generated_output | dzen2 -dock -y 1600 -h 15 -ta r
+fast_dzen | dzen2 -dock -h 15 -ta l

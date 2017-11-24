@@ -5,9 +5,9 @@ import:
     move: no
     copy: yes
 
-plugins: lyrics lastgenre fetchart lastimport
+plugins: lyrics fetchart
 
-lastfm:
-    user: muzyakakachaet
+# lastfm:
+    # user: muzyakakachaet
 
 source: track
