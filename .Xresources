@@ -13,14 +13,17 @@ XTerm*faceName: Fixed
 XTerm*faceSize: 11
 
 rofi.color-enabled: true
-rofi.color-window: argb:cc0a0a0a, #0a0a0a, #0a0a0a
-rofi.color-normal: argb:000a0a0a, #FFFFFF, argb:000a0a0a, #FFFFFF, #000000
-rofi.color-active: argb:000a0a0a, #87FB00, argb:000a0a0a, #FFFFFF, #006504
-rofi.color-urgent: argb:000a0a0a, #ff1844, argb:000a0a0a, #FFFFFF, #ff1844
+rofi.color-window: argb:cc0e1112, #0e1112, #ffffff
+rofi.color-normal: argb:000e1112, #FFFFFF, argb:000e1112, #FFFFFF, #000000
+rofi.color-active: argb:000e1112, #87FB00, argb:000e1112, #FFFFFF, #006504
+rofi.color-urgent: argb:000e1112, #ff1844, argb:000e1112, #FFFFFF, #ff1844
 rofi.bw: 0
 rofi.padding: 300
 rofi.line-margin: 0
 rofi.separator-style: none
+rofi.terminal: ~/bin/st/st -e tmux
+rofi.ssh-client: ssh
+rofi.ssh-command: ~/bin/st/st -e "tmux -c {ssh-client} {host}"
 
 dzen2.foreground: #ffffff
 dzen2.background: #0e1112

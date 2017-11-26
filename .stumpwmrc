@@ -2,14 +2,20 @@
 
 (set-module-dir "~/stumpwm/contrib")
 
-(load "~/quicklisp/setup.lisp")
+;; (load "~/quicklisp/setup.lisp")
 
 ;; (ql:quickload :clx-truetype)
+;; (ql:quickload :xml-emitter)
+;; (ql:quickload :dbus)
+;; (ql:quickload :ieee-floats)
+;; (ql:quickload :flexi-streams)
+;; (ql:quickload :cl-xmlspam)
+;; (ql:quickload :ironclad)
+
 ;; (load-module "ttf-fonts")
 
+;; (xft:cache-fonts)
 ;; (clx-truetype:cache-fonts)
-;; (clx-truetype:get-font-families)
-;; (clx-truetype:get-font-subfamilies "Fira Mono")
 
 (set-prefix-key (kbd "s-X"))
 
@@ -32,6 +38,7 @@
 (set-msg-border-width 2)
 (set-frame-outline-width 2)
 (set-normal-gravity :center)
+(setf *window-format* "%m %t --> %c")
 
 (setf *mode-line-foreground-color* "#FFFFFF")
 (setf *mode-line-border-color* "#0e1112")
@@ -47,14 +54,15 @@
 (setf *window-format* "|%m %n %20t-%10c|")
 
 (setf *screen-mode-line-format*
-	  (list "%d --> %g"))
+	  (list "%g"))
 
 ;; (if (not (head-mode-line (current-head)))
-;; (toggle-mode-line (current-screen) (current-head)))
+;;	(toggle-mode-line (current-screen) (current-head)))
 
 ;;no auto-screensaver
 (run-shell-command "xset s off")
 (run-shell-command "xset s noblank")
+(run-shell-command "xset -dpms")
 ;;disable clicks on synaptic touchpad
 (run-shell-command "synclient TapButton1=0")
 (run-shell-command "synclient TapButton2=0")
@@ -65,18 +73,22 @@
 ;;security
 (run-shell-command "ssh-agent")
 (run-shell-command "gpg-agent --daemon --allow-emacs-pinentry --pinentry-program /usr/bin/pinentry-gtk-2")
+;;notifications
+(run-shell-command "dunst")
 ;;emacs instances
 (run-shell-command "/usr/bin/emacs --daemon")
+;;clipboard management
+(run-shell-command "~/bin/clipmenu/clipmenud")
 ;;wallpaper
-(run-shell-command "feh --bg-scale ~/.wallpaper/mac.png")
+(run-shell-command "xsetroot -solid \"#0e1112\"")
 ;;time tracker
 (run-shell-command "arbtt-capture -r 15")
 ;;bar
 (run-shell-command "~/.config/dzen2/dzen2.sh")
 ;;music daemon
-(run-shell-command "mpd")
-;;aria and transmission
-(run-shell-command "transmission-daemon -f -t -u transmission -v (pass device/transmission) -w ~/Downloads")
+(run-shell-command "mpd --verbose")
+;; aria and transmission
+(run-shell-command "transmission-daemon -T --download-dir ~/Downloads")
 (run-shell-command "aria2c --daemon --enable-rpc --rpc-listen-all --continue=true --save-session-interval=120 --dir=/home/$USER/Downloads --no-conf=true --save-session=/home/$USER/aria2/session --input-file=/home/$USER/aria2/session --rpc-secret=(pass device/aria2)")
 ;;mail fetching
 (run-shell-command "python3 ~/bin/offlineimap-daemon/offlineimap-daemon.py")
@@ -151,10 +163,34 @@
 (defcommand emacsclient () ()
   "start emacsclient"
   (run-shell-command "emacsclient -c"))
+(defcommand emacsclient-mu4e () ()
+  "start emacsclient"
+  (run-shell-command "emacsclient -c --eval \"(mu4e)\""))
+(defcommand emacsclient-htop () ()
+  "start emacsclient"
+  (run-shell-command "emacsclient -c --eval \"(htop)\""))
+(defcommand emacsclient-elfeed () ()
+  "start emacsclient"
+  (run-shell-command "emacsclient -c --eval \"(elfeed)\""))
+(defcommand emacsclient-emms () ()
+  "start emacsclient"
+  (run-shell-command "emacsclient -c --eval \"(emms)\""))
+(defcommand emacsclient-local-transmission () ()
+  "start emacsclient"
+  (run-shell-command "emacsclient -c --eval \"(local-transmission)\""))
+(defcommand emacsclient-remote-transmission () ()
+  "start emacsclient"
+  (run-shell-command "emacsclient -c --eval \"(remote-transmission)\""))
+(defcommand emacsclient-steam () ()
+  "start emacsclient"
+  (run-shell-command "emacsclient -c --eval \"(steam)\""))
 
 (defcommand lock () ()
   "lock screen"
   (run-shell-command "lock"))
+(defcommand clear-clipboard () ()
+  "clear clipboard"
+  (run-shell-command "clear-clipboard"))
 
 (defcommand xfce4-terminal-tmux () ()
   "start xfce4-terminal"
@@ -168,10 +204,19 @@
 
 (defcommand rofi-frames () ()
   "look frames at rofi"
-  (run-shell-command "rofi -show window -hide-scrollbar -fullscreen"))
+  (run-shell-command "rofi -show window -fullscreen"))
 (defcommand rofi-run-app () ()
   "look frames at rofi"
-  (run-shell-command "rofi -show drun -hide-scrollbar -fullscreen"))
+  (run-shell-command "rofi -show drun -fullscreen"))
+(defcommand rofi-ssh () ()
+  "ssh fast connect"
+  (run-shell-command "rofi -show ssh -fullscreen"))
+(defcommand rofi-pass () ()
+  "look pass at rofi"
+  (run-shell-command "~/bin/rofi-pass/rofi-pass"))
+(defcommand clipboard-manager () ()
+  "run clipmenu"
+  (run-shell-command "clipboard"))
 
 (define-key *top-map* (kbd "XF86AudioLowerVolume") "volume-dec")
 (define-key *top-map* (kbd "XF86AudioRaiseVolume") "volume-inc")
@@ -215,17 +260,26 @@
 (define-key *top-map* (kbd "s--") "groups")
 (define-key *top-map* (kbd "s-=") "gmove")
 
-(define-key *top-map* (kbd "s-p") "qutebrowser")
+(define-key *top-map* (kbd "s-o") "qutebrowser")
 (define-key *top-map* (kbd "s-s") "steam")
 (define-key *top-map* (kbd "s-w") "rofi-frames")
 (define-key *top-map* (kbd "s-x") "rofi-run-app")
 (define-key *top-map* (kbd "s-RET") "emacsclient")
 (define-key *top-map* (kbd "S-s-RET") "st-tmux")
-(define-key *top-map* (kbd "s-d") "uget")
-(define-key *top-map* (kbd "s-t") "transmission")
+(define-key *top-map* (kbd "s-u") "uget")
+(define-key *top-map* (kbd "s-m") "emacsclient-mu4e")
+(define-key *top-map* (kbd "s-e") "emacsclient-elfeed")
+(define-key *top-map* (kbd "s-E") "emacsclient-emms")
+(define-key *top-map* (kbd "s-h") "emacsclient-htop")
+;; (define-key *top-map* (kbd "s-t") "emacsclient-remote-transmission")
+;; (Define-key *top-map* (kbd "s-T") "emacsclient-local-transmission")
+(define-key *top-map* (kbd "s-s") "rofi-ssh")
+(define-key *top-map* (kbd "s-S") "emacsclient-steam")
 (define-key *top-map* (kbd "s-i") "jetbrains-idea")
 (define-key *top-map* (kbd "s-l") "lock")
-;; (define-key *top-map* (kbd "s-c") "calibre")
+(define-key *top-map* (kbd "s-p") "rofi-pass")
+(define-key *top-map* (kbd "s-c") "clipboard-manager")
+(define-key *top-map* (kbd "s-C") "clear-clipboard")
 
 (define-key *top-map* (kbd "s-r") "loadrc")
 (define-key *top-map* (kbd "s-W") "windowlist")
@@ -233,6 +287,7 @@
 (define-key *top-map* (kbd "s-n") "hsplit")
 (define-key *top-map* (kbd "s-N") "vsplit")
 (define-key *top-map* (kbd "s-q") "delete-window")
+(define-key *top-map* (kbd "s-TAB") "fother")
 (define-key *top-map* (kbd "s-Q") "remove-split")
 (define-key *top-map* (kbd "s-f") "fullscreen")
 (define-key *top-map* (kbd "s-\\") "balance-frames")

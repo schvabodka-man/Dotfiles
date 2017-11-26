@@ -7,11 +7,22 @@ set -g theme_display_hg yes
 set -g theme_display_cmd_duration yes
 set -g theme_show_exit_status yes
 #Homes!
-set -x user (whoami)
-set -x GOPATH '/home/$user/Go'
-set -x LGOBIN '/home/user/Go/bin'
+set -x user (set -x TLDR_COLOR_BLANK "white"
+set -x TLDR_COLOR_BLANK "white"
+set -x TLDR_COLOR_NAME "cyan"
+set -x TLDR_COLOR_DESCRIPTION "white"
+set -x TLDR_COLOR_EXAMPLE "green"
+set -x TLDR_COLOR_COMMAND "red"
+set -x TLDR_COLOR_PARAMETER "white"
+set -x TLDR_CACHE_ENABLED "1"
+set -x TLDR_CACHE_MAX_AGE "720"
+whoami)
+set -x GOPATH "/home/$user/Go"
+set -x LGOBIN "/home/user/Go/bin"
 set -x EDITOR "emacsclient -c"
 set -x BROWSER "qutebrowser"
+#clipboard managwe
+set -x CM_LAUNCHER 'rofi'
 #colored man
 set -x LESS_TERMCAP_mb (tput bold; tput setaf 1)
 set -x LESS_TERMCAP_md (tput bold; tput setaf 2)
@@ -140,6 +151,10 @@ function git
 		/usr/bin/git $argv
 	end
 end
+
+alias clipmenu '~/bin/clipmenu/clipmenu -show window -fullscreen'
+alias clipboard 'clipmenu'
+alias clear-clipboard 'clipboard-clear'
 
 alias download-local "~/bin/aria2rpc/aria2rpc --secret (pass device/aria2) addUri"
 # alias download-torrent-local "~/bin/aria2rpc/aria2rpc --secret (pass device/aria2) addTorrent"
@@ -350,7 +365,7 @@ end
 
 function wifi-connect
 	nmcli dev wifi rescan > /dev/null
-	nmcli dev wifi connect $argv
+	nmcli dev wifi con $argv[1] password $argv[2]
 end
 
 alias wifi-ls "wifi-list"

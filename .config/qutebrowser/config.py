@@ -102,7 +102,7 @@ config.bind('<PgDown>',
             'completion-item-focus next-category', mode='command')
 config.bind('<PgUp>', 'completion-item-focus prev-category', mode='command')
 
-config.bind('<Ctrl-space>', 'toggle-selection', mode="caret")
+config.bind('<space>', 'toggle-selection', mode="caret")
 config.bind('<esc>', 'drop-selection', mode="caret")
 config.bind('<tab>', 'enter-mode insert', mode="caret")
 config.bind('<down>', 'move-to-next-line', mode="caret")
