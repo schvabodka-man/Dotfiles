@@ -80,7 +80,7 @@
 ;;clipboard management
 (run-shell-command "~/bin/clipmenu/clipmenud")
 ;;wallpaper
-(run-shell-command "xsetroot -solid \"#0e1112\"")
+(run-shell-command "feh --bg-scale ~/.wallpapers/space-flat-2.png")
 ;;time tracker
 (run-shell-command "arbtt-capture -r 15")
 ;;bar
@@ -260,8 +260,7 @@
 (define-key *top-map* (kbd "s--") "groups")
 (define-key *top-map* (kbd "s-=") "gmove")
 
-(define-key *top-map* (kbd "s-o") "qutebrowser")
-(define-key *top-map* (kbd "s-s") "steam")
+(define-key *top-map* (kbd "s-b") "qutebrowser")
 (define-key *top-map* (kbd "s-w") "rofi-frames")
 (define-key *top-map* (kbd "s-x") "rofi-run-app")
 (define-key *top-map* (kbd "s-RET") "emacsclient")
