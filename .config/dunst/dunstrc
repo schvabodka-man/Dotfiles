@@ -15,7 +15,7 @@ show_age_threshold = 40
 
 word_wrap = yes
 
-ignore_newline = no
+ignore_newline = yes
 
 geometry = "0x10-0+0"
 

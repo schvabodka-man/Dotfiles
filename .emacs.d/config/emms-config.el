@@ -116,6 +116,7 @@
   (require 'emms-playing-time)
   ;; (emms-playing-time 1)
   ;; (emms-mode-line-enable)
+  (add-hook 'kill-emacs-hook 'emms-stop)
   (add-hook 'kill-emacs-hook 'emms-player-mpd-stop)
   (add-hook 'kill-emacs-hook 'emms-player-mpd-disconnect)
 
