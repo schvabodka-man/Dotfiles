@@ -149,6 +149,25 @@ emms() {
 	echo $track
 }
 
+stumpwm_workspace() {
+	local spaces=$(echo '(groups)' | ~/stumpwm/contrib/util/stumpish/stumpish -e eval | perl -n -e '/\* (.+)/ && print "$1\n"')
+	echo $spaces
+}
+
+mplayer_music() {
+	local track=$(lsof -p $(pidof mplayer) | grep -o "/home/$USER/Music/.*")
+	mediainfo "$track" > /run/user/1000/track
+	local performer=$(cat /run/user/1000/track | perl -n -e '/Performer +: (.+)/ && print "$1\n"' | head -n 1)
+	local album=$(cat /run/user/1000/track | perl -n -e '/Album +: (.+)/ && print "$1\n"' | head -n 1)
+	local track=$(cat /run/user/1000/track | perl -n -e '/Track name +: (.+)/ && print "$1\n"' | head -n 1)
+	local position=$(cat /run/user/1000/track | perl -n -e '/Track name\/Position +: (.+)/ && print "$1\n"' | head -n 1)
+	# local bit=$(cat /run/user/1000/track | perl -n -e '/Bit rate +: (.+)/ && print "$1\n"' | head -n 1)
+	# local rate=$(cat /run/user/1000/track | perl -n -e '/Sampling rate +: (.+)/ && print "$1\n"' | head -n 1)
+	# local mode=$(cat /run/user/1000/track | perl -n -e '/Compression mode +: (.+)/ && print "$1\n"' | head -n 1)
+	local duration=$(cat /run/user/1000/track | perl -n -e '/Duration +: (.+)/ && print "$1\n"' | head -n 1)
+	echo "^fn(FontAwesome-11)^fn(DroidSansMono-12)$performer - $album - $position $track - $duration"
+}
+
 generated_output() {
 	while :; do
 		local meetup=$(meetup)
@@ -179,19 +198,22 @@ generated_output() {
 fast_dzen() {
 	while :; do
 		local layout=$(layout)
-		local time=$(date +'%a %m-%d %H:%M:%S')
+		local time=$(date +'%a %m-%d %H:%M')
 		# local music=$(emms)
 		local volume=$(volumelevel)
 		local battery=$(battery)
-		local text=""
 		local email=$(email)
+		local wmspace=$(stumpwm_workspace)
+		local music=$(mplayer_music)
+		local text=""
 
 		text+="^p(0)^fg(#000000)^bg(#ffff00)$layout^fn(powerlinesymbols-12)^fg(#ffff00)^bg(#ff69b4)"
 		text+="^fg(#000000)^bg(#ff69b4)^fn(DroidSansMono-13) ^fn(FontAwesome-11)^fn(DroidSansMono-13) $time ^fn(powerlinesymbols-12)^fg(#ff69b4)^bg(#20b2aa)"
 		text+="^fg(#000000)^bg(#20b2aa)$volume^fn(powerlinesymbols-12)^fg(#20b2aa)"
 		text+="$battery"
-		text+="^fg(#000000)^bg(#ff4500)^fn(DroidSansMono-13)$email ^fn(powerlinesymbols-12)^fg(#ff4500)^bg(#0e1112)"
-		# text+="^fg(#ffffff)^bg(#b22222)^fn(DroidSansMono-13)$email ^fn(powerlinesymbols-12)^fg(#b22222)^bg(#0e1112)"
+		text+="^fg(#000000)^bg(#ff4500)^fn(DroidSansMono-13)$email ^fn(powerlinesymbols-12)^fg(#ff4500)^bg(#b22222)"
+		text+="^fg(#ffffff)^bg(#b22222)^fn(FontAwesome-11)^fn(DroidSansMono-13)$wmspace ^fn(powerlinesymbols-12)^fg(#b22222)^bg(#a020f0)"
+		text+="^fg(#ffffff)^bg(#a020f0)$music^fn(powerlinesymbols-12)^fg(#a020f0)^bg(#0e1112)"
 		echo $text
 		sleep 1
 	done

@@ -205,6 +205,7 @@
 	  (omit)))))
  '(diredp-image-preview-in-tooltip 300)
  '(diredp-image-show-this-file-use-frame-flag t)
+ '(emms-playing-time-display-short-p t)
  '(ensime-company-idle-delay 0.1)
  '(ensime-graphical-tooltips t)
  '(ensime-search-interface (quote helm))
@@ -232,9 +233,7 @@
 	(Custom-mode org-agenda-mode cfw:calendar-mode minibuffer-inactive-mode eshell-mode shell-mode emms-playlist-mode)))
  '(highlight-thing-what-thing (quote word))
  '(hl-paren-background-colors nil)
- '(hl-paren-colors
-   (quote
-	("magenta" "green" "yellow" "dodger blue" "spring green" "deep pink")))
+ '(hl-paren-colors (quote ("magenta")))
  '(httpd-port 8088)
  '(js2-highlight-level 3)
  '(js2-idle-timer-delay 0.1)

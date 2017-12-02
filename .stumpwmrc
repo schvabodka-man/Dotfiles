@@ -21,7 +21,7 @@
 
 (setf *mouse-focus-policy* :sloppy)
 
-(setq *terminal* "~/bin/st/st -e \"tmux\"")
+(setq *terminal* "~/bin/st/st -e \"fish\" \"-c\" \"tmux attach-session -t main; or tmux new-session -s main\"")
 (setq *shell-program* "/usr/bin/fish")
 (setq *browser* "qutebrowser")
 (setq *startup-message* "StumpWM loaded!")
@@ -50,8 +50,8 @@
 (setf *time-modeline-string* "%a %m-%d %H:%M")
 (setf *mode-line-screen-position* :bottom)
 (setf *mode-line-frame-position* :bottom)
-(setf *group-format* "|%n|")
-(setf *window-format* "|%m %n %20t-%10c|")
+(setf *group-format* "%s %n")
+(setf *window-format* "%s %m %n %20t-%10c")
 
 (setf *screen-mode-line-format*
 	  (list "%g"))
@@ -70,28 +70,31 @@
 (run-shell-command "setxkbmap -layout us,ru -option grp:alt_caps_toggle")
 ;;for emacs fonts
 (run-shell-command "xrdb-merge")
+;;tor
+(run-shell-command "tor")
 ;;security
 (run-shell-command "ssh-agent")
 (run-shell-command "gpg-agent --daemon --allow-emacs-pinentry --pinentry-program /usr/bin/pinentry-gtk-2")
 ;;notifications
 (run-shell-command "dunst")
+;;tmux
+(run-shell-command "tmux start-server")
+(run-shell-command "tmux new-session -s main")
 ;;emacs instances
-(run-shell-command "/usr/bin/emacs --daemon")
+(run-shell-command "emacs-startup")
 ;;clipboard management
 (run-shell-command "~/bin/clipmenu/clipmenud")
 ;;wallpaper
 (run-shell-command "feh --bg-scale ~/.wallpapers/space-flat-2.png")
-;;time tracker
+;;time tracker9
 (run-shell-command "arbtt-capture -r 15")
 ;;bar
 (run-shell-command "~/.config/dzen2/dzen2.sh")
-;;music daemon
-(run-shell-command "mpd --verbose")
 ;; aria and transmission
-(run-shell-command "transmission-daemon -T --download-dir ~/Downloads")
-(run-shell-command "aria2c --daemon --enable-rpc --rpc-listen-all --continue=true --save-session-interval=120 --dir=/home/$USER/Downloads --no-conf=true --save-session=/home/$USER/aria2/session --input-file=/home/$USER/aria2/session --rpc-secret=(pass device/aria2)")
+(run-shell-command "transmission-startup")
+(run-shell-command "aria2-startup")
 ;;mail fetching
-(run-shell-command "python3 ~/bin/offlineimap-daemon/offlineimap-daemon.py")
+(run-shell-command "offlineimap-startup")
 
 (defcommand qutebrowser () ()
   "run qutebrowser"
@@ -162,28 +165,37 @@
 
 (defcommand emacsclient () ()
   "start emacsclient"
-  (run-shell-command "emacsclient -c"))
+  (run-shell-command "emacs-client"))
 (defcommand emacsclient-mu4e () ()
   "start emacsclient"
-  (run-shell-command "emacsclient -c --eval \"(mu4e)\""))
+  (run-shell-command "emacs-client --eval \"(mu4e)\""))
+(defcommand emacsclient-eshell () ()
+  "start emacsclient"
+  (run-shell-command "emacs-client --eval \"(eshell)\""))
 (defcommand emacsclient-htop () ()
   "start emacsclient"
-  (run-shell-command "emacsclient -c --eval \"(htop)\""))
+  (run-shell-command "emacs-client --eval \"(htop)\""))
 (defcommand emacsclient-elfeed () ()
   "start emacsclient"
-  (run-shell-command "emacsclient -c --eval \"(elfeed)\""))
+  (run-shell-command "emacs-client --eval \"(elfeed)\""))
+(defcommand emacsclient-dired () ()
+  "start emacsclient"
+  (run-shell-command "emacs-client --eval \"(dired-jump)\""))
 (defcommand emacsclient-emms () ()
   "start emacsclient"
-  (run-shell-command "emacsclient -c --eval \"(emms)\""))
+  (run-shell-command "emacs-client --eval \"(emms)\""))
 (defcommand emacsclient-local-transmission () ()
   "start emacsclient"
-  (run-shell-command "emacsclient -c --eval \"(local-transmission)\""))
+  (run-shell-command "emacs-client --eval \"(local-transmission)\""))
 (defcommand emacsclient-remote-transmission () ()
   "start emacsclient"
-  (run-shell-command "emacsclient -c --eval \"(remote-transmission)\""))
+  (run-shell-command "emacs-client --eval \"(remote-transmission)\""))
 (defcommand emacsclient-steam () ()
   "start emacsclient"
-  (run-shell-command "emacsclient -c --eval \"(steam)\""))
+  (run-shell-command "emacs-client --eval \"(steam)\""))
+(defcommand emacsclient-org () ()
+  "start emacsclient"
+  (run-shell-command "emacs-client --eval \"(deft)\""))
 
 (defcommand lock () ()
   "lock screen"
@@ -197,7 +209,7 @@
   (run-shell-command "xfce4-terminal -x \"tmux\""))
 (defcommand st-tmux () ()
   "start st-terminal"
-  (run-shell-command "~/bin/st/st -e \"tmux\""))
+  (run-shell-command "~/bin/st/st -e \"fish\" \"-c\" \"tmux attach-session -t main; or tmux new-session -s main\""))
 (defcommand urxvt-tmux () ()
   "start urxvt"
   (run-shell-command "urxvtc -e tmux"))
@@ -214,6 +226,9 @@
 (defcommand rofi-pass () ()
   "look pass at rofi"
   (run-shell-command "~/bin/rofi-pass/rofi-pass"))
+(defcommand rofi-tmux () ()
+  "look pass at rofi"
+  (run-shell-command "tmux-rofi"))
 (defcommand clipboard-manager () ()
   "run clipmenu"
   (run-shell-command "clipboard"))
@@ -259,9 +274,20 @@
 (define-key *top-map* (kbd "s-.") "gnext")
 (define-key *top-map* (kbd "s--") "groups")
 (define-key *top-map* (kbd "s-=") "gmove")
+(define-key *top-map* (kbd "s-!") "gmove 1")
+(define-key *top-map* (kbd "s-@") "gmove 2")
+(define-key *top-map* (kbd "s-#") "gmove 3")
+(define-key *top-map* (kbd "s-$") "gmove 4")
+(define-key *top-map* (kbd "s-%") "gmove 5")
+(define-key *top-map* (kbd "s-^") "gmove 6")
+(define-key *top-map* (kbd "s-&") "gmove 7")
+(define-key *top-map* (kbd "s-*") "gmove 8")
+(define-key *top-map* (kbd "s-(") "gmove 9")
+(define-key *top-map* (kbd "s-)") "gmove 0")
 
 (define-key *top-map* (kbd "s-b") "qutebrowser")
 (define-key *top-map* (kbd "s-w") "rofi-frames")
+(define-key *top-map* (kbd "C-s-RET") "rofi-tmux")
 (define-key *top-map* (kbd "s-x") "rofi-run-app")
 (define-key *top-map* (kbd "s-RET") "emacsclient")
 (define-key *top-map* (kbd "S-s-RET") "st-tmux")
@@ -270,11 +296,13 @@
 (define-key *top-map* (kbd "s-e") "emacsclient-elfeed")
 (define-key *top-map* (kbd "s-E") "emacsclient-emms")
 (define-key *top-map* (kbd "s-h") "emacsclient-htop")
+(define-key *top-map* (kbd "s-o") "emacsclient-org")
+(define-key *top-map* (kbd "s-quoteleft") "emacsclient-eshell")
+(define-key *top-map* (kbd "s-d") "emacsclient-dired")
 ;; (define-key *top-map* (kbd "s-t") "emacsclient-remote-transmission")
 ;; (Define-key *top-map* (kbd "s-T") "emacsclient-local-transmission")
 (define-key *top-map* (kbd "s-s") "rofi-ssh")
 (define-key *top-map* (kbd "s-S") "emacsclient-steam")
-(define-key *top-map* (kbd "s-i") "jetbrains-idea")
 (define-key *top-map* (kbd "s-l") "lock")
 (define-key *top-map* (kbd "s-p") "rofi-pass")
 (define-key *top-map* (kbd "s-c") "clipboard-manager")
@@ -286,7 +314,8 @@
 (define-key *top-map* (kbd "s-n") "hsplit")
 (define-key *top-map* (kbd "s-N") "vsplit")
 (define-key *top-map* (kbd "s-q") "delete-window")
-(define-key *top-map* (kbd "s-TAB") "fother")
+(define-key *top-map* (kbd "s-TAB") "gother")
+(define-key *top-map* (kbd "S-ISO_Left_Tab") "fother")
 (define-key *top-map* (kbd "s-Q") "remove-split")
 (define-key *top-map* (kbd "s-f") "fullscreen")
 (define-key *top-map* (kbd "s-\\") "balance-frames")

@@ -64,8 +64,8 @@ foreground = "#000000"
 timeout = 10
 
 [shortcuts]
-close = mod4+shift+d
+close = mod4+shift+k
 
-history = ctrl+mod4+d
+history = ctrl+mod4+k
 
-context = mod4+d
+context = mod4+k

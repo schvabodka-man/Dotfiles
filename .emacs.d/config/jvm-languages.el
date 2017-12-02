@@ -6,8 +6,8 @@
   :pin melpa-stable)
 (use-package clojure-snippets
   :ensure t)
-(use-package autodisass-java-bytecode
-  :ensure t)
+;; (use-package autodisass-java-bytecode
+;;   :ensure t)
 (add-to-list 'auto-mode-alist '("\\.aj\\'" . java-mode))
 (use-package java-snippets
   :ensure t)

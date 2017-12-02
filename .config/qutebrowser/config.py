@@ -147,6 +147,8 @@ c.content.developer_extras = True
 c.downloads.remove_finished = 300
 c.content.cache.maximum_pages = 100
 
+c.content.proxy = "socks://localhost:9050"
+
 c.content.javascript.can_access_clipboard = False
 c.content.javascript.can_close_tabs = False
 c.content.javascript.can_open_tabs_automatically = False
@@ -163,6 +165,7 @@ c.aliases['pdfjs-toggle'] = 'config-cycle content.pdfjs'
 c.aliases['adblock-toggle'] = 'config-cycle content.host_blocking.enabled'
 c.aliases['xss-auditing-toggle'] = 'config-cycle content.xss_auditing'
 c.aliases['userstyle-css-toggle'] = 'config-cycle content.user_stylesheets "dark.css" ""'
+c.aliases['tor-toggle'] = 'config-cycle content.proxy "socks://localhost:9050" "system"'
 c.aliases['cookies-toggle'] = 'config-cycle content.cookies.accept no-3rdparty never'
 c.aliases['cookies-store-toggle'] = 'config-cycle content.cookies.store'
 
@@ -272,6 +275,7 @@ c.url.searchengines = {
     "biqle": "https://biqle.ru/video/{}",
     "piratebay": "https://thepiratebay.org/search/{}/0/99/0",
     "thepiratebay": "https://thepiratebay.org/search/{}/0/99/0",
+    "rutracker": "https://rutracker.org/forum/search_cse.php?cx=014434608714260776013%3Aggcq1kovlga&cof=FORID%3A9&ie=utf-8&q={}&sa=%D0%9F%D0%BE%D0%B8%D1%81%D0%BA+%D0%B2+Google",
     "lor": "https://www.linux.org.ru/search.jsp?q={}&range=ALL&interval=ALL&user=&_usertopic=on",
     "linuxorgru": "https://www.linux.org.ru/search.jsp?q={}&range=ALL&interval=ALL&user=&_usertopic=on",
     "linux-org-ru": "https://www.linux.org.ru/search.jsp?q={}&range=ALL&interval=ALL&user=&_usertopic=on",

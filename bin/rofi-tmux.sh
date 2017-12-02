@@ -1,11 +1,16 @@
 #!/bin/bash
+# forked from here https://github.com/mi2428/dotfiles/blob/master/etc/hosts/linux/rofi/rofi/rofi-tmux.sh
+# fixed to work for st terminal
+# removed some stuff releated to ssh(but there is still lot of code for it but IDK)
+# thx mi2428 for original script
+
 set -e
 cd $HOME
 
-declare -r TERMINAL="/home/ivan/bin/st/st -e "
+declare -r TERMINAL="$HOME/bin/st/st -e "
 
 _rofi() {
-    rofi -dmenu -width 1120 -lines 20 "$@"
+    rofi -dmenu -fullscreen "$@"
 }
 
 rofi_menu() {
@@ -32,17 +37,12 @@ session-list() {
 }
 
 create() {
-    local host=$1
-    [[ -z "$host" ]] && \
-    $TERMINAL "tmux new-session\n" || \
-    $TERMINAL "ssh -Y -t $host \"tmux new-session\"\n"
+	$TERMINAL "tmux" "new-session"
 }
 
 attach() {
-    local host=$1 session=$2
-    [[ -z "$host" ]] && \
-    $TERMINAL "tmux attach-session -t $session\n" || \
-    $TERMINAL "ssh -Y -t $host \"tmux attach-session -t $session\"\n"
+    local session=$1
+	$TERMINAL "tmux" "attach-session" "-t" "$session"
 }
 
 main() {
@@ -54,12 +54,12 @@ main() {
     [[ -z "$option" ]] && exit 1
 
     [[ -z "$host" ]] && \
-    host="$(printf "$option" | grep -e '^\[=\] @\(.*\)$' | sed -e 's/^\[=\] @\(.*\)$/\1/g')"
+		host="$(printf "$option" | grep -e '^\[=\] @\(.*\)$' | sed -e 's/^\[=\] @\(.*\)$/\1/g')"
     session="$(printf "$option" | grep -e '^\[#\] \(.*\):.*$' | sed -e 's/^\[#\] \(.*\): [1-9] windows.*$/\1/g')"
     [[ -n "$session" ]] && attach=true || attach=false
     [[ -n "$(printf "$option" | grep -e '\[+\]')" ]] && create=true || create=false
 
-    $create && create "$host" && exit 0
-    $attach && attach "$host" "$session" && exit 0
+    $create && create && exit 0
+    $attach && attach "$session" && exit 0
     main "$host"
 } && main

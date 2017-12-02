@@ -16,10 +16,10 @@
   :ensure t
   :pin melpa-stable
   :config (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
-  (defun my-nov-font-setup ()
-	(face-remap-add-relative 'variable-pitch :family "Fira Mono"
-							 :height 1.2))
-  (add-hook 'nov-mode-hook 'my-nov-font-setup)
+  ;; (defun my-nov-font-setup ()
+  ;;	(face-remap-add-relative 'variable-pitch :family "Fira Mono"
+  ;;							 :height 1.2))
+  ;; (add-hook 'nov-mode-hook 'my-nov-font-setup)
   (defalias 'nov-index 'nov-goto-toc)
   (defalias 'epub-index 'nov-goto-toc)
   (add-hook 'nov-mode-hook

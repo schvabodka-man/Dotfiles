@@ -19,7 +19,7 @@ set -x TLDR_CACHE_MAX_AGE "720"
 whoami)
 set -x GOPATH "/home/$user/Go"
 set -x LGOBIN "/home/user/Go/bin"
-set -x EDITOR "emacsclient -c"
+set -x EDITOR "emacs-client"
 set -x BROWSER "qutebrowser"
 #clipboard managwe
 set -x CM_LAUNCHER 'rofi'
@@ -60,6 +60,12 @@ if test -e ~/bin/hub-fish/hub.fish
 	source ~/bin/hub-fish/hub.fish
 end
 
+if test -e ~/bin/git-flow-fish/git.fish
+	source ~/bin/git-flow-fish/git.fish
+end
+
+source ~/.config/fish/startup.fish
+
 if test -e ~/bin/up/up.fish
 	source ~/bin/up/up.fish
 	alias cd.. 'up' #priceless
@@ -98,8 +104,10 @@ end
 
 alias sloc 'cloc'
 
-alias micro '~/bin/micro/micro'
-alias nano 'micro'
+if test -e ~/bin/micro/micro
+	alias micro '~/bin/micro/micro'
+	alias nano 'micro'
+end
 
 alias gopm '~/Go/bin/gopm'
 alias lein ~/.sdkman/candidates/leiningen/current/bin/lein
@@ -113,6 +121,7 @@ alias tree 'alder'
 
 if test -e ~/.cargo/bin/fd
 	alias find '~/.cargo/bin/fd -H -I'
+	alias fd '~/.cargo/bin/fd -H -I'
 end
 
 alias cp 'pycp'
@@ -151,6 +160,33 @@ function git
 		/usr/bin/git $argv
 	end
 end
+
+if test -e /usr/bin/proxychains
+	alias proxy 'proxychains'
+
+	alias curl 'proxychains /usr/bin/curl'
+	alias wget 'proxychains /usr/bin/wget'
+	alias ssh 'proxychains /usr/bin/ssh'
+	alias w3m 'proxychains /usr/bin/w3m'
+	alias telnet 'proxychains /usr/bin/telnet'
+	alias apt-get 'proxychains /usr/bin/apt-get'
+	alias apt-cache 'proxychains /usr/bin/apt-cache'
+	alias sudo-curl 'sudo proxychains /usr/bin/curl'
+	alias sudo-wget 'sudo proxychains /usr/bin/wget'
+	alias sudo-telnet 'sudo proxychains /usr/bin/telnet'
+	alias sudo-apt-get 'sudo proxychains /usr/bin/apt-get'
+	alias sudo-apt-cache 'sudo proxychains /usr/bin/apt-cache'
+
+	alias wget-no-proxy '/usr/bin/wget'
+	alias telnet-no-proxy '/usr/bin/telnet'
+	alias curl-no-proxy '/usr/bin/curl'
+	alias apt-get-no-proxy '/usr/bin/apt-get'
+	alias apt-cache-no-proxy '/usr/bin/apt-cache'
+	alias ssh-no-proxy '/usr/bin/ssh'
+	alias w3m-no-proxy '/usr/bin/w3m'
+end
+
+alias st '~/bin/st/st'
 
 alias clipmenu '~/bin/clipmenu/clipmenu -show window -fullscreen'
 alias clipboard 'clipmenu'
@@ -215,6 +251,10 @@ alias aria-resume "aria-unpause"
 alias aria2-continue "aria-unpause"
 alias aria2-continue "aria-unpause"
 alias download-continue "aria-unpause"
+
+alias upload 'transfer'
+alias transfer-sh 'transfer'
+alias transfer.sh 'transfer'
 
 alias calc 'octave-cli'
 alias calculator 'octave-cli'
@@ -281,8 +321,15 @@ alias move 'mv'
 alias lsa 'ls -a'
 alias lsl 'ls -l --block-size=M'
 
-alias emacs 'emacsclient -c'
-alias emacs-daemon '/usr/bin/emacs --daemon'
+if test -e /usr/bin/proxychains
+	alias emacs 'proxychains emacsclient -c'
+	alias emacs-client 'proxychains emacsclient -c'
+	alias emacs-daemon 'proxychains /usr/bin/emacs --daemon'
+else
+	alias emacs 'emacsclient -c'
+	alias emacs-client 'emacsclient -c'
+	alias emacs-daemon '/usr/bin/emacs --daemon'
+end
 
 #pandoc macro
 function html-to-pdf
@@ -317,16 +364,26 @@ function gpg-decrypt
 end
 
 #tmux
-function tmux-new
-	tmux new -s $argv -d $argv
+function tmux-switch
+	tmux attach-session -t $argv; or tmux new-session -s $argv
 end
-function tmux-attach
-	tmux attach-session -t $argv
-end
-alias tmux-config-update "tmux source ~/.config/tmux/tmux.conf"
-alias tmux-update-config "tmux source ~/.config/tmux/tmux.conf"
+alias tmux-goto 'tmux-switch'
+alias tmux-new 'tmux-switch'
+alias tmux-create 'tmux-switch'
+alias tmux-change 'tmux-switch'
 
-alias chromium-debug "chromium-browser --disable-gpu --remote-debugging-port=9222 https://localhost:3000"
+alias tmux-rm 'tmux kill-session -t'
+alias tmux-kill 'tmux-rm'
+alias tmux-remove 'tmux-rm'
+alias tmux-delete 'tmux-rm'
+
+alias tmux-config-update "tmux source ~/.tmux.conf"
+alias tmux-update-config "tmux-config-update"
+
+alias tmux-rofi '~/bin/rofi-tmux.sh'
+
+alias chromium-debug "chromium-browser --remote-debugging-port=9222 https://localhost:3000"
+alias chromium-browser-debug 'chromium-debug'
 
 function git-remote
 	git remote remove origin

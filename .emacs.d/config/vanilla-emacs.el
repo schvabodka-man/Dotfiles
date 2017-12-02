@@ -3,6 +3,7 @@
   (keyboard-escape-quit)
   (company-abort))
 (global-set-key (kbd "<backspace>") 'backward-delete-char)
+;; (global-set-key (kbd "M-`") 'eshell)
 (global-set-key (kbd "C-<home>") 'beginning-of-buffer)
 (global-set-key (kbd "C-<end>") 'end-of-buffer)
 (global-set-key (kbd "<escape>") 'escape-key-work)
@@ -359,6 +360,24 @@ This command does not push text to `kill-ring'."
 (defalias 'resize-window-down 'shrink-window)
 (defalias 'resize-window-up 'enlarge-window)
 ;;backtrace on error
-;;(setq debug-on-error t)
+;;`(setq debug-on-error t)'
 ;;nice frame names
 (setq-default frame-title-format '("%f [%m]"))
+;;this sets mode for stumpwm config
+(add-to-list 'auto-mode-alist '("\\.stumpwmrc\\'" . common-lisp-mode))
+;;torify emacs
+(setq socks-noproxy '("127.0.0.1"))
+(setq socks-server '("Default server" "127.0.0.1" 9050 5))
+(setq url-gateway-method 'native)
+
+(defun enable-tor ()
+  (setq url-gateway-method 'socks))
+(defalias 'tor-enable 'enable-tor)
+(defalias 'proxy-enable 'enable-tor)
+(defalias 'enable-proxy 'enable-tor)
+
+(defun disable-tor ()
+  (setq url-gateway-method 'native))
+(defalias 'tor-disable 'disable-tor)
+(defalias 'proxy-disable 'disable-tor)
+(defalias 'disable-proxy 'disable-tor)

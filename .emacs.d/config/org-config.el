@@ -160,7 +160,7 @@
 (use-package deft
   :ensure t
   :pin melpa-stable
-  :bind ("C-M-f" . deft)
+  ;; :bind ("C-M-f" . deft)
   :config (setq deft-extensions '("txt" "org" "md"))
   (setq deft-directory "~/Org/")
   (setq deft-recursive t)
@@ -170,7 +170,18 @@
   (defalias 'org-search-file 'deft-find-file)
   (defalias 'org-search 'deft)
   (defalias 'org-search-files 'deft-find-file)
-  (deft-setup))
+  (deft-setup)
+  (defun deft-refresh-all ()
+	(interactive)
+	(deft-refresh)
+	(deft-refresh-filter))
+  (add-hook 'deft-mode-hook
+			(lambda ()
+			  (local-set-key (kbd "<backspace>") #'deft-filter-decrement)
+			  (local-set-key (kbd "<C-backspace>") #'deft-filter-decrement-word)
+			  (local-set-key (kbd "M-i") #'deft-filter)
+			  (local-set-key (kbd "C-k") #'deft-filter-clear)
+			  (local-set-key (kbd "M-r") #'deft-refresh-all))))
 (use-package calfw
   :ensure t
   :pin melpa-stable
