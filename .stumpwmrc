@@ -80,6 +80,8 @@
 ;;tmux
 (run-shell-command "tmux start-server")
 (run-shell-command "tmux new-session -s main")
+;;auto mounting drives
+(run-shell-command "udiskie --use-udisks2")
 ;;emacs instances
 (run-shell-command "emacs-startup")
 ;;clipboard management

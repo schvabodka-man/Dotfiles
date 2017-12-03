@@ -165,7 +165,6 @@ if test -e /usr/bin/proxychains
 
 	alias curl 'proxychains /usr/bin/curl'
 	alias wget 'proxychains /usr/bin/wget'
-	alias git 'proxychains /usr/bin/git'
 	alias yadm 'proxychains /usr/bin/yadm'
 	alias ssh 'proxychains /usr/bin/ssh'
 	alias w3m 'proxychains /usr/bin/w3m'
