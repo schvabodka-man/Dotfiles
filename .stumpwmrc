@@ -235,14 +235,14 @@
 
 (define-key *top-map* (kbd "XF86AudioLowerVolume") "volume-dec")
 (define-key *top-map* (kbd "XF86AudioRaiseVolume") "volume-inc")
-(define-key *top-map* (kbd "C-s-F9") "volume-dec-small")
-(define-key *top-map* (kbd "C-s-F10") "volume-inc-small")
+(define-key *top-map* (kbd "S-s-F9") "volume-dec-small")
+(define-key *top-map* (kbd "S-s-F10") "volume-inc-small")
 (define-key *top-map* (kbd "XF86AudioMute") "volume-toggle")
 (define-key *top-map* (kbd "XF86AudioPrev") "prev-track")
 (define-key *top-map* (kbd "XF86AudioNext") "next-track")
 (define-key *top-map* (kbd "XF86AudioPlay") "play-pause")
-(define-key *top-map* (kbd "C-s-F7") "stop-track")
-(define-key *top-map* (kbd "C-s-F8") "repeat-track")
+(define-key *top-map* (kbd "S-s-F7") "stop-track")
+(define-key *top-map* (kbd "S-s-F8") "repeat-track")
 (define-key *top-map* (kbd "C-S-s-F8") "repeat-playist")
 
 (define-key *top-map* (kbd "SunPrint_Screen") "xfce4-screenshot")

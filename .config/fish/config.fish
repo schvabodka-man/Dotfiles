@@ -6,7 +6,6 @@ set -g theme_color_scheme dark
 set -g theme_display_hg yes
 set -g theme_display_cmd_duration yes
 set -g theme_show_exit_status yes
-#Homes!
 set -x user (set -x TLDR_COLOR_BLANK "white"
 set -x TLDR_COLOR_BLANK "white"
 set -x TLDR_COLOR_NAME "cyan"
@@ -166,9 +165,29 @@ if test -e /usr/bin/proxychains
 
 	alias curl 'proxychains /usr/bin/curl'
 	alias wget 'proxychains /usr/bin/wget'
+	alias git 'proxychains /usr/bin/git'
+	alias yadm 'proxychains /usr/bin/yadm'
 	alias ssh 'proxychains /usr/bin/ssh'
 	alias w3m 'proxychains /usr/bin/w3m'
 	alias telnet 'proxychains /usr/bin/telnet'
+	alias gem 'proxychains gem'
+	alias luarocks 'proxychains luarocks'
+	alias pip 'proxychains pip'
+	alias pip3 'proxychains pip3'
+	alias npm 'proxychains npm'
+	alias cpan 'proxychains cpan'
+	alias cabal 'proxychains cabal'
+	alias gopm 'proxychains ~/Go/bin/gopm'
+	alias omf 'proxychains omf'
+	alias sudo-gem 'sudo proxychains gem'
+	alias sudo-luarocks 'sudo proxychains luarocks'
+	alias sudo-pip 'sudo proxychains pip'
+	alias sudo-pip3 'sudo proxychains pip3'
+	alias sudo-npm 'sudo proxychains npm'
+	alias sudo-cpan 'sudo proxychains cpan'
+	alias sudo-cabal 'sudo proxychains cabal'
+	alias sudo-gopm 'sudo proxychains ~/Go/bin/gopm'
+	alias sudo-omf 'sudo proxychains omf'
 	alias apt-get 'proxychains /usr/bin/apt-get'
 	alias apt-cache 'proxychains /usr/bin/apt-cache'
 	alias sudo-curl 'sudo proxychains /usr/bin/curl'
@@ -177,6 +196,16 @@ if test -e /usr/bin/proxychains
 	alias sudo-apt-get 'sudo proxychains /usr/bin/apt-get'
 	alias sudo-apt-cache 'sudo proxychains /usr/bin/apt-cache'
 
+	alias gem-no-proxy '/usr/bin/gem'
+	alias luarocks-no-proxy '/usr/bin/luarocks'
+	alias pip-no-proxy '/usr/bin/pip'
+	alias pip3-no-proxy '/usr/bin/pip3'
+	alias npm-no-proxy '/usr/bin/npm'
+	alias cpan-no-proxy '/usr/bin/cpan'
+	alias cabal-no-proxy '/usr/bin/cabal'
+	alias gopm-no-proxy '~/Go/bin/gopm'
+	alias git-no-proxy '/usr/bin/git'
+	alias yadm-no-proxy '/usr/bin/yadm'
 	alias wget-no-proxy '/usr/bin/wget'
 	alias telnet-no-proxy '/usr/bin/telnet'
 	alias curl-no-proxy '/usr/bin/curl'

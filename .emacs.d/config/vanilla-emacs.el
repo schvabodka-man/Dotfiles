@@ -360,7 +360,7 @@ This command does not push text to `kill-ring'."
 (defalias 'resize-window-down 'shrink-window)
 (defalias 'resize-window-up 'enlarge-window)
 ;;backtrace on error
-;;`(setq debug-on-error t)'
+;;(setq debug-on-error t)
 ;;nice frame names
 (setq-default frame-title-format '("%f [%m]"))
 ;;this sets mode for stumpwm config

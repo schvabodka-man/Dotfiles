@@ -58,8 +58,8 @@ config.bind('<up>', 'scroll up')
 config.bind('<down>', 'scroll down')
 
 config.bind('<Ctrl-g>', 'hint')
-config.bind('<Ctrl-Mod1-g>', 'hint all tab-bg')
-config.bind('<Ctrl-Shift-g>', 'hint all tab-fg')
+config.bind('<Ctrl-Shift-g>', 'hint all tab-bg')
+config.bind('<Ctrl-Mod1-g>', 'hint all tab-fg')
 
 config.bind('<+>', 'zoom-in')
 config.bind('<->', 'zoom-out')

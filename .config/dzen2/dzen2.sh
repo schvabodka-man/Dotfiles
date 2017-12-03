@@ -208,12 +208,12 @@ fast_dzen() {
 		local text=""
 
 		text+="^p(0)^fg(#000000)^bg(#ffff00)$layout^fn(powerlinesymbols-12)^fg(#ffff00)^bg(#ff69b4)"
-		text+="^fg(#000000)^bg(#ff69b4)^fn(DroidSansMono-13) ^fn(FontAwesome-11)^fn(DroidSansMono-13) $time ^fn(powerlinesymbols-12)^fg(#ff69b4)^bg(#20b2aa)"
+		text+="^fg(#000000)^bg(#ff69b4)^fn(DroidSansMono-12) ^fn(FontAwesome-11)^fn(DroidSansMono-13) $time ^fn(powerlinesymbols-12)^fg(#ff69b4)^bg(#20b2aa)"
 		text+="^fg(#000000)^bg(#20b2aa)$volume^fn(powerlinesymbols-12)^fg(#20b2aa)"
 		text+="$battery"
 		text+="^fg(#000000)^bg(#ff4500)^fn(DroidSansMono-13)$email ^fn(powerlinesymbols-12)^fg(#ff4500)^bg(#b22222)"
-		text+="^fg(#ffffff)^bg(#b22222)^fn(FontAwesome-11)^fn(DroidSansMono-13)$wmspace ^fn(powerlinesymbols-12)^fg(#b22222)^bg(#a020f0)"
-		text+="^fg(#ffffff)^bg(#a020f0)$music^fn(powerlinesymbols-12)^fg(#a020f0)^bg(#0e1112)"
+		text+="^fg(#ffffff)^bg(#b22222)^fn(FontAwesome-11)^fn(DroidSansMono-13)$wmspace ^fn(powerlinesymbols-12)^fg(#b22222)^bg(#ffff00)"
+		text+="^fg(#000000)^bg(#ffff00)$music^fn(powerlinesymbols-12)^fg(#ffff00)^bg(#0e1112)"
 		echo $text
 		sleep 1
 	done
