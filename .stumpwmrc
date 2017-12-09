@@ -21,7 +21,7 @@
 
 (setf *mouse-focus-policy* :sloppy)
 
-(setq *terminal* "~/bin/st/st -e \"fish\" \"-c\" \"tmux attach-session -t main; or tmux new-session -s main\"")
+(setq *terminal* "termite-tmux")
 (setq *shell-program* "/usr/bin/fish")
 (setq *browser* "qutebrowser")
 (setq *startup-message* "StumpWM loaded!")
@@ -80,10 +80,19 @@
 ;;tmux
 (run-shell-command "tmux start-server")
 (run-shell-command "tmux new-session -s main")
+;;syncthing
+(run-shell-command "syncthing -no-browser")
 ;;auto mounting drives
 (run-shell-command "udiskie --use-udisks2")
 ;;emacs instances
 (run-shell-command "emacs-startup")
+;;ntp, i dont think that there are any need in running seperate daemon
+(run-shell-command "ntp-startup")
+;;max brightness by default
+(run-shell-command "set -U bright 1.0")
+(run-shell-command "set -U coltemp 6500")
+(run-shell-command "brightness-default")
+(run-shell-command "sct 6500")
 ;;clipboard management
 (run-shell-command "~/bin/clipmenu/clipmenud")
 ;;wallpaper
@@ -165,6 +174,19 @@
   "stop playing"
   (run-shell-command "emacsclient --eval \"(emms-stop)\""))
 
+(defcommand color-temperature-colder () ()
+  "up color temp"
+  (run-shell-command "color-temperature-colder"))
+(defcommand color-temperature-warmer () ()
+  "down color temp"
+  (run-shell-command "color-temperature-warmer"))
+(defcommand brightness-up () ()
+  "brightness-up"
+  (run-shell-command "brightness-up"))
+(defcommand brightness-down () ()
+  "brightness-down"
+  (run-shell-command "brightness-down"))
+
 (defcommand emacsclient () ()
   "start emacsclient"
   (run-shell-command "emacs-client"))
@@ -180,6 +202,15 @@
 (defcommand emacsclient-elfeed () ()
   "start emacsclient"
   (run-shell-command "emacs-client --eval \"(elfeed)\""))
+(defcommand emacsclient-agenda () ()
+  "start emacsclient"
+  (run-shell-command "emacs-client --eval \"(agenda)\""))
+(defcommand emacsclient-cal () ()
+  "start emacsclient"
+  (run-shell-command "emacs-client --eval \"(cal)\""))
+(defcommand emacsclient-org () ()
+  "start emacsclient"
+  (run-shell-command "emacs-client --eval \"(org-find-file)\""))
 (defcommand emacsclient-dired () ()
   "start emacsclient"
   (run-shell-command "emacs-client --eval \"(dired-jump)\""))
@@ -195,7 +226,7 @@
 (defcommand emacsclient-steam () ()
   "start emacsclient"
   (run-shell-command "emacs-client --eval \"(steam)\""))
-(defcommand emacsclient-org () ()
+(defcommand emacsclient-deft () ()
   "start emacsclient"
   (run-shell-command "emacs-client --eval \"(deft)\""))
 
@@ -212,6 +243,9 @@
 (defcommand st-tmux () ()
   "start st-terminal"
   (run-shell-command "~/bin/st/st -e \"fish\" \"-c\" \"tmux attach-session -t main; or tmux new-session -s main\""))
+(defcommand termite-tmux () ()
+  "start termite"
+  (run-shell-command "termite-tmux"))
 (defcommand urxvt-tmux () ()
   "start urxvt"
   (run-shell-command "urxvtc -e tmux"))
@@ -237,15 +271,19 @@
 
 (define-key *top-map* (kbd "XF86AudioLowerVolume") "volume-dec")
 (define-key *top-map* (kbd "XF86AudioRaiseVolume") "volume-inc")
-(define-key *top-map* (kbd "S-s-F9") "volume-dec-small")
-(define-key *top-map* (kbd "S-s-F10") "volume-inc-small")
+(define-key *top-map* (kbd "s-F9") "volume-dec-small")
+(define-key *top-map* (kbd "s-F10") "volume-inc-small")
 (define-key *top-map* (kbd "XF86AudioMute") "volume-toggle")
 (define-key *top-map* (kbd "XF86AudioPrev") "prev-track")
 (define-key *top-map* (kbd "XF86AudioNext") "next-track")
 (define-key *top-map* (kbd "XF86AudioPlay") "play-pause")
-(define-key *top-map* (kbd "S-s-F7") "stop-track")
-(define-key *top-map* (kbd "S-s-F8") "repeat-track")
-(define-key *top-map* (kbd "C-S-s-F8") "repeat-playist")
+(define-key *top-map* (kbd "s-F7") "stop-track")
+(define-key *top-map* (kbd "s-F8") "repeat-track")
+(define-key *top-map* (kbd "S-s-F8") "repeat-playist")
+(define-key *top-map* (kbd "s-F3") "color-temperature-colder")
+(define-key *top-map* (kbd "s-F2") "color-temperature-warmer")
+(define-key *top-map* (kbd "XF86MonBrightnessUp") "brightness-up")
+(define-key *top-map* (kbd "XF86MonBrightnessDown") "brightness-down")
 
 (define-key *top-map* (kbd "SunPrint_Screen") "xfce4-screenshot")
 (define-key *top-map* (kbd "C-SunPrint_Screen") "fast-screenshot")
@@ -292,13 +330,16 @@
 (define-key *top-map* (kbd "C-s-RET") "rofi-tmux")
 (define-key *top-map* (kbd "s-x") "rofi-run-app")
 (define-key *top-map* (kbd "s-RET") "emacsclient")
-(define-key *top-map* (kbd "S-s-RET") "st-tmux")
+(define-key *top-map* (kbd "S-s-RET") "termite-tmux")
 (define-key *top-map* (kbd "s-u") "uget")
 (define-key *top-map* (kbd "s-m") "emacsclient-mu4e")
 (define-key *top-map* (kbd "s-e") "emacsclient-elfeed")
 (define-key *top-map* (kbd "s-E") "emacsclient-emms")
 (define-key *top-map* (kbd "s-h") "emacsclient-htop")
+(define-key *top-map* (kbd "s-O") "emacsclient-deft")
 (define-key *top-map* (kbd "s-o") "emacsclient-org")
+(define-key *top-map* (kbd "s-a") "emacsclient-agenda")
+(define-key *top-map* (kbd "s-A") "emacsclient-cal")
 (define-key *top-map* (kbd "s-quoteleft") "emacsclient-eshell")
 (define-key *top-map* (kbd "s-d") "emacsclient-dired")
 ;; (define-key *top-map* (kbd "s-t") "emacsclient-remote-transmission")

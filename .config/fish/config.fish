@@ -6,7 +6,7 @@ set -g theme_color_scheme dark
 set -g theme_display_hg yes
 set -g theme_display_cmd_duration yes
 set -g theme_show_exit_status yes
-set -x user (set -x TLDR_COLOR_BLANK "white"
+set -x TLDR_COLOR_BLANK "white"
 set -x TLDR_COLOR_BLANK "white"
 set -x TLDR_COLOR_NAME "cyan"
 set -x TLDR_COLOR_DESCRIPTION "white"
@@ -15,7 +15,7 @@ set -x TLDR_COLOR_COMMAND "red"
 set -x TLDR_COLOR_PARAMETER "white"
 set -x TLDR_CACHE_ENABLED "1"
 set -x TLDR_CACHE_MAX_AGE "720"
-whoami)
+set -x user (whoami)
 set -x GOPATH "/home/$user/Go"
 set -x LGOBIN "/home/user/Go/bin"
 set -x EDITOR "emacs-client"
@@ -117,6 +117,10 @@ alias unmount 'umount'
 
 #better work with standart unix utils
 alias tree 'alder'
+
+if test -e ~/bin/ls-icons/binary/bin/ls
+	alias ls "~/bin/ls-icons/binary/bin/ls"
+end
 
 if test -e ~/.cargo/bin/fd
 	alias find '~/.cargo/bin/fd -H -I'
@@ -467,7 +471,7 @@ alias web-ip "dig +short myip.opendns.com @resolver1.opendns.com"
 alias music-import 'import-music'
 
 function weather
-	curl wttr.in/"uzhgorod"
+	curl wttr.in/$argv
 end
 alias forecast 'weather'
 
@@ -477,12 +481,39 @@ alias lock 'i3lock -c "0e1112"'
 alias desktop-lock 'lock'
 alias lock-desktop 'lock'
 
-alias forecast 'weather'
-
 alias nas-mount 'sshfs pi@192.168.2.125:Data/Share ~/Data'
 
 function jetbrains-idea
 	~/.local/share/umake/ide/idea-ultimate/bin/idea.sh
+end
+
+function color-temperature-colder
+	set -U coltemp (math $coltemp + 500)
+	sct $coltemp
+end
+
+function color-temperature-warmer
+	set -U coltemp (math $coltemp - 500)
+	sct $coltemp
+end
+
+function brightness-up
+	set -U bright (math $bright + 0.2)
+	xrandr --output LVDS --brightness $bright
+end
+
+function brightness-down
+	set -U bright (math $bright - 0.2)
+	xrandr --output LVDS --brightness $bright
+end
+
+function brightness-default
+	set -U bright 1.0
+	xrandr --output LVDS --brightness 1.0
+end
+
+function termite-tmux
+	termite -e "fish -c \"tmux attach-session -t main; or tmux new-session -s main\""
 end
 
 set -U fish_key_bindings fish_default_key_bindings

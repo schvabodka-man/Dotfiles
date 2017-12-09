@@ -1,0 +1,18 @@
+[options]
+font = Monospace 13
+mouse_autohide = false
+audible_bell = false
+cursor_blink = off
+scrollback_lines = 100000
+hyperlinks = true
+cursor_shape = ibeam
+scrollbar = off
+fullscreen = true
+
+[colors]
+cursor = #ffffff
+cursor_foreground = #ffffff
+
+foreground = #ffffff
+foreground_bold = #ffffff
+background = #0e1112

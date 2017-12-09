@@ -165,11 +165,7 @@
   (setq deft-directory "~/Org/")
   (setq deft-recursive t)
   (defalias 'org-find 'deft)
-  (defalias 'org-find-files 'deft-find-file)
-  (defalias 'org-find-files 'deft-find-file)
-  (defalias 'org-search-file 'deft-find-file)
   (defalias 'org-search 'deft)
-  (defalias 'org-search-files 'deft-find-file)
   (deft-setup)
   (defun deft-refresh-all ()
 	(interactive)
@@ -203,4 +199,8 @@
   :pin melpa-stable
   :config (defalias 'cal 'cfw:open-org-calendar)
   (defalias 'calendar-org 'cfw:open-org-calendar))
+(defun org-find-file ()
+  (interactive)
+  (projectile-switch-project-by-name "~/Org/"))
+(defalias 'org-search-file 'org-find-file)
 ;; org-config.el ends here

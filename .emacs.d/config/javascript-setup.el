@@ -70,6 +70,7 @@
 										   (interactive)
 										   (web-beautify-js)
 										   (save-buffer))))
+
 (use-package tern
   :ensure t)
 (use-package company-tern
@@ -78,9 +79,7 @@
   (add-hook 'js2-mode-hook 'tern-mode)
   (define-key tern-mode-keymap (kbd "M-.") nil)
   (define-key tern-mode-keymap (kbd "M-,") nil)
-  (define-key tern-mode-keymap (kbd "C-d") #'tern-get-docs)
-  ;; (define-key tern-mode-keymap (kbd "C-j") #'tern-find-definition)
-  )
+  (define-key tern-mode-keymap (kbd "C-d") #'tern-get-docs))
 (use-package jquery-doc
   :ensure t
   :config (jquery-doc-fetch-and-generate-data)

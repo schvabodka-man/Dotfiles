@@ -152,7 +152,7 @@
 			(local-set-key (kbd "C-~") #'dired-do-shell-command)
 			(local-set-key (kbd "C-`") #'dired-do-async-shell-command)
 			(local-set-key (kbd "C-s") #'dired-do-compress)
-			(local-set-key (kbd "C-b") #'diredp-do-bookmark)))
+			(local-set-key (kbd "C-b") #'counsel-bookmark)))
 
 ;; (add-hook 'dired-mode-hook (lambda ()
 ;;							 (smooth-scrolling-mode nil)))
@@ -544,13 +544,13 @@
 			(local-set-key (kbd "RET") #'tar-untar-buffer)
 			(local-set-key (kbd "<delete>") #'tar-expunge)
 			(local-set-key (kbd "<C-delete>") #'tar-flag-deleted)))
-(use-package dired-sidebar
-  :ensure t
-  :pin melpa
-  :bind (("M-s" . dired-sidebar-toggle-with-current-directory))
-  :config (add-hook 'dired-mode-hook
-					(lambda ()
-					  (local-set-key (kbd "M-s") #'dired-sidebar-toggle-sidebar))))
+;; (use-package dired-sidebar
+;;   :ensure t
+;;   :pin melpa
+;;   :bind (("M-s" . dired-sidebar-toggle-with-current-directory))
+;;   :config (add-hook 'dired-mode-hook
+;;					(lambda ()
+;;					  (local-set-key (kbd "M-s") #'dired-sidebar-toggle-sidebar))))
 (use-package dired-toggle-sudo
   :ensure t
   :pin melpa

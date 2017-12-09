@@ -3,11 +3,17 @@
 ;;; Code:
 (use-package cider
   :ensure t
-  :pin melpa-stable)
+  :pin melpa
+  :config (setq nrepl-log-messages t)
+  (setq nrepl-hide-special-buffers t)
+  (setq cider-prefer-local-resources t)
+  (setq cider-eval-result-prefix ";; --> ")
+  (add-hook 'cider-repl-mode-hook #'cider-company-enable-fuzzy-completion)
+  (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion))
 (use-package clojure-snippets
   :ensure t)
-;; (use-package autodisass-java-bytecode
-;;   :ensure t)
+(use-package autodisass-java-bytecode
+  :ensure t)
 (add-to-list 'auto-mode-alist '("\\.aj\\'" . java-mode))
 (use-package java-snippets
   :ensure t)

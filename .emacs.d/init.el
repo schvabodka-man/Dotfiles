@@ -138,6 +138,8 @@
 ;;bigger key bit
 (setq gnutls-min-prime-bits 4096)
 
+(shell-command "notify-send -a Emacs \"Emacs startup finished\"")
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -347,7 +349,8 @@
  '(nlinum-current-line ((t (:foreground "yellow"))))
  '(perspeen-selected-face ((t (:background "DarkGoldenRod1" :foreground "Black" :weight bold))))
  '(perspeen-tab--header-line-active ((t (:inherit mode-line :background "DarkGoldenrod1" :foreground "black"))))
- '(popup-tip-face ((t (:background "black" :foreground "white"))))
+ '(popup-face ((t (:background "white" :foreground "black"))))
+ '(popup-tip-face ((t (:background "white" :foreground "black"))))
  '(q4/gray-face ((t (:foreground "dim gray"))))
  '(q4/greentext-face ((t (:foreground "lawn green"))))
  '(q4/id-face ((t (:foreground "yellow"))))
@@ -361,6 +364,7 @@
  '(rainbow-delimiters-depth-7-face ((t (:foreground "yellow"))))
  '(rainbow-delimiters-depth-8-face ((t (:foreground "violet"))))
  '(rainbow-delimiters-depth-9-face ((t (:foreground "dark violet"))))
+ '(region ((t (:background "white" :foreground "black"))))
  '(spaceline-evil-emacs ((t (:background "SkyBlue2" :foreground "black" :inherit (quote mode-line)))))
  '(spaceline-evil-insert ((t (:background "chartreuse3" :foreground "black" :inherit (quote mode-line)))))
  '(spaceline-evil-motion ((t (:background "plum3" :foreground "black" :inherit (quote mode-line)))))

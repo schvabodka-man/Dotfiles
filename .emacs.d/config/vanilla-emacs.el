@@ -381,3 +381,5 @@ This command does not push text to `kill-ring'."
 (defalias 'tor-disable 'disable-tor)
 (defalias 'proxy-disable 'disable-tor)
 (defalias 'disable-proxy 'disable-tor)
+;;eldoc
+(global-eldoc-mode 1)

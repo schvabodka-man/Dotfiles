@@ -7,7 +7,7 @@
 set -e
 cd $HOME
 
-declare -r TERMINAL="$HOME/bin/st/st -e "
+declare -r TERMINAL="termite -e "
 
 _rofi() {
     rofi -dmenu -fullscreen "$@"
