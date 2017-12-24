@@ -53,6 +53,9 @@
 (setf *group-format* "%s %n")
 (setf *window-format* "%s %m %n %20t-%10c")
 
+(setf *suppress-frame-indicator* t)
+(setf *suppress-window-placement-indicator* t)
+
 (setf *screen-mode-line-format*
 	  (list "%g"))
 
@@ -84,6 +87,8 @@
 (run-shell-command "syncthing -no-browser")
 ;;auto mounting drives
 (run-shell-command "udiskie --use-udisks2")
+;;auto hiding cursor
+(run-shell-command "unclutter -idle 5")
 ;;emacs instances
 (run-shell-command "emacs-startup")
 ;;ntp, i dont think that there are any need in running seperate daemon
@@ -101,11 +106,8 @@
 (run-shell-command "arbtt-capture -r 15")
 ;;bar
 (run-shell-command "~/.config/dzen2/dzen2.sh")
-;; aria and transmission
-(run-shell-command "transmission-startup")
+;;aria
 (run-shell-command "aria2-startup")
-;;mail fetching
-(run-shell-command "offlineimap-startup")
 
 (defcommand qutebrowser () ()
   "run qutebrowser"
@@ -239,7 +241,7 @@
 
 (defcommand xfce4-terminal-tmux () ()
   "start xfce4-terminal"
-  (run-shell-command "xfce4-terminal -x \"tmux\""))
+  (run-shell-command "xfce4-terminal -x \"tmux attach-session -t main; or tmux new-session -s main\""))
 (defcommand st-tmux () ()
   "start st-terminal"
   (run-shell-command "~/bin/st/st -e \"fish\" \"-c\" \"tmux attach-session -t main; or tmux new-session -s main\""))
@@ -248,7 +250,7 @@
   (run-shell-command "termite-tmux"))
 (defcommand urxvt-tmux () ()
   "start urxvt"
-  (run-shell-command "urxvtc -e tmux"))
+  (run-shell-command "urxvtc -e tmux attach-session -t main; or tmux new-session -s main"))
 
 (defcommand rofi-frames () ()
   "look frames at rofi"
@@ -268,6 +270,10 @@
 (defcommand clipboard-manager () ()
   "run clipmenu"
   (run-shell-command "clipboard"))
+(defcommand get-color () ()
+  "run grabc"
+  (run-shell-command "notify-send -a Selecting color")
+  (run-shell-command "grabc | xclip -in -selection clipboard"))
 
 (define-key *top-map* (kbd "XF86AudioLowerVolume") "volume-dec")
 (define-key *top-map* (kbd "XF86AudioRaiseVolume") "volume-inc")
@@ -340,7 +346,6 @@
 (define-key *top-map* (kbd "s-o") "emacsclient-org")
 (define-key *top-map* (kbd "s-a") "emacsclient-agenda")
 (define-key *top-map* (kbd "s-A") "emacsclient-cal")
-(define-key *top-map* (kbd "s-quoteleft") "emacsclient-eshell")
 (define-key *top-map* (kbd "s-d") "emacsclient-dired")
 ;; (define-key *top-map* (kbd "s-t") "emacsclient-remote-transmission")
 ;; (Define-key *top-map* (kbd "s-T") "emacsclient-local-transmission")
@@ -348,10 +353,10 @@
 (define-key *top-map* (kbd "s-S") "emacsclient-steam")
 (define-key *top-map* (kbd "s-l") "lock")
 (define-key *top-map* (kbd "s-p") "rofi-pass")
-(define-key *top-map* (kbd "s-c") "clipboard-manager")
-(define-key *top-map* (kbd "s-C") "clear-clipboard")
-
-(define-key *top-map* (kbd "s-r") "loadrc")
+(define-key *top-map* (kbd "s-v") "clipboard-manager")
+(define-key *top-map* (kbd "s-V") "clear-clipboard")
+(define-key *top-map* (kbd "s-c") "get-color")
+;; (define-key *top-map* (kbd "s-r") "loadrc")
 (define-key *top-map* (kbd "s-W") "windowlist")
 
 (define-key *top-map* (kbd "s-n") "hsplit")
@@ -374,3 +379,5 @@
 (define-key *top-map* (kbd "C-s-Down") "resize 0 -10")
 (define-key *top-map* (kbd "C-s-Left") "resize -10 0")
 (define-key *top-map* (kbd "C-s-Right") "resize 10 0")
+(define-key *top-map* (kbd "s-quoteleft") "eval")
+(define-key *top-map* (kbd "s-~") "exec")

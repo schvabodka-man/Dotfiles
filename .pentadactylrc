@@ -2,6 +2,9 @@ set hintkeys=qwertyuiopasdfghjklzxcvbnm
 set history=1000
 set editor="/usr/bin/emacsclient -c"
 
+set scrollsteps=1
+set scrolltime=1
+
 " History
 nnoremap <C-left> <C-o>
 nnoremap <C-right> <C-i>

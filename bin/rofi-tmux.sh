@@ -37,12 +37,12 @@ session-list() {
 }
 
 create() {
-	$TERMINAL "tmux" "new-session"
+	$TERMINAL "tmux new-session"
 }
 
 attach() {
     local session=$1
-	$TERMINAL "tmux" "attach-session" "-t" "$session"
+	$TERMINAL "tmux attach-session -t $session"
 }
 
 main() {

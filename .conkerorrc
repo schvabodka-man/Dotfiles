@@ -90,3 +90,5 @@ session_pref("xpinstall.whitelist.required", false);
 user_pref("extensions.checkCompatibility", false);
 
 set_user_agent("Mozilla/5.0 (Windows NT 5.1; rv:38.9) Gecko/20100101 Goanna/2.2 Firefox/38.9 PaleMoon/26.5.0");
+
+url_completion_use_history = true;

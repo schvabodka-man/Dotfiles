@@ -26,7 +26,10 @@
 			(local-set-key (kbd "<S-right>") nil)
 			(local-set-key (kbd "<S-up>") nil)
 			(local-set-key (kbd "<S-down>") nil)
-			))
+			(local-set-key (kbd "M-<up>") 'windmove-up)
+			(local-set-key (kbd "M-<down>") 'windmove-down)
+			(local-set-key (kbd "M-<left>") 'windmove-left)
+			(local-set-key (kbd "M-<right>") 'windmove-right)))
 (add-hook 'org-agenda-mode-hook
 		  (lambda ()
 			(local-set-key (kbd "<") nil)

@@ -26,3 +26,7 @@
 (use-package indent-guide
   :ensure t
   :config (indent-guide-global-mode))
+;;better scrollbar
+(use-package yascroll
+  :ensure t
+  :config (global-yascroll-bar-mode 1))

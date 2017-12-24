@@ -24,9 +24,9 @@ end
 
 function aria2-startup
 	if test -e /usr/bin/proxychains
-		proxychains aria2c --enable-rpc --rpc-listen-all --continue=true --save-session-interval=120 --dir=/home/$USER/Downloads --no-conf=true --save-session=/home/$USER/aria2/session --input-file=/home/$USER/aria2/session
+		proxychains aria2c --enable-rpc --rpc-listen-all --continue=true --rpc-secret (pass device/aria2) --save-session-interval=120 --dir=/home/$USER/Downloads --no-conf=true --save-session=/home/$USER/aria2/session --input-file=/home/$USER/aria2/session
 	else
-		aria2c --enable-rpc --rpc-listen-all --continue=true --save-session-interval=120 --dir=/home/$USER/Downloads --no-conf=true --save-session=/home/$USER/aria2/session --input-file=/home/$USER/aria2/session
+		aria2c --enable-rpc --rpc-listen-all --continue=true --save-session-interval=120 --dir=/home/$USER/Downloads --rpc-secret (pass device/aria2) --no-conf=true --save-session=/home/$USER/aria2/session --input-file=/home/$USER/aria2/session
 	end
 end
 

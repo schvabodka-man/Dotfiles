@@ -11,4 +11,15 @@
 (load "~/.emacs.d/el-get/org-contacts/org-contacts")
 (setq org-contacts-files (list "~/Org/Contacts/Contacts.org"))
 (defalias 'contacts 'org-contacts)
+(use-package org-vcard
+  :ensure t
+  :pin melpa-stable
+  :config (add-hook 'org-mode-hook (lambda ()
+									 (when (string-match "Contacts" (buffer-file-name))
+									   (org-vcard-mode 1)))))
+(defun save-and-export-org-vcard ()
+  (interactive)
+  (save-buffer)
+  (org-vcard-transfer-helper "buffer" "file" org-vcard-default-style org-vcard-default-language org-vcard-default-version 'export))
+(define-key org-vcard-mode-keymap (kbd "C-s") #'save-and-export-org-vcard)
 ;;; contacts.el ends here

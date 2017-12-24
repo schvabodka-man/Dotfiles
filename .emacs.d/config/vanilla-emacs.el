@@ -38,8 +38,9 @@
 (global-set-key (kbd "M-u") nil)
 (global-set-key (kbd "M-l") nil)
 
-(global-set-key (kbd "C-\\") 'upcase-region)
-(global-set-key (kbd "C-S-\\") 'downcase-region)
+(global-set-key (kbd "C-\\") 'upcase-word)
+(global-set-key (kbd "C-|") 'downcase-word)
+(global-set-key (kbd "C-\]") 'capitalize-word)
 
 ;; (global-set-key (kbd "TAB") 'self-insert-command)
 ;;bookmark set
@@ -104,7 +105,8 @@
 (blink-cursor-mode 0)
 (menu-bar-mode -1)
 (tool-bar-mode -1) 
-(toggle-scroll-bar -1)
+;; (toggle-scroll-bar -1)
+(scroll-bar-mode -1)
 (show-paren-mode 1)
 (setq inhibit-startup-screen t)
 (desktop-save-mode 1)
@@ -366,20 +368,25 @@ This command does not push text to `kill-ring'."
 ;;this sets mode for stumpwm config
 (add-to-list 'auto-mode-alist '("\\.stumpwmrc\\'" . common-lisp-mode))
 ;;torify emacs
-(setq socks-noproxy '("127.0.0.1"))
-(setq socks-server '("Default server" "127.0.0.1" 9050 5))
-(setq url-gateway-method 'native)
+;;replaced with proxychains
 
-(defun enable-tor ()
-  (setq url-gateway-method 'socks))
-(defalias 'tor-enable 'enable-tor)
-(defalias 'proxy-enable 'enable-tor)
-(defalias 'enable-proxy 'enable-tor)
+;; (setq socks-noproxy '("127.0.0.1"))
+;; (setq socks-server '("Default server" "127.0.0.1" 9050 5))
+;; (setq url-gateway-method 'native)
 
-(defun disable-tor ()
-  (setq url-gateway-method 'native))
-(defalias 'tor-disable 'disable-tor)
-(defalias 'proxy-disable 'disable-tor)
-(defalias 'disable-proxy 'disable-tor)
+;; (defun enable-tor ()
+;;   (setq url-gateway-method 'socks))
+;; (defalias 'tor-enable 'enable-tor)
+;; (defalias 'proxy-enable 'enable-tor)
+;; (defalias 'enable-proxy 'enable-tor)
+
+;; (defun disable-tor ()
+;;   (setq url-gateway-method 'native))
+;; (defalias 'tor-disable 'disable-tor)
+;; (defalias 'proxy-disable 'disable-tor)
+;; (defalias 'disable-proxy 'disable-tor)
+
 ;;eldoc
 (global-eldoc-mode 1)
+;;don't autohide mouse cursor
+(setq make-pointer-invisible nil)

@@ -10,6 +10,8 @@
   (setq cider-eval-result-prefix ";; --> ")
   (add-hook 'cider-repl-mode-hook #'cider-company-enable-fuzzy-completion)
   (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion))
+(use-package clj-refactor
+  :ensure t)
 (use-package clojure-snippets
   :ensure t)
 (use-package autodisass-java-bytecode

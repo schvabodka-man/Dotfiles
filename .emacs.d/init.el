@@ -112,6 +112,8 @@
 ;;emails, gnus is obsolete and replaced by mu4e for me
 (load "~/.emacs.d/config/gnus-init")
 (load "~/.emacs.d/config/mu4e-config")
+;;contacs
+(load "~/.emacs.d/config/contacts")
 ;;web
 (load "~/.emacs.d/config/web-browsing")
 ;;multiple workspaces and tabbing
@@ -259,9 +261,11 @@
  '(neo-theme (quote icons))
  '(nlinum-highlight-current-line t)
  '(org-agenda-confirm-kill t)
+ '(org-vcard-default-export-file "~/Org/Contacts/contacts.vcf")
+ '(org-vcard-default-import-file "~/Org/Contacts/contacts.vcf")
  '(package-selected-packages
    (quote
-	(frames-only-mode ranger peep-dired cider flycheck-popup-tip py-autopep8 steam top-mode guess-language conkeror-minor-mode dired-toggle-sudo flycheck-kotlin inf-groovy groovy-imports org-ehtml nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
+	(org-vcard frames-only-mode ranger peep-dired cider flycheck-popup-tip py-autopep8 steam top-mode guess-language conkeror-minor-mode dired-toggle-sudo flycheck-kotlin inf-groovy groovy-imports org-ehtml nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
  '(paradox-github-token t)
  '(popwin:adjust-other-windows nil)
  '(projectile-globally-ignored-directories
@@ -289,7 +293,8 @@
  '(w3m-default-display-inline-images t)
  '(w3m-treat-image-size nil)
  '(yahoo-weather-location "Uzhhorod")
- '(yahoo-weather-mode t))
+ '(yahoo-weather-mode t)
+ '(yascroll:delay-to-hide nil))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -392,7 +397,9 @@
  '(w3m-tab-unselected-unseen ((t nil)))
  '(weather-metno-date ((t (:inherit header-line :foreground "lawn green"))))
  '(weather-metno-date-range ((t (:inherit font-lock-function-name-face :foreground "lawn green"))))
- '(weather-metno-entry ((t (:inherit font-lock-variable-name-face :foreground "deep sky blue")))))
+ '(weather-metno-entry ((t (:inherit font-lock-variable-name-face :foreground "deep sky blue"))))
+ '(yascroll:thumb-fringe ((t (:background "white" :foreground "white"))))
+ '(yascroll:thumb-text-area ((t (:background "white")))))
 (put 'dired-find-alternate-file 'disabled nil)
 ;;; init.el ends here
 (put 'upcase-region 'disabled nil)

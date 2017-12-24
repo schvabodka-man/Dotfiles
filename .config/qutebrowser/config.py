@@ -35,7 +35,7 @@ config.bind('<Mod1-q>', 'tab-close')
 config.bind('<Mod1-Shift-q>', 'tab-close -o')
 config.bind('<Mod1-r>', 'reload')
 config.bind('<Mod1-Shift-r>', 'reload -f')
-config.bind('<Mod1-t>', 'stop')
+config.bind('<Mod1-s>', 'stop')
 config.bind('<Ctrl-left>', 'back')
 config.bind('<Ctrl-right>', 'forward')
 config.bind('<Mod1-left>', 'tab-prev')
@@ -51,6 +51,7 @@ config.bind('<Mod1-6>', 'tab-focus 6')
 config.bind('<Mod1-7>', 'tab-focus 7')
 config.bind('<Mod1-8>', 'tab-focus 8')
 config.bind('<Mod1-9>', 'tab-focus 9')
+config.bind('<Mod1-0>', 'tab-focus 10')
 config.bind('<Mod1-z>', 'undo')
 config.bind('<left>', 'scroll left')
 config.bind('<right>', 'scroll right')
@@ -152,6 +153,7 @@ c.content.proxy = "socks://localhost:9050"
 c.content.javascript.can_access_clipboard = False
 c.content.javascript.can_close_tabs = False
 c.content.javascript.can_open_tabs_automatically = False
+c.content.javascript.enabled = False
 c.content.local_content_can_access_file_urls = False
 
 c.content.user_stylesheets = ["dark.css"]
@@ -159,7 +161,7 @@ c.content.user_stylesheets = ["dark.css"]
 # c.editor.command = ["emacsclient -c", "{}"]
 c.confirm_quit = ["downloads"]
 
-c.aliases['javascript-toggle'] = 'config-cycle content.javascript.enabled'
+c.aliases['js-toggle'] = 'config-cycle content.javascript.enabled'
 c.aliases['webgl-toggle'] = 'config-cycle content.webgl'
 c.aliases['pdfjs-toggle'] = 'config-cycle content.pdfjs'
 c.aliases['adblock-toggle'] = 'config-cycle content.host_blocking.enabled'
@@ -256,9 +258,10 @@ c.colors.prompts.selected.bg = "#308cc6"
 
 # yep lots of them are doubles
 c.url.searchengines = {
-    "DEFAULT": "https://duckduckgo.com/?q={}",
-    "searx": "https://www.startpage.com/rvd/search?prf=17bd2e91c907bb6f95ed6e54877571f7?query={}",
-    "startpage": "https://www.startpage.com/rvd/search?prf=17bd2e91c907bb6f95ed6e54877571f7?query={}",
+    "DEFAULT": "https://www.startpage.com/rvd/search?prf=17bd2e91c907bb6f95ed6e54877571f&query={}",
+    "duckduck": "https://duckduckgo.com/?q={}",
+    "duckduckgo": "https://duckduckgo.com/?q={}",
+    "searx": "https://www.startpage.com/rvd/search?prf=17bd2e91c907bb6f95ed6e54877571f7&query={}",
     "google": "https://google.com/search?q={}",
     "bing": "https://www.bing.com/search?q={}",
     "imdb": "http://www.imdb.com/find?s=all&q={}",

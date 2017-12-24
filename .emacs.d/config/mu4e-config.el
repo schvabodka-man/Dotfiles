@@ -16,6 +16,7 @@
 (when (fboundp 'imagemagick-register-types)
   (imagemagick-register-types))
 (setq mu4e-sent-messages-behavior 'delete)
+(setq mu4e-get-mail-command "offlineimap")
 (setq mu4e-contexts
 	  `( ,(make-mu4e-context
 		   :name "Gmail"
@@ -150,6 +151,6 @@
   (add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
   ;; (add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display))
   )
-(mu4e-update-index)
-(run-with-idle-timer 180 t (lambda () (mu4e-update-index)))
+;; (mu4e-update-index)
+;; (run-with-idle-timer 180 t (lambda () (mu4e-update-index)))
 ;;; mu4e-config.el ends here
