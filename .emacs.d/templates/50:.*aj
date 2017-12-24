@@ -1,0 +1,14 @@
+@Aspect
+@Component
+public aspect `(file-name-base buffer-file-name)` {
+
+@Before("")
+public void before$1() {
+
+}
+
+@After("")
+public void after$2() {
+
+}
+}

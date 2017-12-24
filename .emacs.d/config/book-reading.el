@@ -6,30 +6,31 @@
 (setq sql-sqlite-program "/usr/bin/sqlite3")
 (setq calibre-root-dir (expand-file-name "~/Books"))
 (setq calibre-db (concat calibre-root-dir "/metadata.db"))
-;; (use-package ereader
-;;   :ensure t
-;;   :config
-;;   (define-key ereader-mode-map (kbd "g") nil)
-;;   (define-key ereader-mode-map (kbd "C-g") 'ereader-goto-chapter)
-;;   (define-key ereader-mode-map (kbd "C-S-g") 'ereader-follow-link))
-(use-package nov
+(use-package ereader
   :ensure t
-  :pin melpa-stable
-  :config (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
-  ;; (defun my-nov-font-setup ()
-  ;;	(face-remap-add-relative 'variable-pitch :family "Fira Mono"
-  ;;							 :height 1.2))
-  ;; (add-hook 'nov-mode-hook 'my-nov-font-setup)
-  (defalias 'nov-index 'nov-goto-toc)
-  (defalias 'epub-index 'nov-goto-toc)
-  (add-hook 'nov-mode-hook
-			(lambda ()
-			  (null-all-bindings)
-			  (local-set-key (kbd "M-\\") #'nov-goto-toc)
-			  (local-set-key (kbd ",") #'nov-previous-document)
-			  (local-set-key (kbd ".") #'nov-next-document)))
-  ;; (add-hook 'nov-mode-hook 'nlinum-mode)
+  :config
+  (define-key ereader-mode-map (kbd "g") nil)
+  (define-key ereader-mode-map (kbd "C-M-g") 'ereader-goto-chapter)
+  (define-key ereader-mode-map (kbd "<return>") 'ereader-follow-link)
   )
+;; (use-package nov
+;;   :ensure t
+;;   :pin melpa-stable
+;;   :config (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
+;;   ;; (defun my-nov-font-setup ()
+;;   ;;	(face-remap-add-relative 'variable-pitch :family "Fira Mono"
+;;   ;;							 :height 1.2))
+;;   ;; (add-hook 'nov-mode-hook 'my-nov-font-setup)
+;;   (defalias 'nov-index 'nov-goto-toc)
+;;   (defalias 'epub-index 'nov-goto-toc)
+;;   (add-hook 'nov-mode-hook
+;;			(lambda ()
+;;			  (null-all-bindings)
+;;			  (local-set-key (kbd "M-\\") #'nov-goto-toc)
+;;			  (local-set-key (kbd ",") #'nov-previous-document)
+;;			  (local-set-key (kbd ".") #'nov-next-document)))
+;;   ;; (add-hook 'nov-mode-hook 'nlinum-mode)
+;;   )
 (defun fb2-mode()
   (interactive)
   (sgml-mode)

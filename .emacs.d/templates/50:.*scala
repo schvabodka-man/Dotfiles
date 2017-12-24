@@ -1,6 +1,6 @@
 // Copyright: `(format-time-string "%Y")` scvh-man
 // Licence: http://www.gnu.org/licenses/gpl-3.0.en.html
 
-class $1 {
-  $2
+class `(file-name-base buffer-file-name)` {
+$1
 }
