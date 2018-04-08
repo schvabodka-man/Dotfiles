@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Org todo basic
+# key: #+TODO: TODO 
+# --
+#+TODO: TODO Doing DONE

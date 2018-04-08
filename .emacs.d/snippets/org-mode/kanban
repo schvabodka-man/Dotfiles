@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: Org kanban
+# key: #+BEGIN: kanban
+# --
+#+BEGIN: kanban
+#+END:

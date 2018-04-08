@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: if argv is null
+# key: if count
+# --
+if count $argv > /dev/null

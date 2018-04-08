@@ -1,0 +1,7 @@
+;;;;;
+title: `(file-name-sans-extension buffer-file-name)`
+tags: $2
+date: `(format-time-string "%Y-%m-%d %T")`
+format: md
+;;;;;
+$1

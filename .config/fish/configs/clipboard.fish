@@ -1,0 +1,5 @@
+alias clipmenu '~/bin/clipmenu/clipmenu -show window -fullscreen'
+alias clipboard 'clipmenu'
+alias clear-clipboard 'clipboard-clear'
+alias copy 'xclip -selection clipboard'
+alias yank 'xclip -selection clipboard'
