@@ -21,14 +21,12 @@
 										  :help "Run latexmk on file")
 										TeX-command-list)))
   (add-hook 'TeX-mode-hook '(lambda () (setq TeX-command-default "latexmk")))
-  (define-key 'TeX-mode-map (kbd "<f2>") #'TeX-command-run-all)
-  (define-key 'LaTeX-mode-map (kbd "<f2>") #'TeX-command-run-all)
-  (define-key 'TeX-mode-map (kbd "C-l") #'ctrl-l-line-select)
-  (define-key 'LaTeX-mode-map (kbd "C-l") #'ctrl-l-line-select)
-  (define-key 'LaTeX-mode-map (kbd "<return>") 'newline-and-indent)
-  (define-key 'TeX-mode-map (kbd "<return>") 'newline-and-indent)
-  (define-key 'latex-mode-map (kbd "<return>") 'newline-and-indent)
-  (define-key 'tex-mode-map (kbd "<return>") 'newline-and-indent))
+  ;; (add-hook 'latex-mode-hook (lambda ()
+  ;;							   (local-set-key (kbd "<M-f2>") 'TeX-command-run-all)
+  ;;							   (local-set-key (kbd "C-l") 'ctrl-l-line-select)
+  ;;							   (local-set-key (kbd "C-,") 'latex-backward-sexp-1)
+  ;;							   (local-set-key (kbd "C-.") 'latex-forward-sexp-1)))
+  )
 (use-package reftex
   :commands turn-on-reftex
   :init
@@ -43,8 +41,8 @@
   :config (add-to-list 'company-backends 'company-bibtex))
 (use-package latex-preview-pane
   :ensure t
-  :config (define-key TeX-mode-map (kbd "<f1>") #'latex-preview-pane-mode)
-  (define-key LaTeX-mode-map (kbd "<f1>") #'latex-preview-pane-mode)
+  :config (define-key TeX-mode-map (kbd "<M-f1>") #'latex-preview-pane-mode)
+  (define-key LaTeX-mode-map (kbd "<M-f1>") #'latex-preview-pane-mode)
   (define-key LaTeX-mode-map (kbd "M-r") #'latex-preview-pane-update)
   (define-key doc-view-mode-map (kbd "M-r") #'latex-preview-pane-update)
   (define-key doc-view-mode-map (kbd "C-S-o") #'projectile-switch-project))
@@ -53,6 +51,12 @@
   :config (add-to-list 'company-backends 'company-math-symbols-unicode)
   (add-to-list 'company-backends 'company-math-symbols-latex)
   (add-to-list 'company-backends 'company-latex-commands))
+(defalias 'latex-compile 'TeX-command-run-all)
+(defun pdf-open ()
+  (interactive)
+  (call-process-shell-command (concat "zathura " (buffer-file-name)) nil 0))
+(defalias 'djvu-open 'pdf-open)
+(defalias 'zathura 'pdf-open)
 ;; (use-package magic-latex-buffer
 ;;   :ensure t
 ;;   :config (add-hook 'latex-mode-hook 'magic-latex-buffer)

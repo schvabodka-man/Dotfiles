@@ -2,15 +2,15 @@
 ;;; Commentary:
 ;;; MUH ESHELL
 ;;; Code:
+(require 'eshell)
 (setq eshell-banner-message "")
-(add-hook 'eshell-mode-hook
-		  (lambda ()
-			(local-set-key (kbd "<C-up>") #'eshell-previous-matching-input-from-input)
-			(local-set-key (kbd "<C-down>") #'eshell-next-matching-input-from-input)
-			(local-set-key (kbd "<up>") #'previous-line)
-			(local-set-key (kbd "<down>") #'next-line)
-			(local-set-key (kbd "<tab>") #'company-complete)
-			(local-set-key (kbd "M-c") #'eshell-interrupt-process)))
+(add-hook 'eshell-mode-hook (lambda ()
+							  (local-set-key (kbd "<C-up>") #'eshell-previous-matching-input-from-input)
+							  (local-set-key (kbd "<C-down>") #'eshell-next-matching-input-from-input)
+							  (local-set-key (kbd "<up>") #'previous-line)
+							  (local-set-key (kbd "<down>") #'next-line)
+							  (local-set-key (kbd "<tab>") #'company-complete)
+							  (local-set-key (kbd "M-c") #'eshell-interrupt-process)))
 (use-package eshell-z
   :ensure t)
 (use-package eshell-up
@@ -29,7 +29,7 @@
   (defalias 'multi-eshell-next 'multi-eshell-switch)
   (defalias 'multi-eshell-prev 'multi-eshell-go-back)
   (defalias 'multi-eshell-previous 'multi-eshell-go-back)
-  :bind (("M-`" . multi-eshell)))
+  :bind (("M-`" . eshell)))
 ;;bookmarks for eshell
 (el-get-bundle eshell-bmk
   :url "https://gist.githubusercontent.com/kkatsuyuki/fa930411a86169c3bb1f03337d4af280/raw/be5bcc2e519a3ab9e67ea0f5238a3e0b75b0084e/eshell-bmk.el"

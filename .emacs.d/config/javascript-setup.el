@@ -1,7 +1,6 @@
 (use-package js2-mode
   :ensure t
-  :config (add-to-list 'auto-mode-alist (cons (rx ".js" eos) 'js2-mode))
-  (define-key js2-mode-map (kbd "<return>") 'newline-and-indent))
+  :config (add-to-list 'auto-mode-alist (cons (rx ".js" eos) 'js2-mode)))
 (use-package js2-refactor
   :ensure t
   :after js2-mode

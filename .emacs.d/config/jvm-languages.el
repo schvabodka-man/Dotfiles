@@ -11,7 +11,9 @@
   (add-hook 'cider-repl-mode-hook #'cider-company-enable-fuzzy-completion)
   (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion))
 (use-package clj-refactor
-  :ensure t)
+  :ensure t
+  :config (add-hook 'clojure-mode-hook (lambda ()
+										 (clj-refactor-mode 1))))
 (use-package clojure-snippets
   :ensure t)
 (use-package autodisass-java-bytecode
@@ -22,49 +24,6 @@
 (use-package kotlin-mode
   :ensure t
   :config (define-key kotlin-mode-map (kbd "<return>") 'newline-and-indent))
-(use-package ensime
-  :ensure t
-  :pin melpa
-  :config
-  (setq
-   ensime-sbt-command "/usr/bin/sbt"
-   sbt:program-name "/usr/bin/sbt")
-  (setq ensime-startup-notification nil)
-  (setq ensime-startup-snapshot-notification nil)
-  (defalias 'scala-import 'ensime-import-type-at-point)
-  (defalias 'scala-clean-import 'ensime-refactor-diff-organize-imports)
-  (defalias 'scala-organize-import 'ensime-refactor-diff-organize-imports)
-  (defalias 'ensime-clean-import 'ensime-refactor-diff-organize-imports)
-  (defalias 'ensime-organize-import 'ensime-refactor-diff-organize-imports)
-  (defalias 'scala-repl 'ensime-inf-switch)
-  (defalias 'ensime-repl 'ensime-inf-switch)
-  (defalias 'scala-eval 'ensime-inf-eval-buffer)
-  (defalias 'ensime-eval 'ensime-inf-eval-buffer)
-  (defalias 'scala-eval-region 'ensime-inf-eval-region)
-  (defalias 'ensime-eval-region 'ensime-inf-eval-region)
-  (defalias 'ensime-jump-to-definition 'ensime-edit-definition)
-  (defalias 'scala-jump-to-definition 'ensime-edit-definition)
-  (defalias 'scala-undo-jump-to-definition 'ensime-pop-find-definition-stack)
-  (defalias 'ensime-undo-jump-to-definition 'ensime-pop-find-definition-stack)
-  (defalias 'scala-back-jump-to-definition 'ensime-pop-find-definition-stack)
-  (defalias 'ensime-back-jump-to-definition 'ensime-pop-find-definition-stack)
-  (defalias 'ensime-doc 'ensime-show-doc-for-symbol-at-point)
-  (defalias 'ensime-documentation 'ensime-show-doc-for-symbol-at-point)
-  (defalias 'scala-documentation 'ensime-show-doc-for-symbol-at-point)
-  (defalias 'scala-doc 'ensime-show-doc-for-symbol-at-point)
-  (add-hook 'java-mode-hook 'ensime-mode)
-  (define-key ensime-mode-map (kbd "M-,") nil)
-  (define-key ensime-mode-map (kbd "M-.") nil)
-  (define-key ensime-mode-map (kbd "C-j") #'ensime-edit-definition)
-  (define-key ensime-mode-map (kbd "C-S-j") #'ensime-pop-find-definition-stack)
-  (define-key ensime-mode-map (kbd "M-r") #'ensime-refactor-diff-rename)
-  (define-key ensime-mode-map (kbd "C-S-e") #'ensime-inf-eval-buffer)
-  (define-key ensime-mode-map (kbd "C-d") #'ensime-show-doc-for-symbol-at-point)
-  (define-key ensime-mode-map (kbd "C-e") #'ensime-inf-eval-region)
-  (define-key ensime-mode-map (kbd "C-S-o") #'projectile-switch-project)
-  (define-key ensime-mode-map (kbd "C-p") #'projectile-find-file)
-  (define-key ensime-mode-map (kbd "<tab>") #'ensime-company-complete-or-indent)
-  (define-key ensime-mode-map (kbd "M-i") #'ensime-import-type-at-point))
 (use-package sbt-mode
   :ensure t
   :pin melpa)
@@ -76,6 +35,52 @@
   :config (add-to-list 'auto-mode-alist '("\\.gradle\\'" . groovy-mode))
   (define-key groovy-mode-map (kbd "<return>") 'newline-and-indent))
 
+;; (use-package ensime
+;;   :ensure t
+;;   :pin melpa
+;;   :config
+;;   (setq
+;;    ensime-sbt-command "/usr/bin/sbt"
+;;    sbt:program-name "/usr/bin/sbt")
+;;   (setq ensime-startup-notification nil)
+;;   (setq ensime-startup-snapshot-notification nil)
+;;   (defalias 'scala-import 'ensime-import-type-at-point)
+;;   (defalias 'scala-clean-import 'ensime-refactor-diff-organize-imports)
+;;   (defalias 'scala-organize-import 'ensime-refactor-diff-organize-imports)
+;;   (defalias 'ensime-clean-import 'ensime-refactor-diff-organize-imports)
+;;   (defalias 'ensime-organize-import 'ensime-refactor-diff-organize-imports)
+;;   (defalias 'scala-repl 'ensime-inf-switch)
+;;   (defalias 'ensime-repl 'ensime-inf-switch)
+;;   (defalias 'scala-eval 'ensime-inf-eval-buffer)
+;;   (defalias 'ensime-eval 'ensime-inf-eval-buffer)
+;;   (defalias 'scala-eval-region 'ensime-inf-eval-region)
+;;   (defalias 'ensime-eval-region 'ensime-inf-eval-region)
+;;   (defalias 'ensime-jump-to-definition 'ensime-edit-definition)
+;;   (defalias 'scala-jump-to-definition 'ensime-edit-definition)
+;;   (defalias 'scala-undo-jump-to-definition 'ensime-pop-find-definition-stack)
+;;   (defalias 'ensime-undo-jump-to-definition 'ensime-pop-find-definition-stack)
+;;   (defalias 'scala-back-jump-to-definition 'ensime-pop-find-definition-stack)
+;;   (defalias 'ensime-back-jump-to-definition 'ensime-pop-find-definition-stack)
+;;   (defalias 'ensime-doc 'ensime-show-doc-for-symbol-at-point)
+;;   (defalias 'ensime-documentation 'ensime-show-doc-for-symbol-at-point)
+;;   (defalias 'scala-documentation 'ensime-show-doc-for-symbol-at-point)
+;;   (defalias 'scala-doc 'ensime-show-doc-for-symbol-at-point)
+;;   (add-hook 'java-mode-hook 'ensime-mode)
+;;   (define-key ensime-mode-map (kbd "M-,") nil)
+;;   (define-key ensime-mode-map (kbd "M-.") nil)
+;;   (define-key ensime-mode-map (kbd "C-,") #'scala-syntax:backward-sexp)
+;;   (define-key ensime-mode-map (kbd "C-.") #'scala-syntax:forward-sexp)
+;;   (define-key ensime-mode-map (kbd "C-u") #'ensime-show-uses-of-symbol-at-point)
+;;   (define-key ensime-mode-map (kbd "C-j") #'ensime-edit-definition)
+;;   (define-key ensime-mode-map (kbd "C-S-j") #'ensime-pop-find-definition-stack)
+;;   (define-key ensime-mode-map (kbd "M-r") #'ensime-refactor-diff-rename)
+;;   (define-key ensime-mode-map (kbd "C-S-e") #'ensime-inf-eval-buffer)
+;;   (define-key ensime-mode-map (kbd "C-d") #'ensime-show-doc-for-symbol-at-point)
+;;   (define-key ensime-mode-map (kbd "C-e") #'ensime-inf-eval-region)
+;;   (define-key ensime-mode-map (kbd "C-S-o") #'projectile-switch-project)
+;;   (define-key ensime-mode-map (kbd "C-p") #'projectile-find-file)
+;;   (define-key ensime-mode-map (kbd "<tab>") #'ensime-company-complete-or-indent)
+;;   (define-key ensime-mode-map (kbd "M-i") #'ensime-import-type-at-point))
 ;; (use-package groovy-imports
 ;;   :ensure t
 ;;   :config (setq groovy-imports-find-block-function 'groovy-imports-find-place-sorted-block)

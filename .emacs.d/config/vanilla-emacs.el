@@ -8,6 +8,8 @@
 (global-set-key (kbd "C-<end>") 'end-of-buffer)
 (global-set-key (kbd "<escape>") 'escape-key-work)
 (global-set-key (kbd "C-S-q") 'kill-buffer)
+(global-set-key (kbd "M-.") 'forward-paragraph)
+(global-set-key (kbd "M-,") 'backward-paragraph)
 (global-set-key (kbd "<home>") 'beginning-of-line)
 (global-set-key (kbd "<end>") 'end-of-line)
 (define-key emacs-lisp-mode-map (kbd "<return>") 'newline-and-indent)
@@ -367,26 +369,22 @@ This command does not push text to `kill-ring'."
 (setq-default frame-title-format '("%f [%m]"))
 ;;this sets mode for stumpwm config
 (add-to-list 'auto-mode-alist '("\\.stumpwmrc\\'" . common-lisp-mode))
-;;torify emacs
-;;replaced with proxychains
-
-;; (setq socks-noproxy '("127.0.0.1"))
-;; (setq socks-server '("Default server" "127.0.0.1" 9050 5))
-;; (setq url-gateway-method 'native)
-
-;; (defun enable-tor ()
-;;   (setq url-gateway-method 'socks))
-;; (defalias 'tor-enable 'enable-tor)
-;; (defalias 'proxy-enable 'enable-tor)
-;; (defalias 'enable-proxy 'enable-tor)
-
-;; (defun disable-tor ()
-;;   (setq url-gateway-method 'native))
-;; (defalias 'tor-disable 'disable-tor)
-;; (defalias 'proxy-disable 'disable-tor)
-;; (defalias 'disable-proxy 'disable-tor)
-
 ;;eldoc
 (global-eldoc-mode 1)
 ;;don't autohide mouse cursor
 (setq make-pointer-invisible nil)
+;;just kill buffer with process without asking
+;; (setq kill-buffer-query-functions
+;; 	  (remq 'process-kill-buffer-query-function
+;; 			kill-buffer-query-functions))
+;; font size
+(defalias 'zoom-in 'text-scale-increase)
+(defalias 'zoom-out 'text-scale-decrease)
+(defalias 'zoom-mode 'text-scale-mode)
+(defalias 'font-size-increase 'text-scale-increase)
+(defalias 'font-size-decrease 'text-scale-decrease)
+(defalias 'font-size-mode 'text-scale-mode)
+(global-set-key (kbd "M--") 'text-scale-decrease)
+(global-set-key (kbd "M-+") 'text-scale-increase)
+(global-set-key (kbd "M-=") 'text-scale-mode)
+;;; vanilla-emacs.el ends here

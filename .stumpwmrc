@@ -73,41 +73,32 @@
 (run-shell-command "setxkbmap -layout us,ru -option grp:alt_caps_toggle")
 ;;for emacs fonts
 (run-shell-command "xrdb-merge")
-;;tor
-(run-shell-command "tor")
 ;;security
 (run-shell-command "ssh-agent")
 (run-shell-command "gpg-agent --daemon --allow-emacs-pinentry --pinentry-program /usr/bin/pinentry-gtk-2")
 ;;notifications
 (run-shell-command "dunst")
-;;tmux
-(run-shell-command "tmux start-server")
-(run-shell-command "tmux new-session -s main")
-;;syncthing
-(run-shell-command "syncthing -no-browser")
 ;;auto mounting drives
 (run-shell-command "udiskie --use-udisks2")
 ;;auto hiding cursor
 (run-shell-command "unclutter -idle 5")
-;;emacs instances
-(run-shell-command "emacs-startup")
-;;ntp, i dont think that there are any need in running seperate daemon
-(run-shell-command "ntp-startup")
+;;spacefm
+(run-shell-command "spacefm -d")
+;;emacs instance
+(run-shell-command "/usr/bin/emacs --daemon")
 ;;max brightness by default
 (run-shell-command "set -U bright 1.0")
 (run-shell-command "set -U coltemp 6500")
 (run-shell-command "brightness-default")
 (run-shell-command "sct 6500")
+;;hledger file location
+(run-shell-command "set -U LEDGER_FILE ~/Cloud/Finances/ledger.journal")
 ;;clipboard management
 (run-shell-command "~/bin/clipmenu/clipmenud")
 ;;wallpaper
-(run-shell-command "feh --bg-scale ~/.wallpapers/space-flat-2.png")
-;;time tracker9
-(run-shell-command "arbtt-capture -r 15")
+(run-shell-command "feh --bg-scale ~/.wallpapers/cyberpunk-city.jpg")
 ;;bar
 (run-shell-command "~/.config/dzen2/dzen2.sh")
-;;aria
-(run-shell-command "aria2-startup")
 
 (defcommand qutebrowser () ()
   "run qutebrowser"
@@ -121,6 +112,18 @@
 (defcommand calibre () ()
   "run calibre"
   (run-or-raise "calibre" '(:title "Calibre")))
+(defcommand spacefm () ()
+  "run spacefm"
+  (run-or-raise "spacefm" '(:title "Spacefm")))
+(defcommand rambox () ()
+  "run rambox"
+  (run-or-raise "rambox" '(:title "rambox")))
+(defcommand transmission-remote () ()
+  "run transmission remote"
+  (run-or-raise "transmission-remote-gtk" '(:title "transmission-remote-gtk")))
+(defcommand transmission () ()
+  "run transmission"
+  (run-or-raise "transmission-gtk" '(:title "transmission-gtk")))
 
 (defcommand steam () ()
   "run steam"
@@ -191,46 +194,43 @@
 
 (defcommand emacsclient () ()
   "start emacsclient"
-  (run-shell-command "emacs-client"))
+  (run-shell-command "emacsclient -c"))
 (defcommand emacsclient-mu4e () ()
   "start emacsclient"
-  (run-shell-command "emacs-client --eval \"(mu4e)\""))
+  (run-shell-command "emacsclient -c --eval \"(mu4e)\""))
 (defcommand emacsclient-eshell () ()
   "start emacsclient"
-  (run-shell-command "emacs-client --eval \"(eshell)\""))
+  (run-shell-command "emacsclient -c --eval \"(eshell)\""))
 (defcommand emacsclient-htop () ()
   "start emacsclient"
-  (run-shell-command "emacs-client --eval \"(htop)\""))
+  (run-shell-command "emacsclient -c --eval \"(htop)\""))
 (defcommand emacsclient-elfeed () ()
   "start emacsclient"
-  (run-shell-command "emacs-client --eval \"(elfeed)\""))
+  (run-shell-command "emacsclient -c --eval \"(elfeed)\""))
 (defcommand emacsclient-agenda () ()
   "start emacsclient"
-  (run-shell-command "emacs-client --eval \"(agenda)\""))
+  (run-shell-command "emacsclient -c --eval \"(agenda)\""))
 (defcommand emacsclient-cal () ()
   "start emacsclient"
-  (run-shell-command "emacs-client --eval \"(cal)\""))
+  (run-shell-command "emacsclient -c --eval \"(cal)\""))
 (defcommand emacsclient-org () ()
   "start emacsclient"
-  (run-shell-command "emacs-client --eval \"(org-find-file)\""))
+  (run-shell-command "emacsclient -c --eval \"(org-find-file)\""))
 (defcommand emacsclient-dired () ()
   "start emacsclient"
-  (run-shell-command "emacs-client --eval \"(dired-jump)\""))
+  (run-shell-command "emacsclient -c --eval \"(dired-jump)\""))
 (defcommand emacsclient-emms () ()
   "start emacsclient"
-  (run-shell-command "emacs-client --eval \"(emms)\""))
-(defcommand emacsclient-local-transmission () ()
+  (run-shell-command "emacsclient -c --eval \"(emms)\""))
+(defcommand emacsclient-transmission () ()
   "start emacsclient"
-  (run-shell-command "emacs-client --eval \"(local-transmission)\""))
-(defcommand emacsclient-remote-transmission () ()
-  "start emacsclient"
-  (run-shell-command "emacs-client --eval \"(remote-transmission)\""))
+  (run-shell-command "emacsclient -c --eval \"(transmission)\""))
 (defcommand emacsclient-steam () ()
   "start emacsclient"
-  (run-shell-command "emacs-client --eval \"(steam)\""))
+  (run-shell-command "emacsclient -c --eval \"(steam)\""))
 (defcommand emacsclient-deft () ()
   "start emacsclient"
-  (run-shell-command "emacs-client --eval \"(deft)\""))
+  (run-shell-command "emacsclient -c --eval \"(deft)\""))
 
 (defcommand lock () ()
   "lock screen"
@@ -239,9 +239,16 @@
   "clear clipboard"
   (run-shell-command "clear-clipboard"))
 
+
+(defcommand emacs-terminal () ()
+  "open terminal in emacs"
+  (run-shell-command "emacsclient -c --eval '(term explicit-shell-file-name)'"))
+(defcommand xfce4-terminal () ()
+  "start xfce4-terminal"
+  (run-shell-command "xfce4-terminal"))
 (defcommand xfce4-terminal-tmux () ()
   "start xfce4-terminal"
-  (run-shell-command "xfce4-terminal -x \"tmux attach-session -t main; or tmux new-session -s main\""))
+  (run-shell-command "xfce4-terminal --command '/usr/bin/fish -c start-tmux-session'"))
 (defcommand st-tmux () ()
   "start st-terminal"
   (run-shell-command "~/bin/st/st -e \"fish\" \"-c\" \"tmux attach-session -t main; or tmux new-session -s main\""))
@@ -336,19 +343,19 @@
 (define-key *top-map* (kbd "C-s-RET") "rofi-tmux")
 (define-key *top-map* (kbd "s-x") "rofi-run-app")
 (define-key *top-map* (kbd "s-RET") "emacsclient")
-(define-key *top-map* (kbd "S-s-RET") "termite-tmux")
-(define-key *top-map* (kbd "s-u") "uget")
+(define-key *top-map* (kbd "s-quoteleft") "xfce4-terminal-tmux")
 (define-key *top-map* (kbd "s-m") "emacsclient-mu4e")
+(define-key *top-map* (kbd "s-r") "rambox")
 (define-key *top-map* (kbd "s-e") "emacsclient-elfeed")
 (define-key *top-map* (kbd "s-E") "emacsclient-emms")
-(define-key *top-map* (kbd "s-h") "emacsclient-htop")
 (define-key *top-map* (kbd "s-O") "emacsclient-deft")
 (define-key *top-map* (kbd "s-o") "emacsclient-org")
 (define-key *top-map* (kbd "s-a") "emacsclient-agenda")
 (define-key *top-map* (kbd "s-A") "emacsclient-cal")
-(define-key *top-map* (kbd "s-d") "emacsclient-dired")
-;; (define-key *top-map* (kbd "s-t") "emacsclient-remote-transmission")
-;; (Define-key *top-map* (kbd "s-T") "emacsclient-local-transmission")
+(define-key *top-map* (kbd "s-d") "spacefm")
+(define-key *top-map* (kbd "s-D") "emacsclient-dired")
+(define-key *top-map* (kbd "s-T") "transmission")
+(define-key *top-map* (kbd "s-t") "transmission-remote")
 (define-key *top-map* (kbd "s-s") "rofi-ssh")
 (define-key *top-map* (kbd "s-S") "emacsclient-steam")
 (define-key *top-map* (kbd "s-l") "lock")
@@ -379,5 +386,4 @@
 (define-key *top-map* (kbd "C-s-Down") "resize 0 -10")
 (define-key *top-map* (kbd "C-s-Left") "resize -10 0")
 (define-key *top-map* (kbd "C-s-Right") "resize 10 0")
-(define-key *top-map* (kbd "s-quoteleft") "eval")
-(define-key *top-map* (kbd "s-~") "exec")
+(define-key *top-map* (kbd "s-~") "eval")

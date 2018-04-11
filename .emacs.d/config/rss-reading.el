@@ -245,7 +245,6 @@
   (define-key elfeed-show-mode-map (kbd "C-q") #'elfeed-kill-and-save)
   (define-key elfeed-search-mode-map (kbd "C-q") #'elfeed-kill-and-save)
   (define-key elfeed-show-mode-map (kbd "M-r") #'elfeed-update)
-  (define-key elfeed-search-mode-map (kbd "M-r") #'elfeed-update)
   (define-key elfeed-show-mode-map (kbd "M-o") #'elfeed-show-visit)
   (define-key elfeed-show-mode-map (kbd "M-y") #'elfeed-show-yank)
   ;; (define-key elfeed-show-mode-map (kbd "q") #'kill-this-buffer)
@@ -284,8 +283,18 @@
   (push '(starred elfeed-search-starred-title-face) elfeed-search-face-alist)
   (define-key elfeed-search-mode-map (kbd "C-s") #'bjm/elfeed-star)
   (define-key elfeed-search-mode-map (kbd "C-M-s") #'bjm/elfeed-unstar))
-
-(use-package elfeed-org
+;; (use-package elfeed-org
+;;   :ensure t
+;;   :config (elfeed-org))
+(use-package elfeed-protocol
   :ensure t
-  :config (elfeed-org))
+  :config (setq elfeed-curl-extra-arguments '("-c" "/tmp/newsblur-cookie"
+											  "-b" "/tmp/newsblur-cookie"))
+  (defun newsblur-login ()
+	(interactive)
+	(setq elfeed-feeds (list
+						(list "newsblur+https://scvhapps@newsblur.com" ;;you can subscribe onto my feed
+							  :password (replace-regexp-in-string "\n$" "" (shell-command-to-string "pass rss/newsblur/scvhapps"))))))
+  (elfeed-protocol-enable)
+  (define-key elfeed-search-mode-map (kbd "M-r") #'elfeed-protocol-newsblur-update))
 ;;; rss-reading.el ends here

@@ -44,7 +44,7 @@
 ;;useless
 (load "~/.emacs.d/config/useless")
 ;;weather reports
-(load "~/.emacs.d/config/weather-reports")
+;; (load "~/.emacs.d/config/weather-reports")
 ;;git
 (load "~/.emacs.d/config/git-stuff")
 ;;small but really useful
@@ -54,11 +54,11 @@
 ;;docker
 (load "~/.emacs.d/config/docker-integration")
 ;;monitoring
-;; (load "~/.emacs.d/config/system-monitoring")
+(load "~/.emacs.d/config/system-monitoring")
 ;;books
 (load "~/.emacs.d/config/book-reading")
-;;brainfuck unironically. i like brainfuck because of its simplicity
-(load "~/.emacs.d/config/brainfuck-devel")
+;;meh
+;; (load "~/.emacs.d/config/brainfuck-devel")
 ;;live preview for web
 (load "~/.emacs.d/config/html-live-editing")
 ;;js development
@@ -81,16 +81,15 @@
 (load "~/.emacs.d/config/emms-config")
 ;;spell checking
 (load "~/.emacs.d/config/syntax-gram-checking")
-;;eshell
+;;eshell and stuff
 (load "~/.emacs.d/config/eshell")
+(load "~/.emacs.d/config/terminal-emulator")
 ;;packages
 (load "~/.emacs.d/config/package-managing")
 ;;dired
 (load "~/.emacs.d/config/dired-config")
 ;;realgud
 ;; (load "~/.emacs.d/config/realgud-debugger")
-;;finances
-(load "~/.emacs.d/config/finance-managing")
 ;;LaTeX
 (load "~/.emacs.d/config/latex-editing")
 ;;integrations
@@ -101,25 +100,25 @@
 (load "~/.emacs.d/config/document-viewers")
 ;;im
 (load "~/.emacs.d/config/im-social")
-;;sauron
-(load "~/.emacs.d/config/sauron-notify")
-;;regex
-(load "~/.emacs.d/config/regex-builder")
 ;;integration with some desktop stuff
 (load "~/.emacs.d/config/desktop-integration")
 ;;calculator
 (load "~/.emacs.d/config/calculators")
 ;;emails, gnus is obsolete and replaced by mu4e for me
-(load "~/.emacs.d/config/gnus-init")
+;; (load "~/.emacs.d/config/gnus-init")
 (load "~/.emacs.d/config/mu4e-config")
-;;contacs
-(load "~/.emacs.d/config/contacts")
 ;;web
-(load "~/.emacs.d/config/web-browsing")
+;; (load "~/.emacs.d/config/web-browsing")
+;;clang with irony
+(load "~/.emacs.d/config/clang")
+;;blogging and shit
+(load "~/.emacs.d/config/blogging")
+;;contacts
+(load "~/.emacs.d/config/contacts")
+;;finances
+(load "~/.emacs.d/config/finance-managing")
 ;;multiple workspaces and tabbing
 (load "~/.emacs.d/config/windowing-config")
-;;contacts
-;; (load "~/.emacs.d/config/contacts")
 ;;byte compile everything
 (defun byte-compile-init-dir ()
   "Byte-compile all your dotfiles."
@@ -209,6 +208,7 @@
 	  (omit)))))
  '(diredp-image-preview-in-tooltip 300)
  '(diredp-image-show-this-file-use-frame-flag t)
+ '(ebdb-info-file nil)
  '(emms-playing-time-display-short-p t)
  '(ensime-company-idle-delay 0.1)
  '(ensime-graphical-tooltips t)
@@ -261,11 +261,15 @@
  '(neo-theme (quote icons))
  '(nlinum-highlight-current-line t)
  '(org-agenda-confirm-kill t)
+ '(org-agenda-files
+   (quote
+	("/home/ivan/Org/Agenda/Diary/2017-08-24.org" "/home/ivan/Org/Agenda/Diary/2017-08-26.org" "/home/ivan/Org/Agenda/Diary/2017-09-03.org" "/home/ivan/Org/Agenda/Diary/2017-10-01.org" "/home/ivan/Org/Agenda/Diary/2017-11-07.org" "/home/ivan/Org/Agenda/Diary/2017-11-10.org" "/home/ivan/Org/Agenda/Diary/2017-11-11.org" "/home/ivan/Org/Agenda/Diary/2017-11-13.org" "/home/ivan/Org/Agenda/Diary/2017-12-04.org" "/home/ivan/Org/Agenda/Diary/2017-12-24.org")))
+ '(org-board-default-browser (quote system))
  '(org-vcard-default-export-file "~/Org/Contacts/contacts.vcf")
  '(org-vcard-default-import-file "~/Org/Contacts/contacts.vcf")
  '(package-selected-packages
    (quote
-	(org-vcard frames-only-mode ranger peep-dired cider flycheck-popup-tip py-autopep8 steam top-mode guess-language conkeror-minor-mode dired-toggle-sudo flycheck-kotlin inf-groovy groovy-imports org-ehtml nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
+	(ebdb docker-compose-mode polymode org-vcard frames-only-mode ranger peep-dired cider flycheck-popup-tip py-autopep8 steam top-mode guess-language conkeror-minor-mode dired-toggle-sudo flycheck-kotlin inf-groovy groovy-imports org-ehtml nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
  '(paradox-github-token t)
  '(popwin:adjust-other-windows nil)
  '(projectile-globally-ignored-directories
@@ -274,7 +278,7 @@
  '(projectile-globally-ignored-files
    (quote
 	("TAGS" ".gitignore" ".projectile" ".ensime" "mvnw" "gradlew" "gradlew.bat" "mvnw.cmd")))
- '(rmh-elfeed-org-files (quote ("~/Org/Util/Rss.org")))
+ '(rmh-elfeed-org-files (quote ("~/Org/Util/Rss.org")) t)
  '(send-mail-function (quote smtpmail-send-it))
  '(spaceline-all-the-icons-highlight-file-name t)
  '(sr-speedbar-right-side nil)
@@ -352,6 +356,7 @@
  '(minimap-active-region-background ((t (:background "#0e1112"))))
  '(minimap-font-face ((t (:height 30 :family "Fira Mono"))))
  '(nlinum-current-line ((t (:foreground "yellow"))))
+ '(org-level-4 ((t (:foreground "magenta"))))
  '(perspeen-selected-face ((t (:background "DarkGoldenRod1" :foreground "Black" :weight bold))))
  '(perspeen-tab--header-line-active ((t (:inherit mode-line :background "DarkGoldenrod1" :foreground "black"))))
  '(popup-face ((t (:background "white" :foreground "black"))))

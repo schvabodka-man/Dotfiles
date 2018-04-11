@@ -30,3 +30,6 @@
 (use-package yascroll
   :ensure t
   :config (global-yascroll-bar-mode 1))
+;;hiding mode line
+(use-package hide-mode-line
+  :ensure t)

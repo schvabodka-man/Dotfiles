@@ -7,6 +7,6 @@
 ;;; Commentary:
 ;;; Code:
 (defalias 'calculator 'run-octave)
-(defalias 'calc 'run-octave)
+(defalias 'c 'run-octave)
 (defalias 'octave 'run-octave)
 ;;; calculators.el ends here

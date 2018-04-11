@@ -16,9 +16,8 @@
 (use-package link-hint
   :ensure t
   :bind (("M-g" . link-hint-open-link)
-		 ("M-S-g" . link-hint-copy-link))
-  :config (defalias 'link-open 'link-hint-open-link)
-  (defalias 'link-copy 'link-hint-copy-link))
+		 ("M-S-g" . link-hint-copy-link)
+		 ("<C-return>" . link-hint-open-link-at-point)))
 (use-package multiple-cursors
   :ensure t
   :config

@@ -7,7 +7,7 @@
 	(package-refresh-contents))
 (use-package ivy
   :ensure t
-  :pin melpa-stable
+  :pin melpa
   :init (ivy-mode)
   (setq ivy-height 20)
   (setq ivy-initial-inputs-alist nil)
@@ -17,21 +17,24 @@
 (use-package counsel
   :ensure t
   :after ivy
-  :pin melpa-stable
+  :pin melpa
   :bind (
 		 ("M-x" . counsel-M-x)
 		 ("C-o" . counsel-find-file)
 		 ("C-b" . counsel-bookmark)
 		 ("C-f" . counsel-grep)
-		 ("C-h C-k" . counsel-descbinds)))
+		 ("C-h C-k" . counsel-descbinds))
+  :config (define-key counsel-find-file-map (kbd "<left>") 'counsel-up-directory)
+  (define-key counsel-find-file-map (kbd "C-y") 'counsel-yank-directory)
+  (define-key counsel-find-file-map (kbd "<right>") 'ivy-alt-done)
+  (define-key counsel-find-file-map (kbd "<return>") 'ivy-alt-done))
 (use-package swiper
   :ensure t
   :pin melpa
   :after ivy
-  :bind (("C-S-f" . counsel-grep-or-swiper)))
+  :bind (("C-M-f" . counsel-grep-or-swiper)))
 ;;el-get
 (use-package el-get
-  :pin melpa
   :ensure t)
 ;;helm
 ;; (use-package helm
@@ -63,6 +66,7 @@
 ;;autocomplete
 (use-package company
   :ensure t
+  :pin melpa-stable
   :init (add-hook 'after-init-hook 'global-company-mode)
   :config (setq company-dabbrev-downcase 0)
   (setq company-idle-delay 0.2)
@@ -91,6 +95,7 @@
 			  (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends)))))
 (use-package yatemplate
   :ensure t
+  :pin melpa
   :config (auto-insert-mode)
   (setq auto-insert-alist nil)
   (yatemplate-fill-alist))
@@ -114,3 +119,19 @@
   :ensure t
   ;; :pin melpa-stable
   )
+(use-package polymode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.md$" . poly-markdown-mode))
+  (add-to-list 'auto-mode-alist '("\\.Snw$" . poly-noweb+r-mode))
+  (add-to-list 'auto-mode-alist '("\\.Rnw$" . poly-noweb+r-mode))
+  (add-to-list 'auto-mode-alist '("\\.Rmd$" . poly-markdown+r-mode))
+  (add-to-list 'auto-mode-alist '("\\.rapport$" . poly-rapport-mode))
+  (add-to-list 'auto-mode-alist '("\\.Rhtml$" . poly-html+r-mode))
+  (add-to-list 'auto-mode-alist '("\\.Rbrew$" . poly-brew+r-mode))
+  (add-to-list 'auto-mode-alist '("\\.Rcpp$" . poly-r+c++-mode))
+  (add-to-list 'auto-mode-alist '("\\.cppR$" . poly-c++r-mode))
+  (add-to-list 'auto-mode-alist '("\\.js.erb$" . poly-javascript+erb-mode))
+  (add-to-list 'auto-mode-alist '("\\.coffee.erb$" . poly-coffee+erb-mode))
+  (add-to-list 'auto-mode-alist '("\\.html.erb$" . poly-html+erb-mode))
+  (add-to-list 'auto-mode-alist '("\\.slim$" . poly-slim-mode)))

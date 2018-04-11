@@ -8,7 +8,7 @@
 ;;; Code:
 (defun lock ()
   (interactive)
-  (shell-command "i3lock -i ~/.wallpapers/space-flat-2.png"))
+  (shell-command "i3lock -c \"0e1112\""))
 (defalias 'desktop-lock 'lock)
 (defalias 'lock-desktop 'lock)
 (defun reboot ()

@@ -6,9 +6,6 @@
 
 ;;; Commentary:
 ;;; Code:
-;; (use-package stock-ticker
-;;   :ensure t
-;;   :config (stock-ticker-global-mode +1)
-;;   (setq stock-ticker-update-interval 600)
-;;   (setq stock-ticker-display-interval 5))
+(use-package hledger-mode
+  :ensure t)
 ;; ;;; finance-managing.el ends here
