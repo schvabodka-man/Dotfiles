@@ -88,3 +88,8 @@ branch-list-local = branches-local
 ls-branch-local = branches-local
 list-branch-local = branches-local
 gui = "!fish -c \"git-smart-gui $@\" -"
+#rm index lock
+lock-remove = "!fish -c \"git-lock-remove $@\" -"
+remove-lock = lock-remove
+rm-lock = lock-remove
+lock-rm = lock-remove

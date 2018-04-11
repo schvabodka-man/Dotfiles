@@ -1,13 +1,13 @@
 #!/bin/bash
 # forked from here https://github.com/mi2428/dotfiles/blob/master/etc/hosts/linux/rofi/rofi/rofi-tmux.sh
-# fixed to work for st terminal
+# fixed to work for xfce4-term
 # removed some stuff releated to ssh(but there is still lot of code for it but IDK)
 # thx mi2428 for original script
 
 set -e
 cd $HOME
 
-declare -r TERMINAL="termite -e "
+declare -r TERMINAL="xfce4-terminal --command "
 
 _rofi() {
     rofi -dmenu -fullscreen "$@"
