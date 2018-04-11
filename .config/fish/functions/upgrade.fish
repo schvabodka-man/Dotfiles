@@ -12,8 +12,9 @@ function upgrade
 	~/Go/bin/gopm update
     docker images | grep -v REPOSITORY | awk '{print $1}' | xargs -L1 docker pull
     docker images | grep "<none>" | awk '{print $3}' | xargs -L1 docker rmi
-    emacsclient --eval '()'
     emacsclient --eval '(kill-emacs)'
+	/bin/rm -rf ~/.emacs.d/elpa
+	/bin/rm -rf ~/.emacs.d/el-get
     /usr/bin/emacs --daemon
     
 	cd ~/bin/clipmenu

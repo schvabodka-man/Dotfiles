@@ -1,9 +1,9 @@
 function emacs-startup
-	if test -e /usr/bin/proxychains
-		proxychains /usr/bin/emacs --daemon
-	else
-		/usr/bin/emacs --daemon
-	end
+	# if test -e /usr/bin/proxychains
+	# proxychains /usr/bin/emacs --daemon
+	# else
+	/usr/bin/emacs --daemon
+	# end
 end
 
 function transmission-startup

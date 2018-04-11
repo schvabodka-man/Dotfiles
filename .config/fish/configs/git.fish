@@ -21,3 +21,7 @@ function git-smart-gui
 		gitk --all
 	end
 end
+
+function git-lock-remove
+	rm (git rev-parse --show-toplevel)/.git/index.lock
+end

@@ -1,9 +1,0 @@
-[Desktop Entry]
-
-Type=Application
-Version=1.1.1
-Name=Doom
-Comment=Doom SSGL launcher
-Exec=/home/user/bin/SSGL/SSGL
-Terminal=false
-Categories=Games;

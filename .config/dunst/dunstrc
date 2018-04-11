@@ -39,7 +39,7 @@ horizontal_padding = 10
 
 separator_color = #0e1112
 
-startup_notification = true
+startup_notification = false
 
 # browser for opening urls in context menu
 browser = /usr/bin/qutebrowser
@@ -64,8 +64,8 @@ foreground = "#000000"
 timeout = 10
 
 [shortcuts]
-close = mod4+shift+k
+close = mod4+k
 
-history = ctrl+mod4+k
+history = mod4+h
 
-context = mod4+k
+context = mod4+shift+k
