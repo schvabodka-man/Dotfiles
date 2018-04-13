@@ -16,7 +16,7 @@
 (defalias 'week 'org-agenda-week-view)
 (defalias 'day 'org-agenda-day-view)
 (defalias 'org-time 'org-time-stamp)
-(defalias 'oa 'org-archive-subtree)
+(defalias 'a 'agenda)
 
 (define-key org-mode-map (kbd "C-t") 'org-time-stamp)
 (define-key org-mode-map (kbd "M-,") 'org-backward-paragraph)

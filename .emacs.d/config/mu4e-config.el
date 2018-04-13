@@ -144,11 +144,9 @@
 (defalias 'cancel-email 'message-dont-send)
 (defalias 'cancel-mail 'message-dont-send)
 (defalias 'cancel-message 'message-dont-send)
-(use-package mu4e-alert
-  :ensure t
-  :config (mu4e-alert-set-default-style 'libnotify)
-  (add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
-  (add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display))
-;; (mu4e-update-index)
-;; (run-with-idle-timer 180 t (lambda () (mu4e-update-index)))
+;; (use-package mu4e-alert
+;;   :ensure t
+;;   :config (mu4e-alert-set-default-style 'libnotify)
+;;   (add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
+;;   (add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display))
 ;;; mu4e-config.el ends here

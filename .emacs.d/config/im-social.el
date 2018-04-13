@@ -18,23 +18,17 @@
 ;;   "Connect to IM networks using bitlbee."
 ;;   (interactive)
 ;;   (erc :server "localhost" :port 6667 :nick "scvh"))
-;; (defalias 'im 'social)
-;; (defalias 'irc 'social)
-;; (defalias 'chat 'social)
-;; (defalias 'messenger 'social)
-(add-hook 'erc-mode-hook
-		  (lambda ()
-			(local-set-key (kbd "M-r") #'erc-channel-names)
-			(local-set-key (kbd "C-o") #'erc-cmd-QUERY)
-			(local-set-key (kbd "C-S-o") #'erc-join-channel)
-			(local-set-key (kbd "M-n") (lambda ()
-										 (interactive)
-										 (split-window-horizontally)
-										 (other-window 1)))
-			(local-set-key (kbd "M-N") (lambda ()
-										 (interactive)
-										 (split-window-vertically)
-										 (other-window 1)))))
+(define-key erc-mode-map (kbd "M-r") #'erc-channel-names)
+(define-key erc-mode-map (kbd "C-o") #'erc-cmd-QUERY)
+(define-key erc-mode-map (kbd "C-S-o") #'erc-join-channel)
+(define-key erc-mode-map (kbd "M-n") (lambda ()
+									   (interactive)
+									   (split-window-horizontally)
+									   (other-window 1)))
+(define-key erc-mode-map (kbd "M-N") (lambda ()
+									   (interactive)
+									   (split-window-vertically)
+									   (other-window 1)))
 (use-package erc-image
   :ensure t
   :defer t
@@ -70,14 +64,9 @@
 	 :title nickname
 	 :body message
 	 :timeout 1500
-	 :app-name "ERC")
-	)
+	 :app-name "ERC"))
   (add-hook 'ercn-notify-hook 'do-notify))
-(defun bitlbee-identify ()
-  (setq bitlbee-pass (shell-command-to-string "pass self-hosted/bitlbee/scvh"))
-  (when (and (string= "localhost" erc-session-server)
-			 (string= "&bitlbee" (buffer-name)))
-	(erc-message "PRIVMSG" (concat "&bitlbee " "identify " "scvh " bitlbee-pass))
-	(erc-message "PRIVMSG" (concat "&bitlbee " "yes"))))
-;; (add-hook 'erc-join-hook 'bitlbee-identify)
+(use-package mastodon
+  :ensure t
+  :config (setq mastodon-instance-url "https://mastodon.social"))
 ;;; im-social.el ends here

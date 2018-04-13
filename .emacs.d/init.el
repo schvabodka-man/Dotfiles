@@ -43,8 +43,6 @@
 (load "~/.emacs.d/config/google-botnet")
 ;;useless
 (load "~/.emacs.d/config/useless")
-;;weather reports
-;; (load "~/.emacs.d/config/weather-reports")
 ;;git
 (load "~/.emacs.d/config/git-stuff")
 ;;small but really useful
@@ -57,8 +55,6 @@
 (load "~/.emacs.d/config/system-monitoring")
 ;;books
 (load "~/.emacs.d/config/book-reading")
-;;meh
-;; (load "~/.emacs.d/config/brainfuck-devel")
 ;;live preview for web
 (load "~/.emacs.d/config/html-live-editing")
 ;;js development
@@ -115,8 +111,6 @@
 (load "~/.emacs.d/config/blogging")
 ;;contacts
 (load "~/.emacs.d/config/contacts")
-;;finances
-(load "~/.emacs.d/config/finance-managing")
 ;;multiple workspaces and tabbing
 (load "~/.emacs.d/config/windowing-config")
 ;;byte compile everything
@@ -269,7 +263,7 @@
  '(org-vcard-default-import-file "~/Org/Contacts/contacts.vcf")
  '(package-selected-packages
    (quote
-	(ebdb docker-compose-mode polymode org-vcard frames-only-mode ranger peep-dired cider flycheck-popup-tip py-autopep8 steam top-mode guess-language conkeror-minor-mode dired-toggle-sudo flycheck-kotlin inf-groovy groovy-imports org-ehtml nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
+	(mastodon url-shortener flycheck-ledger ledger-mode ebdb docker-compose-mode polymode org-vcard frames-only-mode ranger peep-dired cider flycheck-popup-tip py-autopep8 steam top-mode guess-language conkeror-minor-mode dired-toggle-sudo flycheck-kotlin inf-groovy groovy-imports org-ehtml nnir helm yasnippet yascroll seti-theme popup neotree minimap magit ivy el-get company)))
  '(paradox-github-token t)
  '(popwin:adjust-other-windows nil)
  '(projectile-globally-ignored-directories

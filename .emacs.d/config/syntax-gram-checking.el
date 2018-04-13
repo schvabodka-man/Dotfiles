@@ -40,3 +40,8 @@
   (defalias 'dictionary 'guess-language)
   (defalias 'language 'guess-language)
   (defalias 'lang 'guess-language))
+(use-package dictionary
+  :ensure t
+  :pin melpa
+  :config (defalias 'd 'dictionary-search))
+;;ends here

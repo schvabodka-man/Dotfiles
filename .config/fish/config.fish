@@ -143,6 +143,15 @@ source ~/.config/fish/configs/cloud.fish
 
 set -U fish_key_bindings fish_default_key_bindings
 
+function dd-write
+	if test -e $argv[2]
+		sudo umount $argv[2]
+		sudo dd bs=4M if=$argv[1] of=$argv[2] status=progress oflag=sync conv=fdatasync
+	else
+		echo "such block device not found"
+	end
+end
+
 function fish_user_key_bindings
 
 	#unbind useless shit

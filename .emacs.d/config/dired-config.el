@@ -452,4 +452,5 @@
   (define-key neotree-mode-map (kbd "C-o") 'neotree-open-file-in-system-application)
   (define-key neotree-mode-map (kbd "C-y") 'neotree-copy-filepath-to-yank-ring)
   (define-key neotree-mode-map (kbd "<deletechar>") 'neotree-delete-node)
+  (define-key neotree-mode-map (kbd "<backspace>") 'neotree-delete-node)
   (define-key neotree-mode-map (kbd "M-c") 'neotree-copy-node))
