@@ -293,8 +293,8 @@
   (defun newsblur-login ()
 	(interactive)
 	(setq elfeed-feeds (list
-						(list "newsblur+https://scvhapps@newsblur.com" ;;you can subscribe onto my feed
-							  :password (replace-regexp-in-string "\n$" "" (shell-command-to-string "pass rss/newsblur/scvhapps"))))))
+						(list (concat "newsblur+https://" (replace-regexp-in-string "\n$" "" (shell-command-to-string "pass rss/newsblur/login")) "@newsblur.com") ;;you can subscribe onto my feed
+							  :password (replace-regexp-in-string "\n$" "" (shell-command-to-string "pass rss/newsblur/pass"))))))
   (elfeed-protocol-enable)
   (define-key elfeed-search-mode-map (kbd "M-r") #'elfeed-protocol-newsblur-update))
 ;;; rss-reading.el ends here
