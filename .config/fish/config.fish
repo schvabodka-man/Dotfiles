@@ -152,6 +152,9 @@ function dd-write
 	end
 end
 
+alias poweroff '/sbin/poweroff'
+alias reboot '/sbin/reboot'
+
 function fish_user_key_bindings
 
 	#unbind useless shit
