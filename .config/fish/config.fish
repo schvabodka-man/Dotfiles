@@ -20,6 +20,7 @@ set -x GOPATH "/home/$user/Go"
 set -x LGOBIN "/home/user/Go/bin"
 set -x EDITOR "emacsclient -c"
 set -x BROWSER "qutebrowser"
+set -x PAGER "less"
 #clipboard manager
 set -x CM_LAUNCHER 'rofi'
 #colored man
@@ -41,7 +42,6 @@ set -x FZF_DEFAULT_OPTS "--preview '/usr/share/source-highlight/src-hilite-lessp
 --bind 'enter:execute(emacsclient -c {})+abort,\
 ctrl-y:execute(echo {} | xclip -selection clipboard)+abort,\
 ctrl-c:execute(cat {} | xclip -selection clipboard)+abort'"
-set -x PATH ~/.cargo/bin/ $PATH
 
 if test -e ~/bin/pip-fish/pip.fish
 	source ~/bin/pip-fish/pip.fish
@@ -71,10 +71,7 @@ end
 
 source ~/.config/fish/startup.fish
 source ~/.config/fish/configs/basic-utils.fish
-# source ~/.config/fish/configs/proxy.fish
 source ~/.config/fish/configs/clipboard.fish
-
-alias st '~/bin/st/st'
 
 source ~/.config/fish/configs/other.fish
 
@@ -130,7 +127,6 @@ function rmarkdown-compile
 	Rscript -e "library(rmarkdown);render('$argv')"
 end
 
-alias sent '~/bin/sent/sent'
 alias presentation 'sent'
 
 source ~/.config/fish/configs/sandbox.fish

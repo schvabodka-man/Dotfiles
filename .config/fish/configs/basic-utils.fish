@@ -17,18 +17,12 @@ alias unmount 'umount'
 #better work with standart unix utils
 alias tree 'alder'
 
-if test -e ~/bin/ls-icons/binary/bin/ls
-	alias ls "~/bin/ls-icons/binary/bin/ls"
-end
-
 # if test -e ~/.cargo/bin/fd
 #	alias find '~/.cargo/bin/fd -H -I'
 #	alias fd '~/.cargo/bin/fd -H -I'
 # end
 
-if test -e /usr/bin/fd
-	alias find 'fd'
-end
+alias find 'fd'
 
 alias cp 'pycp'
 alias mv 'pymv'
@@ -38,14 +32,6 @@ alias trash-ls 'trash-list'
 
 if test -e /bin/colordiff
 	alias diff 'colordiff'
-end
-
-function less
-	if test -e /usr/share/source-highlight/src-hilite-lesspipe.sh
-		/usr/share/source-highlight/src-hilite-lesspipe.sh $argv | /bin/less -R -N
-	else
-		/bin/less $argv
-	end
 end
 
 function git

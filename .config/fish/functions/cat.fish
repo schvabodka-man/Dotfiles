@@ -5,7 +5,7 @@ function cat
 			or echo $file | grep .jpeg > /dev/null
 			or echo $file | grep .gif > /dev/null
 			if test -e ~/bin/icat/icat
-				~/bin/icat/icat $file
+				icat $file
 			else
 				/bin/cat $file
 			end
@@ -16,8 +16,8 @@ function cat
 		else if echo $file | grep .xls > /dev/null
 			xls2csv $file
 		else
-			if test -e ~/Go/bin/ccat
-				~/Go/bin/ccat $file
+			if test -e /usr/bin/highlight
+				highlight -O ansi $file
 			else
 				/bin/cat $file
 			end

@@ -115,9 +115,6 @@
 (defcommand spacefm () ()
   "run spacefm"
   (run-or-raise "spacefm" '(:title "Spacefm")))
-(defcommand rambox () ()
-  "run rambox"
-  (run-or-raise "rambox" '(:title "rambox")))
 (defcommand transmission-remote () ()
   "run transmission remote"
   (run-or-raise "transmission-remote-gtk" '(:title "transmission-remote-gtk")))
@@ -345,7 +342,6 @@
 (define-key *top-map* (kbd "s-RET") "emacsclient")
 (define-key *top-map* (kbd "s-quoteleft") "xfce4-terminal-tmux")
 (define-key *top-map* (kbd "s-m") "emacsclient-mu4e")
-(define-key *top-map* (kbd "s-r") "rambox")
 (define-key *top-map* (kbd "s-e") "emacsclient-elfeed")
 (define-key *top-map* (kbd "s-E") "emacsclient-emms")
 (define-key *top-map* (kbd "s-O") "emacsclient-deft")
