@@ -144,6 +144,11 @@ email() {
 	echo "^fn(FontAwesome-11)^fn(DroidSansMono-13) $gmail"
 }
 
+rss() {
+	local rss=$(cat ~/.elfeed/index | grep -o -a unread | wc -l)
+	echo "^fn(FontAwesome-11)^fn(DroidSansMono-12) $rss"
+}
+
 emms() {
 	local track=$(emacsclient --eval "(emms-show)" | tr -d "\"")
 	echo $track
@@ -197,7 +202,7 @@ generated_output() {
 
 fast_dzen() {
 	while :; do
-		local layout=$(layout)
+		local rss=$(rss)
 		local time=$(date +'%a %m-%d %H:%M')
 		# local music=$(emms)
 		local volume=$(volumelevel)
@@ -207,7 +212,7 @@ fast_dzen() {
 		local music=$(mplayer_music)
 		local text=""
 
-		text+="^p(0)^fg(#000000)^bg(#ffff00)$layout^fn(powerlinesymbols-12)^fg(#ffff00)^bg(#ff69b4)"
+		text+="^p(0)^fg(#000000)^bg(#ffff00)$rss^fn(powerlinesymbols-12)^fg(#ffff00)^bg(#ff69b4)"
 		text+="^fg(#000000)^bg(#ff69b4)^fn(DroidSansMono-12) ^fn(FontAwesome-11)^fn(DroidSansMono-13) $time ^fn(powerlinesymbols-12)^fg(#ff69b4)^bg(#20b2aa)"
 		text+="^fg(#000000)^bg(#20b2aa)$volume^fn(powerlinesymbols-12)^fg(#20b2aa)"
 		text+="$battery"

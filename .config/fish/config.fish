@@ -127,11 +127,7 @@ function rmarkdown-compile
 	Rscript -e "library(rmarkdown);render('$argv')"
 end
 
-alias presentation 'sent'
-
 source ~/.config/fish/configs/sandbox.fish
-
-alias kiwix '~/bin/kiwix/kiwix'
 
 alias emacs 'emacsclient -c'
 
