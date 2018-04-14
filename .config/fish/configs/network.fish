@@ -6,7 +6,6 @@ end
 function wifi-connect
 	nmcli dev wifi rescan > /dev/null
 	nmcli dev wifi con $argv[1] password $argv[2]
-	nmcli connection mod $argv[1] ipv4.dns "51.254.25.115 185.121.170.176 188.165.200.156 52.174.55.168"
 end
 
 alias wifi-ls "wifi-list"
