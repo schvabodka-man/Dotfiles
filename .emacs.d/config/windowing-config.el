@@ -1,31 +1,29 @@
-;; (use-package perspeen
-;;   :ensure t
-;;   :init (setq perspeen-use-tab t)
-;;   :config (perspeen-mode)
-;;   (defalias 'ws-delete 'perspeen-delete-ws)
-;;   (defalias 'ws-remove 'perspeen-delete-ws)
-;;   (defalias 'workspace-delete 'perspeen-delete-ws)
-;;   (defalias 'workspace-remove 'perspeen-delete-ws)
-;;   (defalias 'ws-kill 'perspeen-delete-ws)
-;;   (defalias 'workspace-kill 'perspeen-delete-ws)
-;;   (defalias 'ws-create 'perspeen-create-ws)
-;;   (defalias 'ws-new 'perspeen-create-ws)
-;;   (defalias 'workspace-create 'perspeen-create-ws)
-;;   (defalias 'workspace-new 'perspeen-create-ws)
-;;   :bind (("M-RET" . perspeen-tab-create-tab)
-;;		 ("M-Q" . perspeen-tab-del)
-;;		 ("M-," . perspeen-tab-prev)
-;;		 ("M-." . perspeen-tab-next)
-;;		 ("M-[" . perspeen-previous-ws)
-;;		 ("M-]" . perspeen-next-ws)
-;;		 ("M-r" . perspeen-rename-ws)
-;;		 ("<C-M-return>" . perspeen-create-ws)))
-;; (use-package helm-perspeen
-;;   :ensure t
-;;   :bind (("M-w" . helm-perspeen)))
-;; (use-package ace-window
-;;   :ensure t
-;;   :bind (("M-w" . ace-window)))
+(use-package perspeen
+  :ensure t
+  :init (setq perspeen-use-tab t)
+  :config (perspeen-mode)
+  (defalias 'ws-delete 'perspeen-delete-ws)
+  (defalias 'ws-remove 'perspeen-delete-ws)
+  (defalias 'workspace-delete 'perspeen-delete-ws)
+  (defalias 'workspace-remove 'perspeen-delete-ws)
+  (defalias 'ws-kill 'perspeen-delete-ws)
+  (defalias 'workspace-kill 'perspeen-delete-ws)
+  (defalias 'ws-create 'perspeen-create-ws)
+  (defalias 'ws-new 'perspeen-create-ws)
+  (defalias 'workspace-create 'perspeen-create-ws)
+  (defalias 'workspace-new 'perspeen-create-ws)
+  ;; :bind (("M-RET" . perspeen-tab-create-tab)
+  ;;		 ("M-Q" . perspeen-tab-del)
+  ;;		 ("M-," . perspeen-tab-prev)
+  ;;		 ("M-." . perspeen-tab-next)
+  ;;		 ("M-[" . perspeen-previous-ws)
+  ;;		 ("M-]" . perspeen-next-ws)
+  ;;		 ("M-r" . perspeen-rename-ws)
+  ;;		 ("<C-M-return>" . perspeen-create-ws)))
+  )
+(use-package ace-window
+  :ensure t
+  :bind (("M-w" . ace-window)))
 (use-package window-purpose
   :ensure t
   :config (purpose-mode)

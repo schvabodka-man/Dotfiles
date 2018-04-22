@@ -143,22 +143,22 @@
 ;;   :init (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 ;;like pinboard 
-(use-package org-board
-  :ensure t
-  :pin melpa-stable
-  :config 
-  (defalias 'org-board-save 'org-board-new)
-  (defalias 'org-link-new 'org-board-new)
-  (defalias 'org-link-save 'org-board-new)
-  (defalias 'org-link-add 'org-board-new)
-  (defalias 'org-url-save 'org-board-new)
-  (defalias 'org-uri-save 'org-board-new)
-  (defalias 'org-url-new 'org-board-new)
-  (defalias 'org-uri-new 'org-board-new)
-  (defalias 'org-url-add 'org-board-new)
-  (defalias 'org-uri-add 'org-board-new)
-  (defalias 'b 'org-board-new)
-  (define-key org-mode-map (kbd "C-M-i") #'org-board-new))
+;; (use-package org-board
+;;   :ensure t
+;;   :pin melpa-stable
+;;   :config 
+;;   (defalias 'org-board-save 'org-board-new)
+;;   (defalias 'org-link-new 'org-board-new)
+;;   (defalias 'org-link-save 'org-board-new)
+;;   (defalias 'org-link-add 'org-board-new)
+;;   (defalias 'org-url-save 'org-board-new)
+;;   (defalias 'org-uri-save 'org-board-new)
+;;   (defalias 'org-url-new 'org-board-new)
+;;   (defalias 'org-uri-new 'org-board-new)
+;;   (defalias 'org-url-add 'org-board-new)
+;;   (defalias 'org-uri-add 'org-board-new)
+;;   (defalias 'b 'org-board-new)
+;;   (define-key org-mode-map (kbd "C-M-i") #'org-board-new))
 (el-get-bundle org-download
   :url "https://raw.githubusercontent.com/abo-abo/org-download/master/org-download.el")
 (load "~/.emacs.d/el-get/org-download/org-download")

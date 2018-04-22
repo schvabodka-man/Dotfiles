@@ -74,7 +74,7 @@
 ;;really good query replace
 (load "~/.emacs.d/config/improved-replace")
 ;;music
-(load "~/.emacs.d/config/emms-config")
+;; (load "~/.emacs.d/config/emms-config")
 ;;spell checking
 (load "~/.emacs.d/config/syntax-gram-checking")
 ;;eshell and stuff
@@ -85,32 +85,30 @@
 ;;dired
 (load "~/.emacs.d/config/dired-config")
 ;;realgud
-;; (load "~/.emacs.d/config/realgud-debugger")
+(load "~/.emacs.d/config/realgud-debugger")
 ;;LaTeX
 (load "~/.emacs.d/config/latex-editing")
 ;;integrations
 (load "~/.emacs.d/config/various-integration")
 ;;elfeed
-(load "~/.emacs.d/config/rss-reading")
+;; (load "~/.emacs.d/config/rss-reading")
 ;;document viewing
 (load "~/.emacs.d/config/document-viewers")
 ;;im
-(load "~/.emacs.d/config/im-social")
+;; (load "~/.emacs.d/config/im-social")
 ;;integration with some desktop stuff
-(load "~/.emacs.d/config/desktop-integration")
+;; (load "~/.emacs.d/config/desktop-integration")
 ;;calculator
 (load "~/.emacs.d/config/calculators")
 ;;emails, gnus is obsolete and replaced by mu4e for me
 ;; (load "~/.emacs.d/config/gnus-init")
-(load "~/.emacs.d/config/mu4e-config")
+;; (load "~/.emacs.d/config/mu4e-config")
 ;;web
 ;; (load "~/.emacs.d/config/web-browsing")
 ;;clang with irony
 (load "~/.emacs.d/config/clang")
 ;;blogging and shit
 (load "~/.emacs.d/config/blogging")
-;;contacts
-(load "~/.emacs.d/config/contacts")
 ;;multiple workspaces and tabbing
 (load "~/.emacs.d/config/windowing-config")
 ;;byte compile everything

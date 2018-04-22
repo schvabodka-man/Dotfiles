@@ -31,3 +31,9 @@ alias xrdb-merge 'xrdb -merge ~/.Xresources'
 alias move 'mv'
 alias lsa 'ls -a'
 alias lsl 'ls -l --block-size=M'
+
+alias e 'emacs'
+
+alias o 'xdg-open'
+
+alias mkdir '/bin/mkdir -p'
